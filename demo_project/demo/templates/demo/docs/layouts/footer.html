@@ -1,0 +1,294 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Footer</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible footer component for organizing links, contact information, and legal content at the bottom of pages.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-layout.footer>
+                    <c-slot name="content">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div>
+                                <h3 class="text-lg font-bold mb-4">Company</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="link link-hover">About Us</a></li>
+                                    <li><a href="#" class="link link-hover">Careers</a></li>
+                                    <li><a href="#" class="link link-hover">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-4">Legal</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#" class="link link-hover">Terms of Service</a></li>
+                                    <li><a href="#" class="link link-hover">Privacy Policy</a></li>
+                                    <li><a href="#" class="link link-hover">Cookie Policy</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-4">Social</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="btn btn-ghost btn-circle">
+                                        <c-icon name="twitter" class="size-5"></c-icon>
+                                    </a>
+                                    <a href="#" class="btn btn-ghost btn-circle">
+                                        <c-icon name="facebook" class="size-5"></c-icon>
+                                    </a>
+                                    <a href="#" class="btn btn-ghost btn-circle">
+                                        <c-icon name="linkedin" class="size-5"></c-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </c-slot>
+                </c-layout.footer>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-layout.footer&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;div class="grid grid-cols-1 md:grid-cols-3 gap-8"&gt;
+            &lt;div&gt;
+                &lt;h3 class="text-lg font-bold mb-4"&gt;Company&lt;/h3&gt;
+                &lt;ul class="space-y-2"&gt;
+                    &lt;li&gt;&lt;a href="#" class="link link-hover"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" class="link link-hover"&gt;Careers&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#" class="link link-hover"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.footer&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Slot</th>
+                        <th class="font-semibold">Required</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">content</code></td>
+                        <td><code class="text-sm">Yes</code></td>
+                        <td>Footer content including links, text, and other elements</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Simple Footer -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Simple Footer</h3>
+            <p class="text-base-content/70 mb-6">
+                A minimal footer with just copyright information and a few links.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-layout.footer>
+                        <c-slot name="content">
+                            <div class="text-center">
+                                <div class="mb-4">
+                                    <a href="#" class="link link-hover mr-4">Privacy</a>
+                                    <a href="#" class="link link-hover mr-4">Terms</a>
+                                    <a href="#" class="link link-hover">Contact</a>
+                                </div>
+                                <p class="text-sm text-base-content/70">
+                                    © 2024 Your Company. All rights reserved.
+                                </p>
+                            </div>
+                        </c-slot>
+                    </c-layout.footer>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-layout.footer&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;div class="text-center"&gt;
+            &lt;div class="mb-4"&gt;
+                &lt;a href="#" class="link link-hover mr-4"&gt;Privacy&lt;/a&gt;
+                &lt;a href="#" class="link link-hover mr-4"&gt;Terms&lt;/a&gt;
+                &lt;a href="#" class="link link-hover"&gt;Contact&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;p class="text-sm text-base-content/70"&gt;
+                © 2024 Your Company. All rights reserved.
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.footer&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Footer -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Newsletter Footer</h3>
+            <p class="text-base-content/70 mb-6">
+                Footer with newsletter signup and multiple columns of links.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-layout.footer>
+                        <c-slot name="content">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                                <div class="md:col-span-2">
+                                    <h3 class="text-lg font-bold mb-4">Stay Updated</h3>
+                                    <p class="mb-4 text-base-content/70">
+                                        Subscribe to our newsletter for the latest updates and news.
+                                    </p>
+                                    <div class="join">
+                                        <input type="email" placeholder="Enter your email" class="input input-bordered join-item" />
+                                        <button class="btn btn-primary join-item">Subscribe</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-4">Product</h4>
+                                    <ul class="space-y-2">
+                                        <li><a href="#" class="link link-hover">Features</a></li>
+                                        <li><a href="#" class="link link-hover">Pricing</a></li>
+                                        <li><a href="#" class="link link-hover">Documentation</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-4">Support</h4>
+                                    <ul class="space-y-2">
+                                        <li><a href="#" class="link link-hover">Help Center</a></li>
+                                        <li><a href="#" class="link link-hover">Community</a></li>
+                                        <li><a href="#" class="link link-hover">Status</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="border-t border-base-300 mt-8 pt-8 text-center">
+                                <p class="text-sm text-base-content/70">
+                                    © 2024 Your Company. All rights reserved.
+                                </p>
+                            </div>
+                        </c-slot>
+                    </c-layout.footer>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-layout.footer&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;div class="grid grid-cols-1 md:grid-cols-4 gap-8"&gt;
+            &lt;div class="md:col-span-2"&gt;
+                &lt;h3 class="text-lg font-bold mb-4"&gt;Stay Updated&lt;/h3&gt;
+                &lt;p class="mb-4 text-base-content/70"&gt;
+                    Subscribe to our newsletter for the latest updates.
+                &lt;/p&gt;
+                &lt;div class="join"&gt;
+                    &lt;input type="email" placeholder="Enter email" class="input input-bordered join-item" /&gt;
+                    &lt;button class="btn btn-primary join-item"&gt;Subscribe&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.footer&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Footer -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Brand Footer</h3>
+            <p class="text-base-content/70 mb-6">
+                Footer featuring brand information and social media links.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-layout.footer>
+                        <c-slot name="content">
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <div class="mb-4 md:mb-0">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <c-icon name="home" class="size-8 text-primary"></c-icon>
+                                        <span class="text-2xl font-bold">YourBrand</span>
+                                    </div>
+                                    <p class="text-base-content/70">Making the world a better place through technology.</p>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="btn btn-ghost btn-circle">
+                                        <c-icon name="github" class="size-5"></c-icon>
+                                    </a>
+                                    <a href="#" class="btn btn-ghost btn-circle">
+                                        <c-icon name="twitter" class="size-5"></c-icon>
+                                    </a>
+                                    <a href="#" class="btn btn-ghost btn-circle">
+                                        <c-icon name="linkedin" class="size-5"></c-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </c-slot>
+                    </c-layout.footer>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-layout.footer&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;div class="flex flex-col md:flex-row justify-between items-center"&gt;
+            &lt;div class="mb-4 md:mb-0"&gt;
+                &lt;div class="flex items-center gap-2 mb-2"&gt;
+                    &lt;c-icon name="home" class="size-8 text-primary"&gt;&lt;/c-icon&gt;
+                    &lt;span class="text-2xl font-bold"&gt;YourBrand&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;p class="text-base-content/70"&gt;Making the world better.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="flex space-x-4"&gt;
+                &lt;a href="#" class="btn btn-ghost btn-circle"&gt;
+                    &lt;c-icon name="github" class="size-5"&gt;&lt;/c-icon&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.footer&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Sticky Footer -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Sticky Footer</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Page Layout</h4>
+                        <div class="text-sm">To make the footer stick to the bottom of the page, use flexbox layout on your page container with <code>min-h-screen flex flex-col</code>.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Responsive Design</h4>
+                        <div class="text-sm">Consider stacking footer columns on mobile devices using responsive grid classes like <code>grid-cols-1 md:grid-cols-3</code>.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

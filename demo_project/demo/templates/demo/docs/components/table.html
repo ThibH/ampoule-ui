@@ -1,0 +1,677 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Table</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible table component with clean syntax for displaying structured data.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-table variant="zebra">
+                    <c-table.columns>
+                        <c-table.column>Name</c-table.column>
+                        <c-table.column>Email</c-table.column>
+                        <c-table.column>Department</c-table.column>
+                    </c-table.columns>
+                    <c-table.rows>
+                        <c-table.row>
+                            <c-table.cell>Sarah Connor</c-table.cell>
+                            <c-table.cell>sarah.connor@company.com</c-table.cell>
+                            <c-table.cell>Engineering</c-table.cell>
+                        </c-table.row>
+                        <c-table.row>
+                            <c-table.cell>John Smith</c-table.cell>
+                            <c-table.cell>john.smith@company.com</c-table.cell>
+                            <c-table.cell>Design</c-table.cell>
+                        </c-table.row>
+                    </c-table.rows>
+                </c-table>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-table variant="zebra"&gt;
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;Name&lt;/c-table.column&gt;
+        &lt;c-table.column&gt;Email&lt;/c-table.column&gt;
+        &lt;c-table.column&gt;Department&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;Sarah Connor&lt;/c-table.cell&gt;
+            &lt;c-table.cell&gt;sarah.connor@company.com&lt;/c-table.cell&gt;
+            &lt;c-table.cell&gt;Engineering&lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="space-y-8">
+            <!-- Table API -->
+            <div>
+                <h3 class="text-lg font-medium mb-4">c-table</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Property</th>
+                                <th class="font-semibold">Type</th>
+                                <th class="font-semibold">Default</th>
+                                <th class="font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">variant</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">default</code></td>
+                                <td>Table style: default, zebra, pin-rows, pin-cols</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">filterable</code></td>
+                                <td><code class="text-sm">boolean</code></td>
+                                <td><code class="text-sm">false</code></td>
+                                <td>Add a search input to filter table content</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Column API -->
+            <div>
+                <h3 class="text-lg font-medium mb-4">c-table.column</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Property</th>
+                                <th class="font-semibold">Type</th>
+                                <th class="font-semibold">Default</th>
+                                <th class="font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">sortable</code></td>
+                                <td><code class="text-sm">boolean</code></td>
+                                <td><code class="text-sm">false</code></td>
+                                <td>Enable click to sort functionality</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">sorted</code></td>
+                                <td><code class="text-sm">boolean</code></td>
+                                <td><code class="text-sm">false</code></td>
+                                <td>Indicates if this column is currently sorted</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">direction</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">asc</code></td>
+                                <td>Sort direction: asc (ascending) or desc (descending)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">sort_key</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>Data attribute key for custom sorting (optional)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">align</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">left</code></td>
+                                <td>Text alignment: left, center, right</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cell API -->
+            <div>
+                <h3 class="text-lg font-medium mb-4">c-table.cell</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Property</th>
+                                <th class="font-semibold">Type</th>
+                                <th class="font-semibold">Default</th>
+                                <th class="font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">align</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">left</code></td>
+                                <td>Text alignment: left, center, right</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Table Filters API -->
+            <div>
+                <h3 class="text-lg font-medium mb-4">Table Filters</h3>
+                <div class="prose max-w-none mb-4">
+                    <p>Les filtres de table utilisent maintenant les composants universels <code>c-filter-options</code> et <code>c-filter-range</code> dans des dropdowns.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-medium mb-2">Filtre dropdown</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;c-dropdown label="Status"&gt;
+    &lt;c-filter-options filter-id="status" /&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium mb-2">Filtre range</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;c-dropdown label="Salaire" content_class="w-64"&gt;
+    &lt;c-filter-range filter-id="salary" format="currency" /&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-base-200 p-4 rounded-lg mt-4">
+                    <div class="text-sm">
+                        <strong>Note :</strong> Pour plus de détails sur les composants de filtrage, consultez la 
+                        <a href="/docs/components/filters/" class="link link-primary">documentation des filtres</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variants -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Variants</h2>
+
+        <!-- Default Table -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Default</h3>
+            <p class="text-base-content/70 mb-4">Basic table without additional styling.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-table>
+                        <c-table.columns>
+                            <c-table.column>Product</c-table.column>
+                            <c-table.column align="center">Category</c-table.column>
+                            <c-table.column align="right">Price</c-table.column>
+                            <c-table.column align="center">Stock</c-table.column>
+                        </c-table.columns>
+                        <c-table.rows>
+                            {% for product in products %}
+                            <c-table.row>
+                                <c-table.cell>
+                                    <div class="flex items-center gap-3">
+                                        {% if product.featured %}
+                                            <c-badge variant="primary" size="xs">Featured</c-badge>
+                                        {% endif %}
+                                        <div>
+                                            <div class="font-bold">{{ product.name }}</div>
+                                            <div class="text-sm opacity-50">{{ product.id }}</div>
+                                        </div>
+                                    </div>
+                                </c-table.cell>
+                                <c-table.cell align="center">
+                                    <c-badge variant="ghost" size="sm">{{ product.category }}</c-badge>
+                                </c-table.cell>
+                                <c-table.cell align="right">
+                                    <span class="font-mono text-lg">${{ product.price }}</span>
+                                </c-table.cell>
+                                <c-table.cell align="center">
+                                    {% if product.stock > 0 %}
+                                        <c-badge variant="success" size="sm">{{ product.stock }} in stock</c-badge>
+                                    {% else %}
+                                        <c-badge variant="error" size="sm">Out of stock</c-badge>
+                                    {% endif %}
+                                </c-table.cell>
+                            </c-table.row>
+                            {% endfor %}
+                        </c-table.rows>
+                    </c-table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-table&gt;
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;Product&lt;/c-table.column&gt;
+        &lt;c-table.column align="center"&gt;Category&lt;/c-table.column&gt;
+        &lt;c-table.column align="right"&gt;Price&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;Product Name&lt;/c-table.cell&gt;
+            &lt;c-table.cell align="center"&gt;Electronics&lt;/c-table.cell&gt;
+            &lt;c-table.cell align="right"&gt;$299.99&lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filterable Table -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Filterable Table</h3>
+            <p class="text-base-content/70 mb-4">Add a search input to filter table content across all columns.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-table variant="zebra" filterable>
+                        <c-table.columns>
+                            <c-table.column>Employee</c-table.column>
+                            <c-table.column>Role</c-table.column>
+                            <c-table.column align="center">Department</c-table.column>
+                            <c-table.column align="right">Salary</c-table.column>
+                            <c-table.column align="center">Status</c-table.column>
+                        </c-table.columns>
+                        <c-table.rows>
+                            {% for employee in employees %}
+                            <c-table.row>
+                                <c-table.cell>
+                                    <div class="flex items-center gap-3">
+                                        <c-avatar variant="neutral">{{ employee.name|slice:":2"|upper }}</c-avatar>
+                                        <div>
+                                            <div class="font-bold">{{ employee.name }}</div>
+                                            <div class="text-sm opacity-50">{{ employee.email }}</div>
+                                        </div>
+                                    </div>
+                                </c-table.cell>
+                                <c-table.cell>
+                                    <div>{{ employee.role }}</div>
+                                    <div class="text-sm opacity-50">{{ employee.location }}</div>
+                                </c-table.cell>
+                                <c-table.cell align="center">
+                                    <c-badge variant="outline" size="sm">{{ employee.department }}</c-badge>
+                                </c-table.cell>
+                                <c-table.cell align="right">
+                                    <span class="font-mono">${{ employee.salary|floatformat:0 }}</span>
+                                </c-table.cell>
+                                <c-table.cell align="center">
+                                    {% if employee.status == 'active' %}
+                                        <c-badge variant="success" size="sm">Active</c-badge>
+                                    {% else %}
+                                        <c-badge variant="error" size="sm">Inactive</c-badge>
+                                    {% endif %}
+                                </c-table.cell>
+                            </c-table.row>
+                            {% endfor %}
+                        </c-table.rows>
+                    </c-table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-table variant="zebra" filterable&gt;
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;Employee&lt;/c-table.column&gt;
+        &lt;c-table.column&gt;Role&lt;/c-table.column&gt;
+        &lt;c-table.column align="center"&gt;Department&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        {% templatetag openblock %} for employee in employees {% templatetag closeblock %}
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;{{ employee.name }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell&gt;{{ employee.role }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell align="center"&gt;{{ employee.department }}&lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+        {% templatetag openblock %} endfor {% templatetag closeblock %}
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Filters Table -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Advanced Filters</h3>
+            <p class="text-base-content/70 mb-4">Combine text search with dropdown and range filters for more precise data filtering.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-table variant="zebra" filterable>
+                        <!-- Slot pour filtres personnalisés -->
+                        <c-slot name="filter_slot">
+                            <c-dropdown label="Status">
+                                <c-filter-options filter-id="status" />
+                            </c-dropdown>
+                            <c-dropdown label="Salaire" content_class="w-64">
+                                <c-filter-range filter-id="salary" format="currency" />
+                            </c-dropdown>
+                            <c-dropdown label="Département">
+                                <c-filter-options filter-id="department" />
+                            </c-dropdown>
+                        </c-slot>
+                        
+                        <c-table.columns>
+                            <c-table.column>Employee</c-table.column>
+                            <c-table.column data-filter-id="department" data-filter-type="dropdown">Department</c-table.column>
+                            <c-table.column data-filter-id="salary" data-filter-type="range" align="right">Salary</c-table.column>
+                            <c-table.column data-filter-id="status" data-filter-type="dropdown" align="center">Status</c-table.column>
+                        </c-table.columns>
+                        <c-table.rows>
+                            {% for employee in employees %}
+                            <c-table.row>
+                                <c-table.cell>
+                                    <div class="flex items-center gap-3">
+                                        <c-avatar variant="neutral">{{ employee.name|slice:":2"|upper }}</c-avatar>
+                                        <div>
+                                            <div class="font-bold">{{ employee.name }}</div>
+                                            <div class="text-sm opacity-50">{{ employee.email }}</div>
+                                        </div>
+                                    </div>
+                                </c-table.cell>
+                                <c-table.cell data-filter-department="{{ employee.department }}">
+                                    <c-badge variant="outline" size="sm">{{ employee.department }}</c-badge>
+                                </c-table.cell>
+                                <c-table.cell data-filter-salary="{{ employee.salary }}" align="right">
+                                    <span class="font-mono">${{ employee.salary|floatformat:0 }}</span>
+                                </c-table.cell>
+                                <c-table.cell data-filter-status="{{ employee.status }}" align="center">
+                                    {% if employee.status == 'active' %}
+                                        <c-badge variant="success" size="sm">Active</c-badge>
+                                    {% elif employee.status == 'inactive' %}
+                                        <c-badge variant="error" size="sm">Inactive</c-badge>
+                                    {% else %}
+                                        <c-badge variant="warning" size="sm">Not sure</c-badge>
+                                    {% endif %}
+                                </c-table.cell>
+                            </c-table.row>
+                            {% endfor %}
+                        </c-table.rows>
+                    </c-table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-table variant="zebra" filterable&gt;
+    &lt;!-- Slot pour filtres personnalisés --&gt;
+    &lt;c-slot name="filter_slot"&gt;
+        &lt;c-dropdown label="Status"&gt;
+            &lt;c-filter-options filter-id="status" /&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-dropdown label="Salaire" content_class="w-64"&gt;
+            &lt;c-filter-range filter-id="salary" format="currency" /&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-dropdown label="Département"&gt;
+            &lt;c-filter-options filter-id="department" /&gt;
+        &lt;/c-dropdown&gt;
+    &lt;/c-slot&gt;
+    
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;Employee&lt;/c-table.column&gt;
+        &lt;c-table.column data-filter-id="department" data-filter-type="dropdown"&gt;Department&lt;/c-table.column&gt;
+        &lt;c-table.column data-filter-id="salary" data-filter-type="range" align="right"&gt;Salary&lt;/c-table.column&gt;
+        &lt;c-table.column data-filter-id="status" data-filter-type="dropdown" align="center"&gt;Status&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        {% templatetag openblock %} for employee in employees {% templatetag closeblock %}
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;{{ employee.name }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell data-filter-department="{{ employee.department }}"&gt;
+                &lt;c-badge variant="outline"&gt;{{ employee.department }}&lt;/c-badge&gt;
+            &lt;/c-table.cell&gt;
+            &lt;c-table.cell data-filter-salary="{{ employee.salary }}" align="right"&gt;
+                ${{ employee.salary|floatformat:0 }}
+            &lt;/c-table.cell&gt;
+            &lt;c-table.cell data-filter-status="{{ employee.status }}" align="center"&gt;
+                &lt;c-badge variant="success"&gt;{{ employee.status }}&lt;/c-badge&gt;
+            &lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+        {% templatetag openblock %} endfor {% templatetag closeblock %}
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zebra Table -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Zebra</h3>
+            <p class="text-base-content/70 mb-4">Alternating row colors for better readability.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-table variant="zebra">
+                        <c-table.columns>
+                            <c-table.column>Employee</c-table.column>
+                            <c-table.column>Role</c-table.column>
+                            <c-table.column align="center">Department</c-table.column>
+                            <c-table.column align="right">Salary</c-table.column>
+                            <c-table.column align="center">Status</c-table.column>
+                        </c-table.columns>
+                        <c-table.rows>
+                            {% for employee in employees %}
+                            <c-table.row>
+                                <c-table.cell>
+                                    <div class="flex items-center gap-3">
+                                        <c-avatar variant="neutral">{{ employee.name|slice:":2"|upper }}</c-avatar>
+                                        <div>
+                                            <div class="font-bold">{{ employee.name }}</div>
+                                            <div class="text-sm opacity-50">{{ employee.email }}</div>
+                                        </div>
+                                    </div>
+                                </c-table.cell>
+                                <c-table.cell>
+                                    <div>{{ employee.role }}</div>
+                                    <div class="text-sm opacity-50">{{ employee.location }}</div>
+                                </c-table.cell>
+                                <c-table.cell align="center">
+                                    <c-badge variant="outline" size="sm">{{ employee.department }}</c-badge>
+                                </c-table.cell>
+                                <c-table.cell align="right">
+                                    <span class="font-mono">${{ employee.salary|floatformat:0 }}</span>
+                                </c-table.cell>
+                                <c-table.cell align="center">
+                                    {% if employee.status == 'active' %}
+                                        <c-badge variant="success" size="sm">Active</c-badge>
+                                    {% else %}
+                                        <c-badge variant="error" size="sm">Inactive</c-badge>
+                                    {% endif %}
+                                </c-table.cell>
+                            </c-table.row>
+                            {% endfor %}
+                        </c-table.rows>
+                    </c-table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-table variant="zebra"&gt;
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;Employee&lt;/c-table.column&gt;
+        &lt;c-table.column&gt;Role&lt;/c-table.column&gt;
+        &lt;c-table.column align="center"&gt;Department&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        {% templatetag openblock %} for employee in employees {% templatetag closeblock %}
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;{{ employee.name }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell&gt;{{ employee.role }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell align="center"&gt;{{ employee.department }}&lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+        {% templatetag openblock %} endfor {% templatetag closeblock %}
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sortable Columns -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Interactive Sorting</h3>
+            <p class="text-base-content/70 mb-4">Click on sortable column headers to sort the data. Notice the "Department" column is pre-sorted by default.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-table variant="zebra">
+                        <c-table.columns>
+                            <c-table.column sortable="true">Name</c-table.column>
+                            <c-table.column sortable="true" sorted="true" direction="asc">Department</c-table.column>
+                            <c-table.column sortable="true" align="right">Salary</c-table.column>
+                            <c-table.column sortable="true" align="center">Join Date</c-table.column>
+                            <c-table.column align="center">Actions</c-table.column>
+                        </c-table.columns>
+                        <c-table.rows>
+                            {% for employee in employees %}
+                            <c-table.row>
+                                <c-table.cell>{{ employee.name }}</c-table.cell>
+                                <c-table.cell>{{ employee.department }}</c-table.cell>
+                                <c-table.cell align="right" data-sort-value="{{ employee.salary }}">${{ employee.salary|floatformat:0 }}</c-table.cell>
+                                <c-table.cell align="center" data-sort-value="{{ employee.join_date }}">{{ employee.join_date }}</c-table.cell>
+                                <c-table.cell align="center">
+                                    <div class="flex gap-2 justify-center">
+                                        <c-button size="xs" variant="ghost">
+                                            <c-icon name="pencil" size="xs" />
+                                        </c-button>
+                                        <c-button size="xs" variant="ghost">
+                                            <c-icon name="trash-2" size="xs" />
+                                        </c-button>
+                                    </div>
+                                </c-table.cell>
+                            </c-table.row>
+                            {% endfor %}
+                        </c-table.rows>
+                    </c-table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-table variant="zebra"&gt;
+    &lt;c-table.columns&gt;
+        &lt;c-table.column sortable="true"&gt;Name&lt;/c-table.column&gt;
+        &lt;c-table.column sortable="true" sorted="true" direction="asc"&gt;Department&lt;/c-table.column&gt;
+        &lt;c-table.column sortable="true" align="right"&gt;Salary&lt;/c-table.column&gt;
+        &lt;c-table.column align="center"&gt;Actions&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;John Doe&lt;/c-table.cell&gt;
+            &lt;c-table.cell&gt;Engineering&lt;/c-table.cell&gt;
+            &lt;c-table.cell data-sort-value="75000"&gt;$75,000&lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Different Sort States -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Sort States Examples</h3>
+            <p class="text-base-content/70 mb-4">Different combinations of sortable and sorted states.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-table variant="zebra">
+                        <c-table.columns>
+                            <c-table.column>Not Sortable</c-table.column>
+                            <c-table.column sortable="true">Sortable</c-table.column>
+                            <c-table.column sorted="true" direction="asc">Sorted (ASC)</c-table.column>
+                            <c-table.column sorted="true" direction="desc">Sorted (DESC)</c-table.column>
+                            <c-table.column sortable="true" sorted="true" direction="desc">Sortable + Sorted</c-table.column>
+                        </c-table.columns>
+                        <c-table.rows>
+                            {% for product in products %}
+                            <c-table.row>
+                                <c-table.cell>{{ product.id }}</c-table.cell>
+                                <c-table.cell>{{ product.name }}</c-table.cell>
+                                <c-table.cell>{{ product.category }}</c-table.cell>
+                                <c-table.cell data-sort-value="{{ product.price }}">${{ product.price }}</c-table.cell>
+                                <c-table.cell data-sort-value="{{ product.stock }}">{{ product.stock }} units</c-table.cell>
+                            </c-table.row>
+                            {% endfor %}
+                        </c-table.rows>
+                    </c-table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-table.columns&gt;
+    &lt;c-table.column&gt;Not Sortable&lt;/c-table.column&gt;
+    &lt;c-table.column sortable="true"&gt;Sortable&lt;/c-table.column&gt;
+    &lt;c-table.column sorted="true" direction="asc"&gt;Sorted (ASC)&lt;/c-table.column&gt;
+    &lt;c-table.column sorted="true" direction="desc"&gt;Sorted (DESC)&lt;/c-table.column&gt;
+    &lt;c-table.column sortable="true" sorted="true"&gt;Sortable + Sorted&lt;/c-table.column&gt;
+&lt;/c-table.columns&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compact Table -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Compact</h3>
+            <p class="text-base-content/70 mb-4">Smaller padding for dense data display.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-table variant="zebra" class="table-compact">
+                        <c-table.columns>
+                            <c-table.column>ID</c-table.column>
+                            <c-table.column>Product</c-table.column>
+                            <c-table.column align="center">Rating</c-table.column>
+                            <c-table.column align="right">Price</c-table.column>
+                            <c-table.column align="center">Stock</c-table.column>
+                        </c-table.columns>
+                        <c-table.rows>
+                            {% for product in products %}
+                            <c-table.row>
+                                <c-table.cell>
+                                    <code class="text-xs">{{ product.id }}</code>
+                                </c-table.cell>
+                                <c-table.cell>{{ product.name }}</c-table.cell>
+                                <c-table.cell align="center">
+                                    <div class="flex items-center gap-1 justify-center">
+                                        <c-icon name="star" size="xs" class="text-yellow-500" />
+                                        <span class="text-sm">{{ product.rating }}</span>
+                                    </div>
+                                </c-table.cell>
+                                <c-table.cell align="right">${{ product.price }}</c-table.cell>
+                                <c-table.cell align="center">{{ product.stock }}</c-table.cell>
+                            </c-table.row>
+                            {% endfor %}
+                        </c-table.rows>
+                    </c-table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-table variant="zebra" class="table-compact"&gt;
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;ID&lt;/c-table.column&gt;
+        &lt;c-table.column&gt;Product&lt;/c-table.column&gt;
+        &lt;c-table.column align="center"&gt;Rating&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+&lt;/c-table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-6">Key Features</h2>
+        <ul class="list-disc list-inside space-y-2 text-base-content/70">
+            <li><strong>Clean syntax:</strong> Semantic component structure with c-table.columns, c-table.rows, etc.</li>
+            <li><strong>Interactive sorting:</strong> Click to sort with automatic direction toggling and visual indicators</li>
+            <li><strong>Flexible sort states:</strong> Columns can be sortable, pre-sorted, or both independently</li>
+            <li><strong>Smart value detection:</strong> Automatically handles numbers, currency, dates, and custom sort values</li>
+            <li><strong>Universal filtering:</strong> Uses the same filter components (<code>c-filter-options</code>, <code>c-filter-range</code>) as everywhere else in the system for consistency</li>
+            <li><strong>Advanced filtering:</strong> Combine text search with dropdown and range filters for precise data filtering</li>
+            <li><strong>Auto-configuration:</strong> Automatically detects filterable columns and available filter values</li>
+            <li><strong>Multiple filter types:</strong> Support for dropdown (checkbox) and range (min/max) filters</li>
+            <li><strong>Intelligent data extraction:</strong> Smart detection of filter values from badges, currency, and text content</li>
+            <li><strong>DaisyUI integration:</strong> Built on DaisyUI table classes for consistent theming</li>
+            <li><strong>Responsive design:</strong> Automatic horizontal scrolling on smaller screens</li>
+            <li><strong>Flexible alignment:</strong> Left, center, and right alignment options for columns and cells</li>
+            <li><strong>Rich content support:</strong> Cells can contain complex HTML, components, and custom layouts</li>
+            <li><strong>Multiple variants:</strong> Default, zebra, compact styles available</li>
+            <li><strong>Django integration:</strong> Works seamlessly with Django template loops and filters</li>
+        </ul>
+    </section>
+</div>

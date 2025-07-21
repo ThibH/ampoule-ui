@@ -1,0 +1,969 @@
+<!-- Dashboard Layouts UI Blocks -->
+<div class="mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Dashboard Layouts</h1>
+        <p class="text-base-content/70 text-lg">Complete dashboard layouts and patterns built with your component library.</p>
+    </div>
+
+    <!-- Analytics Dashboard -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Analytics Dashboard</h2>
+        <p class="text-base-content/70 mb-6">Comprehensive analytics dashboard with charts, metrics, and insights.</p>
+        
+        <c-tab.group group_name="analytics-dashboard">
+            <c-tabs>
+                <c-tab name="preview" group_name="analytics-dashboard" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="analytics-dashboard">Code</c-tab>
+                <c-tab name="split" group_name="analytics-dashboard">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="analytics-dashboard">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <!-- Header Section -->
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h1 class="text-2xl font-bold">Analytics Overview</h1>
+                                <p class="text-base-content/60">Track your performance metrics</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <c-dropdown>
+                                    <c-button variant="outline" size="sm">
+                                        Last 30 days
+                                        <c-icon name="chevron-down" size="16" class="ml-2" />
+                                    </c-button>
+                                </c-dropdown>
+                                <c-button variant="primary" size="sm">Export Report</c-button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Metrics Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <c-card class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-base-content/60">Total Users</p>
+                                    <p class="text-2xl font-bold">12.5K</p>
+                                </div>
+                                <div class="p-3 bg-primary/10 rounded-full">
+                                    <c-icon name="users" size="20" class="text-primary" />
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-sm">
+                                <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                <span class="text-success">+12%</span>
+                                <span class="text-base-content/60 ml-1">vs last month</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-base-content/60">Revenue</p>
+                                    <p class="text-2xl font-bold">$48.2K</p>
+                                </div>
+                                <div class="p-3 bg-secondary/10 rounded-full">
+                                    <c-icon name="dollar-sign" size="20" class="text-secondary" />
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-sm">
+                                <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                <span class="text-success">+8%</span>
+                                <span class="text-base-content/60 ml-1">vs last month</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-base-content/60">Orders</p>
+                                    <p class="text-2xl font-bold">1,394</p>
+                                </div>
+                                <div class="p-3 bg-accent/10 rounded-full">
+                                    <c-icon name="shopping-cart" size="20" class="text-accent" />
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-sm">
+                                <c-icon name="trending-down" size="16" class="text-error mr-1" />
+                                <span class="text-error">-3%</span>
+                                <span class="text-base-content/60 ml-1">vs last month</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-sm text-base-content/60">Conversion</p>
+                                    <p class="text-2xl font-bold">24.8%</p>
+                                </div>
+                                <div class="p-3 bg-info/10 rounded-full">
+                                    <c-icon name="target" size="20" class="text-info" />
+                                </div>
+                            </div>
+                            <div class="mt-2 flex items-center text-sm">
+                                <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                <span class="text-success">+2.1%</span>
+                                <span class="text-base-content/60 ml-1">vs last month</span>
+                            </div>
+                        </c-card>
+                    </div>
+                    
+                    <!-- Charts Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <c-card class="p-6">
+                            <h3 class="text-lg font-semibold mb-4">Revenue Trend</h3>
+                            <div class="h-64 bg-base-300 rounded-lg flex items-center justify-center">
+                                <div class="text-center text-base-content/60">
+                                    <c-icon name="bar-chart" size="32" class="mx-auto mb-2" />
+                                    <p>Chart visualization would appear here</p>
+                                </div>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <h3 class="text-lg font-semibold mb-4">Traffic Sources</h3>
+                            <div class="h-64 bg-base-300 rounded-lg flex items-center justify-center">
+                                <div class="text-center text-base-content/60">
+                                    <c-icon name="pie-chart" size="32" class="mx-auto mb-2" />
+                                    <p>Pie chart visualization would appear here</p>
+                                </div>
+                            </div>
+                        </c-card>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <c-card class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold">Recent Activity</h3>
+                            <c-button variant="ghost" size="sm">View All</c-button>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <c-avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" size="sm" />
+                                <div class="flex-1">
+                                    <p class="text-sm"><strong>John Doe</strong> completed a purchase</p>
+                                    <p class="text-xs text-base-content/60">2 minutes ago</p>
+                                </div>
+                                <c-badge variant="success" size="sm">$299</c-badge>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <c-avatar src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" size="sm" />
+                                <div class="flex-1">
+                                    <p class="text-sm"><strong>Sarah Chen</strong> signed up for newsletter</p>
+                                    <p class="text-xs text-base-content/60">5 minutes ago</p>
+                                </div>
+                                <c-badge variant="info" size="sm">New</c-badge>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <c-avatar src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" size="sm" />
+                                <div class="flex-1">
+                                    <p class="text-sm"><strong>Mike Johnson</strong> left a review</p>
+                                    <p class="text-xs text-base-content/60">12 minutes ago</p>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <c-icon name="star" size="14" class="text-yellow-500 fill-current" />
+                                    <span class="text-sm">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </c-card>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="analytics-dashboard">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Header Section --&gt;
+&lt;div class="flex items-center justify-between mb-6"&gt;
+    &lt;div&gt;
+        &lt;h1 class="text-2xl font-bold"&gt;Analytics Overview&lt;/h1&gt;
+        &lt;p class="text-base-content/60"&gt;Track your performance metrics&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center space-x-2"&gt;
+        &lt;c-dropdown&gt;
+            &lt;c-button variant="outline" size="sm"&gt;
+                Last 30 days
+                &lt;c-icon name="chevron-down" size="16" class="ml-2" /&gt;
+            &lt;/c-button&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-button variant="primary" size="sm"&gt;Export Report&lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Key Metrics --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"&gt;
+    &lt;c-card class="p-4"&gt;
+        &lt;div class="flex items-center justify-between"&gt;
+            &lt;div&gt;
+                &lt;p class="text-sm text-base-content/60"&gt;Total Users&lt;/p&gt;
+                &lt;p class="text-2xl font-bold"&gt;12.5K&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="p-3 bg-primary/10 rounded-full"&gt;
+                &lt;c-icon name="users" size="20" class="text-primary" /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="mt-2 flex items-center text-sm"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-1" /&gt;
+            &lt;span class="text-success"&gt;+12%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="analytics-dashboard">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <!-- Header Section -->
+                            <div class="mb-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div>
+                                        <h1 class="text-2xl font-bold">Analytics Overview</h1>
+                                        <p class="text-base-content/60">Track your performance metrics</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <c-dropdown>
+                                            <c-button variant="outline" size="sm">
+                                                Last 30 days
+                                                <c-icon name="chevron-down" size="16" class="ml-2" />
+                                            </c-button>
+                                        </c-dropdown>
+                                        <c-button variant="primary" size="sm">Export Report</c-button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Key Metrics Row -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                                <c-card class="p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm text-base-content/60">Total Users</p>
+                                            <p class="text-2xl font-bold">12.5K</p>
+                                        </div>
+                                        <div class="p-3 bg-primary/10 rounded-full">
+                                            <c-icon name="users" size="20" class="text-primary" />
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 flex items-center text-sm">
+                                        <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                        <span class="text-success">+12%</span>
+                                        <span class="text-base-content/60 ml-1">vs last month</span>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="text-sm text-base-content/60">Revenue</p>
+                                            <p class="text-2xl font-bold">$48.2K</p>
+                                        </div>
+                                        <div class="p-3 bg-secondary/10 rounded-full">
+                                            <c-icon name="dollar-sign" size="20" class="text-secondary" />
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 flex items-center text-sm">
+                                        <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                        <span class="text-success">+8%</span>
+                                        <span class="text-base-content/60 ml-1">vs last month</span>
+                                    </div>
+                                </c-card>
+                            </div>
+                            
+                            <!-- Charts Row (simplified for split view) -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                                <c-card class="p-6">
+                                    <h3 class="text-lg font-semibold mb-4">Revenue Trend</h3>
+                                    <div class="h-32 bg-base-300 rounded-lg flex items-center justify-center">
+                                        <div class="text-center text-base-content/60">
+                                            <c-icon name="bar-chart" size="24" class="mx-auto mb-1" />
+                                            <p class="text-xs">Chart visualization</p>
+                                        </div>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-6">
+                                    <h3 class="text-lg font-semibold mb-4">Traffic Sources</h3>
+                                    <div class="h-32 bg-base-300 rounded-lg flex items-center justify-center">
+                                        <div class="text-center text-base-content/60">
+                                            <c-icon name="pie-chart" size="24" class="mx-auto mb-1" />
+                                            <p class="text-xs">Pie chart visualization</p>
+                                        </div>
+                                    </div>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;!-- Header Section --&gt;
+&lt;div class="flex items-center justify-between mb-6"&gt;
+    &lt;div&gt;
+        &lt;h1 class="text-2xl font-bold"&gt;Analytics Overview&lt;/h1&gt;
+        &lt;p class="text-base-content/60"&gt;Track your performance metrics&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center space-x-2"&gt;
+        &lt;c-dropdown&gt;
+            &lt;c-button variant="outline" size="sm"&gt;
+                Last 30 days
+                &lt;c-icon name="chevron-down" size="16" class="ml-2" /&gt;
+            &lt;/c-button&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-button variant="primary" size="sm"&gt;Export Report&lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Key Metrics --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"&gt;
+    &lt;c-card class="p-4"&gt;
+        &lt;div class="flex items-center justify-between"&gt;
+            &lt;div&gt;
+                &lt;p class="text-sm text-base-content/60"&gt;Total Users&lt;/p&gt;
+                &lt;p class="text-2xl font-bold"&gt;12.5K&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="p-3 bg-primary/10 rounded-full"&gt;
+                &lt;c-icon name="users" size="20" class="text-primary" /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="mt-2 flex items-center text-sm"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-1" /&gt;
+            &lt;span class="text-success"&gt;+12%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- E-commerce Dashboard -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">E-commerce Dashboard</h2>
+        <p class="text-base-content/70 mb-6">Sales-focused dashboard with product performance and order management.</p>
+        
+        <c-tab.group group_name="ecommerce-dashboard">
+            <c-tabs>
+                <c-tab name="preview" group_name="ecommerce-dashboard" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="ecommerce-dashboard">Code</c-tab>
+                <c-tab name="split" group_name="ecommerce-dashboard">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="ecommerce-dashboard">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h1 class="text-2xl font-bold">Store Dashboard</h1>
+                            <p class="text-base-content/60">Monitor your store performance</p>
+                        </div>
+                        <c-button variant="primary" size="sm">
+                            <c-icon name="plus" size="16" class="mr-2" />
+                            Add Product
+                        </c-button>
+                    </div>
+                    
+                    <!-- Sales Overview -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-semibold">Today's Sales</h3>
+                                <c-badge variant="success">+24%</c-badge>
+                            </div>
+                            <div class="text-3xl font-bold mb-2">$2,847</div>
+                            <div class="text-sm text-base-content/60">
+                                <span class="text-success">+$387</span> from yesterday
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-semibold">Orders</h3>
+                                <c-badge variant="info">34 new</c-badge>
+                            </div>
+                            <div class="text-3xl font-bold mb-2">157</div>
+                            <div class="text-sm text-base-content/60">
+                                <span class="text-success">+12</span> from yesterday
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-semibold">Conversion Rate</h3>
+                                <c-badge variant="warning">2.1%</c-badge>
+                            </div>
+                            <div class="text-3xl font-bold mb-2">3.2%</div>
+                            <div class="text-sm text-base-content/60">
+                                <span class="text-error">-0.3%</span> from yesterday
+                            </div>
+                        </c-card>
+                    </div>
+                    
+                    <!-- Product Performance & Recent Orders -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <c-card class="p-6">
+                            <h3 class="text-lg font-semibold mb-4">Top Products</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=40&h=40&fit=crop" 
+                                         alt="Product" class="w-10 h-10 rounded object-cover">
+                                    <div class="flex-1">
+                                        <p class="font-medium">Wireless Headphones</p>
+                                        <p class="text-sm text-base-content/60">47 sold</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-semibold">$14,085</p>
+                                        <p class="text-sm text-success">+12%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=40&h=40&fit=crop" 
+                                         alt="Product" class="w-10 h-10 rounded object-cover">
+                                    <div class="flex-1">
+                                        <p class="font-medium">Smart Watch</p>
+                                        <p class="text-sm text-base-content/60">32 sold</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-semibold">$12,768</p>
+                                        <p class="text-sm text-success">+8%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-3">
+                                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=40&h=40&fit=crop" 
+                                         alt="Product" class="w-10 h-10 rounded object-cover">
+                                    <div class="flex-1">
+                                        <p class="font-medium">Laptop Stand</p>
+                                        <p class="text-sm text-base-content/60">28 sold</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-semibold">$2,492</p>
+                                        <p class="text-sm text-error">-3%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">Recent Orders</h3>
+                                <c-button variant="ghost" size="sm">View All</c-button>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium">#3487</p>
+                                        <p class="text-sm text-base-content/60">John Doe</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-semibold">$299</p>
+                                        <c-badge variant="success" size="sm">Paid</c-badge>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium">#3486</p>
+                                        <p class="text-sm text-base-content/60">Sarah Chen</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-semibold">$159</p>
+                                        <c-badge variant="warning" size="sm">Pending</c-badge>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-medium">#3485</p>
+                                        <p class="text-sm text-base-content/60">Mike Johnson</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="font-semibold">$89</p>
+                                        <c-badge variant="info" size="sm">Shipped</c-badge>
+                                    </div>
+                                </div>
+                            </div>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="ecommerce-dashboard">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Sales Overview --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"&gt;
+    &lt;c-card class="p-6"&gt;
+        &lt;div class="flex items-center justify-between mb-4"&gt;
+            &lt;h3 class="font-semibold"&gt;Today's Sales&lt;/h3&gt;
+            &lt;c-badge variant="success"&gt;+24%&lt;/c-badge&gt;
+        &lt;/div&gt;
+        &lt;div class="text-3xl font-bold mb-2"&gt;$2,847&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60"&gt;
+            &lt;span class="text-success"&gt;+$387&lt;/span&gt; from yesterday
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;
+
+&lt;!-- Product Performance --&gt;
+&lt;c-card class="p-6"&gt;
+    &lt;h3 class="text-lg font-semibold mb-4"&gt;Top Products&lt;/h3&gt;
+    &lt;div class="space-y-4"&gt;
+        &lt;div class="flex items-center space-x-3"&gt;
+            &lt;img src="product.jpg" alt="Product" class="w-10 h-10 rounded object-cover"&gt;
+            &lt;div class="flex-1"&gt;
+                &lt;p class="font-medium"&gt;Wireless Headphones&lt;/p&gt;
+                &lt;p class="text-sm text-base-content/60"&gt;47 sold&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="text-right"&gt;
+                &lt;p class="font-semibold"&gt;$14,085&lt;/p&gt;
+                &lt;p class="text-sm text-success"&gt;+12%&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/c-card&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="ecommerce-dashboard">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <!-- Header -->
+                            <div class="flex items-center justify-between mb-6">
+                                <div>
+                                    <h1 class="text-2xl font-bold">Store Dashboard</h1>
+                                    <p class="text-base-content/60">Monitor your store performance</p>
+                                </div>
+                                <c-button variant="primary" size="sm">
+                                    <c-icon name="plus" size="16" class="mr-2" />
+                                    Add Product
+                                </c-button>
+                            </div>
+                            
+                            <!-- Sales Overview -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-semibold">Today's Sales</h3>
+                                        <c-badge variant="success">+24%</c-badge>
+                                    </div>
+                                    <div class="text-3xl font-bold mb-2">$2,847</div>
+                                    <div class="text-sm text-base-content/60">
+                                        <span class="text-success">+$387</span> from yesterday
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-semibold">Orders</h3>
+                                        <c-badge variant="info">34 new</c-badge>
+                                    </div>
+                                    <div class="text-3xl font-bold mb-2">157</div>
+                                    <div class="text-sm text-base-content/60">
+                                        <span class="text-success">+12</span> from yesterday
+                                    </div>
+                                </c-card>
+                            </div>
+                            
+                            <!-- Product Performance & Recent Orders (simplified) -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                <c-card class="p-6">
+                                    <h3 class="text-lg font-semibold mb-4">Top Products</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center space-x-3">
+                                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=40&h=40&fit=crop" 
+                                                 alt="Product" class="w-10 h-10 rounded object-cover">
+                                            <div class="flex-1">
+                                                <p class="font-medium">Wireless Headphones</p>
+                                                <p class="text-sm text-base-content/60">47 sold</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="font-semibold">$14,085</p>
+                                                <p class="text-sm text-success">+12%</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-lg font-semibold">Recent Orders</h3>
+                                        <c-button variant="ghost" size="sm">View All</c-button>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center justify-between">
+                                            <div>
+                                                <p class="font-medium">#3487</p>
+                                                <p class="text-sm text-base-content/60">John Doe</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <p class="font-semibold">$299</p>
+                                                <c-badge variant="success" size="sm">Paid</c-badge>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;!-- Sales Overview --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"&gt;
+    &lt;c-card class="p-6"&gt;
+        &lt;div class="flex items-center justify-between mb-4"&gt;
+            &lt;h3 class="font-semibold"&gt;Today's Sales&lt;/h3&gt;
+            &lt;c-badge variant="success"&gt;+24%&lt;/c-badge&gt;
+        &lt;/div&gt;
+        &lt;div class="text-3xl font-bold mb-2"&gt;$2,847&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60"&gt;
+            &lt;span class="text-success"&gt;+$387&lt;/span&gt; from yesterday
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;
+
+&lt;!-- Product Performance --&gt;
+&lt;c-card class="p-6"&gt;
+    &lt;h3 class="text-lg font-semibold mb-4"&gt;Top Products&lt;/h3&gt;
+    &lt;div class="space-y-4"&gt;
+        &lt;div class="flex items-center space-x-3"&gt;
+            &lt;img src="product.jpg" alt="Product" class="w-10 h-10 rounded object-cover"&gt;
+            &lt;div class="flex-1"&gt;
+                &lt;p class="font-medium"&gt;Wireless Headphones&lt;/p&gt;
+                &lt;p class="text-sm text-base-content/60"&gt;47 sold&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="text-right"&gt;
+                &lt;p class="font-semibold"&gt;$14,085&lt;/p&gt;
+                &lt;p class="text-sm text-success"&gt;+12%&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/c-card&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Project Management Dashboard -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Project Management Dashboard</h2>
+        <p class="text-base-content/70 mb-6">Team productivity dashboard with project tracking and task management.</p>
+        
+        <c-tab.group group_name="project-dashboard">
+            <c-tabs>
+                <c-tab name="preview" group_name="project-dashboard" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="project-dashboard">Code</c-tab>
+                <c-tab name="split" group_name="project-dashboard">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="project-dashboard">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <!-- Header with Quick Actions -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h1 class="text-2xl font-bold">Project Dashboard</h1>
+                            <p class="text-base-content/60">Track team progress and deliverables</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <c-button variant="outline" size="sm">
+                                <c-icon name="calendar" size="16" class="mr-2" />
+                                This Week
+                            </c-button>
+                            <c-button variant="primary" size="sm">
+                                <c-icon name="plus" size="16" class="mr-2" />
+                                New Project
+                            </c-button>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Overview -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <c-card class="p-4 text-center">
+                            <div class="text-2xl font-bold text-primary mb-1">12</div>
+                            <div class="text-sm text-base-content/60">Active Projects</div>
+                        </c-card>
+                        
+                        <c-card class="p-4 text-center">
+                            <div class="text-2xl font-bold text-secondary mb-1">84</div>
+                            <div class="text-sm text-base-content/60">Tasks Completed</div>
+                        </c-card>
+                        
+                        <c-card class="p-4 text-center">
+                            <div class="text-2xl font-bold text-accent mb-1">23</div>
+                            <div class="text-sm text-base-content/60">Team Members</div>
+                        </c-card>
+                        
+                        <c-card class="p-4 text-center">
+                            <div class="text-2xl font-bold text-info mb-1">94%</div>
+                            <div class="text-sm text-base-content/60">On-Time Delivery</div>
+                        </c-card>
+                    </div>
+                    
+                    <!-- Projects and Tasks -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <c-card class="lg:col-span-2 p-6">
+                            <h3 class="text-lg font-semibold mb-4">Active Projects</h3>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-base-100 rounded-lg">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-semibold">Website Redesign</h4>
+                                        <c-badge variant="success">On Track</c-badge>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Progress</span>
+                                            <span>75%</span>
+                                        </div>
+                                        <c-progress value="75" max="100" variant="success" />
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <div class="flex items-center space-x-2">
+                                            <c-avatar-group size="sm">
+                                                <c-avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" size="sm" />
+                                                <c-avatar src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face" size="sm" />
+                                                <c-avatar src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" size="sm" />
+                                            </c-avatar-group>
+                                        </div>
+                                        <span class="text-base-content/60">Due: Dec 15</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-4 bg-base-100 rounded-lg">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-semibold">Mobile App</h4>
+                                        <c-badge variant="warning">Behind</c-badge>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="flex justify-between text-sm mb-1">
+                                            <span>Progress</span>
+                                            <span>45%</span>
+                                        </div>
+                                        <c-progress value="45" max="100" variant="warning" />
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <div class="flex items-center space-x-2">
+                                            <c-avatar-group size="sm">
+                                                <c-avatar src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&h=32&fit=crop&crop=face" size="sm" />
+                                                <c-avatar src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" size="sm" />
+                                            </c-avatar-group>
+                                        </div>
+                                        <span class="text-base-content/60">Due: Dec 30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold">Upcoming Tasks</h3>
+                                <c-button variant="ghost" size="sm">View All</c-button>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <c-checkbox />
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Review design mockups</p>
+                                        <p class="text-xs text-base-content/60">Due today</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-3">
+                                    <c-checkbox />
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Update project documentation</p>
+                                        <p class="text-xs text-base-content/60">Due tomorrow</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-3">
+                                    <c-checkbox checked="true" />
+                                    <div class="flex-1 opacity-60">
+                                        <p class="text-sm font-medium line-through">Client meeting prep</p>
+                                        <p class="text-xs text-base-content/60">Completed</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-3">
+                                    <c-checkbox />
+                                    <div class="flex-1">
+                                        <p class="text-sm font-medium">Code review session</p>
+                                        <p class="text-xs text-base-content/60">Due Dec 12</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="project-dashboard">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Progress Overview --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"&gt;
+    &lt;c-card class="p-4 text-center"&gt;
+        &lt;div class="text-2xl font-bold text-primary mb-1"&gt;12&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60"&gt;Active Projects&lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;
+
+&lt;!-- Project Card --&gt;
+&lt;div class="p-4 bg-base-100 rounded-lg"&gt;
+    &lt;div class="flex items-center justify-between mb-3"&gt;
+        &lt;h4 class="font-semibold"&gt;Website Redesign&lt;/h4&gt;
+        &lt;c-badge variant="success"&gt;On Track&lt;/c-badge&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;div class="flex justify-between text-sm mb-1"&gt;
+            &lt;span&gt;Progress&lt;/span&gt;
+            &lt;span&gt;75%&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;c-progress value="75" max="100" variant="success" /&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center justify-between text-sm"&gt;
+        &lt;c-avatar-group size="sm"&gt;
+            &lt;c-avatar src="user1.jpg" size="sm" /&gt;
+            &lt;c-avatar src="user2.jpg" size="sm" /&gt;
+        &lt;/c-avatar-group&gt;
+        &lt;span class="text-base-content/60"&gt;Due: Dec 15&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="project-dashboard">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <!-- Header with Quick Actions -->
+                            <div class="flex items-center justify-between mb-6">
+                                <div>
+                                    <h1 class="text-2xl font-bold">Project Dashboard</h1>
+                                    <p class="text-base-content/60">Track team progress and deliverables</p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <c-button variant="outline" size="sm">
+                                        <c-icon name="calendar" size="16" class="mr-2" />
+                                        This Week
+                                    </c-button>
+                                    <c-button variant="primary" size="sm">
+                                        <c-icon name="plus" size="16" class="mr-2" />
+                                        New Project
+                                    </c-button>
+                                </div>
+                            </div>
+                            
+                            <!-- Progress Overview -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                                <c-card class="p-4 text-center">
+                                    <div class="text-2xl font-bold text-primary mb-1">12</div>
+                                    <div class="text-sm text-base-content/60">Active Projects</div>
+                                </c-card>
+                                
+                                <c-card class="p-4 text-center">
+                                    <div class="text-2xl font-bold text-secondary mb-1">84</div>
+                                    <div class="text-sm text-base-content/60">Tasks Completed</div>
+                                </c-card>
+                            </div>
+                            
+                            <!-- Projects (simplified for split view) -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                <c-card class="p-6">
+                                    <h3 class="text-lg font-semibold mb-4">Active Projects</h3>
+                                    <div class="p-4 bg-base-100 rounded-lg">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <h4 class="font-semibold">Website Redesign</h4>
+                                            <c-badge variant="success">On Track</c-badge>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="flex justify-between text-sm mb-1">
+                                                <span>Progress</span>
+                                                <span>75%</span>
+                                            </div>
+                                            <c-progress value="75" max="100" variant="success" />
+                                        </div>
+                                        <div class="flex items-center justify-between text-sm">
+                                            <c-avatar-group size="sm">
+                                                <c-avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" size="sm" />
+                                                <c-avatar src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face" size="sm" />
+                                            </c-avatar-group>
+                                            <span class="text-base-content/60">Due: Dec 15</span>
+                                        </div>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="text-lg font-semibold">Upcoming Tasks</h3>
+                                        <c-button variant="ghost" size="sm">View All</c-button>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center space-x-3">
+                                            <c-checkbox />
+                                            <div class="flex-1">
+                                                <p class="text-sm font-medium">Review design mockups</p>
+                                                <p class="text-xs text-base-content/60">Due today</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;!-- Progress Overview --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"&gt;
+    &lt;c-card class="p-4 text-center"&gt;
+        &lt;div class="text-2xl font-bold text-primary mb-1"&gt;12&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60"&gt;Active Projects&lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;
+
+&lt;!-- Project Card --&gt;
+&lt;div class="p-4 bg-base-100 rounded-lg"&gt;
+    &lt;div class="flex items-center justify-between mb-3"&gt;
+        &lt;h4 class="font-semibold"&gt;Website Redesign&lt;/h4&gt;
+        &lt;c-badge variant="success"&gt;On Track&lt;/c-badge&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;div class="flex justify-between text-sm mb-1"&gt;
+            &lt;span&gt;Progress&lt;/span&gt;
+            &lt;span&gt;75%&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;c-progress value="75" max="100" variant="success" /&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center justify-between text-sm"&gt;
+        &lt;c-avatar-group size="sm"&gt;
+            &lt;c-avatar src="user1.jpg" size="sm" /&gt;
+            &lt;c-avatar src="user2.jpg" size="sm" /&gt;
+        &lt;/c-avatar-group&gt;
+        &lt;span class="text-base-content/60"&gt;Due: Dec 15&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+</div>

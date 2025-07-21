@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto max-w-md mt-12 px-6">
+        <div class="bg-white shadow-lg rounded-lg p-8">
+            <h1 class="text-2xl font-bold text-center mb-6 text-gray-800">Connexion</h1>
+
+            {% include "demo/partials/login_form.html" %}
+        </div>
+
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">
+                Formulaire de test - les données ne sont pas sauvegardées
+            </p>
+        </div>
+    </div>
+
+{% endblock %}

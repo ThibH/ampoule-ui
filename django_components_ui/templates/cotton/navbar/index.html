@@ -1,0 +1,32 @@
+{% comment %}
+Composant Navbar principal inspiré de Flux UI
+Usage:
+<c-navbar>
+    <c-navbar.item href="/" icon="home">Home</c-navbar.item>
+    <c-navbar.item href="/about" icon="info" badge="new">About</c-navbar.item>
+    <c-navbar.submenu label="Services" icon="services">
+        <c-navbar.item href="/web">Web Development</c-navbar.item>
+        <c-navbar.item href="/mobile">Mobile Apps</c-navbar.item>
+    </c-navbar.submenu>
+</c-navbar>
+
+Paramètres:
+- orientation: "horizontal" ou "vertical" (défaut: "horizontal")
+- class: classes CSS supplémentaires
+{% endcomment %}
+
+<c-vars orientation="horizontal" />
+
+{% if orientation == "vertical" %}
+    <nav class="flex flex-col bg-base-100 {{ class }}" {{ attrs }}>
+        {{ slot }}
+    </nav>
+{% else %}
+    <nav class="navbar bg-base-100 {{ class }}" {{ attrs }}>
+        <div class="navbar-start">
+            <div class="flex items-center space-x-2">
+                {{ slot }}
+            </div>
+        </div>
+    </nav>
+{% endif %}

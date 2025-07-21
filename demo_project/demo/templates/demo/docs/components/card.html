@@ -1,0 +1,374 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Card</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible card component based on DaisyUI for grouping and displaying content in an easily readable format. Supports images, titles, content, and actions with various layouts and styles.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Basic Usage</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-card class="w-96 shadow-xl">
+                    <c-slot name="title">Card Title</c-slot>
+                    <c-slot name="content">
+                        <p>This is a basic card with title and content.</p>
+                    </c-slot>
+                    <c-slot name="actions">
+                        <c-button variant="primary">Action</c-button>
+                    </c-slot>
+                </c-card>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-card class="w-96 shadow-xl"&gt;
+    &lt;c-slot name="title"&gt;Card Title&lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;p&gt;This is a basic card with title and content.&lt;/p&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="actions"&gt;
+        &lt;c-button variant="primary"&gt;Action&lt;/c-button&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Card size: xs, sm, md, lg, xl</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Card variant: border, side, dash</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">image_full</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Makes the image as background (full coverage)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">compact</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Reduces padding for more compact appearance</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">bg</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">bg-base-100</code></td>
+                        <td>Background color class</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Slots -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Available Slots</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Slot Name</th>
+                        <th class="font-semibold">Description</th>
+                        <th class="font-semibold">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">figure</code></td>
+                        <td>Image or media content</td>
+                        <td><code class="text-sm">&lt;img src="..." alt="..." /&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">title</code></td>
+                        <td>Card title/heading</td>
+                        <td><code class="text-sm">Card Title</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">content</code></td>
+                        <td>Main content area</td>
+                        <td><code class="text-sm">&lt;p&gt;Description&lt;/p&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">actions</code></td>
+                        <td>Action buttons</td>
+                        <td><code class="text-sm">&lt;c-button&gt;Action&lt;/c-button&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">default</code></td>
+                        <td>Falls back if no content slot</td>
+                        <td><code class="text-sm">Any content</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Card with Image -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Card with Image</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-card class="w-96 shadow-xl">
+                    <c-slot name="figure">
+                        <img src="https://picsum.photos/400/225?random=10" alt="Demo" />
+                    </c-slot>
+                    <c-slot name="title">Beautiful Landscape</c-slot>
+                    <c-slot name="content">
+                        <p>A stunning view of nature captured in perfect lighting.</p>
+                    </c-slot>
+                    <c-slot name="actions">
+                        <c-button variant="primary">View More</c-button>
+                    </c-slot>
+                </c-card>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-card class="w-96 shadow-xl"&gt;
+    &lt;c-slot name="figure"&gt;
+        &lt;img src="image.jpg" alt="Demo" /&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="title"&gt;Beautiful Landscape&lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;p&gt;A stunning view of nature captured in perfect lighting.&lt;/p&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="actions"&gt;
+        &lt;c-button variant="primary"&gt;View More&lt;/c-button&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Card Variants -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Variants</h2>
+
+        <!-- Border Variant -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Border</h3>
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-card variant="border" class="w-96 shadow-xl">
+                        <c-slot name="title">Card with Border</c-slot>
+                        <c-slot name="content">
+                            <p>This card has a visible border around it.</p>
+                        </c-slot>
+                    </c-card>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-card variant="border" class="w-96 shadow-xl"&gt;
+    &lt;c-slot name="title"&gt;Card with Border&lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;p&gt;This card has a visible border around it.&lt;/p&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Side Variant -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Side Layout</h3>
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-card variant="side" class="w-full max-w-lg shadow-xl">
+                        <c-slot name="figure">
+                            <img src="https://picsum.photos/200/150?random=11" alt="Demo" class="w-48" />
+                        </c-slot>
+                        <c-slot name="title">Horizontal Card</c-slot>
+                        <c-slot name="content">
+                            <p>This card displays content horizontally with image on the side.</p>
+                        </c-slot>
+                        <c-slot name="actions">
+                            <c-button variant="primary" size="sm">Action</c-button>
+                        </c-slot>
+                    </c-card>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-card variant="side" class="w-full max-w-lg shadow-xl"&gt;
+    &lt;c-slot name="figure"&gt;
+        &lt;img src="image.jpg" alt="Demo" class="w-48" /&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="title"&gt;Horizontal Card&lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;p&gt;This card displays content horizontally with image on the side.&lt;/p&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="actions"&gt;
+        &lt;c-button variant="primary" size="sm"&gt;Action&lt;/c-button&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compact Variant -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Compact</h3>
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-card compact="true" class="w-96 shadow-xl">
+                        <c-slot name="title">Compact Card</c-slot>
+                        <c-slot name="content">
+                            <p>This card has reduced padding for a more compact appearance.</p>
+                        </c-slot>
+                        <c-slot name="actions">
+                            <c-button variant="outline" size="sm">Action</c-button>
+                        </c-slot>
+                    </c-card>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-card compact="true" class="w-96 shadow-xl"&gt;
+    &lt;c-slot name="title"&gt;Compact Card&lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;p&gt;This card has reduced padding for a more compact appearance.&lt;/p&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="actions"&gt;
+        &lt;c-button variant="outline" size="sm"&gt;Action&lt;/c-button&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Card Sizes -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Sizes</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <div class="flex flex-wrap gap-4 items-end">
+                    <c-card size="xs" class="shadow-xl">
+                        <c-slot name="title">XS</c-slot>
+                        <c-slot name="content">Extra small</c-slot>
+                    </c-card>
+
+                    <c-card size="sm" class="shadow-xl">
+                        <c-slot name="title">SM</c-slot>
+                        <c-slot name="content">Small card</c-slot>
+                    </c-card>
+
+                    <c-card size="md" class="shadow-xl">
+                        <c-slot name="title">MD</c-slot>
+                        <c-slot name="content">Medium (default)</c-slot>
+                    </c-card>
+
+                    <c-card size="lg" class="shadow-xl">
+                        <c-slot name="title">LG</c-slot>
+                        <c-slot name="content">Large card</c-slot>
+                    </c-card>
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-card size="xs" class="shadow-xl"&gt;...&lt;/c-card&gt;
+&lt;c-card size="sm" class="shadow-xl"&gt;...&lt;/c-card&gt;
+&lt;c-card size="md" class="shadow-xl"&gt;...&lt;/c-card&gt;
+&lt;c-card size="lg" class="shadow-xl"&gt;...&lt;/c-card&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Card Example -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Pricing Card Example</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-card class="w-80 shadow-xl bg-gradient-to-br from-purple-100 to-blue-100">
+                    <c-slot name="title">
+                        <c-badge variant="warning" size="sm">Most Popular</c-badge>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="text-2xl font-bold">Premium</span>
+                            <span class="text-xl">€29/mo</span>
+                        </div>
+                    </c-slot>
+                    <c-slot name="content">
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center">
+                                <c-icon name="check" class="w-4 h-4 mr-2 text-green-500"></c-icon>
+                                Premium feature 1
+                            </li>
+                            <li class="flex items-center">
+                                <c-icon name="check" class="w-4 h-4 mr-2 text-green-500"></c-icon>
+                                Premium feature 2
+                            </li>
+                            <li class="flex items-center">
+                                <c-icon name="check" class="w-4 h-4 mr-2 text-green-500"></c-icon>
+                                Premium feature 3
+                            </li>
+                        </ul>
+                    </c-slot>
+                    <c-slot name="actions">
+                        <c-button variant="primary" class="w-full">Subscribe</c-button>
+                    </c-slot>
+                </c-card>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-card class="w-80 shadow-xl bg-gradient-to-br from-purple-100 to-blue-100"&gt;
+    &lt;c-slot name="title"&gt;
+        &lt;c-badge variant="warning" size="sm"&gt;Most Popular&lt;/c-badge&gt;
+        &lt;div class="flex justify-between items-center mt-2"&gt;
+            &lt;span class="text-2xl font-bold"&gt;Premium&lt;/span&gt;
+            &lt;span class="text-xl"&gt;€29/mo&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;ul class="space-y-2 text-sm"&gt;
+            &lt;li class="flex items-center"&gt;
+                &lt;c-icon name="check" class="w-4 h-4 mr-2 text-green-500"&gt;&lt;/c-icon&gt;
+                Premium feature 1
+            &lt;/li&gt;
+            &lt;!-- More features... --&gt;
+        &lt;/ul&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="actions"&gt;
+        &lt;c-button variant="primary" class="w-full"&gt;Subscribe&lt;/c-button&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notes -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Notes</h2>
+        <div class="bg-info/10 border border-info/20 rounded-lg p-4">
+            <h3 class="font-semibold text-info mb-2">
+                <c-icon name="info" class="inline w-4 h-4 mr-1"></c-icon>
+                Usage Tips
+            </h3>
+            <ul class="text-sm space-y-1 text-info-content/80">
+                <li>• All slots are optional - use only what you need</li>
+                <li>• If no <code>content</code> slot is provided, the default slot content will be used</li>
+                <li>• The <code>figure</code> slot is perfect for images, videos, or any media content</li>
+                <li>• Use <code>bg</code> property to customize background colors</li>
+                <li>• Combine with utility classes for custom styling</li>
+            </ul>
+        </div>
+    </section>
+</div>

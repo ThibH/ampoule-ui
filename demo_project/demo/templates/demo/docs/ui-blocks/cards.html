@@ -1,0 +1,718 @@
+<!-- Card Collections UI Blocks -->
+<div class="mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Card Collections</h1>
+        <p class="text-base-content/70 text-lg">Complete card layouts and collection patterns built with your component library.</p>
+    </div>
+
+    <!-- Product Cards Grid -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Product Cards Grid</h2>
+        <p class="text-base-content/70 mb-6">E-commerce style product cards with images, pricing, and actions.</p>
+        
+        <c-tab.group group_name="product-cards">
+            <c-tabs>
+                <c-tab name="preview" group_name="product-cards" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="product-cards">Code</c-tab>
+                <c-tab name="split" group_name="product-cards">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="product-cards">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <c-card class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" 
+                                 alt="Product" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <c-badge variant="success" size="sm">In Stock</c-badge>
+                                    <div class="flex items-center space-x-1">
+                                        <c-icon name="star" size="16" class="text-yellow-500 fill-current" />
+                                        <span class="text-sm">4.8</span>
+                                    </div>
+                                </div>
+                                <h3 class="font-semibold mb-2">Wireless Headphones</h3>
+                                <p class="text-sm text-base-content/60 mb-3">Premium noise-canceling headphones with superior sound quality.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-xl font-bold">$299</div>
+                                    <c-button variant="primary" size="sm">Add to Cart</c-button>
+                                </div>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop" 
+                                 alt="Product" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <c-badge variant="warning" size="sm">Low Stock</c-badge>
+                                    <div class="flex items-center space-x-1">
+                                        <c-icon name="star" size="16" class="text-yellow-500 fill-current" />
+                                        <span class="text-sm">4.6</span>
+                                    </div>
+                                </div>
+                                <h3 class="font-semibold mb-2">Smart Watch</h3>
+                                <p class="text-sm text-base-content/60 mb-3">Advanced fitness tracking with health monitoring features.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-xl font-bold">$399</div>
+                                    <c-button variant="primary" size="sm">Add to Cart</c-button>
+                                </div>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=300&fit=crop" 
+                                 alt="Product" class="w-full h-48 object-cover">
+                            <div class="p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <c-badge variant="error" size="sm">Out of Stock</c-badge>
+                                    <div class="flex items-center space-x-1">
+                                        <c-icon name="star" size="16" class="text-yellow-500 fill-current" />
+                                        <span class="text-sm">4.9</span>
+                                    </div>
+                                </div>
+                                <h3 class="font-semibold mb-2">Laptop Stand</h3>
+                                <p class="text-sm text-base-content/60 mb-3">Ergonomic aluminum laptop stand for better posture.</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-xl font-bold">$89</div>
+                                    <c-button variant="outline" size="sm" disabled="true">Notify Me</c-button>
+                                </div>
+                            </div>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="product-cards">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+    &lt;c-card class="overflow-hidden"&gt;
+        &lt;img src="product-image.jpg" alt="Product" class="w-full h-48 object-cover"&gt;
+        &lt;div class="p-4"&gt;
+            &lt;div class="flex items-center justify-between mb-2"&gt;
+                &lt;c-badge variant="success" size="sm"&gt;In Stock&lt;/c-badge&gt;
+                &lt;div class="flex items-center space-x-1"&gt;
+                    &lt;c-icon name="star" size="16" class="text-yellow-500 fill-current" /&gt;
+                    &lt;span class="text-sm"&gt;4.8&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h3 class="font-semibold mb-2"&gt;Wireless Headphones&lt;/h3&gt;
+            &lt;p class="text-sm text-base-content/60 mb-3"&gt;Premium noise-canceling headphones.&lt;/p&gt;
+            &lt;div class="flex items-center justify-between"&gt;
+                &lt;div class="text-xl font-bold"&gt;$299&lt;/div&gt;
+                &lt;c-button variant="primary" size="sm"&gt;Add to Cart&lt;/c-button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="product-cards">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <c-card class="overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" 
+                                         alt="Product" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <c-badge variant="success" size="sm">In Stock</c-badge>
+                                            <div class="flex items-center space-x-1">
+                                                <c-icon name="star" size="16" class="text-yellow-500 fill-current" />
+                                                <span class="text-sm">4.8</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="font-semibold mb-2">Wireless Headphones</h3>
+                                        <p class="text-sm text-base-content/60 mb-3">Premium noise-canceling headphones with superior sound quality.</p>
+                                        <div class="flex items-center justify-between">
+                                            <div class="text-xl font-bold">$299</div>
+                                            <c-button variant="primary" size="sm">Add to Cart</c-button>
+                                        </div>
+                                    </div>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+    &lt;c-card class="overflow-hidden"&gt;
+        &lt;img src="product-image.jpg" alt="Product" class="w-full h-48 object-cover"&gt;
+        &lt;div class="p-4"&gt;
+            &lt;div class="flex items-center justify-between mb-2"&gt;
+                &lt;c-badge variant="success" size="sm"&gt;In Stock&lt;/c-badge&gt;
+                &lt;div class="flex items-center space-x-1"&gt;
+                    &lt;c-icon name="star" size="16" class="text-yellow-500 fill-current" /&gt;
+                    &lt;span class="text-sm"&gt;4.8&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h3 class="font-semibold mb-2"&gt;Wireless Headphones&lt;/h3&gt;
+            &lt;p class="text-sm text-base-content/60 mb-3"&gt;Premium noise-canceling headphones.&lt;/p&gt;
+            &lt;div class="flex items-center justify-between"&gt;
+                &lt;div class="text-xl font-bold"&gt;$299&lt;/div&gt;
+                &lt;c-button variant="primary" size="sm"&gt;Add to Cart&lt;/c-button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Team Member Cards -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Team Member Cards</h2>
+        <p class="text-base-content/70 mb-6">Professional team member showcase with social links and roles.</p>
+        
+        <c-tab.group group_name="team-cards">
+            <c-tabs>
+                <c-tab name="preview" group_name="team-cards" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="team-cards">Code</c-tab>
+                <c-tab name="split" group_name="team-cards">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="team-cards">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <c-card class="text-center p-6">
+                            <c-avatar 
+                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                                size="xl" 
+                                class="mx-auto mb-4"
+                            />
+                            <h3 class="font-semibold mb-1">John Doe</h3>
+                            <p class="text-sm text-base-content/60 mb-4">Senior Developer</p>
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="github" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="linkedin" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="twitter" size="16" />
+                                </c-button>
+                            </div>
+                            <c-button variant="outline" size="sm" class="w-full">
+                                View Profile
+                            </c-button>
+                        </c-card>
+                        
+                        <c-card class="text-center p-6">
+                            <c-avatar 
+                                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" 
+                                size="xl" 
+                                class="mx-auto mb-4"
+                            />
+                            <h3 class="font-semibold mb-1">Sarah Chen</h3>
+                            <p class="text-sm text-base-content/60 mb-4">UI/UX Designer</p>
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="dribbble" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="linkedin" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="instagram" size="16" />
+                                </c-button>
+                            </div>
+                            <c-button variant="outline" size="sm" class="w-full">
+                                View Profile
+                            </c-button>
+                        </c-card>
+                        
+                        <c-card class="text-center p-6">
+                            <c-avatar 
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" 
+                                size="xl" 
+                                class="mx-auto mb-4"
+                            />
+                            <h3 class="font-semibold mb-1">Mike Johnson</h3>
+                            <p class="text-sm text-base-content/60 mb-4">Product Manager</p>
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="linkedin" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="twitter" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="mail" size="16" />
+                                </c-button>
+                            </div>
+                            <c-button variant="outline" size="sm" class="w-full">
+                                View Profile
+                            </c-button>
+                        </c-card>
+                        
+                        <c-card class="text-center p-6">
+                            <c-avatar 
+                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" 
+                                size="xl" 
+                                class="mx-auto mb-4"
+                            />
+                            <h3 class="font-semibold mb-1">Emma Wilson</h3>
+                            <p class="text-sm text-base-content/60 mb-4">DevOps Engineer</p>
+                            <div class="flex justify-center space-x-3 mb-4">
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="github" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="linkedin" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="globe" size="16" />
+                                </c-button>
+                            </div>
+                            <c-button variant="outline" size="sm" class="w-full">
+                                View Profile
+                            </c-button>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="team-cards">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"&gt;
+    &lt;c-card class="text-center p-6"&gt;
+        &lt;c-avatar 
+            src="profile-image.jpg" 
+            size="xl" 
+            class="mx-auto mb-4"
+        /&gt;
+        &lt;h3 class="font-semibold mb-1"&gt;John Doe&lt;/h3&gt;
+        &lt;p class="text-sm text-base-content/60 mb-4"&gt;Senior Developer&lt;/p&gt;
+        &lt;div class="flex justify-center space-x-3 mb-4"&gt;
+            &lt;c-button variant="ghost" size="sm"&gt;
+                &lt;c-icon name="github" size="16" /&gt;
+            &lt;/c-button&gt;
+            &lt;c-button variant="ghost" size="sm"&gt;
+                &lt;c-icon name="linkedin" size="16" /&gt;
+            &lt;/c-button&gt;
+        &lt;/div&gt;
+        &lt;c-button variant="outline" size="sm" class="w-full"&gt;
+            View Profile
+        &lt;/c-button&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="team-cards">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <c-card class="text-center p-6">
+                                    <c-avatar 
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                                        size="xl" 
+                                        class="mx-auto mb-4"
+                                    />
+                                    <h3 class="font-semibold mb-1">John Doe</h3>
+                                    <p class="text-sm text-base-content/60 mb-4">Senior Developer</p>
+                                    <div class="flex justify-center space-x-3 mb-4">
+                                        <c-button variant="ghost" size="sm">
+                                            <c-icon name="github" size="16" />
+                                        </c-button>
+                                        <c-button variant="ghost" size="sm">
+                                            <c-icon name="linkedin" size="16" />
+                                        </c-button>
+                                    </div>
+                                    <c-button variant="outline" size="sm" class="w-full">
+                                        View Profile
+                                    </c-button>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"&gt;
+    &lt;c-card class="text-center p-6"&gt;
+        &lt;c-avatar 
+            src="profile-image.jpg" 
+            size="xl" 
+            class="mx-auto mb-4"
+        /&gt;
+        &lt;h3 class="font-semibold mb-1"&gt;John Doe&lt;/h3&gt;
+        &lt;p class="text-sm text-base-content/60 mb-4"&gt;Senior Developer&lt;/p&gt;
+        &lt;div class="flex justify-center space-x-3 mb-4"&gt;
+            &lt;c-button variant="ghost" size="sm"&gt;
+                &lt;c-icon name="github" size="16" /&gt;
+            &lt;/c-button&gt;
+            &lt;c-button variant="ghost" size="sm"&gt;
+                &lt;c-icon name="linkedin" size="16" /&gt;
+            &lt;/c-button&gt;
+        &lt;/div&gt;
+        &lt;c-button variant="outline" size="sm" class="w-full"&gt;
+            View Profile
+        &lt;/c-button&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Feature Cards</h2>
+        <p class="text-base-content/70 mb-6">Feature highlight cards with icons and descriptions.</p>
+        
+        <c-tab.group group_name="feature-cards">
+            <c-tabs>
+                <c-tab name="preview" group_name="feature-cards" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="feature-cards">Code</c-tab>
+                <c-tab name="split" group_name="feature-cards">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="feature-cards">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <c-card class="p-6 text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <c-icon name="zap" size="32" class="text-primary" />
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Lightning Fast</h3>
+                            <p class="text-base-content/60 mb-4">Built for speed with optimized performance and minimal loading times.</p>
+                            <c-button variant="outline" size="sm">Learn More</c-button>
+                        </c-card>
+                        
+                        <c-card class="p-6 text-center">
+                            <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <c-icon name="shield" size="32" class="text-secondary" />
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Secure & Reliable</h3>
+                            <p class="text-base-content/60 mb-4">Enterprise-grade security with 99.9% uptime guarantee.</p>
+                            <c-button variant="outline" size="sm">Learn More</c-button>
+                        </c-card>
+                        
+                        <c-card class="p-6 text-center">
+                            <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <c-icon name="users" size="32" class="text-accent" />
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3">Team Collaboration</h3>
+                            <p class="text-base-content/60 mb-4">Work together seamlessly with real-time collaboration tools.</p>
+                            <c-button variant="outline" size="sm">Learn More</c-button>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="feature-cards">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6"&gt;
+    &lt;c-card class="p-6 text-center"&gt;
+        &lt;div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"&gt;
+            &lt;c-icon name="zap" size="32" class="text-primary" /&gt;
+        &lt;/div&gt;
+        &lt;h3 class="text-xl font-semibold mb-3"&gt;Lightning Fast&lt;/h3&gt;
+        &lt;p class="text-base-content/60 mb-4"&gt;Built for speed with optimized performance.&lt;/p&gt;
+        &lt;c-button variant="outline" size="sm"&gt;Learn More&lt;/c-button&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="feature-cards">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <c-card class="p-6 text-center">
+                                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <c-icon name="zap" size="32" class="text-primary" />
+                                    </div>
+                                    <h3 class="text-xl font-semibold mb-3">Lightning Fast</h3>
+                                    <p class="text-base-content/60 mb-4">Built for speed with optimized performance and minimal loading times.</p>
+                                    <c-button variant="outline" size="sm">Learn More</c-button>
+                                </c-card>
+                                
+                                <c-card class="p-6 text-center">
+                                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <c-icon name="shield" size="32" class="text-secondary" />
+                                    </div>
+                                    <h3 class="text-xl font-semibold mb-3">Secure & Reliable</h3>
+                                    <p class="text-base-content/60 mb-4">Enterprise-grade security with 99.9% uptime guarantee.</p>
+                                    <c-button variant="outline" size="sm">Learn More</c-button>
+                                </c-card>
+                                
+                                <c-card class="p-6 text-center">
+                                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <c-icon name="users" size="32" class="text-accent" />
+                                    </div>
+                                    <h3 class="text-xl font-semibold mb-3">Team Collaboration</h3>
+                                    <p class="text-base-content/60 mb-4">Work together seamlessly with real-time collaboration tools.</p>
+                                    <c-button variant="outline" size="sm">Learn More</c-button>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6"&gt;
+    &lt;c-card class="p-6 text-center"&gt;
+        &lt;div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"&gt;
+            &lt;c-icon name="zap" size="32" class="text-primary" /&gt;
+        &lt;/div&gt;
+        &lt;h3 class="text-xl font-semibold mb-3"&gt;Lightning Fast&lt;/h3&gt;
+        &lt;p class="text-base-content/60 mb-4"&gt;Built for speed with optimized performance.&lt;/p&gt;
+        &lt;c-button variant="outline" size="sm"&gt;Learn More&lt;/c-button&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Pricing Cards</h2>
+        <p class="text-base-content/70 mb-6">Pricing plan cards with features and call-to-action buttons.</p>
+        
+        <c-tab.group group_name="pricing-cards">
+            <c-tabs>
+                <c-tab name="preview" group_name="pricing-cards" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="pricing-cards">Code</c-tab>
+                <c-tab name="split" group_name="pricing-cards">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="pricing-cards">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <c-card class="p-6 text-center">
+                            <h3 class="text-xl font-semibold mb-2">Starter</h3>
+                            <div class="text-3xl font-bold mb-4">$9<span class="text-base font-normal text-base-content/60">/month</span></div>
+                            <ul class="space-y-3 mb-6 text-sm">
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Up to 5 projects
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    10GB storage
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Email support
+                                </li>
+                                <li class="flex items-center text-base-content/40">
+                                    <c-icon name="x" size="16" class="mr-2" />
+                                    Priority support
+                                </li>
+                            </ul>
+                            <c-button variant="outline" class="w-full">Get Started</c-button>
+                        </c-card>
+                        
+                        <c-card class="p-6 text-center border-2 border-primary relative">
+                            <c-badge variant="primary" class="absolute -top-3 left-1/2 transform -translate-x-1/2">Most Popular</c-badge>
+                            <h3 class="text-xl font-semibold mb-2">Pro</h3>
+                            <div class="text-3xl font-bold mb-4">$29<span class="text-base font-normal text-base-content/60">/month</span></div>
+                            <ul class="space-y-3 mb-6 text-sm">
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Unlimited projects
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    100GB storage
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Priority support
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Advanced analytics
+                                </li>
+                            </ul>
+                            <c-button variant="primary" class="w-full">Get Started</c-button>
+                        </c-card>
+                        
+                        <c-card class="p-6 text-center">
+                            <h3 class="text-xl font-semibold mb-2">Enterprise</h3>
+                            <div class="text-3xl font-bold mb-4">$99<span class="text-base font-normal text-base-content/60">/month</span></div>
+                            <ul class="space-y-3 mb-6 text-sm">
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Everything in Pro
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Unlimited storage
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    24/7 phone support
+                                </li>
+                                <li class="flex items-center">
+                                    <c-icon name="check" size="16" class="text-success mr-2" />
+                                    Custom integrations
+                                </li>
+                            </ul>
+                            <c-button variant="outline" class="w-full">Contact Sales</c-button>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="pricing-cards">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6"&gt;
+    &lt;c-card class="p-6 text-center"&gt;
+        &lt;h3 class="text-xl font-semibold mb-2"&gt;Starter&lt;/h3&gt;
+        &lt;div class="text-3xl font-bold mb-4"&gt;$9&lt;span class="text-base font-normal text-base-content/60"&gt;/month&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class="space-y-3 mb-6 text-sm"&gt;
+            &lt;li class="flex items-center"&gt;
+                &lt;c-icon name="check" size="16" class="text-success mr-2" /&gt;
+                Up to 5 projects
+            &lt;/li&gt;
+            &lt;li class="flex items-center"&gt;
+                &lt;c-icon name="check" size="16" class="text-success mr-2" /&gt;
+                10GB storage
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;c-button variant="outline" class="w-full"&gt;Get Started&lt;/c-button&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="pricing-cards">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <c-card class="p-6 text-center">
+                                    <h3 class="text-xl font-semibold mb-2">Starter</h3>
+                                    <div class="text-3xl font-bold mb-4">$9<span class="text-base font-normal text-base-content/60">/month</span></div>
+                                    <ul class="space-y-3 mb-6 text-sm">
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Up to 5 projects
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            10GB storage
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Email support
+                                        </li>
+                                        <li class="flex items-center text-base-content/40">
+                                            <c-icon name="x" size="16" class="mr-2" />
+                                            Priority support
+                                        </li>
+                                    </ul>
+                                    <c-button variant="outline" class="w-full">Get Started</c-button>
+                                </c-card>
+                                
+                                <c-card class="p-6 text-center border-2 border-primary relative">
+                                    <c-badge variant="primary" class="absolute -top-3 left-1/2 transform -translate-x-1/2">Most Popular</c-badge>
+                                    <h3 class="text-xl font-semibold mb-2">Pro</h3>
+                                    <div class="text-3xl font-bold mb-4">$29<span class="text-base font-normal text-base-content/60">/month</span></div>
+                                    <ul class="space-y-3 mb-6 text-sm">
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Unlimited projects
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            100GB storage
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Priority support
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Advanced analytics
+                                        </li>
+                                    </ul>
+                                    <c-button variant="primary" class="w-full">Get Started</c-button>
+                                </c-card>
+                                
+                                <c-card class="p-6 text-center">
+                                    <h3 class="text-xl font-semibold mb-2">Enterprise</h3>
+                                    <div class="text-3xl font-bold mb-4">$99<span class="text-base font-normal text-base-content/60">/month</span></div>
+                                    <ul class="space-y-3 mb-6 text-sm">
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Everything in Pro
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Unlimited storage
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            24/7 phone support
+                                        </li>
+                                        <li class="flex items-center">
+                                            <c-icon name="check" size="16" class="text-success mr-2" />
+                                            Custom integrations
+                                        </li>
+                                    </ul>
+                                    <c-button variant="outline" class="w-full">Contact Sales</c-button>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-3 gap-6"&gt;
+    &lt;c-card class="p-6 text-center"&gt;
+        &lt;h3 class="text-xl font-semibold mb-2"&gt;Starter&lt;/h3&gt;
+        &lt;div class="text-3xl font-bold mb-4"&gt;$9&lt;span class="text-base font-normal text-base-content/60"&gt;/month&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class="space-y-3 mb-6 text-sm"&gt;
+            &lt;li class="flex items-center"&gt;
+                &lt;c-icon name="check" size="16" class="text-success mr-2" /&gt;
+                Up to 5 projects
+            &lt;/li&gt;
+            &lt;li class="flex items-center"&gt;
+                &lt;c-icon name="check" size="16" class="text-success mr-2" /&gt;
+                10GB storage
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;c-button variant="outline" class="w-full"&gt;Get Started&lt;/c-button&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+</div>

@@ -1,0 +1,478 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Icon</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible icon component supporting various icon libraries with consistent sizing and styling.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-icon name="home" class="size-6"></c-icon>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-icon name="home" class="size-6"&gt;&lt;/c-icon&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">name</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">required</code></td>
+                        <td>Icon name from the supported icon library</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes (size-4, size-6, text-primary, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Quick size preset (xs, sm, md, lg, xl)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Icon Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Icon Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Different icon sizes using Tailwind CSS sizing classes.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex items-center gap-4">
+                        <div class="text-center">
+                            <c-icon name="star" class="size-3"></c-icon>
+                            <p class="text-xs mt-1">size-3</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="star" class="size-4"></c-icon>
+                            <p class="text-xs mt-1">size-4</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="star" class="size-5"></c-icon>
+                            <p class="text-xs mt-1">size-5</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="star" class="size-6"></c-icon>
+                            <p class="text-xs mt-1">size-6</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="star" class="size-8"></c-icon>
+                            <p class="text-xs mt-1">size-8</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="star" class="size-12"></c-icon>
+                            <p class="text-xs mt-1">size-12</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="star" class="size-16"></c-icon>
+                            <p class="text-xs mt-1">size-16</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-icon name="star" class="size-3"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="star" class="size-4"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="star" class="size-5"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="star" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="star" class="size-8"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="star" class="size-12"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="star" class="size-16"&gt;&lt;/c-icon&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Colored Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Colored Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Apply different colors using DaisyUI color classes.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-8 text-primary"></c-icon>
+                            <p class="text-xs mt-1">Primary</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-8 text-secondary"></c-icon>
+                            <p class="text-xs mt-1">Secondary</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-8 text-accent"></c-icon>
+                            <p class="text-xs mt-1">Accent</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-8 text-success"></c-icon>
+                            <p class="text-xs mt-1">Success</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-8 text-warning"></c-icon>
+                            <p class="text-xs mt-1">Warning</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-8 text-error"></c-icon>
+                            <p class="text-xs mt-1">Error</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-8 text-info"></c-icon>
+                            <p class="text-xs mt-1">Info</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-icon name="heart" class="size-8 text-primary"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="heart" class="size-8 text-secondary"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="heart" class="size-8 text-accent"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="heart" class="size-8 text-success"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="heart" class="size-8 text-warning"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="heart" class="size-8 text-error"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="heart" class="size-8 text-info"&gt;&lt;/c-icon&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Common Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                A collection of frequently used icons in web applications.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-4 md:grid-cols-8 gap-4">
+                        <div class="text-center">
+                            <c-icon name="home" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">home</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="user" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">user</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="settings" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">settings</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="search" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">search</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="plus" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">plus</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="edit" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">edit</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="trash" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">trash</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="download" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">download</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="upload" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">upload</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="save" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">save</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="copy" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">copy</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="share" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">share</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="heart" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">heart</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="star" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">star</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="bell" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">bell</p>
+                        </div>
+                        <div class="text-center">
+                            <c-icon name="mail" class="size-6 mx-auto"></c-icon>
+                            <p class="text-xs mt-1">mail</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-icon name="home" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="user" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="settings" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="search" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="plus" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="edit" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="trash" class="size-6"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="download" class="size-6"&gt;&lt;/c-icon&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Icons in UI Elements -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Icons in UI Elements</h3>
+            <p class="text-base-content/70 mb-6">
+                Examples of how icons integrate with other components and UI elements.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <!-- In buttons -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">In Buttons</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <c-button variant="primary" icon="plus">New Item</c-button>
+                                <c-button variant="secondary" icon="edit">Edit</c-button>
+                                <c-button variant="error" icon="trash">Delete</c-button>
+                                <c-button variant="outline" icon="download">Export</c-button>
+                            </div>
+                        </div>
+
+                        <!-- In navigation -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">In Navigation</h4>
+                            <div class="menu bg-base-100 w-56 rounded-box">
+                                <li>
+                                    <a><c-icon name="home" class="size-4" /> Dashboard</a>
+                                </li>
+                                <li>
+                                    <a><c-icon name="users" class="size-4" /> Users</a>
+                                </li>
+                                <li>
+                                    <a><c-icon name="settings" class="size-4" /> Settings</a>
+                                </li>
+                                <li>
+                                    <a><c-icon name="log-out" class="size-4" /> Logout</a>
+                                </li>
+                            </div>
+                        </div>
+
+                        <!-- In alerts -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">In Alerts</h4>
+                            <div class="space-y-2">
+                                <div class="alert alert-success">
+                                    <c-icon name="check-circle" class="size-6" />
+                                    <span>Your changes have been saved successfully!</span>
+                                </div>
+                                <div class="alert alert-warning">
+                                    <c-icon name="alert-triangle" class="size-6" />
+                                    <span>Please review your information before proceeding.</span>
+                                </div>
+                                <div class="alert alert-error">
+                                    <c-icon name="x-circle" class="size-6" />
+                                    <span>An error occurred while processing your request.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- In buttons --&gt;
+&lt;c-button variant="primary" icon="plus"&gt;New Item&lt;/c-button&gt;
+&lt;c-button variant="secondary" icon="edit"&gt;Edit&lt;/c-button&gt;
+&lt;c-button variant="error" icon="trash"&gt;Delete&lt;/c-button&gt;
+
+&lt;!-- In navigation --&gt;
+&lt;div class="menu bg-base-100 w-56 rounded-box"&gt;
+    &lt;li&gt;
+        &lt;a&gt;&lt;c-icon name="home" class="size-4" /&gt; Dashboard&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a&gt;&lt;c-icon name="users" class="size-4" /&gt; Users&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/div&gt;
+
+&lt;!-- In alerts --&gt;
+&lt;div class="alert alert-success"&gt;
+    &lt;c-icon name="check-circle" class="size-6" /&gt;
+    &lt;span&gt;Success message here&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Icon States -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Icon States</h3>
+            <p class="text-base-content/70 mb-6">
+                Different visual states for icons including disabled, active, and interactive states.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- Interactive states -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Interactive States</h4>
+                            <div class="flex items-center gap-4">
+                                <div class="text-center">
+                                    <c-icon name="heart" class="size-8 cursor-pointer hover:text-red-500 transition-colors"></c-icon>
+                                    <p class="text-xs mt-1">Hover</p>
+                                </div>
+                                <div class="text-center">
+                                    <c-icon name="star" class="size-8 text-yellow-500"></c-icon>
+                                    <p class="text-xs mt-1">Active</p>
+                                </div>
+                                <div class="text-center">
+                                    <c-icon name="bookmark" class="size-8 text-base-content/30"></c-icon>
+                                    <p class="text-xs mt-1">Disabled</p>
+                                </div>
+                                <div class="text-center">
+                                    <c-icon name="bell" class="size-8 text-primary animate-bounce"></c-icon>
+                                    <p class="text-xs mt-1">Animated</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Loading states -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Loading States</h4>
+                            <div class="flex items-center gap-4">
+                                <c-icon name="loader" class="size-6 animate-spin"></c-icon>
+                                <c-icon name="refresh" class="size-6 animate-spin"></c-icon>
+                                <c-icon name="circle-dot" class="size-6 animate-pulse"></c-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Interactive states --&gt;
+&lt;c-icon name="heart" class="size-8 cursor-pointer hover:text-red-500 transition-colors"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="star" class="size-8 text-yellow-500"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="bookmark" class="size-8 text-base-content/30"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="bell" class="size-8 text-primary animate-bounce"&gt;&lt;/c-icon&gt;
+
+&lt;!-- Loading states --&gt;
+&lt;c-icon name="loader" class="size-6 animate-spin"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="refresh" class="size-6 animate-spin"&gt;&lt;/c-icon&gt;
+&lt;c-icon name="circle-dot" class="size-6 animate-pulse"&gt;&lt;/c-icon&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Usage Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Usage Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Icon Library</h4>
+                        <div class="text-sm">Icons are typically provided by libraries like Lucide, Heroicons, or Feather. Check the available icon names in your chosen library.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Consistent Sizing</h4>
+                        <div class="text-sm">Use consistent icon sizes throughout your application. Common sizes are 16px (size-4), 20px (size-5), and 24px (size-6).</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Accessibility</h4>
+                        <div class="text-sm">For decorative icons, ensure they don't interfere with screen readers. For functional icons, provide appropriate aria-labels.</div>
+                    </div>
+                </div>
+
+                <div class="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Performance</h4>
+                        <div class="text-sm">Icon libraries are typically loaded once and cached. Choose a consistent library to avoid loading multiple icon sets.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Icon Categories -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Icon Categories</h3>
+            <div class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-base-100 rounded-lg">
+                        <h4 class="font-semibold mb-2">Navigation</h4>
+                        <p class="text-sm text-base-content/70 mb-2">home, menu, arrow-left, arrow-right, chevron-up, chevron-down</p>
+                    </div>
+                    <div class="p-4 bg-base-100 rounded-lg">
+                        <h4 class="font-semibold mb-2">Actions</h4>
+                        <p class="text-sm text-base-content/70 mb-2">plus, edit, trash, save, copy, share, download, upload</p>
+                    </div>
+                    <div class="p-4 bg-base-100 rounded-lg">
+                        <h4 class="font-semibold mb-2">Status</h4>
+                        <p class="text-sm text-base-content/70 mb-2">check, x, alert-triangle, info, help-circle, warning</p>
+                    </div>
+                    <div class="p-4 bg-base-100 rounded-lg">
+                        <h4 class="font-semibold mb-2">Communication</h4>
+                        <p class="text-sm text-base-content/70 mb-2">mail, phone, message-circle, send, bell, at-sign</p>
+                    </div>
+                    <div class="p-4 bg-base-100 rounded-lg">
+                        <h4 class="font-semibold mb-2">Media</h4>
+                        <p class="text-sm text-base-content/70 mb-2">play, pause, stop, skip-forward, skip-back, volume</p>
+                    </div>
+                    <div class="p-4 bg-base-100 rounded-lg">
+                        <h4 class="font-semibold mb-2">Files</h4>
+                        <p class="text-sm text-base-content/70 mb-2">file, folder, image, video, archive, document</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

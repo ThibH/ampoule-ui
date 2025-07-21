@@ -1,0 +1,404 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Progress</h1>
+        <p class="text-lg text-base-content/70">
+            A progress bar component for displaying task completion, loading states, and value indicators with DaisyUI styling.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-progress value="50" max="100" />
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-progress value="50" max="100" /&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">neutral</code></td>
+                        <td>Color variant (primary, secondary, accent, neutral, info, success, warning, error)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">value</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Current progress value</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">max</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">100</code></td>
+                        <td>Maximum value for the progress bar</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">show_label</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Whether to display the progress value as text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Custom label text to display (overrides automatic value display)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">title</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Title to display above the progress bar</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">indeterminate</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Whether to show an indeterminate (loading) progress bar</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the progress element</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Color Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Color Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Choose from different color themes to match your design and convey meaning.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Primary</label>
+                            <c-progress variant="primary" value="60" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Secondary</label>
+                            <c-progress variant="secondary" value="40" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Accent</label>
+                            <c-progress variant="accent" value="80" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Success</label>
+                            <c-progress variant="success" value="90" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Warning</label>
+                            <c-progress variant="warning" value="70" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Error</label>
+                            <c-progress variant="error" value="30" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Info</label>
+                            <c-progress variant="info" value="50" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Neutral</label>
+                            <c-progress variant="neutral" value="65" />
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Primary variant --&gt;
+&lt;c-progress variant="primary" value="60" /&gt;
+
+&lt;!-- Secondary variant --&gt;
+&lt;c-progress variant="secondary" value="40" /&gt;
+
+&lt;!-- Success variant --&gt;
+&lt;c-progress variant="success" value="90" /&gt;
+
+&lt;!-- Error variant --&gt;
+&lt;c-progress variant="error" value="30" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Labels -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Labels</h3>
+            <p class="text-base-content/70 mb-6">
+                Display progress values as text labels for better user feedback.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Percentage Display</label>
+                            <c-progress variant="primary" value="75" show_label="true" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Custom Max Value</label>
+                            <c-progress variant="success" value="20" max="50" show_label="true" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Custom Label</label>
+                            <c-progress variant="info" value="45" show_label="true" label="53.0g" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Fraction Display</label>
+                            <c-progress variant="warning" value="15" max="25" show_label="true" />
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Percentage display --&gt;
+&lt;c-progress variant="primary" value="75" show_label="true" /&gt;
+
+&lt;!-- Custom max value --&gt;
+&lt;c-progress variant="success" value="20" max="50" show_label="true" /&gt;
+
+&lt;!-- Custom label --&gt;
+&lt;c-progress variant="info" value="45" show_label="true" label="53.0g" /&gt;
+
+&lt;!-- Fraction display --&gt;
+&lt;c-progress variant="warning" value="15" max="25" show_label="true" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Titles -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Titles</h3>
+            <p class="text-base-content/70 mb-6">
+                Add descriptive titles above progress bars for better context.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <c-progress variant="primary" value="65" title="Download Progress" show_label="true" />
+
+                        <c-progress variant="success" value="80" title="Installation Complete" show_label="true" />
+
+                        <c-progress variant="warning" value="45" title="Memory Usage" show_label="true" label="4.2GB / 8GB" />
+
+                        <c-progress variant="info" value="30" title="Storage Used" show_label="true" max="500" label="150GB" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- With title and percentage --&gt;
+&lt;c-progress variant="primary" value="65" title="Download Progress" show_label="true" /&gt;
+
+&lt;!-- With title and custom label --&gt;
+&lt;c-progress variant="warning" value="45" title="Memory Usage" show_label="true" label="4.2GB / 8GB" /&gt;
+
+&lt;!-- With title and custom max --&gt;
+&lt;c-progress variant="info" value="30" title="Storage Used" show_label="true" max="500" label="150GB" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indeterminate Progress -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Indeterminate Progress</h3>
+            <p class="text-base-content/70 mb-6">
+                Use indeterminate progress bars for loading states when the completion time is unknown.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Loading...</label>
+                            <c-progress variant="primary" indeterminate="true" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Processing Data</label>
+                            <c-progress variant="info" indeterminate="true" />
+                        </div>
+
+                        <c-progress variant="success" title="Uploading Files" indeterminate="true">Please wait while we process your files...</c-progress>
+
+                        <c-progress variant="warning" title="Synchronizing" indeterminate="true">Syncing with server...</c-progress>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Basic indeterminate --&gt;
+&lt;c-progress variant="primary" indeterminate="true" /&gt;
+
+&lt;!-- With title --&gt;
+&lt;c-progress variant="success" title="Uploading Files" indeterminate="true"&gt;
+    Please wait while we process your files...
+&lt;/c-progress&gt;
+
+&lt;!-- With custom message --&gt;
+&lt;c-progress variant="info" title="Processing Data" indeterminate="true" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Different Value Formats -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Value Formats</h3>
+            <p class="text-base-content/70 mb-6">
+                Examples of various ways to display progress values with custom labels.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <c-progress variant="primary" value="75" title="Percentage" show_label="true" />
+
+                        <c-progress variant="success" value="8" max="10" title="Rating" show_label="true" />
+
+                        <c-progress variant="info" value="45" title="Weight" show_label="true" label="53.0g" />
+
+                        <c-progress variant="warning" value="1500" max="2000" title="Budget Used" show_label="true" label="$1,500 / $2,000" />
+
+                        <c-progress variant="error" value="90" title="Disk Usage" show_label="true" label="180GB / 200GB" />
+
+                        <c-progress variant="neutral" value="7" max="10" title="Progress" show_label="true" label="7 of 10 tasks" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Percentage format --&gt;
+&lt;c-progress variant="primary" value="75" title="Percentage" show_label="true" /&gt;
+
+&lt;!-- Rating format --&gt;
+&lt;c-progress variant="success" value="8" max="10" title="Rating" show_label="true" /&gt;
+
+&lt;!-- Weight format --&gt;
+&lt;c-progress variant="info" value="45" title="Weight" show_label="true" label="53.0g" /&gt;
+
+&lt;!-- Budget format --&gt;
+&lt;c-progress variant="warning" value="1500" max="2000" title="Budget Used" show_label="true" label="$1,500 / $2,000" /&gt;
+
+&lt;!-- Tasks format --&gt;
+&lt;c-progress variant="neutral" value="7" max="10" title="Progress" show_label="true" label="7 of 10 tasks" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Slot Content -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Additional Content</h3>
+            <p class="text-base-content/70 mb-6">
+                Add extra information below the progress bar using slot content.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <c-progress variant="primary" value="45" title="File Upload" show_label="true">
+                            Uploading document.pdf - 5 minutes remaining
+                        </c-progress>
+
+                        <c-progress variant="success" value="90" title="Installation" show_label="true">
+                            Installing dependencies... Almost done!
+                        </c-progress>
+
+                        <c-progress variant="warning" value="75" title="Memory Usage" show_label="true" label="6GB / 8GB">
+                            High memory usage detected. Consider closing some applications.
+                        </c-progress>
+
+                        <c-progress variant="info" indeterminate="true" title="Analyzing">
+                            Running code analysis and security checks...
+                        </c-progress>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- With upload info --&gt;
+&lt;c-progress variant="primary" value="45" title="File Upload" show_label="true"&gt;
+    Uploading document.pdf - 5 minutes remaining
+&lt;/c-progress&gt;
+
+&lt;!-- With installation message --&gt;
+&lt;c-progress variant="success" value="90" title="Installation" show_label="true"&gt;
+    Installing dependencies... Almost done!
+&lt;/c-progress&gt;
+
+&lt;!-- With warning message --&gt;
+&lt;c-progress variant="warning" value="75" title="Memory Usage" show_label="true" label="6GB / 8GB"&gt;
+    High memory usage detected. Consider closing some applications.
+&lt;/c-progress&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Usage Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Usage Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Color Meaning</h4>
+                        <div class="text-sm">Use semantic colors: success for completion, warning for moderate levels, error for critical states, and info for general progress.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Indeterminate Usage</h4>
+                        <div class="text-sm">Use indeterminate progress only when you cannot predict completion time. Provide context through titles or slot content.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Accessibility</h4>
+                        <div class="text-sm">Always provide descriptive titles and use aria-labels when necessary. Consider screen reader users when displaying progress information.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sidebar Demo 1 - Admin Panel</title>
+
+        {% load static %}
+        {% include "init-components.html" %}
+    </head>
+
+    <body class="bg-base-100 min-h-screen">
+        <c-toast-area></c-toast-area>
+
+    <!-- Sidebar Layout -->
+        <c-layout.sidebar>
+            <c-slot name="content">
+                <div class="menu p-4 w-80 min-h-screen bg-base-200">
+                <!-- Logo -->
+                    <div class="mb-8 px-4">
+                        <div class="flex items-center">
+                            <c-icon name="shield" class="w-8 h-8 text-primary mr-3"></c-icon>
+                            <span class="text-xl font-bold">AdminPanel</span>
+                        </div>
+                    </div>
+
+                <!-- User Profile -->
+                    <div class="mb-6 px-4">
+                        <div class="flex items-center gap-3 p-3 bg-base-300 rounded-lg">
+                            <c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content">AD</c-avatar>
+                            <div class="flex-1">
+                                <c-text variant="default">Admin User</c-text>
+                                <c-text variant="subtle">Administrateur</c-text>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Navigation -->
+                    <ul class="space-y-2">
+                    <!-- Dashboard -->
+                        <li>
+                            <a href="#" class="active flex items-center gap-3 p-3 rounded-lg">
+                                <c-icon name="layout-dashboard" class="w-5 h-5"></c-icon>
+                                <span>Tableau de bord</span>
+                            </a>
+                        </li>
+
+                    <!-- Users -->
+                        <li>
+                            <details open>
+                                <summary class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-base-300">
+                                    <c-icon name="users" class="w-5 h-5"></c-icon>
+                                    <span>Utilisateurs</span>
+                                </summary>
+                                <ul class="ml-8 mt-2 space-y-1">
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Tous les utilisateurs</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Ajouter utilisateur</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Rôles & permissions</a></li>
+                                </ul>
+                            </details>
+                        </li>
+
+                    <!-- Content -->
+                        <li>
+                            <details>
+                                <summary class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-base-300">
+                                    <c-icon name="file-text" class="w-5 h-5"></c-icon>
+                                    <span>Contenu</span>
+                                </summary>
+                                <ul class="ml-8 mt-2 space-y-1">
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Articles</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Pages</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Catégories</a></li>
+                                </ul>
+                            </details>
+                        </li>
+
+                    <!-- Analytics -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="bar-chart-3" class="w-5 h-5"></c-icon>
+                                <span>Analyses</span>
+                                <c-badge variant="info" size="sm" class="ml-auto">Nouveau</c-badge>
+                            </a>
+                        </li>
+
+                    <!-- E-commerce -->
+                        <li>
+                            <details>
+                                <summary class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-base-300">
+                                    <c-icon name="shopping-cart" class="w-5 h-5"></c-icon>
+                                    <span>E-commerce</span>
+                                </summary>
+                                <ul class="ml-8 mt-2 space-y-1">
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Produits</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Commandes</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Clients</a></li>
+                                </ul>
+                            </details>
+                        </li>
+
+                    <!-- Divider -->
+                        <div class="divider">Système</div>
+
+                    <!-- Settings -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="settings" class="w-5 h-5"></c-icon>
+                                <span>Paramètres</span>
+                            </a>
+                        </li>
+
+                    <!-- Logs -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="file-text" class="w-5 h-5"></c-icon>
+                                <span>Logs système</span>
+                            </a>
+                        </li>
+
+                    <!-- Help -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="help-circle" class="w-5 h-5"></c-icon>
+                                <span>Aide</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                <!-- Logout -->
+                    <div class="mt-auto pt-4">
+                        <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300 text-error">
+                            <c-icon name="log-out" class="w-5 h-5"></c-icon>
+                            <span>Déconnexion</span>
+                        </a>
+                    </div>
+                </div>
+            </c-slot>
+
+            <c-slot name="main">
+                <div class="flex-1 p-8">
+                <!-- Header -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <c-text variant="strong" class="text-3xl">Tableau de bord</c-text>
+                            <div class="flex items-center gap-4">
+                            <!-- Notifications -->
+                                <c-dropdown
+                                    placement="end"
+                                    variant="ghost"
+                                    icon="settings"
+                                    circle
+                                >
+                                    <li class="menu-title">
+                                        <span>Notifications récentes</span>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-center gap-2">
+                                            <c-icon name="user-plus" class="w-4 h-4 text-info"></c-icon>
+                                            <span class="text-sm">Nouvel utilisateur inscrit</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="flex items-center gap-2">
+                                            <c-icon name="shopping-cart" class="w-4 h-4 text-success"></c-icon>
+                                            <span class="text-sm">Nouvelle commande #1234</span>
+                                        </a>
+                                    </li>
+                                </c-dropdown>
+
+                            <!-- Quick Actions -->
+                                <c-button variant="primary" icon="plus">
+                                    Nouveau
+                                </c-button>
+                            </div>
+                        </div>
+
+                        <c-text variant="subtle">Bienvenue dans votre panneau d'administration</c-text>
+                    </div>
+
+                <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="stat bg-base-200 rounded-lg">
+                            <div class="stat-figure text-primary">
+                                <c-icon name="users" class="w-8 h-8"></c-icon>
+                            </div>
+                            <c-text variant="subtle" class="stat-title">Utilisateurs totaux</c-text>
+                            <c-text variant="strong" class="stat-value">31K</c-text>
+                            <c-text variant="subtle" class="stat-desc">+2% ce mois</c-text>
+                        </div>
+
+                        <div class="stat bg-base-200 rounded-lg">
+                            <div class="stat-figure text-secondary">
+                                <c-icon name="shopping-cart" class="w-8 h-8"></c-icon>
+                            </div>
+                            <c-text variant="subtle" class="stat-title">Commandes</c-text>
+                            <c-text variant="strong" class="stat-value">4,200</c-text>
+                            <c-text variant="subtle" class="stat-desc">+15% ce mois</c-text>
+                        </div>
+
+                        <div class="stat bg-base-200 rounded-lg">
+                            <div class="stat-figure text-accent">
+                                <c-icon name="euro" class="w-8 h-8"></c-icon>
+                            </div>
+                            <c-text variant="subtle" class="stat-title">Revenus</c-text>
+                            <c-text variant="strong" class="stat-value">€86.2K</c-text>
+                            <c-text variant="subtle" class="stat-desc">+8% ce mois</c-text>
+                        </div>
+
+                        <div class="stat bg-base-200 rounded-lg">
+                            <div class="stat-figure text-info">
+                                <c-icon name="trending-up" class="w-8 h-8"></c-icon>
+                            </div>
+                            <c-text variant="subtle" class="stat-title">Conversion</c-text>
+                            <c-text variant="strong" class="stat-value">3.2%</c-text>
+                            <c-text variant="subtle" class="stat-desc">+0.3% ce mois</c-text>
+                        </div>
+                    </div>
+
+                <!-- Content Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Recent Activity -->
+                        <c-card bg="base-200">
+                            <c-slot name="title">
+                                Activité récente
+                            </c-slot>
+                            <c-slot name="content">
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3">
+                                        <c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content">JD</c-avatar>
+                                        <div class="flex-1">
+                                            <c-text variant="default">Jean Dupont a créé un nouvel article</c-text>
+                                            <c-text variant="subtle">Il y a 5 minutes</c-text>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-3">
+                                        <c-avatar placeholder size="w-10" bg_color="bg-secondary" text_color="text-secondary-content">ML</c-avatar>
+                                        <div class="flex-1">
+                                            <c-text variant="default">Marie Lopez a modifié les paramètres</c-text>
+                                            <c-text variant="subtle">Il y a 15 minutes</c-text>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-3">
+                                        <c-avatar placeholder size="w-10" bg_color="bg-accent" text_color="text-accent-content">PD</c-avatar>
+                                        <div class="flex-1">
+                                            <c-text variant="default">Pierre Durand a ajouté un produit</c-text>
+                                            <c-text variant="subtle">Il y a 1 heure</c-text>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c-slot>
+                        </c-card>
+
+                    <!-- Quick Stats -->
+                        <c-card bg="base-200">
+                            <c-slot name="title">
+                                Statistiques rapides
+                            </c-slot>
+                            <c-slot name="content">
+                                <div class="space-y-4">
+                                    <div class="flex justify-between items-center">
+                                        <c-text variant="default">Pages vues aujourd'hui</c-text>
+                                        <c-text variant="strong">12,543</c-text>
+                                    </div>
+                                    <c-progress variant="primary" value="75" show_label="true"></c-progress>
+
+                                    <div class="flex justify-between items-center">
+                                        <c-text variant="default">Taux de conversion</c-text>
+                                        <c-text variant="strong">3.2%</c-text>
+                                    </div>
+                                    <c-progress variant="success" value="32" show_label="true"></c-progress>
+
+                                    <div class="flex justify-between items-center">
+                                        <c-text variant="default">Taux de rebond</c-text>
+                                        <c-text variant="strong">42%</c-text>
+                                    </div>
+                                    <c-progress variant="warning" value="42" show_label="true"></c-progress>
+                                </div>
+                            </c-slot>
+                        </c-card>
+                    </div>
+
+                <!-- Recent Orders Table -->
+                    <div class="mt-8">
+                        <c-card bg="base-200">
+                            <c-slot name="title">
+                                Commandes récentes
+                            </c-slot>
+                            <c-slot name="content">
+                                <div class="overflow-x-auto">
+                                    <table class="table table-zebra w-full">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Client</th>
+                                                <th>Produit</th>
+                                                <th>Montant</th>
+                                                <th>Statut</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#1234</td>
+                                                <td>
+                                                    <div class="flex items-center gap-3">
+                                                        <c-avatar placeholder size="w-8" bg_color="bg-neutral" text_color="text-neutral-content">AM</c-avatar>
+                                                        <c-text variant="default">Anna Martin</c-text>
+                                                    </div>
+                                                </td>
+                                                <td>iPhone 15 Pro</td>
+                                                <td>€1,199</td>
+                                                <td><c-badge variant="success">Livré</c-badge></td>
+                                                <td>
+                                                    <c-button variant="ghost" size="sm">Voir</c-button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1235</td>
+                                                <td>
+                                                    <div class="flex items-center gap-3">
+                                                        <c-avatar placeholder size="w-8" bg_color="bg-neutral" text_color="text-neutral-content">LB</c-avatar>
+                                                        <c-text variant="default">Luc Bernard</c-text>
+                                                    </div>
+                                                </td>
+                                                <td>MacBook Air</td>
+                                                <td>€1,399</td>
+                                                <td><c-badge variant="warning">En cours</c-badge></td>
+                                                <td>
+                                                    <c-button variant="ghost" size="sm">Voir</c-button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1236</td>
+                                                <td>
+                                                    <div class="flex items-center gap-3">
+                                                        <c-avatar placeholder size="w-8" bg_color="bg-neutral" text_color="text-neutral-content">SD</c-avatar>
+                                                        <c-text variant="default">Sophie Dubois</c-text>
+                                                    </div>
+                                                </td>
+                                                <td>AirPods Pro</td>
+                                                <td>€279</td>
+                                                <td><c-badge variant="info">Expédiée</c-badge></td>
+                                                <td>
+                                                    <c-button variant="ghost" size="sm">Voir</c-button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </c-slot>
+                        </c-card>
+                    </div>
+                </div>
+            </c-slot>
+        </c-layout.sidebar>
+
+        {% include "scripts.html" %}
+
+    </body>
+
+</html>

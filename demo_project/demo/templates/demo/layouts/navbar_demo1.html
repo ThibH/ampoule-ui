@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navbar Demo 1 - Application Dashboard</title>
+
+        {% load static %}
+        {% include "init-components.html" %}
+    </head>
+
+    <body class="bg-base-100 flex flex-col min-h-screen" x-data="{
+                                                                 basicGroups: [
+                                                                 {
+                                                                 id: 'file',
+                                                                 label: 'Fichier',
+                                                                 items: [
+                                                                 {
+                                                                 id: 'new',
+                                                                 label: 'Nouveau',
+                                                                 icon: 'file-plus',
+                                                                 suffix: 'Créer un nouveau document',
+                                                                 kbd: ['Ctrl', 'N']
+                                                                 },
+                                                                 {
+                                                                 id: 'open',
+                                                                 label: 'Ouvrir',
+                                                                 icon: 'folder-open',
+                                                                 suffix: 'Ouvrir un fichier existant'
+                                                                 },
+                                                                 {
+                                                                 id: 'save',
+                                                                 label: 'Sauvegarder',
+                                                                 icon: 'save',
+                                                                 kbd: ['Ctrl', 'S']
+                                                                 }
+                                                                 ]
+                                                                 },
+                                                                 {
+                                                                 id: 'edit',
+                                                                 label: 'Édition',
+                                                                 items: [
+                                                                 {
+                                                                 id: 'copy',
+                                                                 label: 'Copier',
+                                                                 icon: 'copy',
+                                                                 kbd: ['Ctrl', 'C']
+                                                                 },
+                                                                 {
+                                                                 id: 'paste',
+                                                                 label: 'Coller',
+                                                                 icon: 'clipboard',
+                                                                 kbd: ['Ctrl', 'V']
+                                                                 }
+                                                                 ]
+                                                                 }
+                                                                 ],
+                                                                 }">
+        <c-toast-area></c-toast-area>
+
+    <!-- Command Palette -->
+        <c-command_palette
+            modal_id="search_palette"
+            placeholder="Rechercher dans l'application..."
+            global_shortcut="false"
+            :groups="basicGroups">
+        </c-command_palette>
+
+    <!-- Navbar Layout -->
+        <c-layout.navbar centered sticky>
+            <c-slot name="logo">
+                <div class="flex items-center">
+                    <c-icon name="zap" class="w-8 h-8 text-primary mr-2"></c-icon>
+                    <span class="text-xl font-bold">DashApp</span>
+                </div>
+            </c-slot>
+
+            <c-slot name="nav_end">
+                <div class="flex items-center gap-2">
+                <!-- Search -->
+                    <div class="form-control">
+                        <div class="relative cursor-pointer"
+                             @click="window.openSearchPalette(basicGroups)">
+                            <input
+                                type="text"
+                                placeholder="Rechercher..."
+                                class="input input-bordered input-sm w-64 cursor-pointer"
+                                readonly
+                            />
+                        </div>
+                    </div>
+
+                <!-- Notifications -->
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                            <div class="indicator">
+                                <c-icon name="bell" class="w-5 h-5"></c-icon>
+                                <span class="badge badge-xs badge-primary indicator-item">3</span>
+                            </div>
+                        </div>
+                        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a>Nouvelle commande</a></li>
+                            <li><a>Rapport mensuel</a></li>
+                            <li><a>Mise à jour système</a></li>
+                        </ul>
+                    </div>
+
+                <!-- User Profile -->
+                    <c-dropdown variant="ghost" placement="end" circle>
+                        <c-slot name="icon_slot">
+                            <c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content">JD</c-avatar>
+                        </c-slot>
+                        <li><a>Profile</a></li>
+                        <li><a>Settings</a></li>
+                        <li><a>Logout</a></li>
+                    </c-dropdown>
+                </div>
+            </c-slot>
+        </c-layout.navbar>
+
+    <!-- Main Content -->
+        <main class="container mx-auto px-6 py-8 flex-grow h-full">
+        <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <c-card bg="base-200">
+                    <c-slot name="title">Total Users</c-slot>
+                    <c-slot name="content">
+                        <c-icon name="users" class="w-8 h-8"></c-icon>
+                        <c-text variant="strong">89,400</c-text>
+                        <c-text variant="subtle">21% more than last month</c-text>
+                    </c-slot>
+                </c-card>
+
+                <c-card bg="base-200">
+                    <c-slot name="title">New Orders</c-slot>
+                    <c-slot name="content">
+                        <c-icon name="shopping-cart" class="w-8 h-8"></c-icon>
+                        <c-text variant="strong">2,100</c-text>
+                        <c-text variant="subtle">12% more than last month</c-text>
+                    </c-slot>
+                </c-card>
+
+                <c-card bg="base-200">
+                    <c-slot name="title">Revenue</c-slot>
+                    <c-slot name="content">
+                        <c-icon name="trending-up" class="w-8 h-8"></c-icon>
+                        <c-text variant="strong">€31,200</c-text>
+                        <c-text variant="subtle">8% more than last month</c-text>
+                    </c-slot>
+                </c-card>
+
+                <c-card bg="base-200">
+                    <c-slot name="title">Page Views</c-slot>
+                    <c-slot name="content">
+                        <c-icon name="eye" class="w-8 h-8"></c-icon>
+                        <c-text variant="strong">1.2M</c-text>
+                        <c-text variant="subtle">3% more than last month</c-text>
+                    </c-slot>
+                </c-card>
+            </div>
+
+        <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Chart Card -->
+                <c-card bg="base-200">
+                    <c-slot name="title">Analytics Overview</c-slot>
+                    <c-slot name="content">
+                        <div class="h-64 bg-base-300 rounded-lg flex items-center justify-center">
+                            <div class="text-center">
+                                <c-icon name="bar-chart-3" class="w-16 h-16 text-base-content/50 mx-auto mb-4"></c-icon>
+                                <c-text variant="subtle">Chart placeholder</c-text>
+                            </div>
+                        </div>
+                    </c-slot>
+                </c-card>
+
+            <!-- Recent Activity -->
+                <c-card bg="base-200">
+                    <c-slot name="title">Recent Activity</c-slot>
+                    <c-slot name="content">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <c-avatar placeholder size="w-8" bg_color="bg-primary" text_color="text-primary-content">M</c-avatar>
+                                <div class="flex-1">
+                                    <c-text variant="default">Marie created a new project</c-text>
+                                    <c-text variant="subtle">2 minutes ago</c-text>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <c-avatar placeholder size="w-8" bg_color="bg-secondary" text_color="text-secondary-content">P</c-avatar>
+                                <div class="flex-1">
+                                    <c-text variant="default">Paul completed task #127</c-text>
+                                    <c-text variant="subtle">15 minutes ago</c-text>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <c-avatar placeholder size="w-8" bg_color="bg-accent" text_color="text-accent-content">A</c-avatar>
+                                <div class="flex-1">
+                                    <c-text variant="default">Anna uploaded 5 files</c-text>
+                                    <c-text variant="subtle">1 hour ago</c-text>
+                                </div>
+                            </div>
+                        </div>
+                    </c-slot>
+                </c-card>
+            </div>
+
+        <!-- Quick Actions -->
+            <div class="mt-8">
+                <c-text variant="strong" class="text-xl mb-4">Quick Actions</c-text>
+                <div class="flex flex-wrap gap-4">
+                    <c-button variant="primary" class="gap-2">
+                        <c-icon name="plus" class="w-4 h-4"></c-icon>
+                        New Project
+                    </c-button>
+                    <c-button variant="primary" class="gap-2">
+                        <c-icon name="upload" class="w-4 h-4"></c-icon>
+                        Upload Files
+                    </c-button>
+                    <c-button variant="primary" class="gap-2">
+                        <c-icon name="users" class="w-4 h-4"></c-icon>
+                        Invite Team
+                    </c-button>
+                    <c-button variant="primary" class="gap-2">
+                        <c-icon name="download" class="w-4 h-4"></c-icon>
+                        Export Data
+                    </c-button>
+                </div>
+            </div>
+        </main>
+
+    <!-- Footer -->
+        <c-layout.footer class="mt-auto">
+            <c-slot name="content">
+                <div class="footer-center">
+                    <div>
+                        <c-icon name="zap" class="w-8 h-8 text-primary"></c-icon>
+                        <c-text variant="strong">DashApp <br/>Professional Dashboard Solution</c-text>
+                        <c-text variant="default">Copyright © 2024 - All rights reserved</c-text>
+                    </div>
+                </div>
+            </c-slot>
+
+            <c-slot name="nav">
+                <div>
+                    <c-text variant="strong" class="footer-title">Services</c-text>
+                    <a class="link link-hover">Analytics</a>
+                    <a class="link link-hover">Reports</a>
+                    <a class="link link-hover">Integration</a>
+                    <a class="link link-hover">Support</a>
+                </div>
+                <div>
+                    <c-text variant="strong" class="footer-title">Company</c-text>
+                    <a class="link link-hover">About us</a>
+                    <a class="link link-hover">Contact</a>
+                    <a class="link link-hover">Jobs</a>
+                    <a class="link link-hover">Press kit</a>
+                </div>
+                <div>
+                    <c-text variant="strong" class="footer-title">Legal</c-text>
+                    <a class="link link-hover">Terms of use</a>
+                    <a class="link link-hover">Privacy policy</a>
+                    <a class="link link-hover">Cookie policy</a>
+                </div>
+            </c-slot>
+        </c-layout.footer>
+
+
+        {% include "scripts.html" %}
+    </body>
+</html>

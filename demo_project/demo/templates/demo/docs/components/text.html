@@ -1,0 +1,246 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Text</h1>
+        <c-text variant="subtle" class="text-lg">
+            A versatile text component with support for different variants and custom colors.
+        </c-text>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-text>Default text content</c-text>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-text&gt;Default text content&lt;/c-text&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">default</code></td>
+                        <td>Text style: default, strong, subtle</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">color</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Tailwind color class (e.g., "red-500", "blue-100")</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Text Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Text Variants</h3>
+            <c-text variant="subtle" class="mb-6 block">
+                The text component supports three style variants via the <code class="bg-base-300 px-2 py-1 rounded">variant</code> prop.
+            </c-text>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-3">
+                        <div><c-text variant="default">This is default text with normal weight and standard color</c-text></div>
+                        <div><c-text variant="strong">This is strong text with semi-bold weight and darker color</c-text></div>
+                        <div><c-text variant="subtle">This is subtle text with normal weight and lighter color</c-text></div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-text variant="default"&gt;This is default text&lt;/c-text&gt;
+&lt;c-text variant="strong"&gt;This is strong text&lt;/c-text&gt;
+&lt;c-text variant="subtle"&gt;This is subtle text&lt;/c-text&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Colors -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Custom Colors</h3>
+            <c-text variant="subtle" class="mb-6 block">
+                Override the default color with any Tailwind color class using the <code class="bg-base-300 px-2 py-1 rounded">color</code> prop.
+            </c-text>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-3">
+                        <div><c-text color="red-500">This is red text</c-text></div>
+                        <div><c-text color="blue-600">This is blue text</c-text></div>
+                        <div><c-text color="green-500">This is green text</c-text></div>
+                        <div><c-text color="purple-500">This is purple text</c-text></div>
+                        <div><c-text color="orange-500">This is orange text</c-text></div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-text color="red-500"&gt;This is red text&lt;/c-text&gt;
+&lt;c-text color="blue-600"&gt;This is blue text&lt;/c-text&gt;
+&lt;c-text color="green-500"&gt;This is green text&lt;/c-text&gt;
+&lt;c-text color="purple-500"&gt;This is purple text&lt;/c-text&gt;
+&lt;c-text color="orange-500"&gt;This is orange text&lt;/c-text&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variants with Custom Colors -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Variants with Custom Colors</h3>
+            <c-text variant="subtle" class="mb-6 block">
+                Combine variants with custom colors for more styling options.
+            </c-text>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-3">
+                        <div><c-text variant="strong" color="red-600">Strong red text</c-text></div>
+                        <div><c-text variant="subtle" color="blue-400">Subtle blue text</c-text></div>
+                        <div><c-text variant="default" color="green-600">Default green text</c-text></div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-text variant="strong" color="red-600"&gt;Strong red text&lt;/c-text&gt;
+&lt;c-text variant="subtle" color="blue-400"&gt;Subtle blue text&lt;/c-text&gt;
+&lt;c-text variant="default" color="green-600"&gt;Default green text&lt;/c-text&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Styling -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Additional Styling</h3>
+            <c-text variant="subtle" class="mb-6 block">
+                Use the <code class="bg-base-300 px-2 py-1 rounded">class</code> prop to add extra styling with Tailwind classes.
+            </c-text>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-3">
+                        <div><c-text class="text-lg">Large text</c-text></div>
+                        <div><c-text class="text-sm">Small text</c-text></div>
+                        <div><c-text class="uppercase tracking-wide">Uppercase with letter spacing</c-text></div>
+                        <div><c-text class="italic">Italic text</c-text></div>
+                        <div><c-text class="underline">Underlined text</c-text></div>
+                        <div><c-text class="text-center block">Centered text (with block display)</c-text></div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-text class="text-lg"&gt;Large text&lt;/c-text&gt;
+&lt;c-text class="text-sm"&gt;Small text&lt;/c-text&gt;
+&lt;c-text class="uppercase tracking-wide"&gt;Uppercase with letter spacing&lt;/c-text&gt;
+&lt;c-text class="italic"&gt;Italic text&lt;/c-text&gt;
+&lt;c-text class="underline"&gt;Underlined text&lt;/c-text&gt;
+&lt;c-text class="text-center block"&gt;Centered text&lt;/c-text&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-world Usage -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Real-world Usage</h3>
+            <c-text variant="subtle" class="mb-6 block">
+                Examples of how the text component can be used in typical UI patterns.
+            </c-text>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <!-- Card-like content -->
+                        <div class="p-4 bg-base-100 rounded-lg">
+                            <c-text variant="strong" class="text-xl mb-2 block">Product Title</c-text>
+                            <c-text variant="default" class="mb-3 block">This is a detailed description of the product with all the important information customers need to know.</c-text>
+                            <c-text variant="subtle" class="text-sm block">Last updated: January 2025</c-text>
+                        </div>
+
+                        <!-- Status messages -->
+                        <div class="space-y-2">
+                            <c-text variant="strong" color="green-600">✓ Success: Operation completed successfully</c-text>
+                            <c-text variant="default" color="yellow-600">⚠ Warning: Please review your settings</c-text>
+                            <c-text variant="subtle" color="red-500">✗ Error: Something went wrong</c-text>
+                        </div>
+
+                        <!-- Form helper text -->
+                        <div class="space-y-2">
+                            <label class="block">
+                                <c-text variant="strong" class="mb-1 block">Email Address</c-text>
+                                <input type="email" class="input w-full" placeholder="Enter your email">
+                                <c-text variant="subtle" class="text-sm mt-1 block">We'll never share your email with anyone else</c-text>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Card content --&gt;
+&lt;c-text variant="strong" class="text-xl mb-2 block"&gt;Product Title&lt;/c-text&gt;
+&lt;c-text variant="default" class="mb-3 block"&gt;Product description...&lt;/c-text&gt;
+&lt;c-text variant="subtle" class="text-sm block"&gt;Last updated: January 2025&lt;/c-text&gt;
+
+&lt;!-- Status messages --&gt;
+&lt;c-text variant="strong" color="green-600"&gt;✓ Success message&lt;/c-text&gt;
+&lt;c-text variant="default" color="yellow-600"&gt;⚠ Warning message&lt;/c-text&gt;
+&lt;c-text variant="subtle" color="red-500"&gt;✗ Error message&lt;/c-text&gt;
+
+&lt;!-- Form helper text --&gt;
+&lt;c-text variant="strong" class="mb-1 block"&gt;Field Label&lt;/c-text&gt;
+&lt;c-text variant="subtle" class="text-sm mt-1 block"&gt;Helper text&lt;/c-text&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Design Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Design Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Semantic Usage</h4>
+                        <div class="text-sm">Use <code>strong</code> for important text, <code>subtle</code> for secondary information, and <code>default</code> for regular content.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Display Types</h4>
+                        <div class="text-sm">By default, text renders as <code>span</code> (inline). Use <code>class="block"</code> for block-level display.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

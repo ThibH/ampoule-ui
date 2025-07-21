@@ -1,0 +1,19 @@
+{% comment %}
+Usage:
+<c-icon name="volume-2" />
+<c-icon name="x" />
+<c-icon name="menu" />
+
+Paramètres:
+- name: nom de l'icône (requis)
+{% endcomment %}
+
+<c-vars size="md" />
+
+<i data-lucide="{{ name }}"
+   class="
+          {% if size == 'xs' %}size-4{% endif %}
+          {% if size == 'sm' %}size-6{% endif %}
+          {% if size == 'lg' %}size-12{% endif %}
+          {% if size == 'xl' %}size-16{% endif %}
+          {{ class }}" {{ attrs }}></i>

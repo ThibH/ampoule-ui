@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}UI Blocks - Django Components UI{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-base-100">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-primary/5 to-secondary/5 border-b border-base-300">
+        <div class="container mx-auto px-6 py-16">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl font-bold text-base-content mb-4">
+                    UI Blocks
+                </h1>
+                <p class="text-xl text-base-content/70 mb-8">
+                    Ready-to-use UI components and blocks to build beautiful interfaces faster. 
+                    Copy, paste, and customize these components for your Django projects.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <c-button variant="primary" icon="book-open" href="{% url 'demo:docs' %}">
+                        View Documentation
+                    </c-button>
+                    <c-button variant="outline" href="https://github.com" icon_trailing="external-link">
+                        GitHub
+                    </c-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Navigation -->
+    <div class="container mx-auto px-6 py-8">
+        <div class="mb-8">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div>
+                    <h2 class="text-2xl font-semibold text-base-content">Browse by Category</h2>
+                    <p class="text-base-content/70 mt-1">Choose from our organized collection of UI blocks</p>
+                </div>
+                
+                <!-- Category Links -->
+                <div class="flex gap-3">
+                    <c-button variant="ghost" href="{% url 'demo:ui_blocks_category' 'marketing-ui' %}">
+                        <c-icon name="megaphone" class="mr-2" />
+                        Marketing UI
+                    </c-button>
+                    <c-button variant="ghost" href="{% url 'demo:ui_blocks_category' 'application-ui' %}">
+                        <c-icon name="layout-dashboard" class="mr-2" />
+                        Application UI
+                    </c-button>
+                    <c-button variant="ghost" href="{% url 'demo:ui_blocks_category' 'ecommerce-ui' %}">
+                        <c-icon name="shopping-cart" class="mr-2" />
+                        E-commerce UI
+                    </c-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Blocks Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for block in all_blocks %}
+            <c-card>
+                <!-- Category Badge -->
+                <div class="absolute top-4 right-4">
+                    {% if block.category == 'marketing_ui' %}
+                        <c-badge variant="neutral" size="sm">Marketing UI</c-badge>
+                    {% elif block.category == 'application_ui' %}
+                        <c-badge variant="neutral" size="sm">Application UI</c-badge>
+                    {% elif block.category == 'ecommerce_ui' %}
+                        <c-badge variant="neutral" size="sm">E-commerce UI</c-badge>
+                    {% endif %}
+                </div>
+
+                <!-- Block Icon -->
+                <div class="mb-4">
+                    {% if block.id == 'headers' %}
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <c-icon name="layout-template" class="w-6 h-6 text-primary" />
+                        </div>
+                    {% elif block.id == 'cards' %}
+                        <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                            <c-icon name="square-stack" class="w-6 h-6 text-secondary" />
+                        </div>
+                    {% elif block.id == 'dashboards' %}
+                        <div class="w-12 h-12 bg-info/10 rounded-lg flex items-center justify-center">
+                            <c-icon name="chart-bar" class="w-6 h-6 text-info" />
+                        </div>
+                    {% elif block.id == 'stats' %}
+                        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                            <c-icon name="chart-line" class="w-6 h-6 text-accent" />
+                        </div>
+                    {% elif block.id == 'auth-forms' %}
+                        <div class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center">
+                            <c-icon name="shield-check" class="w-6 h-6 text-warning" />
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Block Content -->
+                <div class="mb-4 flex flex-col gap-1">
+                    <c-text variant="strong" size="lg">{{ block.name }}</c-text>
+                    <c-text size="sm">{{ block.description }}</c-text>
+                    <c-text variant="subtle" icon="box">{{ block.components_count }} component{{ block.components_count|pluralize }}</c-text>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2">
+                    <c-button
+                        variant="neutral"
+                        icon="eye"
+                        block
+                        href="{% if block.category == 'marketing_ui' %}{% url 'demo:ui_blocks_detail' 'marketing-ui' block.id %}{% elif block.category == 'application_ui' %}{% url 'demo:ui_blocks_detail' 'application-ui' block.id %}{% endif %}"
+                    >
+                        View Details
+                    </c-button>
+                </div>
+            </c-card>
+            {% endfor %}
+
+            <!-- E-commerce UI Coming Soon Card -->
+            <div class="group relative bg-base-100 border border-dashed border-base-300 rounded-lg p-6 opacity-60">
+                <!-- Category Badge -->
+                <div class="absolute top-4 right-4">
+                    <c-badge variant="warning" size="sm">E-commerce UI</c-badge>
+                </div>
+
+                <!-- Block Icon -->
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center">
+                        <c-icon name="shopping-cart" class="w-6 h-6 text-warning" />
+                    </div>
+                </div>
+
+                <!-- Block Content -->
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold text-base-content mb-2">E-commerce Blocks</h3>
+                    <p class="text-base-content/70 text-sm mb-3">Product grids, shopping carts, and checkout flows</p>
+                    
+                    <!-- Coming Soon -->
+                    <div class="flex items-center text-xs text-base-content/60">
+                        <c-icon name="clock" class="w-4 h-4 mr-1" />
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex gap-2">
+                    <c-button variant="outline" size="sm" disabled class="flex-1">
+                        <c-icon name="clock" class="mr-2" />
+                        Coming Soon
+                    </c-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="bg-base-200 border-t border-base-300 mt-16">
+        <div class="container mx-auto px-6 py-12">
+            <div class="max-w-2xl mx-auto text-center">
+                <h3 class="text-2xl font-semibold mb-4">Ready to build something amazing?</h3>
+                <p class="text-base-content/70 mb-6">
+                    Get started with Django Components UI and build beautiful interfaces faster than ever.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <c-button variant="primary" href="{% url 'demo:docs' %}">
+                        Get Started
+                    </c-button>
+                    <c-button variant="outline" href="{% url 'demo:docs_page' 'components' 'button' %}">
+                        Browse Components
+                    </c-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

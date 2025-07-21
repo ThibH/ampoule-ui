@@ -1,0 +1,573 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Input</h1>
+        <p class="text-lg text-base-content/70">
+            A comprehensive input component with support for labels, validation, icons, and various input types. Includes Django forms integration.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-form.input type="text" placeholder="Enter your text..." />
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-form.input type="text" placeholder="Enter your text..." /&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">field</code></td>
+                        <td><code class="text-sm">Django Field</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Django form field for automatic integration</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">type</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">text</code></td>
+                        <td>Input type: text, email, password, url, tel, search, number</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">placeholder</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Placeholder text for the input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Label text displayed above the input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">description</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Help text displayed below the input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon_leading</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display on the left side</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon_trailing</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display on the right side</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">text_leading</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Text to display on the left side (prefix)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">text_trailing</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Text to display on the right side (suffix)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Input size: xs, sm, md, lg</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">default</code></td>
+                        <td>Color variant: default, primary, secondary, accent, info, success, warning, error</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">disabled</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Disable the input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">readonly</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Make the input read-only</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">required</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Make the input required</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">invalid</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Mark the input as invalid/error state</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">clearable</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Add a clear button to empty the input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Unique identifier for the input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">name</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Form field name</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">value</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Default or current value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Input Types -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Input Types</h3>
+            <p class="text-base-content/70 mb-6">
+                Different input types for various data collection needs.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <c-form.input type="text" placeholder="Text input" />
+                        <c-form.input type="email" placeholder="Email address" />
+                        <c-form.input type="password" placeholder="Password" />
+                        <c-form.input type="url" placeholder="Website URL" />
+                        <c-form.input type="tel" placeholder="Phone number" />
+                        <c-form.input type="search" placeholder="Search..." />
+                        <c-form.input type="number" placeholder="Number" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input type="text" placeholder="Text input" /&gt;
+&lt;c-form.input type="email" placeholder="Email address" /&gt;
+&lt;c-form.input type="password" placeholder="Password" /&gt;
+&lt;c-form.input type="url" placeholder="Website URL" /&gt;
+&lt;c-form.input type="tel" placeholder="Phone number" /&gt;
+&lt;c-form.input type="search" placeholder="Search..." /&gt;
+&lt;c-form.input type="number" placeholder="Number" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Labels and Descriptions -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Labels and Descriptions</h3>
+            <p class="text-base-content/70 mb-6">
+                Add labels and description text to provide context and help.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.input
+                            type="email"
+                            label="Email Address"
+                            placeholder="Enter your email"
+                            description="We'll never share your email with anyone else." />
+                        <c-form.input
+                            type="password"
+                            label="Password"
+                            placeholder="Enter your password"
+                            description="Must be at least 8 characters long." />
+                        <c-form.input
+                            type="text"
+                            label="Username"
+                            placeholder="Choose a username" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input 
+    type="email" 
+    label="Email Address" 
+    placeholder="Enter your email" 
+    description="We'll never share your email with anyone else." /&gt;
+
+&lt;c-form.input 
+    type="password" 
+    label="Password" 
+    placeholder="Enter your password" 
+    description="Must be at least 8 characters long." /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Add leading and trailing icons to enhance the input appearance.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.input
+                            type="email"
+                            icon_leading="mail"
+                            placeholder="Enter your email" />
+                        <c-form.input
+                            type="search"
+                            icon_leading="search"
+                            placeholder="Search..." />
+                        <c-form.input
+                            type="text"
+                            icon_leading="user"
+                            icon_trailing="check"
+                            placeholder="Username"
+                            value="john_doe" />
+                        <c-form.input
+                            type="password"
+                            icon_leading="lock"
+                            placeholder="Password" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input 
+    type="email" 
+    icon_leading="mail" 
+    placeholder="Enter your email" /&gt;
+
+&lt;c-form.input 
+    type="search" 
+    icon_leading="search" 
+    placeholder="Search..." /&gt;
+
+&lt;c-form.input 
+    type="text" 
+    icon_leading="user" 
+    icon_trailing="check" 
+    placeholder="Username" 
+    value="john_doe" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Text Prefixes and Suffixes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Text Prefixes and Suffixes</h3>
+            <p class="text-base-content/70 mb-6">
+                Add text prefixes and suffixes to provide context, formatting hints, or structure data entry.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.input
+                            type="text"
+                            label="Website URL"
+                            text_leading="https://"
+                            text_trailing=".com"
+                            placeholder="google" />
+                        <c-form.input
+                            type="number"
+                            label="Price"
+                            text_leading="$"
+                            text_trailing="USD"
+                            placeholder="100.00" />
+                        <c-form.input
+                            type="text"
+                            label="Username"
+                            text_leading="@"
+                            placeholder="username" />
+                        <c-form.input
+                            type="email"
+                            label="Company Email"
+                            text_trailing="@company.com"
+                            placeholder="john" />
+                        <c-form.input
+                            type="tel"
+                            label="Phone Number"
+                            text_leading="+1"
+                            placeholder="(555) 123-4567" />
+                        <c-form.input
+                            type="text"
+                            label="Percentage"
+                            text_trailing="%"
+                            placeholder="75" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input 
+    type="text" 
+    label="Website URL"
+    text_leading="https://" 
+    text_trailing=".com" 
+    placeholder="google" /&gt;
+
+&lt;c-form.input 
+    type="number" 
+    label="Price"
+    text_leading="$" 
+    text_trailing="USD" 
+    placeholder="100.00" /&gt;
+
+&lt;c-form.input 
+    type="text" 
+    label="Username"
+    text_leading="@" 
+    placeholder="username" /&gt;
+
+&lt;c-form.input 
+    type="email" 
+    label="Company Email"
+    text_trailing="@company.com" 
+    placeholder="john" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Input Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Different sizes available with the size property.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.input size="xs" placeholder="Extra small input" />
+                        <c-form.input size="sm" placeholder="Small input" />
+                        <c-form.input size="md" placeholder="Medium input (default)" />
+                        <c-form.input size="lg" placeholder="Large input" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input size="xs" placeholder="Extra small input" /&gt;
+&lt;c-form.input size="sm" placeholder="Small input" /&gt;
+&lt;c-form.input size="md" placeholder="Medium input (default)" /&gt;
+&lt;c-form.input size="lg" placeholder="Large input" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Color Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Different color variants for various use cases.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.input variant="default" placeholder="Default variant" />
+                        <c-form.input variant="primary" placeholder="Primary variant" />
+                        <c-form.input variant="secondary" placeholder="Secondary variant" />
+                        <c-form.input variant="accent" placeholder="Accent variant" />
+                        <c-form.input variant="info" placeholder="Info variant" />
+                        <c-form.input variant="success" placeholder="Success variant" />
+                        <c-form.input variant="warning" placeholder="Warning variant" />
+                        <c-form.input variant="error" placeholder="Error variant" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input variant="default" placeholder="Default variant" /&gt;
+&lt;c-form.input variant="primary" placeholder="Primary variant" /&gt;
+&lt;c-form.input variant="secondary" placeholder="Secondary variant" /&gt;
+&lt;c-form.input variant="accent" placeholder="Accent variant" /&gt;
+&lt;c-form.input variant="info" placeholder="Info variant" /&gt;
+&lt;c-form.input variant="success" placeholder="Success variant" /&gt;
+&lt;c-form.input variant="warning" placeholder="Warning variant" /&gt;
+&lt;c-form.input variant="error" placeholder="Error variant" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- States -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">States</h3>
+            <p class="text-base-content/70 mb-6">
+                Different input states for various scenarios.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.input placeholder="Normal state" />
+                        <c-form.input placeholder="Required field" required="true" />
+                        <c-form.input placeholder="Disabled input" disabled="true" />
+                        <c-form.input placeholder="Read-only input" readonly="true" value="Read-only value" />
+                        <c-form.input placeholder="Invalid input" invalid="true" />
+                        <c-form.input placeholder="Clearable input" clearable="true" value="Clear me!" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input placeholder="Normal state" /&gt;
+&lt;c-form.input placeholder="Required field" required="true" /&gt;
+&lt;c-form.input placeholder="Disabled input" disabled="true" /&gt;
+&lt;c-form.input placeholder="Read-only input" readonly="true" value="Read-only value" /&gt;
+&lt;c-form.input placeholder="Invalid input" invalid="true" /&gt;
+&lt;c-form.input placeholder="Clearable input" clearable="true" value="Clear me!" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Examples -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Advanced Examples</h3>
+            <p class="text-base-content/70 mb-6">
+                Combining multiple features for complex use cases.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <c-form.input
+                            type="search"
+                            label="Search Products"
+                            icon_leading="search"
+                            clearable="true"
+                            placeholder="Search for products..."
+                            description="Press Enter to search or click the clear button to reset" />
+                        
+                        <c-form.input
+                            type="email"
+                            label="Email Address"
+                            icon_leading="mail"
+                            icon_trailing="check"
+                            variant="success"
+                            value="user@example.com"
+                            description="Email verified successfully" />
+
+                        <c-form.input
+                            type="password"
+                            label="New Password"
+                            icon_leading="lock"
+                            variant="warning"
+                            required="true"
+                            description="Password strength: Medium" />
+
+                        <c-form.input
+                            type="url"
+                            label="Portfolio Website"
+                            icon_leading="globe"
+                            text_leading="https://"
+                            text_trailing=".dev"
+                            placeholder="myportfolio"
+                            description="Your personal website URL" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.input
+    type="search"
+    label="Search Products"
+    icon_leading="search"
+    clearable="true"
+    placeholder="Search for products..."
+    description="Press Enter to search or click the clear button to reset" /&gt;
+
+&lt;c-form.input
+    type="url"
+    label="Portfolio Website"
+    icon_leading="globe"
+    text_leading="https://"
+    text_trailing=".dev"
+    placeholder="myportfolio"
+    description="Your personal website URL" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Django Integration -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Django Form Integration</h2>
+
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">Using with Django Forms</h3>
+            <p class="text-base-content/70 mb-6">
+                The component automatically integrates with Django form fields when you pass the field parameter.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- This would be rendered from a Django view with a form -->
+                        <div class="text-sm text-base-content/60 font-mono bg-base-300 p-3 rounded">
+                            # In your template:<br>
+                            &lt;c-form.input field="{{ form.email }}" label="Email Address" icon_leading="mail" /&gt;<br>
+                            &lt;c-form.input field="{{ form.password }}" label="Password" icon_leading="lock" /&gt;
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Django form integration --&gt;
+&lt;c-form.input field="{{ form.email }}" label="Email Address" icon_leading="mail" /&gt;
+&lt;c-form.input field="{{ form.password }}" label="Password" icon_leading="lock" /&gt;
+
+&lt;!-- The component will automatically: --&gt;
+&lt;!-- - Set name, id, value from the field --&gt;
+&lt;!-- - Display validation errors --&gt;
+&lt;!-- - Handle required state --&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Automatic Integration</h4>
+                    <div class="text-sm">When using the <code>field</code> parameter, the component automatically extracts the field name, value, and validation state from the Django form field.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Error Handling</h4>
+                    <div class="text-sm">Form validation errors are automatically displayed below the input with proper styling.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Accessibility</h4>
+                    <div class="text-sm">Always provide proper labels for better accessibility. The component automatically links labels to inputs when an ID is provided.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

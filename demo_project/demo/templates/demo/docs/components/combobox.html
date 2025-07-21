@@ -1,0 +1,661 @@
+{% load cotton %}
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Combobox</h1>
+        <p class="text-lg text-base-content/70">
+            Two variants of combobox components: a simple select dropdown using native HTML, and an advanced autocomplete version with search functionality. Perfect for single-option selection from predefined lists.
+        </p>
+    </div>
+
+    <!-- Basic Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Basic Examples</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Simple Select -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold">Simple Select</h3>
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="max-w-xs">
+                        <c-combobox :options="[('django', 'Django'), ('vuejs', 'Vue.js'), ('react', 'React')]" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-combobox :options="[('django', 'Django'), ('vuejs', 'Vue.js'), ('react', 'React')]" /&gt;</code></pre>
+                </div>
+            </div>
+            
+            <!-- Autocomplete -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold">With Autocomplete</h3>
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="max-w-xs">
+                        <c-combobox-autocomplete :options="[('django', 'Django'), ('vuejs', 'Vue.js'), ('react', 'React'), ('angular', 'Angular'), ('svelte', 'Svelte')]" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-combobox-autocomplete :options="[('django', 'Django'), ('vuejs', 'Vue.js'), ('react', 'React')]" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+        
+        <div class="space-y-8">
+            <!-- Simple Combobox API -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Simple Combobox (<code>&lt;c-combobox&gt;</code>)</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Property</th>
+                                <th class="font-semibold">Type</th>
+                                <th class="font-semibold">Default</th>
+                                <th class="font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">options</code></td>
+                                <td><code class="text-sm">list</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>List of tuples (value, label) for dropdown options (required)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">label</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>Label text displayed above the select</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">placeholder</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">"--Sélectionnez une option--"</code></td>
+                                <td>Placeholder text for empty option</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">name</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>Name attribute for form submission</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">size</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">md</code></td>
+                                <td>Size of the select: xs, sm, md, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">disabled</code></td>
+                                <td><code class="text-sm">boolean</code></td>
+                                <td><code class="text-sm">false</code></td>
+                                <td>Whether the select is disabled</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">class</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>Additional CSS classes for styling</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Autocomplete Combobox API -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Autocomplete Combobox (<code>&lt;c-combobox-autocomplete&gt;</code>)</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Property</th>
+                                <th class="font-semibold">Type</th>
+                                <th class="font-semibold">Default</th>
+                                <th class="font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">options</code></td>
+                                <td><code class="text-sm">list</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>List of tuples (value, label) for dropdown options (required)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">label</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>Label text displayed above the input</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">placeholder</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">"Tapez pour rechercher..."</code></td>
+                                <td>Placeholder text shown in search input</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">name</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>Name attribute for form submission (hidden input)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">size</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">md</code></td>
+                                <td>Size of the input: xs, sm, md, lg</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">disabled</code></td>
+                                <td><code class="text-sm">boolean</code></td>
+                                <td><code class="text-sm">false</code></td>
+                                <td>Whether the input is disabled</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">class</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">-</code></td>
+                                <td>Additional CSS classes for the input</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Basic Usage -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Basic Usage</h3>
+            <p class="text-base-content/70 mb-6">
+                Choose between simple select dropdown or autocomplete input based on your needs.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Simple Select -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Simple Select</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="max-w-xs">
+                            <c-combobox :options="[('python', 'Python'), ('javascript', 'JavaScript'), ('typescript', 'TypeScript')]" />
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-combobox :options="[('python', 'Python'), ('javascript', 'JavaScript')]" /&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <!-- Autocomplete -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Autocomplete Search</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="max-w-xs">
+                            <c-combobox-autocomplete :options="[('python', 'Python'), ('javascript', 'JavaScript'), ('typescript', 'TypeScript'), ('go', 'Go'), ('rust', 'Rust'), ('java', 'Java')]" />
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-combobox-autocomplete :options="[('python', 'Python'), ('javascript', 'JavaScript')]" /&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Labels -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Labels</h3>
+            <p class="text-base-content/70 mb-6">
+                Add descriptive labels to provide context for the selection.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Simple Select with Labels -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Simple Select</h4>
+                    <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                        <c-combobox 
+                            :options="[('django', 'Django'), ('flask', 'Flask'), ('fastapi', 'FastAPI')]" 
+                            label="Framework Python"
+                            name="python_framework" />
+                        
+                        <c-combobox 
+                            :options="[('paris', 'Paris'), ('lyon', 'Lyon'), ('marseille', 'Marseille')]" 
+                            label="Ville"
+                            name="city" />
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-combobox 
+    :options="[('django', 'Django'), ('flask', 'Flask')]" 
+    label="Framework Python"
+    name="python_framework" /&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <!-- Autocomplete with Labels -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Autocomplete</h4>
+                    <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                        <c-combobox-autocomplete 
+                            :options="[('frontend', 'Frontend Developer'), ('backend', 'Backend Developer'), ('fullstack', 'Fullstack Developer'), ('devops', 'DevOps Engineer')]" 
+                            label="Poste recherché"
+                            name="job_position" />
+                        
+                        <c-combobox-autocomplete 
+                            :options="[('junior', 'Junior (0-2 ans)'), ('mid', 'Intermédiaire (3-5 ans)'), ('senior', 'Senior (5+ ans)')]" 
+                            label="Niveau d'expérience"
+                            name="experience_level" />
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-combobox-autocomplete 
+    :options="[('frontend', 'Frontend Developer'), ('backend', 'Backend Developer')]" 
+    label="Poste recherché"
+    name="job_position" /&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Available in multiple sizes to fit different UI contexts.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Simple Select Sizes -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Simple Select</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">xs:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox 
+                                        :options="[('xs', 'Extra Small')]" 
+                                        size="xs" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">sm:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox 
+                                        :options="[('sm', 'Small')]" 
+                                        size="sm" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">md:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox 
+                                        :options="[('md', 'Medium')]" 
+                                        size="md" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">lg:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox 
+                                        :options="[('lg', 'Large')]" 
+                                        size="lg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Autocomplete Sizes -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Autocomplete</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">xs:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox-autocomplete 
+                                        :options="[('xs', 'Extra Small')]" 
+                                        size="xs" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">sm:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox-autocomplete 
+                                        :options="[('sm', 'Small')]" 
+                                        size="sm" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">md:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox-autocomplete 
+                                        :options="[('md', 'Medium')]" 
+                                        size="md" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="w-16 text-sm font-medium">lg:</span>
+                                <div class="flex-1 max-w-xs">
+                                    <c-combobox-autocomplete 
+                                        :options="[('lg', 'Large')]" 
+                                        size="lg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Simple select --&gt;
+&lt;c-combobox :options="[...]" size="xs" /&gt;
+&lt;c-combobox :options="[...]" size="lg" /&gt;
+
+&lt;!-- Autocomplete --&gt;
+&lt;c-combobox-autocomplete :options="[...]" size="xs" /&gt;
+&lt;c-combobox-autocomplete :options="[...]" size="lg" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Integration -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Form Integration</h3>
+            <p class="text-base-content/70 mb-6">
+                Both components work seamlessly with HTML forms. The selected value is submitted with the specified name attribute.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Simple Select Form -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Simple Select Form</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <form class="space-y-4">
+                            <c-combobox 
+                                :options="[('frontend', 'Frontend Developer'), ('backend', 'Backend Developer'), ('fullstack', 'Fullstack Developer')]"       
+                                label="Poste"
+                                name="job_position" />
+                            
+                            <c-combobox 
+                                :options="[('remote', 'Télétravail'), ('onsite', 'Sur site'), ('hybrid', 'Hybride')]" 
+                                label="Mode"
+                                name="work_mode" />
+                            
+                            <c-button type="submit" variant="primary" size="sm">Envoyer</c-button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Autocomplete Form -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Autocomplete Form</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <form class="space-y-4">
+                            <c-combobox-autocomplete 
+                                :options="[('frontend', 'Frontend Developer'), ('backend', 'Backend Developer'), ('fullstack', 'Fullstack Developer'), ('mobile', 'Mobile Developer'), ('data', 'Data Scientist')]"       
+                                label="Poste recherché"
+                                name="job_position_auto" />
+                            
+                            <c-combobox-autocomplete 
+                                :options="[('junior', 'Junior (0-2 ans)'), ('mid', 'Intermédiaire (3-5 ans)'), ('senior', 'Senior (5+ ans)'), ('lead', 'Lead/Manager')]" 
+                                label="Niveau d'expérience"
+                                name="experience_level" />
+                            
+                            <c-button type="submit" variant="primary" size="sm">Envoyer</c-button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Simple select form --&gt;
+&lt;form&gt;
+    &lt;c-combobox 
+        :options="[('frontend', 'Frontend Developer')]" 
+        label="Poste"
+        name="job_position" /&gt;
+    &lt;c-button type="submit"&gt;Envoyer&lt;/c-button&gt;
+&lt;/form&gt;
+
+&lt;!-- Autocomplete form --&gt;
+&lt;form&gt;
+    &lt;c-combobox-autocomplete 
+        :options="[('frontend', 'Frontend Developer')]" 
+        label="Poste recherché"
+        name="job_position" /&gt;
+    &lt;c-button type="submit"&gt;Envoyer&lt;/c-button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Disabled State</h3>
+            <p class="text-base-content/70 mb-6">
+                Both components can be disabled when interaction should be prevented.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Simple Select Disabled -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Simple Select</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="max-w-xs">
+                            <c-combobox 
+                                :options="[('option1', 'Option 1'), ('option2', 'Option 2')]" 
+                                label="Sélection désactivée"
+                                :disabled=True />
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-combobox 
+    :options="[('option1', 'Option 1')]" 
+    label="Sélection désactivée"
+    :disabled=True /&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <!-- Autocomplete Disabled -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Autocomplete</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="max-w-xs">
+                            <c-combobox-autocomplete 
+                                :options="[('option1', 'Option 1'), ('option2', 'Option 2')]" 
+                                label="Recherche désactivée"
+                                :disabled=True />
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-combobox-autocomplete 
+    :options="[('option1', 'Option 1')]" 
+    label="Recherche désactivée"
+    :disabled=True /&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Autocomplete Features -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Autocomplete Features</h3>
+            <p class="text-base-content/70 mb-6">
+                The autocomplete version includes advanced search and navigation capabilities.
+            </p>
+
+            <div class="space-y-6">
+                <!-- Feature Demo -->
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="max-w-md">
+                        <c-combobox-autocomplete 
+                            :options="[('javascript', 'JavaScript'), ('typescript', 'TypeScript'), ('python', 'Python'), ('java', 'Java'), ('go', 'Go'), ('rust', 'Rust'), ('php', 'PHP'), ('ruby', 'Ruby'), ('csharp', 'C#'), ('cpp', 'C++')]" 
+                            label="Langage de programmation"
+                            placeholder="Tapez pour filtrer les langages..."
+                            name="programming_language" />
+                    </div>
+                </div>
+                
+                <!-- Features List -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-primary">🔍 Recherche en temps réel</h4>
+                        <p class="text-sm text-base-content/70">Filtrage automatique des options pendant la saisie</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-primary">⌨️ Navigation clavier</h4>
+                        <p class="text-sm text-base-content/70">Flèches ↑/↓ pour naviguer, Entrée pour sélectionner</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-primary">🎯 Sélection visuelle</h4>
+                        <p class="text-sm text-base-content/70">Mise en surbrillance de l'option active</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <h4 class="font-semibold text-primary">❌ Aucun résultat</h4>
+                        <p class="text-sm text-base-content/70">Message informatif quand aucune option ne correspond</p>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-combobox-autocomplete 
+    :options="[('javascript', 'JavaScript'), ('python', 'Python'), ('java', 'Java')]" 
+    label="Langage de programmation"
+    placeholder="Tapez pour filtrer..."
+    name="language" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Events -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Events</h2>
+        
+        <div class="space-y-6">
+            <!-- Simple Combobox Events -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Simple Combobox Events</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Event</th>
+                                <th class="font-semibold">Description</th>
+                                <th class="font-semibold">Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">change</code></td>
+                                <td>Standard HTML change event when an option is selected</td>
+                                <td><code class="text-sm">event.target.value</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="relative">
+                        <pre class="language-javascript"><code>// Listen for select changes
+document.querySelector('select').addEventListener('change', function(event) {
+    console.log('Selected value:', event.target.value);
+    console.log('Selected text:', event.target.selectedOptions[0].text);
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Autocomplete Events -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Autocomplete Events</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Event</th>
+                                <th class="font-semibold">Description</th>
+                                <th class="font-semibold">Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">combobox-change</code></td>
+                                <td>Custom event fired when an option is selected</td>
+                                <td><code class="text-sm">{ value: string, text: string }</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="relative">
+                        <pre class="language-javascript"><code>// Listen for autocomplete selection
+document.addEventListener('combobox-change', function(event) {
+    console.log('Selected value:', event.detail.value);
+    console.log('Selected text:', event.detail.text);
+});
+
+// Or listen on a specific combobox
+const combobox = document.querySelector('[data-combobox-autocomplete]');
+combobox.addEventListener('combobox-change', function(event) {
+    console.log('This combobox changed:', event.detail);
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Guidelines -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Usage Guidelines</h2>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Two Variants Available</h4>
+                    <div class="text-sm">Use <code>&lt;c-combobox&gt;</code> for simple selection with native HTML select, or <code>&lt;c-combobox-autocomplete&gt;</code> for advanced search and filtering capabilities.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div>
+                    <h4 class="font-bold">Best Practices</h4>
+                    <div class="text-sm">
+                        • Use clear, descriptive option labels<br>
+                        • Choose simple select for small lists (< 10 options)<br>
+                        • Choose autocomplete for large lists or when search is helpful<br>
+                        • Always include a name attribute for form submission<br>
+                        • Provide meaningful placeholders and labels
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Accessibility</h4>
+                    <div class="text-sm">Both components include accessibility features. Simple select uses native HTML for maximum compatibility, while autocomplete includes ARIA support and keyboard navigation (↑/↓, Enter, Escape).</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

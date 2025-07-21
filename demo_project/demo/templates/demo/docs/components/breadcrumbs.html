@@ -1,0 +1,352 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Breadcrumbs</h1>
+        <p class="text-lg text-base-content/70">
+            A navigation component that shows the user's current location within a website hierarchy.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-breadcrumbs>
+                    <c-breadcrumb href="/" label="Home" />
+                    <c-breadcrumb href="/docs" label="Documentation" />
+                    <c-breadcrumb label="Components" />
+                </c-breadcrumbs>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/" label="Home" /&gt;
+    &lt;c-breadcrumb href="/docs" label="Documentation" /&gt;
+    &lt;c-breadcrumb label="Components" /&gt;
+&lt;/c-breadcrumbs&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <h3 class="text-lg font-semibold mb-4">c-breadcrumbs</h3>
+        <div class="overflow-x-auto mb-6">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the breadcrumbs container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="text-lg font-semibold mb-4">c-breadcrumb</h3>
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">required</code></td>
+                        <td>Text to display for the breadcrumb</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">href</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>URL to link to (if omitted, breadcrumb is not clickable)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display before the label</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the breadcrumb item</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- With Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Add icons to breadcrumb items for better visual hierarchy and context.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-breadcrumbs>
+                        <c-breadcrumb href="/" label="Home" icon="home" />
+                        <c-breadcrumb href="/docs" label="Documentation" icon="book" />
+                        <c-breadcrumb href="/docs/components" label="Components" icon="grid" />
+                        <c-breadcrumb label="Breadcrumbs" icon="navigation" />
+                    </c-breadcrumbs>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/" label="Home" icon="home" /&gt;
+    &lt;c-breadcrumb href="/docs" label="Documentation" icon="book" /&gt;
+    &lt;c-breadcrumb href="/docs/components" label="Components" icon="grid" /&gt;
+    &lt;c-breadcrumb label="Breadcrumbs" icon="navigation" /&gt;
+&lt;/c-breadcrumbs&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Different Contexts -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Contexts</h3>
+            <p class="text-base-content/70 mb-6">
+                Breadcrumbs for various sections and contexts of your application.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- E-commerce navigation -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">E-commerce Navigation</h4>
+                            <c-breadcrumbs>
+                                <c-breadcrumb href="/" label="Store" icon="home" />
+                                <c-breadcrumb href="/category/electronics" label="Electronics" icon="smartphone" />
+                                <c-breadcrumb href="/category/electronics/computers" label="Computers" icon="monitor" />
+                                <c-breadcrumb label="Gaming Laptops" />
+                            </c-breadcrumbs>
+                        </div>
+
+                        <!-- Admin dashboard -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Admin Dashboard</h4>
+                            <c-breadcrumbs>
+                                <c-breadcrumb href="/admin" label="Dashboard" icon="layout-dashboard" />
+                                <c-breadcrumb href="/admin/users" label="User Management" icon="users" />
+                                <c-breadcrumb href="/admin/users/123" label="User Profile" icon="user" />
+                                <c-breadcrumb label="Edit Settings" icon="settings" />
+                            </c-breadcrumbs>
+                        </div>
+
+                        <!-- File system navigation -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">File System</h4>
+                            <c-breadcrumbs>
+                                <c-breadcrumb href="/files" label="Files" icon="folder" />
+                                <c-breadcrumb href="/files/documents" label="Documents" icon="folder" />
+                                <c-breadcrumb href="/files/documents/projects" label="Projects" icon="folder" />
+                                <c-breadcrumb label="Website Redesign" icon="file" />
+                            </c-breadcrumbs>
+                        </div>
+
+                        <!-- Blog navigation -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Blog Navigation</h4>
+                            <c-breadcrumbs>
+                                <c-breadcrumb href="/" label="Blog" icon="home" />
+                                <c-breadcrumb href="/category/technology" label="Technology" icon="cpu" />
+                                <c-breadcrumb href="/category/technology/web-development" label="Web Development" icon="code" />
+                                <c-breadcrumb label="Getting Started with Django" />
+                            </c-breadcrumbs>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- E-commerce navigation --&gt;
+&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/" label="Store" icon="home" /&gt;
+    &lt;c-breadcrumb href="/category/electronics" label="Electronics" icon="smartphone" /&gt;
+    &lt;c-breadcrumb href="/category/electronics/computers" label="Computers" icon="monitor" /&gt;
+    &lt;c-breadcrumb label="Gaming Laptops" /&gt;
+&lt;/c-breadcrumbs&gt;
+
+&lt;!-- Admin dashboard --&gt;
+&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/admin" label="Dashboard" icon="layout-dashboard" /&gt;
+    &lt;c-breadcrumb href="/admin/users" label="User Management" icon="users" /&gt;
+    &lt;c-breadcrumb href="/admin/users/123" label="User Profile" icon="user" /&gt;
+    &lt;c-breadcrumb label="Edit Settings" icon="settings" /&gt;
+&lt;/c-breadcrumbs&gt;
+
+&lt;!-- File system navigation --&gt;
+&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/files" label="Files" icon="folder" /&gt;
+    &lt;c-breadcrumb href="/files/documents" label="Documents" icon="folder" /&gt;
+    &lt;c-breadcrumb href="/files/documents/projects" label="Projects" icon="folder" /&gt;
+    &lt;c-breadcrumb label="Website Redesign" icon="file" /&gt;
+&lt;/c-breadcrumbs&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simple Navigation -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Simple Navigation</h3>
+            <p class="text-base-content/70 mb-6">
+                Clean breadcrumbs without icons for minimal design contexts.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- Documentation path -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Documentation Path</h4>
+                            <c-breadcrumbs>
+                                <c-breadcrumb href="/" label="Docs" />
+                                <c-breadcrumb href="/getting-started" label="Getting Started" />
+                                <c-breadcrumb href="/getting-started/installation" label="Installation" />
+                                <c-breadcrumb label="Configuration" />
+                            </c-breadcrumbs>
+                        </div>
+
+                        <!-- Account settings -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Account Settings</h4>
+                            <c-breadcrumbs>
+                                <c-breadcrumb href="/account" label="Account" />
+                                <c-breadcrumb href="/account/settings" label="Settings" />
+                                <c-breadcrumb label="Privacy" />
+                            </c-breadcrumbs>
+                        </div>
+
+                        <!-- Project hierarchy -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Project Hierarchy</h4>
+                            <c-breadcrumbs>
+                                <c-breadcrumb href="/projects" label="Projects" />
+                                <c-breadcrumb href="/projects/web-app" label="Web Application" />
+                                <c-breadcrumb href="/projects/web-app/frontend" label="Frontend" />
+                                <c-breadcrumb label="Components" />
+                            </c-breadcrumbs>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Documentation path --&gt;
+&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/" label="Docs" /&gt;
+    &lt;c-breadcrumb href="/getting-started" label="Getting Started" /&gt;
+    &lt;c-breadcrumb href="/getting-started/installation" label="Installation" /&gt;
+    &lt;c-breadcrumb label="Configuration" /&gt;
+&lt;/c-breadcrumbs&gt;
+
+&lt;!-- Account settings --&gt;
+&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/account" label="Account" /&gt;
+    &lt;c-breadcrumb href="/account/settings" label="Settings" /&gt;
+    &lt;c-breadcrumb label="Privacy" /&gt;
+&lt;/c-breadcrumbs&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Long Paths -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Long Paths</h3>
+            <p class="text-base-content/70 mb-6">
+                Handle long navigation paths with proper responsive design.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-breadcrumbs>
+                        <c-breadcrumb href="/" label="Home" icon="home" />
+                        <c-breadcrumb href="/organizations" label="Organizations" icon="building" />
+                        <c-breadcrumb href="/organizations/acme-corp" label="ACME Corporation" icon="building" />
+                        <c-breadcrumb href="/organizations/acme-corp/departments" label="Departments" icon="users" />
+                        <c-breadcrumb href="/organizations/acme-corp/departments/engineering" label="Engineering" icon="code" />
+                        <c-breadcrumb href="/organizations/acme-corp/departments/engineering/teams" label="Teams" icon="users" />
+                        <c-breadcrumb href="/organizations/acme-corp/departments/engineering/teams/frontend" label="Frontend Team" icon="monitor" />
+                        <c-breadcrumb label="Project Dashboard" />
+                    </c-breadcrumbs>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-breadcrumbs&gt;
+    &lt;c-breadcrumb href="/" label="Home" icon="home" /&gt;
+    &lt;c-breadcrumb href="/organizations" label="Organizations" icon="building" /&gt;
+    &lt;c-breadcrumb href="/organizations/acme-corp" label="ACME Corporation" icon="building" /&gt;
+    &lt;c-breadcrumb href="/organizations/acme-corp/departments" label="Departments" icon="users" /&gt;
+    &lt;c-breadcrumb href="/organizations/acme-corp/departments/engineering" label="Engineering" icon="code" /&gt;
+    &lt;c-breadcrumb href="/organizations/acme-corp/departments/engineering/teams" label="Teams" icon="users" /&gt;
+    &lt;c-breadcrumb href="/organizations/acme-corp/departments/engineering/teams/frontend" label="Frontend Team" icon="monitor" /&gt;
+    &lt;c-breadcrumb label="Project Dashboard" /&gt;
+&lt;/c-breadcrumbs&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Best Practices -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Best Practices</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Current Page</h4>
+                        <div class="text-sm">The last breadcrumb should represent the current page and typically should not be clickable (omit the <code>href</code> attribute).</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Path Length</h4>
+                        <div class="text-sm">Consider truncating very long paths or implementing responsive behavior for mobile devices.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Meaningful Labels</h4>
+                        <div class="text-sm">Use descriptive and meaningful labels that clearly represent the page or section content.</div>
+                    </div>
+                </div>
+
+                <div class="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">SEO Considerations</h4>
+                        <div class="text-sm">Breadcrumbs can help search engines understand your site structure. Consider implementing structured data for better SEO.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

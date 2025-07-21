@@ -1,0 +1,605 @@
+<!-- Statistics Sections UI Blocks -->
+<div class="mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Statistics Sections</h1>
+        <p class="text-base-content/70 text-lg">Comprehensive statistics and metrics display patterns built with your component library.</p>
+    </div>
+
+    <!-- Simple Stats Grid -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Simple Stats Grid</h2>
+        <p class="text-base-content/70 mb-6">Clean 4-column stats layout with trend indicators.</p>
+        
+        <c-tab.group group_name="simple-stats">
+            <c-tabs>
+                <c-tab name="preview" group_name="simple-stats" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="simple-stats">Code</c-tab>
+                <c-tab name="split" group_name="simple-stats">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="simple-stats">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <c-card class="text-center p-6">
+                            <div class="text-3xl font-bold text-primary mb-2">2,651</div>
+                            <div class="text-sm text-base-content/60 mb-3">Total Users</div>
+                            <div class="flex items-center justify-center">
+                                <c-icon name="trending-up" size="16" class="text-success mr-2" />
+                                <span class="text-sm text-success font-medium">+12.5%</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="text-center p-6">
+                            <div class="text-3xl font-bold text-secondary mb-2">$48.2K</div>
+                            <div class="text-sm text-base-content/60 mb-3">Revenue</div>
+                            <div class="flex items-center justify-center">
+                                <c-icon name="trending-up" size="16" class="text-success mr-2" />
+                                <span class="text-sm text-success font-medium">+8.2%</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="text-center p-6">
+                            <div class="text-3xl font-bold text-accent mb-2">1,394</div>
+                            <div class="text-sm text-base-content/60 mb-3">Orders</div>
+                            <div class="flex items-center justify-center">
+                                <c-icon name="trending-down" size="16" class="text-error mr-2" />
+                                <span class="text-sm text-error font-medium">-3.1%</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="text-center p-6">
+                            <div class="text-3xl font-bold text-info mb-2">99.9%</div>
+                            <div class="text-sm text-base-content/60 mb-3">Uptime</div>
+                            <div class="flex items-center justify-center">
+                                <c-icon name="check-circle" size="16" class="text-success mr-2" />
+                                <span class="text-sm text-success font-medium">Excellent</span>
+                            </div>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="simple-stats">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"&gt;
+    &lt;c-card class="text-center p-6"&gt;
+        &lt;div class="text-3xl font-bold text-primary mb-2"&gt;2,651&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60 mb-3"&gt;Total Users&lt;/div&gt;
+        &lt;div class="flex items-center justify-center"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-2" /&gt;
+            &lt;span class="text-sm text-success font-medium"&gt;+12.5%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+    
+    &lt;c-card class="text-center p-6"&gt;
+        &lt;div class="text-3xl font-bold text-secondary mb-2"&gt;$48.2K&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60 mb-3"&gt;Revenue&lt;/div&gt;
+        &lt;div class="flex items-center justify-center"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-2" /&gt;
+            &lt;span class="text-sm text-success font-medium"&gt;+8.2%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="simple-stats">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <c-card class="text-center p-6">
+                                    <div class="text-3xl font-bold text-primary mb-2">2,651</div>
+                                    <div class="text-sm text-base-content/60 mb-3">Total Users</div>
+                                    <div class="flex items-center justify-center">
+                                        <c-icon name="trending-up" size="16" class="text-success mr-2" />
+                                        <span class="text-sm text-success font-medium">+12.5%</span>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="text-center p-6">
+                                    <div class="text-3xl font-bold text-secondary mb-2">$48.2K</div>
+                                    <div class="text-sm text-base-content/60 mb-3">Revenue</div>
+                                    <div class="flex items-center justify-center">
+                                        <c-icon name="trending-up" size="16" class="text-success mr-2" />
+                                        <span class="text-sm text-success font-medium">+8.2%</span>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="text-center p-6">
+                                    <div class="text-3xl font-bold text-accent mb-2">1,394</div>
+                                    <div class="text-sm text-base-content/60 mb-3">Orders</div>
+                                    <div class="flex items-center justify-center">
+                                        <c-icon name="trending-down" size="16" class="text-error mr-2" />
+                                        <span class="text-sm text-error font-medium">-3.1%</span>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="text-center p-6">
+                                    <div class="text-3xl font-bold text-info mb-2">99.9%</div>
+                                    <div class="text-sm text-base-content/60 mb-3">Uptime</div>
+                                    <div class="flex items-center justify-center">
+                                        <c-icon name="check-circle" size="16" class="text-success mr-2" />
+                                        <span class="text-sm text-success font-medium">Excellent</span>
+                                    </div>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"&gt;
+    &lt;c-card class="text-center p-6"&gt;
+        &lt;div class="text-3xl font-bold text-primary mb-2"&gt;2,651&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60 mb-3"&gt;Total Users&lt;/div&gt;
+        &lt;div class="flex items-center justify-center"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-2" /&gt;
+            &lt;span class="text-sm text-success font-medium"&gt;+12.5%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+    
+    &lt;c-card class="text-center p-6"&gt;
+        &lt;div class="text-3xl font-bold text-secondary mb-2"&gt;$48.2K&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60 mb-3"&gt;Revenue&lt;/div&gt;
+        &lt;div class="flex items-center justify-center"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-2" /&gt;
+            &lt;span class="text-sm text-success font-medium"&gt;+8.2%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Detailed Stats Cards -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Detailed Stats Cards</h2>
+        <p class="text-base-content/70 mb-6">Enhanced stat cards with additional context and visual elements.</p>
+        
+        <c-tab.group group_name="detailed-stats">
+            <c-tabs>
+                <c-tab name="preview" group_name="detailed-stats" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="detailed-stats">Code</c-tab>
+                <c-tab name="split" group_name="detailed-stats">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="detailed-stats">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="p-3 bg-primary/10 rounded-lg">
+                                    <c-icon name="users" size="24" class="text-primary" />
+                                </div>
+                                <c-badge variant="success" size="sm">+12%</c-badge>
+                            </div>
+                            <div class="text-2xl font-bold mb-1">12,483</div>
+                            <div class="text-sm text-base-content/60 mb-3">Active Users</div>
+                            <div class="text-xs text-base-content/50">
+                                <span class="text-success">+1,249</span> from last month
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="p-3 bg-secondary/10 rounded-lg">
+                                    <c-icon name="credit-card" size="24" class="text-secondary" />
+                                </div>
+                                <c-badge variant="success" size="sm">+8%</c-badge>
+                            </div>
+                            <div class="text-2xl font-bold mb-1">$89,242</div>
+                            <div class="text-sm text-base-content/60 mb-3">Total Revenue</div>
+                            <div class="text-xs text-base-content/50">
+                                <span class="text-success">+$6,842</span> from last month
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="p-3 bg-accent/10 rounded-lg">
+                                    <c-icon name="shopping-cart" size="24" class="text-accent" />
+                                </div>
+                                <c-badge variant="error" size="sm">-3%</c-badge>
+                            </div>
+                            <div class="text-2xl font-bold mb-1">2,847</div>
+                            <div class="text-sm text-base-content/60 mb-3">Orders</div>
+                            <div class="text-xs text-base-content/50">
+                                <span class="text-error">-89</span> from last month
+                            </div>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="detailed-stats">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-card class="p-6"&gt;
+    &lt;div class="flex items-center justify-between mb-4"&gt;
+        &lt;div class="p-3 bg-primary/10 rounded-lg"&gt;
+            &lt;c-icon name="users" size="24" class="text-primary" /&gt;
+        &lt;/div&gt;
+        &lt;c-badge variant="success" size="sm"&gt;+12%&lt;/c-badge&gt;
+    &lt;/div&gt;
+    &lt;div class="text-2xl font-bold mb-1"&gt;12,483&lt;/div&gt;
+    &lt;div class="text-sm text-base-content/60 mb-3"&gt;Active Users&lt;/div&gt;
+    &lt;div class="text-xs text-base-content/50"&gt;
+        &lt;span class="text-success"&gt;+1,249&lt;/span&gt; from last month
+    &lt;/div&gt;
+&lt;/c-card&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="detailed-stats">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="p-3 bg-primary/10 rounded-lg">
+                                            <c-icon name="users" size="24" class="text-primary" />
+                                        </div>
+                                        <c-badge variant="success" size="sm">+12%</c-badge>
+                                    </div>
+                                    <div class="text-2xl font-bold mb-1">12,483</div>
+                                    <div class="text-sm text-base-content/60 mb-3">Active Users</div>
+                                    <div class="text-xs text-base-content/50">
+                                        <span class="text-success">+1,249</span> from last month
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="p-3 bg-secondary/10 rounded-lg">
+                                            <c-icon name="credit-card" size="24" class="text-secondary" />
+                                        </div>
+                                        <c-badge variant="success" size="sm">+8%</c-badge>
+                                    </div>
+                                    <div class="text-2xl font-bold mb-1">$89,242</div>
+                                    <div class="text-sm text-base-content/60 mb-3">Total Revenue</div>
+                                    <div class="text-xs text-base-content/50">
+                                        <span class="text-success">+$6,842</span> from last month
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="p-3 bg-accent/10 rounded-lg">
+                                            <c-icon name="shopping-cart" size="24" class="text-accent" />
+                                        </div>
+                                        <c-badge variant="error" size="sm">-3%</c-badge>
+                                    </div>
+                                    <div class="text-2xl font-bold mb-1">2,847</div>
+                                    <div class="text-sm text-base-content/60 mb-3">Orders</div>
+                                    <div class="text-xs text-base-content/50">
+                                        <span class="text-error">-89</span> from last month
+                                    </div>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;c-card class="p-6"&gt;
+    &lt;div class="flex items-center justify-between mb-4"&gt;
+        &lt;div class="p-3 bg-primary/10 rounded-lg"&gt;
+            &lt;c-icon name="users" size="24" class="text-primary" /&gt;
+        &lt;/div&gt;
+        &lt;c-badge variant="success" size="sm"&gt;+12%&lt;/c-badge&gt;
+    &lt;/div&gt;
+    &lt;div class="text-2xl font-bold mb-1"&gt;12,483&lt;/div&gt;
+    &lt;div class="text-sm text-base-content/60 mb-3"&gt;Active Users&lt;/div&gt;
+    &lt;div class="text-xs text-base-content/50"&gt;
+        &lt;span class="text-success"&gt;+1,249&lt;/span&gt; from last month
+    &lt;/div&gt;
+&lt;/c-card&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Stats with Progress Bars -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Stats with Progress Bars</h2>
+        <p class="text-base-content/70 mb-6">Statistics with visual progress indicators and goal tracking.</p>
+        
+        <c-tab.group group_name="progress-stats">
+            <c-tabs>
+                <c-tab name="preview" group_name="progress-stats" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="progress-stats">Code</c-tab>
+                <c-tab name="split" group_name="progress-stats">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="progress-stats">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-semibold">Monthly Sales Goal</h3>
+                                <c-badge variant="primary">78%</c-badge>
+                            </div>
+                            <div class="text-3xl font-bold mb-2">$78,240</div>
+                            <div class="text-sm text-base-content/60 mb-4">of $100,000 goal</div>
+                            <c-progress value="78" max="100" variant="primary" />
+                            <div class="flex justify-between text-xs text-base-content/50 mt-2">
+                                <span>22 days remaining</span>
+                                <span>$21,760 to go</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-semibold">Team Performance</h3>
+                                <c-badge variant="success">92%</c-badge>
+                            </div>
+                            <div class="text-3xl font-bold mb-2">184</div>
+                            <div class="text-sm text-base-content/60 mb-4">of 200 tasks completed</div>
+                            <c-progress value="92" max="100" variant="success" />
+                            <div class="flex justify-between text-xs text-base-content/50 mt-2">
+                                <span>16 tasks remaining</span>
+                                <span>Due in 5 days</span>
+                            </div>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="progress-stats">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-card class="p-6"&gt;
+    &lt;div class="flex items-center justify-between mb-4"&gt;
+        &lt;h3 class="font-semibold"&gt;Monthly Sales Goal&lt;/h3&gt;
+        &lt;c-badge variant="primary"&gt;78%&lt;/c-badge&gt;
+    &lt;/div&gt;
+    &lt;div class="text-3xl font-bold mb-2"&gt;$78,240&lt;/div&gt;
+    &lt;div class="text-sm text-base-content/60 mb-4"&gt;of $100,000 goal&lt;/div&gt;
+    &lt;c-progress value="78" max="100" variant="primary" /&gt;
+    &lt;div class="flex justify-between text-xs text-base-content/50 mt-2"&gt;
+        &lt;span&gt;22 days remaining&lt;/span&gt;
+        &lt;span&gt;$21,760 to go&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/c-card&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="progress-stats">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-semibold">Monthly Sales Goal</h3>
+                                        <c-badge variant="primary">78%</c-badge>
+                                    </div>
+                                    <div class="text-3xl font-bold mb-2">$78,240</div>
+                                    <div class="text-sm text-base-content/60 mb-4">of $100,000 goal</div>
+                                    <c-progress value="78" max="100" variant="primary" />
+                                    <div class="flex justify-between text-xs text-base-content/50 mt-2">
+                                        <span>22 days remaining</span>
+                                        <span>$21,760 to go</span>
+                                    </div>
+                                </c-card>
+                                
+                                <c-card class="p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-semibold">Team Performance</h3>
+                                        <c-badge variant="success">92%</c-badge>
+                                    </div>
+                                    <div class="text-3xl font-bold mb-2">184</div>
+                                    <div class="text-sm text-base-content/60 mb-4">of 200 tasks completed</div>
+                                    <c-progress value="92" max="100" variant="success" />
+                                    <div class="flex justify-between text-xs text-base-content/50 mt-2">
+                                        <span>16 tasks remaining</span>
+                                        <span>Due in 5 days</span>
+                                    </div>
+                                </c-card>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;c-card class="p-6"&gt;
+    &lt;div class="flex items-center justify-between mb-4"&gt;
+        &lt;h3 class="font-semibold"&gt;Monthly Sales Goal&lt;/h3&gt;
+        &lt;c-badge variant="primary"&gt;78%&lt;/c-badge&gt;
+    &lt;/div&gt;
+    &lt;div class="text-3xl font-bold mb-2"&gt;$78,240&lt;/div&gt;
+    &lt;div class="text-sm text-base-content/60 mb-4"&gt;of $100,000 goal&lt;/div&gt;
+    &lt;c-progress value="78" max="100" variant="primary" /&gt;
+    &lt;div class="flex justify-between text-xs text-base-content/50 mt-2"&gt;
+        &lt;span&gt;22 days remaining&lt;/span&gt;
+        &lt;span&gt;$21,760 to go&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/c-card&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Key Metrics Dashboard -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Key Metrics Dashboard</h2>
+        <p class="text-base-content/70 mb-6">Comprehensive metrics overview with multiple data points and insights.</p>
+        
+        <c-tab.group group_name="metrics-dashboard">
+            <c-tabs>
+                <c-tab name="preview" group_name="metrics-dashboard" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="metrics-dashboard">Code</c-tab>
+                <c-tab name="split" group_name="metrics-dashboard">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="metrics-dashboard">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Performance Overview</h3>
+                        <p class="text-base-content/60">Your key business metrics at a glance</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <div class="bg-gradient-to-r from-primary to-primary/80 text-primary-content p-4 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <c-icon name="dollar-sign" size="20" />
+                                <span class="text-xs opacity-80">Revenue</span>
+                            </div>
+                            <div class="text-2xl font-bold">$142.8K</div>
+                            <div class="text-xs opacity-80">+12% from last month</div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-secondary to-secondary/80 text-secondary-content p-4 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <c-icon name="users" size="20" />
+                                <span class="text-xs opacity-80">Customers</span>
+                            </div>
+                            <div class="text-2xl font-bold">3,247</div>
+                            <div class="text-xs opacity-80">+8% from last month</div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-accent to-accent/80 text-accent-content p-4 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <c-icon name="shopping-cart" size="20" />
+                                <span class="text-xs opacity-80">Orders</span>
+                            </div>
+                            <div class="text-2xl font-bold">1,894</div>
+                            <div class="text-xs opacity-80">-3% from last month</div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-info to-info/80 text-info-content p-4 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <c-icon name="percent" size="20" />
+                                <span class="text-xs opacity-80">Conversion</span>
+                            </div>
+                            <div class="text-2xl font-bold">24.8%</div>
+                            <div class="text-xs opacity-80">+2.1% from last month</div>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="metrics-dashboard">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"&gt;
+    &lt;div class="bg-gradient-to-r from-primary to-primary/80 text-primary-content p-4 rounded-lg"&gt;
+        &lt;div class="flex items-center justify-between mb-2"&gt;
+            &lt;c-icon name="dollar-sign" size="20" /&gt;
+            &lt;span class="text-xs opacity-80"&gt;Revenue&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="text-2xl font-bold"&gt;$142.8K&lt;/div&gt;
+        &lt;div class="text-xs opacity-80"&gt;+12% from last month&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="bg-gradient-to-r from-secondary to-secondary/80 text-secondary-content p-4 rounded-lg"&gt;
+        &lt;div class="flex items-center justify-between mb-2"&gt;
+            &lt;c-icon name="users" size="20" /&gt;
+            &lt;span class="text-xs opacity-80"&gt;Customers&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="text-2xl font-bold"&gt;3,247&lt;/div&gt;
+        &lt;div class="text-xs opacity-80"&gt;+8% from last month&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="metrics-dashboard">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="mb-6">
+                                <h3 class="text-lg font-semibold mb-2">Performance Overview</h3>
+                                <p class="text-base-content/60">Your key business metrics at a glance</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div class="bg-gradient-to-r from-primary to-primary/80 text-primary-content p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <c-icon name="dollar-sign" size="20" />
+                                        <span class="text-xs opacity-80">Revenue</span>
+                                    </div>
+                                    <div class="text-2xl font-bold">$142.8K</div>
+                                    <div class="text-xs opacity-80">+12% from last month</div>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-secondary to-secondary/80 text-secondary-content p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <c-icon name="users" size="20" />
+                                        <span class="text-xs opacity-80">Customers</span>
+                                    </div>
+                                    <div class="text-2xl font-bold">3,247</div>
+                                    <div class="text-xs opacity-80">+8% from last month</div>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-accent to-accent/80 text-accent-content p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <c-icon name="shopping-cart" size="20" />
+                                        <span class="text-xs opacity-80">Orders</span>
+                                    </div>
+                                    <div class="text-2xl font-bold">1,894</div>
+                                    <div class="text-xs opacity-80">-3% from last month</div>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-info to-info/80 text-info-content p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <c-icon name="percent" size="20" />
+                                        <span class="text-xs opacity-80">Conversion</span>
+                                    </div>
+                                    <div class="text-2xl font-bold">24.8%</div>
+                                    <div class="text-xs opacity-80">+2.1% from last month</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"&gt;
+    &lt;div class="bg-gradient-to-r from-primary to-primary/80 text-primary-content p-4 rounded-lg"&gt;
+        &lt;div class="flex items-center justify-between mb-2"&gt;
+            &lt;c-icon name="dollar-sign" size="20" /&gt;
+            &lt;span class="text-xs opacity-80"&gt;Revenue&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="text-2xl font-bold"&gt;$142.8K&lt;/div&gt;
+        &lt;div class="text-xs opacity-80"&gt;+12% from last month&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="bg-gradient-to-r from-secondary to-secondary/80 text-secondary-content p-4 rounded-lg"&gt;
+        &lt;div class="flex items-center justify-between mb-2"&gt;
+            &lt;c-icon name="users" size="20" /&gt;
+            &lt;span class="text-xs opacity-80"&gt;Customers&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="text-2xl font-bold"&gt;3,247&lt;/div&gt;
+        &lt;div class="text-xs opacity-80"&gt;+8% from last month&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+</div>

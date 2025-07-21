@@ -1,0 +1,264 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Navbar</h1>
+        <p class="text-lg text-base-content/70">
+            Navigation component with support for icons, badges, and dropdown submenus.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Basic Navbar</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-navbar>
+                    <c-navbar.item href="/" icon="home">Home</c-navbar.item>
+                    <c-navbar.item href="/about" icon="info">About</c-navbar.item>
+                    <c-navbar.item href="/contact" icon="mail">Contact</c-navbar.item>
+                </c-navbar>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-navbar&gt;
+    &lt;c-navbar.item href="/" icon="home"&gt;Home&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/about" icon="info"&gt;About&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/contact" icon="mail"&gt;Contact&lt;/c-navbar.item&gt;
+&lt;/c-navbar&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navbar with Badges -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Navbar with Badges</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-navbar>
+                    <c-navbar.item href="/dashboard" icon="layout-dashboard" current>Dashboard</c-navbar.item>
+                    <c-navbar.item href="/inbox" icon="mail" badge="12">Inbox</c-navbar.item>
+                    <c-navbar.item href="/notifications" icon="bell" badge="new" badge_variant="warning">Notifications</c-navbar.item>
+                    <c-navbar.item href="/settings" icon="settings">Settings</c-navbar.item>
+                </c-navbar>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-navbar&gt;
+    &lt;c-navbar.item href="/dashboard" icon="layout-dashboard" current&gt;Dashboard&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/inbox" icon="mail" badge="12"&gt;Inbox&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/notifications" icon="bell" badge="new" badge_variant="warning"&gt;Notifications&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/settings" icon="settings"&gt;Settings&lt;/c-navbar.item&gt;
+&lt;/c-navbar&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navbar with Submenus -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Navbar with Submenus</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-navbar>
+                    <c-navbar.item href="/" icon="home">Home</c-navbar.item>
+                    <c-navbar.submenu label="Services" icon="briefcase">
+                        <c-navbar.item href="/web">Web Development</c-navbar.item>
+                        <c-navbar.item href="/mobile">Mobile Apps</c-navbar.item>
+                        <c-navbar.item href="/design">UI/UX Design</c-navbar.item>
+                    </c-navbar.submenu>
+                    <c-navbar.submenu label="Products" icon="box" badge="3">
+                        <c-navbar.item href="/product1">Product 1</c-navbar.item>
+                        <c-navbar.item href="/product2">Product 2</c-navbar.item>
+                        <c-navbar.item href="/product3">Product 3</c-navbar.item>
+                    </c-navbar.submenu>
+                    <c-navbar.item href="/contact" icon="mail">Contact</c-navbar.item>
+                </c-navbar>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-navbar&gt;
+    &lt;c-navbar.item href="/" icon="home"&gt;Home&lt;/c-navbar.item&gt;
+    &lt;c-navbar.submenu label="Services" icon="briefcase"&gt;
+        &lt;c-navbar.item href="/web"&gt;Web Development&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="/mobile"&gt;Mobile Apps&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="/design"&gt;UI/UX Design&lt;/c-navbar.item&gt;
+    &lt;/c-navbar.submenu&gt;
+    &lt;c-navbar.submenu label="Products" icon="box" badge="3"&gt;
+        &lt;c-navbar.item href="/product1"&gt;Product 1&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="/product2"&gt;Product 2&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="/product3"&gt;Product 3&lt;/c-navbar.item&gt;
+    &lt;/c-navbar.submenu&gt;
+    &lt;c-navbar.item href="/contact" icon="mail"&gt;Contact&lt;/c-navbar.item&gt;
+&lt;/c-navbar&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vertical Navbar -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Vertical Navbar</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <div class="w-64">
+                    <c-navbar orientation="vertical">
+                        <c-navbar.item href="/dashboard" icon="layout-dashboard" current>Dashboard</c-navbar.item>
+                        <c-navbar.item href="/users" icon="users" badge="42">Users</c-navbar.item>
+                        <c-navbar.item href="/reports" icon="bar-chart">Reports</c-navbar.item>
+                        <c-navbar.item href="/settings" icon="settings">Settings</c-navbar.item>
+                    </c-navbar>
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-navbar orientation="vertical"&gt;
+    &lt;c-navbar.item href="/dashboard" icon="layout-dashboard" current&gt;Dashboard&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/users" icon="users" badge="42"&gt;Users&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/reports" icon="bar-chart"&gt;Reports&lt;/c-navbar.item&gt;
+    &lt;c-navbar.item href="/settings" icon="settings"&gt;Settings&lt;/c-navbar.item&gt;
+&lt;/c-navbar&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <!-- c-navbar -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">c-navbar</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th>Prop</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>orientation</code></td>
+                            <td>string</td>
+                            <td>"horizontal"</td>
+                            <td>Orientation de la navbar : "horizontal" ou "vertical"</td>
+                        </tr>
+                        <tr>
+                            <td><code>class</code></td>
+                            <td>string</td>
+                            <td>""</td>
+                            <td>Classes CSS supplémentaires</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- c-navbar.item -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">c-navbar.item</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th>Prop</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>href</code></td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>URL de destination (transforme l'élément en lien)</td>
+                        </tr>
+                        <tr>
+                            <td><code>icon</code></td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Nom de l'icône à afficher à gauche</td>
+                        </tr>
+                        <tr>
+                            <td><code>icon_trailing</code></td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Nom de l'icône à afficher à droite</td>
+                        </tr>
+                        <tr>
+                            <td><code>badge</code></td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Contenu du badge (nombre ou texte)</td>
+                        </tr>
+                        <tr>
+                            <td><code>badge_variant</code></td>
+                            <td>string</td>
+                            <td>"neutral"</td>
+                            <td>Variant du badge : "neutral", "primary", "secondary", "success", "warning", "error"</td>
+                        </tr>
+                        <tr>
+                            <td><code>current</code></td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Indique si l'élément est actif/courant</td>
+                        </tr>
+                        <tr>
+                            <td><code>class</code></td>
+                            <td>string</td>
+                            <td>""</td>
+                            <td>Classes CSS supplémentaires</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- c-navbar.submenu -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">c-navbar.submenu</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th>Prop</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>label</code></td>
+                            <td>string</td>
+                            <td>required</td>
+                            <td>Titre du sous-menu</td>
+                        </tr>
+                        <tr>
+                            <td><code>icon</code></td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Nom de l'icône à afficher</td>
+                        </tr>
+                        <tr>
+                            <td><code>badge</code></td>
+                            <td>string</td>
+                            <td>null</td>
+                            <td>Contenu du badge sur le titre</td>
+                        </tr>
+                        <tr>
+                            <td><code>expanded</code></td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Sous-menu ouvert par défaut</td>
+                        </tr>
+                        <tr>
+                            <td><code>class</code></td>
+                            <td>string</td>
+                            <td>""</td>
+                            <td>Classes CSS supplémentaires</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>

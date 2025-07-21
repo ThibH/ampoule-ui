@@ -1,0 +1,333 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Modal</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible modal dialog component for displaying content in an overlay window.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-button variant="primary" onclick="basic_modal.showModal()">
+                    Open Modal
+                </c-button>
+
+                <c-modal id="basic_modal">
+                    <h3 class="text-lg font-bold">Basic Modal</h3>
+                    <p class="py-4">This is a simple modal dialog with basic content.</p>
+                    <div class="flex justify-end">
+                        <c-button variant="secondary" onclick="basic_modal.close()">Close</c-button>
+                    </div>
+                </c-modal>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-button variant="primary" onclick="my_modal.showModal()"&gt;
+    Open Modal
+&lt;/c-button&gt;
+
+&lt;c-modal id="my_modal"&gt;
+    &lt;h3 class="text-lg font-bold"&gt;Basic Modal&lt;/h3&gt;
+    &lt;p class="py-4"&gt;This is a simple modal dialog.&lt;/p&gt;
+    &lt;div class="flex justify-end"&gt;
+        &lt;c-button variant="secondary" onclick="my_modal.close()"&gt;Close&lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/c-modal&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">required</code></td>
+                        <td>Unique identifier for the modal</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the modal container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-6">
+            <h3 class="text-lg font-semibold mb-4">JavaScript Methods</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-semibold">Method</th>
+                            <th class="font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="text-sm">showModal()</code></td>
+                            <td>Opens the modal dialog</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">close()</code></td>
+                            <td>Closes the modal dialog</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Confirmation Dialog -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Confirmation Dialog</h3>
+            <p class="text-base-content/70 mb-6">
+                A modal used for confirming destructive actions with primary and secondary actions.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-button icon="rocket" variant="error" onclick="confirm_modal.showModal()">
+                        Delete Account
+                    </c-button>
+
+                    <c-modal id="confirm_modal">
+                        <h3 class="text-lg font-bold">Confirm Account Deletion</h3>
+                        <p class="py-4">Are you sure you want to delete your account? This action cannot be undone.</p>
+                        <div class="flex gap-2 justify-end">
+                            <c-button variant="ghost" onclick="confirm_modal.close()">Cancel</c-button>
+                            <c-button variant="error" onclick="confirm_modal.close()" icon="rocket">
+                                Delete Account
+                            </c-button>
+                        </div>
+                    </c-modal>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button icon="rocket" variant="error" onclick="confirm_modal.showModal()"&gt;
+    Delete Account
+&lt;/c-button&gt;
+
+&lt;c-modal id="confirm_modal"&gt;
+    &lt;h3 class="text-lg font-bold"&gt;Confirm Account Deletion&lt;/h3&gt;
+    &lt;p class="py-4"&gt;Are you sure you want to delete your account? This action cannot be undone.&lt;/p&gt;
+    &lt;div class="flex gap-2 justify-end"&gt;
+        &lt;c-button variant="ghost" onclick="confirm_modal.close()"&gt;Cancel&lt;/c-button&gt;
+        &lt;c-button variant="error" onclick="confirm_modal.close()" icon="rocket"&gt;
+            Delete Account
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/c-modal&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Modal -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Form Modal</h3>
+            <p class="text-base-content/70 mb-6">
+                A modal containing a form for user input and data collection.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-button variant="primary" onclick="form_modal.showModal()">
+                        Add User
+                    </c-button>
+
+                    <c-modal id="form_modal">
+                        <h3 class="text-lg font-bold mb-4">Add New User</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="label">
+                                    <span class="label-text">Name</span>
+                                </label>
+                                <c-form.input type="text" placeholder="Enter full name" required />
+                            </div>
+                            <div>
+                                <label class="label">
+                                    <span class="label-text">Email</span>
+                                </label>
+                                <c-form.input type="email" placeholder="Enter email address" required />
+                            </div>
+                            <div>
+                                <label class="label">
+                                    <span class="label-text">Role</span>
+                                </label>
+                                <select class="select select-bordered w-full">
+                                    <option>Admin</option>
+                                    <option>User</option>
+                                    <option>Guest</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="flex gap-2 justify-end mt-6">
+                            <c-button variant="ghost" onclick="form_modal.close()">Cancel</c-button>
+                            <c-button variant="primary" onclick="form_modal.close()">Save User</c-button>
+                        </div>
+                    </c-modal>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button variant="primary" onclick="form_modal.showModal()"&gt;
+    Add User
+&lt;/c-button&gt;
+
+&lt;c-modal id="form_modal"&gt;
+    &lt;h3 class="text-lg font-bold mb-4"&gt;Add New User&lt;/h3&gt;
+    &lt;form class="space-y-4"&gt;
+        &lt;div&gt;
+            &lt;label class="label"&gt;
+                &lt;span class="label-text"&gt;Name&lt;/span&gt;
+            &lt;/label&gt;
+            &lt;c-form.input type="text" placeholder="Enter full name" required /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label class="label"&gt;
+                &lt;span class="label-text"&gt;Email&lt;/span&gt;
+            &lt;/label&gt;
+            &lt;c-form.input type="email" placeholder="Enter email address" required /&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label class="label"&gt;
+                &lt;span class="label-text"&gt;Role&lt;/span&gt;
+            &lt;/label&gt;
+            &lt;select class="select select-bordered w-full"&gt;
+                &lt;option&gt;Admin&lt;/option&gt;
+                &lt;option&gt;User&lt;/option&gt;
+                &lt;option&gt;Guest&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;div class="flex gap-2 justify-end mt-6"&gt;
+        &lt;c-button variant="ghost" onclick="form_modal.close()"&gt;Cancel&lt;/c-button&gt;
+        &lt;c-button variant="primary" onclick="form_modal.close()"&gt;Save User&lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/c-modal&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTMX Integration -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">HTMX Integration</h3>
+            <p class="text-base-content/70 mb-6">
+                Modal with HTMX for dynamic content loading and form submission.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-button variant="primary" onclick="htmx_modal.showModal()">
+                        Load Dynamic Content
+                    </c-button>
+
+                    <c-modal id="htmx_modal">
+                        <h3 class="text-lg font-bold">Dynamic Modal</h3>
+                        <div class="py-4">
+                            <c-button variant="secondary"
+                                      hx-get="{% url 'demo:demo_spinner' %}"
+                                      hx-target="#modal-content"
+                                      hx-swap="innerHTML"
+                                      spinner="true">
+                                Load Content
+                            </c-button>
+                            <div id="modal-content" class="mt-4 p-4 bg-base-300 rounded">
+                                Click the button above to load dynamic content.
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <c-button variant="ghost"
+                                      onclick="htmx_modal.close()"
+                                      hx-on::after-request="htmx_modal.close()">
+                                Close
+                            </c-button>
+                        </div>
+                    </c-modal>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button variant="primary" onclick="htmx_modal.showModal()"&gt;
+    Load Dynamic Content
+&lt;/c-button&gt;
+
+&lt;c-modal id="htmx_modal"&gt;
+    &lt;h3 class="text-lg font-bold"&gt;Dynamic Modal&lt;/h3&gt;
+    &lt;div class="py-4"&gt;
+        &lt;c-button variant="secondary" 
+                  hx-get="/api/load-content/" 
+                  hx-target="#modal-content" 
+                  hx-swap="innerHTML"
+                  spinner="true"&gt;
+            Load Content
+        &lt;/c-button&gt;
+        &lt;div id="modal-content" class="mt-4 p-4 bg-base-300 rounded"&gt;
+            Dynamic content will appear here.
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="flex justify-end"&gt;
+        &lt;c-button variant="ghost" 
+                  onclick="htmx_modal.close()" 
+                  hx-on::after-request="htmx_modal.close()"&gt;
+            Close
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/c-modal&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Modal Best Practices -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Best Practices</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Unique IDs</h4>
+                        <div class="text-sm">Always provide unique <code>id</code> attributes for each modal to avoid conflicts.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Escape Key</h4>
+                        <div class="text-sm">Users can press ESC to close modals. Consider this when designing confirmation flows.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Button Integration</h4>
+                        <div class="text-sm">Use the <code>modal</code> prop on buttons for automatic modal opening without JavaScript.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

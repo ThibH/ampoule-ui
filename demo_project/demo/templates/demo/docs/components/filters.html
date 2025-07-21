@@ -1,0 +1,591 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Filters</h1>
+        <p class="text-lg text-base-content/70">
+            Système de filtrage générique permettant de filtrer n'importe quel type de contenu (cards, divs, éléments custom) en utilisant des data-attributes.
+        </p>
+    </div>
+
+    <!-- Vue d'ensemble -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Vue d'ensemble</h2>
+        <div class="prose max-w-none mb-6">
+            <p>Le système de filtrage générique étend les capacités de filtrage au-delà des tables pour permettre de filtrer tout type d'élément HTML. Il détecte automatiquement les filtres disponibles à partir des attributs <code>data-filter-*</code> et génère les composants de filtrage appropriés.</p>
+        </div>
+
+        <div class="bg-base-200 p-4 rounded-lg">
+            <ul class="space-y-2">
+                <li><strong>Recherche textuelle</strong> : Filtre par contenu texte avec <code>data-filter-input="text"</code></li>
+                <li><strong>Auto-détection</strong> : Les filtres sont automatiquement détectés à partir des attributs <code>data-filter-*</code></li>
+                <li><strong>Filtres range</strong> : Les valeurs numériques deviennent automatiquement des filtres de plage avec inputs min/max</li>
+                <li><strong>Filtres dropdown</strong> : Les valeurs texte deviennent des filtres dropdown multi-sélection</li>
+                <li><strong>Composants réutilisables</strong> : Utilise les mêmes composants de filtrage que les tables</li>
+                <li><strong>Cible générique</strong> : Fonctionne avec tous types d'éléments HTML</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Usage de base -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Usage de base</h2>
+        <div class="relative">
+            <pre class="language-html"><code>&lt;c-filter-container target="items-container"&gt;
+    &lt;!-- Recherche textuelle --&gt;
+    &lt;input type="text" 
+           placeholder="Rechercher..." 
+           class="input input-bordered input-sm" 
+           data-filter-input="text" /&gt;
+    
+    &lt;!-- Filtres dropdown et range --&gt;
+    &lt;c-table.filter-dropdown filter-id="category" label="Catégorie" /&gt;
+    &lt;c-table.filter-range filter-id="price" label="Prix" format="currency" /&gt;
+&lt;/c-filter-container&gt;
+
+&lt;div id="items-container"&gt;
+    &lt;div class="card" data-filter-category="electronics" data-filter-price="299"&gt;...&lt;/div&gt;
+    &lt;div class="card" data-filter-category="books" data-filter-price="25"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <!-- Exemple avec Cards -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Exemple avec Cards</h2>
+        <div class="prose max-w-none mb-6">
+            <p>Voici un exemple concret utilisant des cards filtrables par catégorie, prix et disponibilité :</p>
+        </div>
+
+    <!-- Système de filtrage -->
+    <c-filter-container target="demo-cards-container" class="mb-6">
+        <!-- Recherche textuelle -->
+        <c-form.input 
+            type="text"
+            icon_leading="search"
+            placeholder="Rechercher dans les produits..."
+            data-filter-input="text"
+            clearable="true"
+        />
+
+        
+        <!-- Filtres dropdown et range -->
+        <c-dropdown label="Catégorie">
+            <c-filter-options filter-id="category" />
+        </c-dropdown>
+        <c-dropdown label="Prix" content_class="w-64">
+            <c-filter-range filter-id="price" format="currency" />
+        </c-dropdown>
+        <c-dropdown label="Statut">
+            <c-filter-options filter-id="status" />
+        </c-dropdown>
+        <c-dropdown label="Marque">
+            <c-filter-options filter-id="brand" />
+        </c-dropdown>
+    </c-filter-container>
+
+    <!-- Cards filtrables -->
+    <div id="demo-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {% for product in products %}
+        <c-card data-filter-category="{{ product.category }}" 
+                data-filter-price="{{ product.price }}" 
+                data-filter-status="{{ product.status }}"
+                data-filter-brand="{{ product.brand }}">
+            <div slot="header">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <div class="flex gap-2 mt-2">
+                    <div class="badge badge-outline">{{ product.category }}</div>
+                    <div class="badge badge-primary">{{ product.price }}€</div>
+                    {% if product.status == "available" %}
+                        <div class="badge badge-success">{{ product.status }}</div>
+                    {% else %}
+                        <div class="badge badge-error">{{ product.status }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <p>{{ product.description }}</p>
+            
+            <div slot="actions">
+                <div class="text-sm text-base-content/70">Marque: {{ product.brand }}</div>
+            </div>
+        </c-card>
+        {% endfor %}
+    </div>
+    </section>
+
+    <!-- Composant c-filter-container -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Composant c-filter-container</h2>
+        <div class="prose max-w-none mb-6">
+            <p>Le composant wrapper qui gère l'initialisation du système de filtrage.</p>
+        </div>
+
+        <h3 class="text-xl font-medium mb-4">Paramètres</h3>
+        <div class="overflow-x-auto mb-6">
+            <table class="table table-zebra">
+                <thead>
+                    <tr>
+                        <th>Paramètre</th>
+                        <th>Type</th>
+                        <th>Défaut</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>target</code></td>
+                        <td>string</td>
+                        <td>-</td>
+                        <td>ID du conteneur à filtrer (obligatoire)</td>
+                    </tr>
+                    <tr>
+                        <td><code>itemselector</code></td>
+                        <td>string</td>
+                        <td><code>.card</code></td>
+                        <td>Sélecteur CSS des éléments à filtrer</td>
+                    </tr>
+                    <tr>
+                        <td><code>dataprefix</code></td>
+                        <td>string</td>
+                        <td><code>filter-</code></td>
+                        <td>Préfixe des data-attributes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Types de filtres -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Types de filtres</h2>
+
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-xl font-medium mb-4">Composants de filtrage universels</h3>
+                <div class="prose max-w-none mb-4">
+                    <p>Composants flexibles qui peuvent être utilisés dans n'importe quel contexte : tables, dropdowns, modales, standalone.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-medium mb-2">c-filter-options</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;!-- Dans un dropdown --&gt;
+&lt;c-dropdown label="Catégorie"&gt;
+    &lt;c-filter-options filter-id="category" /&gt;
+&lt;/c-dropdown&gt;
+
+&lt;!-- Dans une modale --&gt;
+&lt;c-modal id="filters"&gt;
+    &lt;c-filter-options filter-id="status" label="Statut" show_label="true" /&gt;
+&lt;/c-modal&gt;
+
+&lt;!-- Standalone --&gt;
+&lt;c-filter-options filter-id="brand" label="Marque" show_label="true" /&gt;
+
+&lt;!-- Dans une table --&gt;
+&lt;c-dropdown label="Statut"&gt;
+    &lt;c-filter-options filter-id="status" /&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium mb-2">c-filter-range</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;!-- Dans un dropdown --&gt;
+&lt;c-dropdown label="Prix" content_class="w-64"&gt;
+    &lt;c-filter-range filter-id="price" format="currency" /&gt;
+&lt;/c-dropdown&gt;
+
+&lt;!-- Standalone avec label --&gt;
+&lt;c-filter-range filter-id="age" label="Âge" show_label="true" /&gt;
+
+&lt;!-- Dans une table --&gt;
+&lt;c-dropdown label="Salaire" content_class="w-64"&gt;
+    &lt;c-filter-range filter-id="salary" format="currency" /&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paramètres des nouveaux composants -->
+        <div class="bg-base-200 p-4 rounded-lg mt-6">
+            <h4 class="font-bold mb-3">Paramètres des composants réutilisables</h4>
+            <div class="overflow-x-auto">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Paramètre</th>
+                            <th>Type</th>
+                            <th>Défaut</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>filter_id</code></td>
+                            <td>string</td>
+                            <td>-</td>
+                            <td>Identifiant du filtre (obligatoire)</td>
+                        </tr>
+                        <tr>
+                            <td><code>label</code></td>
+                            <td>string</td>
+                            <td>-</td>
+                            <td>Texte du label (optionnel)</td>
+                        </tr>
+                        <tr>
+                            <td><code>show_label</code></td>
+                            <td>boolean</td>
+                            <td>false</td>
+                            <td>Afficher le label (optionnel)</td>
+                        </tr>
+                        <tr>
+                            <td><code>format</code></td>
+                            <td>string</td>
+                            <td>number</td>
+                            <td>Format pour c-filter-range : "currency" ou "number"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Attributes -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Data Attributes</h2>
+        <div class="prose max-w-none mb-6">
+            <p>Les éléments à filtrer doivent avoir des attributs <code>data-filter-*</code> correspondant aux filtres définis :</p>
+        </div>
+        <div class="relative">
+            <pre class="language-html"><code>&lt;div class="card" 
+     data-filter-category="electronics" 
+     data-filter-price="299" 
+     data-filter-status="available"&gt;
+    ...
+&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <!-- Détection automatique -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Détection automatique</h2>
+        <div class="prose max-w-none mb-4">
+            <p>Le système détecte automatiquement les types de filtres :</p>
+        </div>
+        <div class="bg-base-200 p-4 rounded-lg">
+            <ul class="space-y-2">
+                <li><strong>Valeurs numériques</strong> → Filtre range automatique</li>
+                <li><strong>Valeurs texte</strong> → Filtre dropdown automatique</li>
+                <li><strong>Options uniques</strong> → Triées automatiquement dans les dropdowns</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Exemples d'intégration -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Exemples d'intégration</h2>
+
+        <div class="space-y-8">
+            <div>
+                <h3 class="text-xl font-medium mb-4">Filtres dans Dropdowns</h3>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-dropdown label="Catégorie" placement="bottom-start"&gt;
+    &lt;c-filter-options filter-id="category" /&gt;
+&lt;/c-dropdown&gt;
+
+&lt;c-dropdown label="Prix" placement="bottom-start" content_class="w-64"&gt;
+    &lt;c-filter-range filter-id="price" format="currency" /&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-medium mb-4">Filtres dans Modales</h3>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-modal id="filter-modal"&gt;
+    &lt;h3 class="text-lg font-bold mb-4"&gt;Filtres avancés&lt;/h3&gt;
+    
+    &lt;div class="space-y-6"&gt;
+        &lt;c-filter-options filter-id="category" label="Catégorie" show_label="true" /&gt;
+        &lt;c-filter-range filter-id="price" label="Prix" format="currency" show_label="true" /&gt;
+        &lt;c-filter-options filter-id="status" label="Statut" show_label="true" /&gt;
+    &lt;/div&gt;
+&lt;/c-modal&gt;</code></pre>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-medium mb-4">Filtres Standalone</h3>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="bg-base-200 p-4 rounded-lg"&gt;
+    &lt;c-filter-options filter-id="category" label="Catégorie" show_label="true" /&gt;
+&lt;/div&gt;
+
+&lt;div class="bg-base-200 p-4 rounded-lg"&gt;
+    &lt;c-filter-range filter-id="price" label="Prix" format="currency" show_label="true" /&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-medium mb-4">Avec des éléments custom</h3>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-filter-container target="custom-items" itemselector=".item"&gt;
+    &lt;c-dropdown label="Type"&gt;
+        &lt;c-filter-options filter-id="type" /&gt;
+    &lt;/c-dropdown&gt;
+&lt;/c-filter-container&gt;
+
+&lt;div id="custom-items"&gt;
+    &lt;div class="item" data-filter-type="urgent"&gt;Tâche urgente&lt;/div&gt;
+    &lt;div class="item" data-filter-type="normal"&gt;Tâche normale&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-medium mb-4">Avec préfixe personnalisé</h3>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-filter-container target="products" dataprefix="product-"&gt;
+    &lt;c-dropdown label="Catégorie"&gt;
+        &lt;c-filter-options filter-id="category" /&gt;
+    &lt;/c-dropdown&gt;
+&lt;/c-filter-container&gt;
+
+&lt;div id="products"&gt;
+    &lt;div class="card" data-product-category="tech"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lien vers la page de test -->
+        <div class="alert alert-info mt-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+                <h4 class="font-bold">Voir la démonstration complète</h4>
+                <div class="text-sm">
+                    Une page de test complète est disponible pour voir tous ces exemples en action : 
+                    <a href="/test-filters-containers/" class="link link-primary font-medium">Test des filtres dans conteneurs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtres avec Tables -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Filtres avec Tables</h2>
+        <div class="prose max-w-none mb-6">
+            <p>Les mêmes composants de filtrage peuvent être utilisés avec les tables Django Cotton. Voici comment intégrer les filtres avancés dans vos tables.</p>
+        </div>
+
+        <div class="space-y-8">
+            <!-- Table simple avec recherche -->
+            <div>
+                <h3 class="text-xl font-medium mb-4">Table avec recherche</h3>
+                <div class="prose max-w-none mb-4">
+                    <p>Table basique avec filtrage par recherche textuelle sur toutes les colonnes.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <c-table variant="zebra" filterable>
+                            <c-table.columns>
+                                <c-table.column>Employé</c-table.column>
+                                <c-table.column>Département</c-table.column>
+                                <c-table.column align="right">Salaire</c-table.column>
+                                <c-table.column align="center">Statut</c-table.column>
+                            </c-table.columns>
+                            <c-table.rows>
+                                {% for employee in employees|slice:":5" %}
+                                <c-table.row>
+                                    <c-table.cell>
+                                        <div class="flex items-center gap-3">
+                                            <div class="avatar placeholder">
+                                                <div class="bg-neutral text-neutral-content rounded-full w-10">
+                                                    <span class="text-xs">{{ employee.name|slice:":2"|upper }}</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="font-bold">{{ employee.name }}</div>
+                                                <div class="text-sm opacity-50">{{ employee.email }}</div>
+                                            </div>
+                                        </div>
+                                    </c-table.cell>
+                                    <c-table.cell>
+                                        <c-badge variant="outline" size="sm">{{ employee.department }}</c-badge>
+                                    </c-table.cell>
+                                    <c-table.cell align="right">
+                                        <span class="font-mono">${{ employee.salary|floatformat:0 }}</span>
+                                    </c-table.cell>
+                                    <c-table.cell align="center">
+                                        {% if employee.status == 'active' %}
+                                            <c-badge variant="success" size="sm">Actif</c-badge>
+                                        {% else %}
+                                            <c-badge variant="error" size="sm">Inactif</c-badge>
+                                        {% endif %}
+                                    </c-table.cell>
+                                </c-table.row>
+                                {% endfor %}
+                            </c-table.rows>
+                        </c-table>
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-table variant="zebra" filterable&gt;
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;Employé&lt;/c-table.column&gt;
+        &lt;c-table.column&gt;Département&lt;/c-table.column&gt;
+        &lt;c-table.column align="right"&gt;Salaire&lt;/c-table.column&gt;
+        &lt;c-table.column align="center"&gt;Statut&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        {% templatetag openblock %} for employee in employees {% templatetag closeblock %}
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;{{ employee.name }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell&gt;{{ employee.department }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell align="right"&gt;${{ employee.salary }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell align="center"&gt;{{ employee.status }}&lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+        {% templatetag openblock %} endfor {% templatetag closeblock %}
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table avec filtres avancés -->
+            <div>
+                <h3 class="text-xl font-medium mb-4">Table avec filtres avancés</h3>
+                <div class="prose max-w-none mb-4">
+                    <p>Table avec filtres dropdown et range pour un filtrage précis des données.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <c-table variant="zebra" filterable data-table-filter="true">
+                            <!-- Filtres personnalisés -->
+                            <c-slot name="filter_slot">
+                                <c-dropdown label="Département">
+                                    <c-filter-options filter-id="department" />
+                                </c-dropdown>
+                                <c-dropdown label="Salaire" content_class="w-64">
+                                    <c-filter-range filter-id="salary" format="currency" />
+                                </c-dropdown>
+                                <c-dropdown label="Statut">
+                                    <c-filter-options filter-id="status" />
+                                </c-dropdown>
+                            </c-slot>
+                            
+                            <c-table.columns>
+                                <c-table.column>Employé</c-table.column>
+                                <c-table.column data-filter-id="department" data-filter-type="dropdown">Département</c-table.column>
+                                <c-table.column data-filter-id="salary" data-filter-type="range" align="right">Salaire</c-table.column>
+                                <c-table.column data-filter-id="status" data-filter-type="dropdown" align="center">Statut</c-table.column>
+                            </c-table.columns>
+                            <c-table.rows>
+                                {% for employee in employees %}
+                                <c-table.row>
+                                    <c-table.cell>
+                                        <div class="flex items-center gap-3">
+                                            <div class="avatar placeholder">
+                                                <div class="bg-neutral text-neutral-content rounded-full w-10">
+                                                    <span class="text-xs">{{ employee.name|slice:":2"|upper }}</span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="font-bold">{{ employee.name }}</div>
+                                                <div class="text-sm opacity-50">{{ employee.email }}</div>
+                                            </div>
+                                        </div>
+                                    </c-table.cell>
+                                    <c-table.cell data-filter-department="{{ employee.department }}">
+                                        <c-badge variant="outline" size="sm">{{ employee.department }}</c-badge>
+                                    </c-table.cell>
+                                    <c-table.cell data-filter-salary="{{ employee.salary }}" align="right">
+                                        <span class="font-mono">${{ employee.salary|floatformat:0 }}</span>
+                                    </c-table.cell>
+                                    <c-table.cell data-filter-status="{{ employee.status }}" align="center">
+                                        {% if employee.status == 'active' %}
+                                            <c-badge variant="success" size="sm">Actif</c-badge>
+                                        {% elif employee.status == 'inactive' %}
+                                            <c-badge variant="error" size="sm">Inactif</c-badge>
+                                        {% else %}
+                                            <c-badge variant="warning" size="sm">{{ employee.status }}</c-badge>
+                                        {% endif %}
+                                    </c-table.cell>
+                                </c-table.row>
+                                {% endfor %}
+                            </c-table.rows>
+                        </c-table>
+                    </div>
+                    <div class="relative">
+                        <pre class="language-html"><code>&lt;c-table variant="zebra" filterable data-table-filter="true"&gt;
+    &lt;!-- Filtres personnalisés --&gt;
+    &lt;c-slot name="filter_slot"&gt;
+        &lt;c-dropdown label="Département"&gt;
+            &lt;c-filter-options filter-id="department" /&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-dropdown label="Salaire" content_class="w-64"&gt;
+            &lt;c-filter-range filter-id="salary" format="currency" /&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-dropdown label="Statut"&gt;
+            &lt;c-filter-options filter-id="status" /&gt;
+        &lt;/c-dropdown&gt;
+    &lt;/c-slot&gt;
+    
+    &lt;c-table.columns&gt;
+        &lt;c-table.column&gt;Employé&lt;/c-table.column&gt;
+        &lt;c-table.column data-filter-id="department" data-filter-type="dropdown"&gt;Département&lt;/c-table.column&gt;
+        &lt;c-table.column data-filter-id="salary" data-filter-type="range" align="right"&gt;Salaire&lt;/c-table.column&gt;
+        &lt;c-table.column data-filter-id="status" data-filter-type="dropdown" align="center"&gt;Statut&lt;/c-table.column&gt;
+    &lt;/c-table.columns&gt;
+    &lt;c-table.rows&gt;
+        {% templatetag openblock %} for employee in employees {% templatetag closeblock %}
+        &lt;c-table.row&gt;
+            &lt;c-table.cell&gt;{{ employee.name }}&lt;/c-table.cell&gt;
+            &lt;c-table.cell data-filter-department="{{ employee.department }}"&gt;
+                &lt;c-badge variant="outline"&gt;{{ employee.department }}&lt;/c-badge&gt;
+            &lt;/c-table.cell&gt;
+            &lt;c-table.cell data-filter-salary="{{ employee.salary }}" align="right"&gt;
+                ${{ employee.salary|floatformat:0 }}
+            &lt;/c-table.cell&gt;
+            &lt;c-table.cell data-filter-status="{{ employee.status }}" align="center"&gt;
+                &lt;c-badge variant="success"&gt;{{ employee.status }}&lt;/c-badge&gt;
+            &lt;/c-table.cell&gt;
+        &lt;/c-table.row&gt;
+        {% templatetag openblock %} endfor {% templatetag closeblock %}
+    &lt;/c-table.rows&gt;
+&lt;/c-table&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration des filtres table -->
+        <div class="bg-base-200 p-4 rounded-lg mt-6">
+            <h4 class="font-bold mb-2">Configuration pour les tables</h4>
+            <ul class="space-y-1 text-sm">
+                <li>• <code>data-table-filter="true"</code> sur le composant table pour activer le système</li>
+                <li>• <code>data-filter-id</code> et <code>data-filter-type</code> sur les colonnes</li>
+                <li>• <code>data-filter-{id}</code> sur les cellules avec les valeurs à filtrer</li>
+                <li>• Slot <code>filter_slot</code> avec dropdowns contenant <code>c-filter-options</code> ou <code>c-filter-range</code></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Note technique -->
+    <div class="alert alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div>
+            <h4 class="font-bold">Note technique</h4>
+            <div class="text-sm">Le système utilise deux classes JavaScript : <code>GenericFilter</code> pour les éléments génériques et <code>TableFilter</code> pour les tables. Les deux systèmes partagent les mêmes composants de filtrage et s'initialisent automatiquement.</div>
+        </div>
+    </div>
+
+</div>

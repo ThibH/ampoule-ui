@@ -1,0 +1,474 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Button Group</h1>
+        <p class="text-lg text-base-content/70">
+            A container component for grouping related buttons together with seamless visual connection.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-button-group>
+                    <c-button variant="outline" class="join-item">Left</c-button>
+                    <c-button variant="outline" class="join-item">Center</c-button>
+                    <c-button variant="outline" class="join-item">Right</c-button>
+                </c-button-group>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-button-group&gt;
+    &lt;c-button variant="outline" class="join-item"&gt;Left&lt;/c-button&gt;
+    &lt;c-button variant="outline" class="join-item"&gt;Center&lt;/c-button&gt;
+    &lt;c-button variant="outline" class="join-item"&gt;Right&lt;/c-button&gt;
+&lt;/c-button-group&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <h3 class="text-lg font-semibold mb-4">c-button-group</h3>
+        <div class="overflow-x-auto mb-6">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the button group container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+                <h4 class="font-bold">Important</h4>
+                <div class="text-sm">Each button inside the group must include the <code>join-item</code> class to properly connect with adjacent buttons.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Different Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Button groups work with all button variants for different visual styles.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- Primary group -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Primary Buttons</h4>
+                            <c-button-group>
+                                <c-button variant="primary" class="join-item">Create</c-button>
+                                <c-button variant="primary" class="join-item">Edit</c-button>
+                                <c-button variant="primary" class="join-item">Delete</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Outline group -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Outline Buttons</h4>
+                            <c-button-group>
+                                <c-button variant="outline" class="join-item">Day</c-button>
+                                <c-button variant="outline" class="join-item">Week</c-button>
+                                <c-button variant="outline" class="join-item">Month</c-button>
+                                <c-button variant="outline" class="join-item">Year</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Ghost group -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Ghost Buttons</h4>
+                            <c-button-group>
+                                <c-button variant="ghost" class="join-item">Left</c-button>
+                                <c-button variant="ghost" class="join-item">Center</c-button>
+                                <c-button variant="ghost" class="join-item">Right</c-button>
+                                <c-button variant="ghost" class="join-item">Justify</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Secondary group -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Secondary Buttons</h4>
+                            <c-button-group>
+                                <c-button variant="secondary" class="join-item">Bold</c-button>
+                                <c-button variant="secondary" class="join-item">Italic</c-button>
+                                <c-button variant="secondary" class="join-item">Underline</c-button>
+                            </c-button-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Primary buttons --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="primary" class="join-item"&gt;Create&lt;/c-button&gt;
+    &lt;c-button variant="primary" class="join-item"&gt;Edit&lt;/c-button&gt;
+    &lt;c-button variant="primary" class="join-item"&gt;Delete&lt;/c-button&gt;
+&lt;/c-button-group&gt;
+
+&lt;!-- Outline buttons --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="outline" class="join-item"&gt;Day&lt;/c-button&gt;
+    &lt;c-button variant="outline" class="join-item"&gt;Week&lt;/c-button&gt;
+    &lt;c-button variant="outline" class="join-item"&gt;Month&lt;/c-button&gt;
+    &lt;c-button variant="outline" class="join-item"&gt;Year&lt;/c-button&gt;
+&lt;/c-button-group&gt;
+
+&lt;!-- Ghost buttons --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="ghost" class="join-item"&gt;Left&lt;/c-button&gt;
+    &lt;c-button variant="ghost" class="join-item"&gt;Center&lt;/c-button&gt;
+    &lt;c-button variant="ghost" class="join-item"&gt;Right&lt;/c-button&gt;
+    &lt;c-button variant="ghost" class="join-item"&gt;Justify&lt;/c-button&gt;
+&lt;/c-button-group&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Button groups with icons for better visual communication and functionality.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- Text formatting -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Text Formatting</h4>
+                            <c-button-group>
+                                <c-button variant="outline" icon="bold" class="join-item"></c-button>
+                                <c-button variant="outline" icon="italic" class="join-item"></c-button>
+                                <c-button variant="outline" icon="underline" class="join-item"></c-button>
+                                <c-button variant="outline" icon="strikethrough" class="join-item"></c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Media controls -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Media Controls</h4>
+                            <c-button-group>
+                                <c-button variant="primary" icon="skip-back" class="join-item"></c-button>
+                                <c-button variant="primary" icon="play" class="join-item">Play</c-button>
+                                <c-button variant="primary" icon="pause" class="join-item">Pause</c-button>
+                                <c-button variant="primary" icon="skip-forward" class="join-item"></c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- File operations -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">File Operations</h4>
+                            <c-button-group>
+                                <c-button variant="secondary" icon="plus" class="join-item">New</c-button>
+                                <c-button variant="secondary" icon="folder-open" class="join-item">Open</c-button>
+                                <c-button variant="secondary" icon="save" class="join-item">Save</c-button>
+                                <c-button variant="secondary" icon="printer" class="join-item">Print</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- View options -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">View Options</h4>
+                            <c-button-group>
+                                <c-button variant="ghost" icon="list" class="join-item"></c-button>
+                                <c-button variant="ghost" icon="grid" class="join-item"></c-button>
+                                <c-button variant="ghost" icon="table" class="join-item"></c-button>
+                                <c-button variant="ghost" icon="kanban-square" class="join-item"></c-button>
+                            </c-button-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Text formatting --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="outline" icon="bold" class="join-item"&gt;&lt;/c-button&gt;
+    &lt;c-button variant="outline" icon="italic" class="join-item"&gt;&lt;/c-button&gt;
+    &lt;c-button variant="outline" icon="underline" class="join-item"&gt;&lt;/c-button&gt;
+    &lt;c-button variant="outline" icon="strikethrough" class="join-item"&gt;&lt;/c-button&gt;
+&lt;/c-button-group&gt;
+
+&lt;!-- Media controls --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="primary" icon="skip-back" class="join-item"&gt;&lt;/c-button&gt;
+    &lt;c-button variant="primary" icon="play" class="join-item"&gt;Play&lt;/c-button&gt;
+    &lt;c-button variant="primary" icon="pause" class="join-item"&gt;Pause&lt;/c-button&gt;
+    &lt;c-button variant="primary" icon="skip-forward" class="join-item"&gt;&lt;/c-button&gt;
+&lt;/c-button-group&gt;
+
+&lt;!-- View options --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="ghost" icon="list" class="join-item"&gt;&lt;/c-button&gt;
+    &lt;c-button variant="ghost" icon="grid" class="join-item"&gt;&lt;/c-button&gt;
+    &lt;c-button variant="ghost" icon="table" class="join-item"&gt;&lt;/c-button&gt;
+    &lt;c-button variant="ghost" icon="kanban-square" class="join-item"&gt;&lt;/c-button&gt;
+&lt;/c-button-group&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vertical Groups -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Vertical Groups</h3>
+            <p class="text-base-content/70 mb-6">
+                Create vertical button groups using DaisyUI's join-vertical class.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex gap-8 justify-center">
+                        <!-- Navigation menu -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Navigation Menu</h4>
+                            <c-button-group class="join-vertical">
+                                <c-button variant="outline" icon="home" class="join-item justify-start">Dashboard</c-button>
+                                <c-button variant="outline" icon="users" class="join-item justify-start">Users</c-button>
+                                <c-button variant="outline" icon="settings" class="join-item justify-start">Settings</c-button>
+                                <c-button variant="outline" icon="log-out" class="join-item justify-start">Logout</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Action toolbar -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Action Toolbar</h4>
+                            <c-button-group class="join-vertical">
+                                <c-button variant="primary" icon="plus" class="join-item">Add Item</c-button>
+                                <c-button variant="secondary" icon="edit" class="join-item">Edit</c-button>
+                                <c-button variant="secondary" icon="copy" class="join-item">Duplicate</c-button>
+                                <c-button variant="error" icon="trash" class="join-item">Delete</c-button>
+                            </c-button-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Navigation menu --&gt;
+&lt;c-button-group class="join-vertical"&gt;
+    &lt;c-button variant="outline" icon="home" class="join-item justify-start"&gt;Dashboard&lt;/c-button&gt;
+    &lt;c-button variant="outline" icon="users" class="join-item justify-start"&gt;Users&lt;/c-button&gt;
+    &lt;c-button variant="outline" icon="settings" class="join-item justify-start"&gt;Settings&lt;/c-button&gt;
+    &lt;c-button variant="outline" icon="log-out" class="join-item justify-start"&gt;Logout&lt;/c-button&gt;
+&lt;/c-button-group&gt;
+
+&lt;!-- Action toolbar --&gt;
+&lt;c-button-group class="join-vertical"&gt;
+    &lt;c-button variant="primary" icon="plus" class="join-item"&gt;Add Item&lt;/c-button&gt;
+    &lt;c-button variant="secondary" icon="edit" class="join-item"&gt;Edit&lt;/c-button&gt;
+    &lt;c-button variant="secondary" icon="copy" class="join-item"&gt;Duplicate&lt;/c-button&gt;
+    &lt;c-button variant="error" icon="trash" class="join-item"&gt;Delete&lt;/c-button&gt;
+&lt;/c-button-group&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Size Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Size Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Button groups adapt to different button sizes while maintaining proper connection.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- Extra small -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Extra Small</h4>
+                            <c-button-group>
+                                <c-button variant="outline" class="btn-xs join-item">XS</c-button>
+                                <c-button variant="outline" class="btn-xs join-item">Small</c-button>
+                                <c-button variant="outline" class="btn-xs join-item">Compact</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Small -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Small</h4>
+                            <c-button-group>
+                                <c-button variant="primary" class="btn-sm join-item">Small</c-button>
+                                <c-button variant="primary" class="btn-sm join-item">Button</c-button>
+                                <c-button variant="primary" class="btn-sm join-item">Group</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Normal (default) -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Normal</h4>
+                            <c-button-group>
+                                <c-button variant="secondary" class="join-item">Normal</c-button>
+                                <c-button variant="secondary" class="join-item">Size</c-button>
+                                <c-button variant="secondary" class="join-item">Buttons</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Large -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Large</h4>
+                            <c-button-group>
+                                <c-button variant="accent" class="btn-lg join-item">Large</c-button>
+                                <c-button variant="accent" class="btn-lg join-item">Button</c-button>
+                                <c-button variant="accent" class="btn-lg join-item">Group</c-button>
+                            </c-button-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Extra small --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="outline" class="btn-xs join-item"&gt;XS&lt;/c-button&gt;
+    &lt;c-button variant="outline" class="btn-xs join-item"&gt;Small&lt;/c-button&gt;
+    &lt;c-button variant="outline" class="btn-xs join-item"&gt;Compact&lt;/c-button&gt;
+&lt;/c-button-group&gt;
+
+&lt;!-- Small --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="primary" class="btn-sm join-item"&gt;Small&lt;/c-button&gt;
+    &lt;c-button variant="primary" class="btn-sm join-item"&gt;Button&lt;/c-button&gt;
+    &lt;c-button variant="primary" class="btn-sm join-item"&gt;Group&lt;/c-button&gt;
+&lt;/c-button-group&gt;
+
+&lt;!-- Large --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="accent" class="btn-lg join-item"&gt;Large&lt;/c-button&gt;
+    &lt;c-button variant="accent" class="btn-lg join-item"&gt;Button&lt;/c-button&gt;
+    &lt;c-button variant="accent" class="btn-lg join-item"&gt;Group&lt;/c-button&gt;
+&lt;/c-button-group&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Examples -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Interactive Examples</h3>
+            <p class="text-base-content/70 mb-6">
+                Button groups with HTMX integration for dynamic behavior and state management.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <!-- Filter buttons -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Filter Buttons (with HTMX)</h4>
+                            <c-button-group>
+                                <c-button variant="outline"
+                                          class="join-item"
+                                          hx-get="{% url 'demo:toast_action' %}?type=info"
+                                          spinner="true">All</c-button>
+                                <c-button variant="outline"
+                                          class="join-item"
+                                          hx-get="{% url 'demo:toast_action' %}?type=success"
+                                          spinner="true">Active</c-button>
+                                <c-button variant="outline"
+                                          class="join-item"
+                                          hx-get="{% url 'demo:toast_action' %}?type=warning"
+                                          spinner="true">Pending</c-button>
+                                <c-button variant="outline"
+                                          class="join-item"
+                                          hx-get="{% url 'demo:toast_action' %}?type=error"
+                                          spinner="true">Inactive</c-button>
+                            </c-button-group>
+                        </div>
+
+                        <!-- Toggle group -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Toggle Group</h4>
+                            <c-button-group>
+                                <c-button variant="ghost" icon="align-left" class="join-item"></c-button>
+                                <c-button variant="ghost" icon="align-center" class="join-item"></c-button>
+                                <c-button variant="ghost" icon="align-right" class="join-item"></c-button>
+                                <c-button variant="ghost" icon="align-justify" class="join-item"></c-button>
+                            </c-button-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Filter buttons with HTMX --&gt;
+&lt;c-button-group&gt;
+    &lt;c-button variant="outline" 
+              class="join-item"
+              hx-get="/api/filter/all"
+              spinner="true"&gt;All&lt;/c-button&gt;
+    &lt;c-button variant="outline" 
+              class="join-item"
+              hx-get="/api/filter/active"
+              spinner="true"&gt;Active&lt;/c-button&gt;
+    &lt;c-button variant="outline" 
+              class="join-item"
+              hx-get="/api/filter/pending"
+              spinner="true"&gt;Pending&lt;/c-button&gt;
+    &lt;c-button variant="outline" 
+              class="join-item"
+              hx-get="/api/filter/inactive"
+              spinner="true"&gt;Inactive&lt;/c-button&gt;
+&lt;/c-button-group&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Usage Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Usage Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Join Item Class</h4>
+                        <div class="text-sm">Every button in a group must have the <code>join-item</code> class to properly connect to adjacent buttons.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Consistent Styling</h4>
+                        <div class="text-sm">Use the same variant and size classes for all buttons in a group for consistent appearance.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Related Actions</h4>
+                        <div class="text-sm">Button groups work best for related actions or options that users might want to access quickly.</div>
+                    </div>
+                </div>
+
+                <div class="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Vertical Groups</h4>
+                        <div class="text-sm">Add <code>join-vertical</code> class to the button group container to create vertical button layouts.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

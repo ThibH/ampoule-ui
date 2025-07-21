@@ -1,0 +1,995 @@
+<!-- Authentication Forms UI Blocks -->
+<div class="mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Authentication Forms</h1>
+        <p class="text-base-content/70 text-lg">Complete authentication form layouts built with your component library.</p>
+    </div>
+
+    <!-- Simple Login Form -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Simple Login Form</h2>
+        <p class="text-base-content/70 mb-6">Clean, minimal login form with essential fields and modern styling.</p>
+        
+        <c-tab.group group_name="simple-login">
+            <c-tabs>
+                <c-tab name="preview" group_name="simple-login" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="simple-login">Code</c-tab>
+                <c-tab name="split" group_name="simple-login">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="simple-login">
+                <div class="bg-base-200 p-8 rounded-lg">
+                    <div class="max-w-md mx-auto">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold mb-2">Welcome back</h3>
+                            <p class="text-base-content/60">Sign in to your account</p>
+                        </div>
+                        
+                        <form class="space-y-6">
+                            <c-form.input
+                                label="Email address"
+                                type="email"
+                                placeholder="Enter your email"
+                                required="true"
+                            />
+                            
+                            <c-form.input
+                                label="Password"
+                                type="password"
+                                placeholder="Enter your password"
+                                required="true"
+                            />
+                            
+                            <div class="flex items-center justify-between">
+                                <c-checkbox label="Remember me" />
+                                <a href="#" class="text-sm text-primary hover:text-primary/80">Forgot password?</a>
+                            </div>
+                            
+                            <c-button variant="primary" size="lg" class="w-full">
+                                Sign in
+                            </c-button>
+                        </form>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-base-content/60">
+                                Don't have an account? 
+                                <a href="#" class="text-primary hover:text-primary/80 font-medium">Sign up</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="simple-login">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="max-w-md mx-auto"&gt;
+    &lt;div class="text-center mb-8"&gt;
+        &lt;h3 class="text-2xl font-bold mb-2"&gt;Welcome back&lt;/h3&gt;
+        &lt;p class="text-base-content/60"&gt;Sign in to your account&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;form class="space-y-6"&gt;
+        &lt;c-form.input
+            label="Email address"
+            type="email"
+            placeholder="Enter your email"
+            required="true"
+        /&gt;
+        
+        &lt;c-form.input
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
+            required="true"
+        /&gt;
+        
+        &lt;div class="flex items-center justify-between"&gt;
+            &lt;c-checkbox label="Remember me" /&gt;
+            &lt;a href="#" class="text-sm text-primary hover:text-primary/80"&gt;Forgot password?&lt;/a&gt;
+        &lt;/div&gt;
+        
+        &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+            Sign in
+        &lt;/c-button&gt;
+    &lt;/form&gt;
+    
+    &lt;div class="mt-6 text-center"&gt;
+        &lt;p class="text-sm text-base-content/60"&gt;
+            Don't have an account? 
+            &lt;a href="#" class="text-primary hover:text-primary/80 font-medium"&gt;Sign up&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="simple-login">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-8 rounded-lg">
+                            <div class="max-w-md mx-auto">
+                                <div class="text-center mb-8">
+                                    <h3 class="text-2xl font-bold mb-2">Welcome back</h3>
+                                    <p class="text-base-content/60">Sign in to your account</p>
+                                </div>
+                                
+                                <form class="space-y-6">
+                                    <c-form.input
+                                        label="Email address"
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        required="true"
+                                    />
+                                    
+                                    <c-form.input
+                                        label="Password"
+                                        type="password"
+                                        placeholder="Enter your password"
+                                        required="true"
+                                    />
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <c-checkbox label="Remember me" />
+                                        <a href="#" class="text-sm text-primary hover:text-primary/80">Forgot password?</a>
+                                    </div>
+                                    
+                                    <c-button variant="primary" size="lg" class="w-full">
+                                        Sign in
+                                    </c-button>
+                                </form>
+                                
+                                <div class="mt-6 text-center">
+                                    <p class="text-sm text-base-content/60">
+                                        Don't have an account? 
+                                        <a href="#" class="text-primary hover:text-primary/80 font-medium">Sign up</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="max-w-md mx-auto"&gt;
+    &lt;div class="text-center mb-8"&gt;
+        &lt;h3 class="text-2xl font-bold mb-2"&gt;Welcome back&lt;/h3&gt;
+        &lt;p class="text-base-content/60"&gt;Sign in to your account&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;form class="space-y-6"&gt;
+        &lt;c-form.input
+            label="Email address"
+            type="email"
+            placeholder="Enter your email"
+            required="true"
+        /&gt;
+        
+        &lt;c-form.input
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
+            required="true"
+        /&gt;
+        
+        &lt;div class="flex items-center justify-between"&gt;
+            &lt;c-checkbox label="Remember me" /&gt;
+            &lt;a href="#" class="text-sm text-primary hover:text-primary/80"&gt;Forgot password?&lt;/a&gt;
+        &lt;/div&gt;
+        
+        &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+            Sign in
+        &lt;/c-button&gt;
+    &lt;/form&gt;
+    
+    &lt;div class="mt-6 text-center"&gt;
+        &lt;p class="text-sm text-base-content/60"&gt;
+            Don't have an account? 
+            &lt;a href="#" class="text-primary hover:text-primary/80 font-medium"&gt;Sign up&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Login with Social Options -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Login with Social Options</h2>
+        <p class="text-base-content/70 mb-6">Authentication form with social login integration and enhanced UX.</p>
+        
+        <c-tab.group group_name="social-login">
+            <c-tabs>
+                <c-tab name="preview" group_name="social-login" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="social-login">Code</c-tab>
+                <c-tab name="split" group_name="social-login">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="social-login">
+                <div class="bg-base-200 p-8 rounded-lg">
+                    <div class="max-w-md mx-auto">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold mb-2">Sign in</h3>
+                            <p class="text-base-content/60">Choose your preferred sign-in method</p>
+                        </div>
+                        
+                        <!-- Social Login Buttons -->
+                        <div class="space-y-3 mb-6">
+                            <c-button variant="outline" size="lg" class="w-full">
+                                <c-icon name="github" size="20" class="mr-2" />
+                                Continue with GitHub
+                            </c-button>
+                            <c-button variant="outline" size="lg" class="w-full">
+                                <c-icon name="chrome" size="20" class="mr-2" />
+                                Continue with Google
+                            </c-button>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="relative mb-6">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-base-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="px-2 bg-base-200 text-base-content/60">Or continue with email</span>
+                            </div>
+                        </div>
+                        
+                        <form class="space-y-5">
+                            <c-form.input
+                                label="Email"
+                                type="email"
+                                placeholder="name@example.com"
+                                required="true"
+                            />
+                            
+                            <c-form.input
+                                label="Password"
+                                type="password"
+                                placeholder="••••••••"
+                                required="true"
+                            />
+                            
+                            <div class="flex items-center justify-between">
+                                <c-checkbox label="Remember me" />
+                                <a href="#" class="text-sm text-primary hover:text-primary/80">Forgot password?</a>
+                            </div>
+                            
+                            <c-button variant="primary" size="lg" class="w-full">
+                                Sign in
+                            </c-button>
+                        </form>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-base-content/60">
+                                New to our platform? 
+                                <a href="#" class="text-primary hover:text-primary/80 font-medium">Create an account</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="social-login">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="max-w-md mx-auto"&gt;
+    &lt;div class="text-center mb-8"&gt;
+        &lt;h3 class="text-2xl font-bold mb-2"&gt;Sign in&lt;/h3&gt;
+        &lt;p class="text-base-content/60"&gt;Choose your preferred sign-in method&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Social Login Buttons --&gt;
+    &lt;div class="space-y-3 mb-6"&gt;
+        &lt;c-button variant="outline" size="lg" class="w-full"&gt;
+            &lt;c-icon name="github" size="20" class="mr-2" /&gt;
+            Continue with GitHub
+        &lt;/c-button&gt;
+        &lt;c-button variant="outline" size="lg" class="w-full"&gt;
+            &lt;c-icon name="chrome" size="20" class="mr-2" /&gt;
+            Continue with Google
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Divider --&gt;
+    &lt;div class="relative mb-6"&gt;
+        &lt;div class="absolute inset-0 flex items-center"&gt;
+            &lt;div class="w-full border-t border-base-300"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="relative flex justify-center text-sm"&gt;
+            &lt;span class="px-2 bg-base-200 text-base-content/60"&gt;Or continue with email&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;form class="space-y-5"&gt;
+        &lt;c-form.input
+            label="Email"
+            type="email"
+            placeholder="name@example.com"
+            required="true"
+        /&gt;
+        
+        &lt;c-form.input
+            label="Password"
+            type="password"
+            placeholder="••••••••"
+            required="true"
+        /&gt;
+        
+        &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+            Sign in
+        &lt;/c-button&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="social-login">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-8 rounded-lg">
+                            <div class="max-w-md mx-auto">
+                                <div class="text-center mb-8">
+                                    <h3 class="text-2xl font-bold mb-2">Sign in</h3>
+                                    <p class="text-base-content/60">Choose your preferred sign-in method</p>
+                                </div>
+                                
+                                <!-- Social Login Buttons -->
+                                <div class="space-y-3 mb-6">
+                                    <c-button variant="outline" size="lg" class="w-full">
+                                        <c-icon name="github" size="20" class="mr-2" />
+                                        Continue with GitHub
+                                    </c-button>
+                                    <c-button variant="outline" size="lg" class="w-full">
+                                        <c-icon name="chrome" size="20" class="mr-2" />
+                                        Continue with Google
+                                    </c-button>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div class="relative mb-6">
+                                    <div class="absolute inset-0 flex items-center">
+                                        <div class="w-full border-t border-base-300"></div>
+                                    </div>
+                                    <div class="relative flex justify-center text-sm">
+                                        <span class="px-2 bg-base-200 text-base-content/60">Or continue with email</span>
+                                    </div>
+                                </div>
+                                
+                                <form class="space-y-5">
+                                    <c-form.input
+                                        label="Email"
+                                        type="email"
+                                        placeholder="name@example.com"
+                                        required="true"
+                                    />
+                                    
+                                    <c-form.input
+                                        label="Password"
+                                        type="password"
+                                        placeholder="••••••••"
+                                        required="true"
+                                    />
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <c-checkbox label="Remember me" />
+                                        <a href="#" class="text-sm text-primary hover:text-primary/80">Forgot password?</a>
+                                    </div>
+                                    
+                                    <c-button variant="primary" size="lg" class="w-full">
+                                        Sign in
+                                    </c-button>
+                                </form>
+                                
+                                <div class="mt-6 text-center">
+                                    <p class="text-sm text-base-content/60">
+                                        New to our platform? 
+                                        <a href="#" class="text-primary hover:text-primary/80 font-medium">Create an account</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="max-w-md mx-auto"&gt;
+    &lt;div class="text-center mb-8"&gt;
+        &lt;h3 class="text-2xl font-bold mb-2"&gt;Sign in&lt;/h3&gt;
+        &lt;p class="text-base-content/60"&gt;Choose your preferred sign-in method&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Social Login Buttons --&gt;
+    &lt;div class="space-y-3 mb-6"&gt;
+        &lt;c-button variant="outline" size="lg" class="w-full"&gt;
+            &lt;c-icon name="github" size="20" class="mr-2" /&gt;
+            Continue with GitHub
+        &lt;/c-button&gt;
+        &lt;c-button variant="outline" size="lg" class="w-full"&gt;
+            &lt;c-icon name="chrome" size="20" class="mr-2" /&gt;
+            Continue with Google
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Divider --&gt;
+    &lt;div class="relative mb-6"&gt;
+        &lt;div class="absolute inset-0 flex items-center"&gt;
+            &lt;div class="w-full border-t border-base-300"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="relative flex justify-center text-sm"&gt;
+            &lt;span class="px-2 bg-base-200 text-base-content/60"&gt;Or continue with email&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;form class="space-y-5"&gt;
+        &lt;c-form.input
+            label="Email"
+            type="email"
+            placeholder="name@example.com"
+            required="true"
+        /&gt;
+        
+        &lt;c-form.input
+            label="Password"
+            type="password"
+            placeholder="••••••••"
+            required="true"
+        /&gt;
+        
+        &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+            Sign in
+        &lt;/c-button&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Registration Form</h2>
+        <p class="text-base-content/70 mb-6">Complete user registration form with validation and terms acceptance.</p>
+        
+        <c-tab.group group_name="registration">
+            <c-tabs>
+                <c-tab name="preview" group_name="registration" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="registration">Code</c-tab>
+                <c-tab name="split" group_name="registration">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="registration">
+                <div class="bg-base-200 p-8 rounded-lg">
+                    <div class="max-w-md mx-auto">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold mb-2">Create your account</h3>
+                            <p class="text-base-content/60">Join thousands of users today</p>
+                        </div>
+                        
+                        <form class="space-y-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <c-form.input
+                                    label="First name"
+                                    placeholder="John"
+                                    required="true"
+                                />
+                                <c-form.input
+                                    label="Last name"
+                                    placeholder="Doe"
+                                    required="true"
+                                />
+                            </div>
+                            
+                            <c-form.input
+                                label="Email address"
+                                type="email"
+                                placeholder="john@example.com"
+                                required="true"
+                            />
+                            
+                            <c-form.input
+                                label="Password"
+                                type="password"
+                                placeholder="••••••••"
+                                help="Must be at least 8 characters"
+                                required="true"
+                            />
+                            
+                            <c-form.input
+                                label="Confirm password"
+                                type="password"
+                                placeholder="••••••••"
+                                required="true"
+                            />
+                            
+                            <div class="space-y-3">
+                                <c-checkbox 
+                                    label="I agree to the Terms of Service and Privacy Policy"
+                                    required="true"
+                                />
+                                <c-checkbox label="Send me marketing emails" />
+                            </div>
+                            
+                            <c-button variant="primary" size="lg" class="w-full">
+                                Create account
+                            </c-button>
+                        </form>
+                        
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-base-content/60">
+                                Already have an account? 
+                                <a href="#" class="text-primary hover:text-primary/80 font-medium">Sign in</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="registration">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;form class="space-y-5"&gt;
+    &lt;div class="grid grid-cols-2 gap-4"&gt;
+        &lt;c-form.input
+            label="First name"
+            placeholder="John"
+            required="true"
+        /&gt;
+        &lt;c-form.input
+            label="Last name"
+            placeholder="Doe"
+            required="true"
+        /&gt;
+    &lt;/div&gt;
+    
+    &lt;c-form.input
+        label="Email address"
+        type="email"
+        placeholder="john@example.com"
+        required="true"
+    /&gt;
+    
+    &lt;c-form.input
+        label="Password"
+        type="password"
+        placeholder="••••••••"
+        help="Must be at least 8 characters"
+        required="true"
+    /&gt;
+    
+    &lt;c-form.input
+        label="Confirm password"
+        type="password"
+        placeholder="••••••••"
+        required="true"
+    /&gt;
+    
+    &lt;div class="space-y-3"&gt;
+        &lt;c-checkbox 
+            label="I agree to the Terms of Service and Privacy Policy"
+            required="true"
+        /&gt;
+        &lt;c-checkbox label="Send me marketing emails" /&gt;
+    &lt;/div&gt;
+    
+    &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+        Create account
+    &lt;/c-button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="registration">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-8 rounded-lg">
+                            <div class="max-w-md mx-auto">
+                                <div class="text-center mb-8">
+                                    <h3 class="text-2xl font-bold mb-2">Create your account</h3>
+                                    <p class="text-base-content/60">Join thousands of users today</p>
+                                </div>
+                                
+                                <form class="space-y-5">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <c-form.input
+                                            label="First name"
+                                            placeholder="John"
+                                            required="true"
+                                        />
+                                        <c-form.input
+                                            label="Last name"
+                                            placeholder="Doe"
+                                            required="true"
+                                        />
+                                    </div>
+                                    
+                                    <c-form.input
+                                        label="Email address"
+                                        type="email"
+                                        placeholder="john@example.com"
+                                        required="true"
+                                    />
+                                    
+                                    <c-form.input
+                                        label="Password"
+                                        type="password"
+                                        placeholder="••••••••"
+                                        help="Must be at least 8 characters"
+                                        required="true"
+                                    />
+                                    
+                                    <c-form.input
+                                        label="Confirm password"
+                                        type="password"
+                                        placeholder="••••••••"
+                                        required="true"
+                                    />
+                                    
+                                    <div class="space-y-3">
+                                        <c-checkbox 
+                                            label="I agree to the Terms of Service and Privacy Policy"
+                                            required="true"
+                                        />
+                                        <c-checkbox label="Send me marketing emails" />
+                                    </div>
+                                    
+                                    <c-button variant="primary" size="lg" class="w-full">
+                                        Create account
+                                    </c-button>
+                                </form>
+                                
+                                <div class="mt-6 text-center">
+                                    <p class="text-sm text-base-content/60">
+                                        Already have an account? 
+                                        <a href="#" class="text-primary hover:text-primary/80 font-medium">Sign in</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;form class="space-y-5"&gt;
+    &lt;div class="grid grid-cols-2 gap-4"&gt;
+        &lt;c-form.input
+            label="First name"
+            placeholder="John"
+            required="true"
+        /&gt;
+        &lt;c-form.input
+            label="Last name"
+            placeholder="Doe"
+            required="true"
+        /&gt;
+    &lt;/div&gt;
+    
+    &lt;c-form.input
+        label="Email address"
+        type="email"
+        placeholder="john@example.com"
+        required="true"
+    /&gt;
+    
+    &lt;c-form.input
+        label="Password"
+        type="password"
+        placeholder="••••••••"
+        help="Must be at least 8 characters"
+        required="true"
+    /&gt;
+    
+    &lt;c-form.input
+        label="Confirm password"
+        type="password"
+        placeholder="••••••••"
+        required="true"
+    /&gt;
+    
+    &lt;div class="space-y-3"&gt;
+        &lt;c-checkbox 
+            label="I agree to the Terms of Service and Privacy Policy"
+            required="true"
+        /&gt;
+        &lt;c-checkbox label="Send me marketing emails" /&gt;
+    &lt;/div&gt;
+    
+    &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+        Create account
+    &lt;/c-button&gt;
+&lt;/form&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Split Screen Login -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4">Split Screen Login</h2>
+        <p class="text-base-content/70 mb-6">Modern split-screen layout with branding and visual appeal.</p>
+        
+        <c-tab.group group_name="split-screen">
+            <c-tabs>
+                <c-tab name="preview" group_name="split-screen" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="split-screen">Code</c-tab>
+                <c-tab name="split" group_name="split-screen">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="split-screen">
+                <div class="bg-base-200 rounded-lg overflow-hidden min-h-[600px]">
+                    <div class="grid lg:grid-cols-2 min-h-[600px]">
+                        <!-- Left Side - Branding -->
+                        <div class="bg-gradient-to-br from-primary to-secondary p-12 flex items-center justify-center">
+                            <div class="text-center text-primary-content">
+                                <div class="w-16 h-16 bg-primary-content/20 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                    <c-icon name="zap" size="32" />
+                                </div>
+                                <h3 class="text-3xl font-bold mb-4">Welcome to Our Platform</h3>
+                                <p class="text-xl opacity-90 mb-8">Join thousands of users who trust our platform for their daily workflows.</p>
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-center space-x-3">
+                                        <c-icon name="check-circle" size="20" />
+                                        <span>Secure & Reliable</span>
+                                    </div>
+                                    <div class="flex items-center justify-center space-x-3">
+                                        <c-icon name="check-circle" size="20" />
+                                        <span>24/7 Support</span>
+                                    </div>
+                                    <div class="flex items-center justify-center space-x-3">
+                                        <c-icon name="check-circle" size="20" />
+                                        <span>Easy Integration</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Side - Form -->
+                        <div class="p-12 flex items-center justify-center">
+                            <div class="w-full max-w-sm">
+                                <div class="mb-8">
+                                    <h3 class="text-2xl font-bold mb-2">Sign in to your account</h3>
+                                    <p class="text-base-content/60">Welcome back! Please enter your details.</p>
+                                </div>
+                                
+                                <form class="space-y-6">
+                                    <c-form.input
+                                        label="Email"
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        required="true"
+                                    />
+                                    
+                                    <c-form.input
+                                        label="Password"
+                                        type="password"
+                                        placeholder="••••••••"
+                                        required="true"
+                                    />
+                                    
+                                    <div class="flex items-center justify-between">
+                                        <c-checkbox label="Remember for 30 days" />
+                                        <a href="#" class="text-sm text-primary hover:text-primary/80">Forgot password?</a>
+                                    </div>
+                                    
+                                    <c-button variant="primary" size="lg" class="w-full">
+                                        Sign in
+                                    </c-button>
+                                    
+                                    <c-button variant="outline" size="lg" class="w-full">
+                                        <c-icon name="github" size="20" class="mr-2" />
+                                        Sign in with GitHub
+                                    </c-button>
+                                </form>
+                                
+                                <div class="mt-6 text-center">
+                                    <p class="text-sm text-base-content/60">
+                                        Don't have an account? 
+                                        <a href="#" class="text-primary hover:text-primary/80 font-medium">Sign up for free</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="split-screen">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="grid lg:grid-cols-2 min-h-[600px]"&gt;
+    &lt;!-- Left Side - Branding --&gt;
+    &lt;div class="bg-gradient-to-br from-primary to-secondary p-12 flex items-center justify-center"&gt;
+        &lt;div class="text-center text-primary-content"&gt;
+            &lt;div class="w-16 h-16 bg-primary-content/20 rounded-full mx-auto mb-6 flex items-center justify-center"&gt;
+                &lt;c-icon name="zap" size="32" /&gt;
+            &lt;/div&gt;
+            &lt;h3 class="text-3xl font-bold mb-4"&gt;Welcome to Our Platform&lt;/h3&gt;
+            &lt;p class="text-xl opacity-90 mb-8"&gt;Join thousands of users who trust our platform.&lt;/p&gt;
+            &lt;div class="space-y-4"&gt;
+                &lt;div class="flex items-center justify-center space-x-3"&gt;
+                    &lt;c-icon name="check-circle" size="20" /&gt;
+                    &lt;span&gt;Secure &amp; Reliable&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Right Side - Form --&gt;
+    &lt;div class="p-12 flex items-center justify-center"&gt;
+        &lt;div class="w-full max-w-sm"&gt;
+            &lt;form class="space-y-6"&gt;
+                &lt;c-form.input
+                    label="Email"
+                    type="email"
+                    placeholder="Enter your email"
+                    required="true"
+                /&gt;
+                
+                &lt;c-form.input
+                    label="Password"
+                    type="password"
+                    placeholder="••••••••"
+                    required="true"
+                /&gt;
+                
+                &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+                    Sign in
+                &lt;/c-button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="split-screen">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 rounded-lg overflow-hidden min-h-[600px]">
+                            <div class="grid lg:grid-cols-2 min-h-[600px]">
+                                <!-- Left Side - Branding -->
+                                <div class="bg-gradient-to-br from-primary to-secondary p-12 flex items-center justify-center">
+                                    <div class="text-center text-primary-content">
+                                        <div class="w-16 h-16 bg-primary-content/20 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                            <c-icon name="zap" size="32" />
+                                        </div>
+                                        <h3 class="text-3xl font-bold mb-4">Welcome to Our Platform</h3>
+                                        <p class="text-xl opacity-90 mb-8">Join thousands of users who trust our platform for their daily workflows.</p>
+                                        <div class="space-y-4">
+                                            <div class="flex items-center justify-center space-x-3">
+                                                <c-icon name="check-circle" size="20" />
+                                                <span>Secure & Reliable</span>
+                                            </div>
+                                            <div class="flex items-center justify-center space-x-3">
+                                                <c-icon name="check-circle" size="20" />
+                                                <span>24/7 Support</span>
+                                            </div>
+                                            <div class="flex items-center justify-center space-x-3">
+                                                <c-icon name="check-circle" size="20" />
+                                                <span>Easy Integration</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Side - Form -->
+                                <div class="p-12 flex items-center justify-center">
+                                    <div class="w-full max-w-sm">
+                                        <div class="mb-8">
+                                            <h3 class="text-2xl font-bold mb-2">Sign in to your account</h3>
+                                            <p class="text-base-content/60">Welcome back! Please enter your details.</p>
+                                        </div>
+                                        
+                                        <form class="space-y-6">
+                                            <c-form.input
+                                                label="Email"
+                                                type="email"
+                                                placeholder="Enter your email"
+                                                required="true"
+                                            />
+                                            
+                                            <c-form.input
+                                                label="Password"
+                                                type="password"
+                                                placeholder="••••••••"
+                                                required="true"
+                                            />
+                                            
+                                            <div class="flex items-center justify-between">
+                                                <c-checkbox label="Remember for 30 days" />
+                                                <a href="#" class="text-sm text-primary hover:text-primary/80">Forgot password?</a>
+                                            </div>
+                                            
+                                            <c-button variant="primary" size="lg" class="w-full">
+                                                Sign in
+                                            </c-button>
+                                            
+                                            <c-button variant="outline" size="lg" class="w-full">
+                                                <c-icon name="github" size="20" class="mr-2" />
+                                                Sign in with GitHub
+                                            </c-button>
+                                        </form>
+                                        
+                                        <div class="mt-6 text-center">
+                                            <p class="text-sm text-base-content/60">
+                                                Don't have an account? 
+                                                <a href="#" class="text-primary hover:text-primary/80 font-medium">Sign up for free</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="grid lg:grid-cols-2 min-h-[600px]"&gt;
+    &lt;!-- Left Side - Branding --&gt;
+    &lt;div class="bg-gradient-to-br from-primary to-secondary p-12 flex items-center justify-center"&gt;
+        &lt;div class="text-center text-primary-content"&gt;
+            &lt;div class="w-16 h-16 bg-primary-content/20 rounded-full mx-auto mb-6 flex items-center justify-center"&gt;
+                &lt;c-icon name="zap" size="32" /&gt;
+            &lt;/div&gt;
+            &lt;h3 class="text-3xl font-bold mb-4"&gt;Welcome to Our Platform&lt;/h3&gt;
+            &lt;p class="text-xl opacity-90 mb-8"&gt;Join thousands of users who trust our platform.&lt;/p&gt;
+            &lt;div class="space-y-4"&gt;
+                &lt;div class="flex items-center justify-center space-x-3"&gt;
+                    &lt;c-icon name="check-circle" size="20" /&gt;
+                    &lt;span&gt;Secure &amp; Reliable&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Right Side - Form --&gt;
+    &lt;div class="p-12 flex items-center justify-center"&gt;
+        &lt;div class="w-full max-w-sm"&gt;
+            &lt;form class="space-y-6"&gt;
+                &lt;c-form.input
+                    label="Email"
+                    type="email"
+                    placeholder="Enter your email"
+                    required="true"
+                /&gt;
+                
+                &lt;c-form.input
+                    label="Password"
+                    type="password"
+                    placeholder="••••••••"
+                    required="true"
+                /&gt;
+                
+                &lt;c-button variant="primary" size="lg" class="w-full"&gt;
+                    Sign in
+                &lt;/c-button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+</div>

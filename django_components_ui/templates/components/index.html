@@ -1,0 +1,175 @@
+
+<fieldset class="fieldset">
+
+    <label for="test" class="label">Votre site web</label>
+
+    <c-form.input type="text"
+                  label_start="https://"
+                  label_end=".com"
+                  placeholder="google"
+                  required
+                  id="test" />
+
+
+
+</fieldset>
+
+
+<div class="card card-xl bg-base-100 max-w-96 image-full">
+    <figure>
+        <img src="https://placehold.co/1920x1080" alt="Yellingcat" />
+    </figure>
+    <div class="card-body">
+        <h2 class="card-title">Yellingcat</h2>
+        <p>Yellingcat is a platform for creating and sharing your own websites.</p>
+        <div class="card-actions justify-end">
+            <c-button variant="primary">View</c-button>
+        </div>
+    </div>
+</div>
+
+
+<c-range min="0" max="5" value="2" step="1"  />
+
+<c-breadcrumbs>
+    <c-breadcrumb href="/" label="Accueil" icon="home" />
+    <c-breadcrumb href="/" label="Documents" icon="file" />
+    <c-breadcrumb label="Ajouter un document" />
+</c-breadcrumbs>
+
+<c-button-group>
+    <c-button variant="outline" class="join-item">Button</c-button>
+    <c-button variant="outline" class="join-item">Button</c-button>
+    <c-button variant="outline" class="join-item">Button</c-button>
+</c-button-group>
+
+<c-button variant="primary" onclick="my_modal_1.showModal()">
+    Open Modal
+</c-button>
+
+<c-modal id="my_modal_1">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="flex justify-end">
+        <c-button variant="secondary" onclick="my_modal_1.close()">Close</c-button>
+    </div>
+</c-modal>
+
+<!-- BUTTON WITH CONFIRM DIALOG -->
+<c-button icon="rocket" modal="delete_account_modal" variant="error">
+    Supprimer le compte
+</c-button>
+
+<c-modal id="delete_account_modal">
+    <h3 class="text-lg font-bold">Vous allez supprimer votre compte</h3>
+    <p class="py-4">Voulez-vous vraiment supprimer votre compte ? Cette action est irréversible.</p>
+    <div class="flex gap-2 justify-end">
+        <c-button variant="ghost" onclick="delete_account_modal.close()">Annuler</c-button>
+        <c-button variant="error" hx-get="{% url 'demo:toast_action' %}?type=error"
+                  hx-on::after-request="delete_account_modal.close()" icon="rocket" spinner>
+
+            Supprimer
+        </c-button>
+    </div>
+</c-modal>
+
+
+<c-button>Mon DaisyUI</c-button>
+
+
+<c-button hx-get="{% url 'demo:toast_action' %}?type=error" spinner-icon="star">
+    Afficher Toast
+</c-button>
+
+<!-- Section Dropdowns -->
+<div class="mt-16">
+    <h2 class="text-2xl font-semibold mb-8 text-center">Composants Dropdown</h2>
+
+
+<!-- Dropdowns de base -->
+    <div class="card bg-base-200 p-6">
+        <h3 class="font-semibold mb-4">Dropdowns de base</h3>
+        <div class="flex flex-wrap gap-4">
+
+            <c-dropdown label="Menu simple">
+                <li><a>Accueil</a></li>
+                <li><a>À propos</a></li>
+                <li><a>Contact</a></li>
+            </c-dropdown>
+
+            <c-dropdown label="Avec icône" icon="settings">
+                <li><a>Profil</a></li>
+                <li><a>Paramètres</a></li>
+                <li>
+                    <c-button hx-get="{% url 'demo:toast_action' %}?type=error" variant="ghost" spinner-icon="star">
+                        Afficher Toast
+                    </c-button>
+                </li>
+            </c-dropdown>
+
+            <c-dropdown label="Actions" variant="primary">
+                <li><a>Éditer</a></li>
+                <li><a>Dupliquer</a></li>
+                <li>
+                    <c-button variant="link" icon="trash" modal="delete_account_modal">Supprimer</c-button>
+                </li>
+            </c-dropdown>
+
+        </div>
+    </div>
+
+<!-- Placements -->
+    <div class="card bg-base-200 p-6">
+        <h3 class="font-semibold mb-4">Placements</h3>
+        <div class="flex flex-wrap gap-4 justify-center">
+
+            <c-dropdown label="À gauche" placement="start">
+                <li><a>Option 1</a></li>
+                <li><a>Option 2</a></li>
+            </c-dropdown>
+
+            <c-dropdown label="Centré" placement="center">
+                <li><a>Option 1</a></li>
+                <li><a>Option 2</a></li>
+            </c-dropdown>
+
+            <c-dropdown label="À droite" placement="end">
+                <li><a>Option 1</a></li>
+                <li><a>Option 2</a></li>
+            </c-dropdown>
+
+            <c-dropdown label="En haut" placement="top">
+                <li><a>Option 1</a></li>
+                <li><a>Option 2</a></li>
+            </c-dropdown>
+
+        </div>
+    </div>
+
+<!-- Types spéciaux -->
+    <div class="card bg-base-200 p-6">
+        <h3 class="font-semibold mb-4">Types spéciaux</h3>
+        <div class="flex flex-wrap gap-4">
+
+            <c-dropdown label="Survol" hover="true" variant="secondary">
+                <li><a>S'ouvre au survol</a></li>
+                <li><a>Pas de clic requis</a></li>
+            </c-dropdown>
+
+        </div>
+    </div>
+
+<!-- Menu de navigation -->
+    <div class="card bg-base-200 p-6">
+        <h3 class="font-semibold mb-4">Menu de navigation</h3>
+        <div class="flex gap-4">
+
+            <c-dropdown label="Profil utilisateur" icon="user" placement="end" variant="ghost">
+                <li><a href="#"><c-icon name="user" class="w-4 h-4" /> Mon profil</a></li>
+                <li><a href="#"><c-icon name="settings" class="w-4 h-4" /> Paramètres</a></li>
+                <li><a href="#" class="text-red-500"><c-icon name="log-out" class="w-4 h-4" /> Déconnexion</a></li>
+            </c-dropdown>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,408 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Pricing Table</h1>
+        <p class="text-lg text-base-content/70">
+            A comprehensive pricing comparison table component for displaying multiple pricing tiers with detailed feature comparisons. Automatically responsive with desktop table and mobile card layouts.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-pricing_table :tiers="[
+                                         {
+                                         'id': 'basic',
+                                         'title': 'Basic',
+                                         'description': 'For individuals',
+                                         'price': '€9',
+                                         'billing_cycle': '/month',
+                                         'button_label': 'Get Started'
+                                         },
+                                         {
+                                         'id': 'pro',
+                                         'title': 'Pro',
+                                         'description': 'For professionals',
+                                         'price': '€29',
+                                         'billing_cycle': '/month',
+                                         'button_label': 'Choose Pro',
+                                         'highlight': True,
+                                         'badge': 'Popular'
+                                         }
+                                         ]" :sections="[
+                                                                                        {
+                                                                                        'title': 'Features',
+                                                                                        'features': [
+                                                                                        {
+                                                                                        'title': 'Projects',
+                                                                                        'tiers': {'basic': '3', 'pro': '10'}
+                                                                                        },
+                                                                                        {
+                                                                                        'title': 'Support',
+                                                                                        'tiers': {'basic': 'Email', 'pro': 'Priority'}
+                                                                                        },
+                                                                                        {
+                                                                                        'title': 'API Access',
+                                                                                        'tiers': {'basic': False, 'pro': True}
+                                                                                        }
+                                                                                        ]
+                                                                                        }
+                                                                                        ]"></c-pricing_table>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-pricing_table :tiers="[
+    {
+        'id': 'basic',
+        'title': 'Basic',
+        'price': '€9',
+        'billing_cycle': '/month',
+        'button_label': 'Get Started'
+    }
+]" :sections="[
+    {
+        'title': 'Features',
+        'features': [
+            {
+                'title': 'Projects',
+                'tiers': {'basic': '3', 'pro': '10'}
+            }
+        ]
+    }
+]"&gt;&lt;/c-pricing_table&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto mb-8">
+            <h3 class="text-lg font-semibold mb-4">Main Props</h3>
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">tiers</code></td>
+                        <td><code class="text-sm">list</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Array of pricing tier objects (required)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">sections</code></td>
+                        <td><code class="text-sm">list</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Array of feature section objects (required)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">responsive</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">true</code></td>
+                        <td>Enable responsive layout (table on desktop, cards on mobile)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="overflow-x-auto mb-8">
+            <h3 class="text-lg font-semibold mb-4">Tier Object Structure</h3>
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Required</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">Yes</code></td>
+                        <td>Unique identifier for the tier</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">title</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">Yes</code></td>
+                        <td>Tier name/title</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">description</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">No</code></td>
+                        <td>Short description</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">price</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">Yes</code></td>
+                        <td>Price display</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">billing_cycle</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">No</code></td>
+                        <td>Billing period (e.g., "/month")</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">button_label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">No</code></td>
+                        <td>Call-to-action button text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">highlight</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">No</code></td>
+                        <td>Highlight this tier visually</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">badge</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">No</code></td>
+                        <td>Badge text (e.g., "Popular")</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="overflow-x-auto">
+            <h3 class="text-lg font-semibold mb-4">Section Object Structure</h3>
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">title</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td>Section heading</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">features</code></td>
+                        <td><code class="text-sm">list</code></td>
+                        <td>Array of feature objects in this section</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-6">
+            <h4 class="text-md font-semibold mb-2">Feature Object Structure</h4>
+            <div class="bg-base-100 p-4 rounded border">
+                <code class="text-sm">
+                    {<br>
+                    &nbsp;&nbsp;'title': 'Feature Name',<br>
+                    &nbsp;&nbsp;'tiers': {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;'tier_id': 'value',  # String, boolean, or number<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;'basic': '5',        # String value<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;'pro': True,         # Boolean (shows checkmark/X)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;'enterprise': 100    # Numeric value<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </code>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Full Featured Table -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Full Featured Table</h3>
+            <p class="text-base-content/70 mb-6">
+                A comprehensive pricing table with multiple sections and different value types.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-pricing_table :tiers="[
+                                             {
+                                             'id': 'starter',
+                                             'title': 'Starter',
+                                             'description': 'For small teams',
+                                             'price': '€19',
+                                             'billing_cycle': '/month',
+                                             'button_label': 'Start Free Trial'
+                                             },
+                                             {
+                                             'id': 'professional',
+                                             'title': 'Professional',
+                                             'description': 'For growing businesses',
+                                             'price': '€49',
+                                             'billing_cycle': '/month',
+                                             'button_label': 'Choose Pro',
+                                             'highlight': True,
+                                             'badge': 'Most Popular'
+                                             },
+                                             {
+                                             'id': 'enterprise',
+                                             'title': 'Enterprise',
+                                             'description': 'For large organizations',
+                                             'price': '€149',
+                                             'billing_cycle': '/month',
+                                             'button_label': 'Contact Sales'
+                                             }
+                                             ]" :sections="[
+                                                                                                {
+                                                                                                'title': 'Core Features',
+                                                                                                'features': [
+                                                                                                {
+                                                                                                'title': 'Active Projects',
+                                                                                                'tiers': {'starter': '5', 'professional': '25', 'enterprise': 'Unlimited'}
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'Team Members',
+                                                                                                'tiers': {'starter': '3', 'professional': '10', 'enterprise': 'Unlimited'}
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'Storage Space',
+                                                                                                'tiers': {'starter': '10GB', 'professional': '100GB', 'enterprise': '1TB'}
+                                                                                                }
+                                                                                                ]
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'Advanced Features',
+                                                                                                'features': [
+                                                                                                {
+                                                                                                'title': 'Priority Support',
+                                                                                                'tiers': {'starter': False, 'professional': True, 'enterprise': True}
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'API Access',
+                                                                                                'tiers': {'starter': False, 'professional': True, 'enterprise': True}
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'Custom Integrations',
+                                                                                                'tiers': {'starter': False, 'professional': False, 'enterprise': True}
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'SLA Guarantee',
+                                                                                                'tiers': {'starter': False, 'professional': False, 'enterprise': '99.9%'}
+                                                                                                }
+                                                                                                ]
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'Analytics & Reporting',
+                                                                                                'features': [
+                                                                                                {
+                                                                                                'title': 'Basic Analytics',
+                                                                                                'tiers': {'starter': True, 'professional': True, 'enterprise': True}
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'Advanced Reports',
+                                                                                                'tiers': {'starter': False, 'professional': True, 'enterprise': True}
+                                                                                                },
+                                                                                                {
+                                                                                                'title': 'Custom Dashboards',
+                                                                                                'tiers': {'starter': False, 'professional': False, 'enterprise': True}
+                                                                                                }
+                                                                                                ]
+                                                                                                }
+                                                                                                ]"></c-pricing_table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pricing_table :tiers="[...]" :sections="[...]"&gt;&lt;/c-pricing_table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Non-Responsive Table -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Always Table Layout</h3>
+            <p class="text-base-content/70 mb-6">
+                Force table layout on all screen sizes by setting <code class="bg-base-300 px-2 py-1 rounded">responsive="false"</code>.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-pricing_table responsive="false" :tiers="[
+                                                                {
+                                                                'id': 'basic',
+                                                                'title': 'Basic',
+                                                                'price': '€9',
+                                                                'billing_cycle': '/mo',
+                                                                'button_label': 'Select'
+                                                                },
+                                                                {
+                                                                'id': 'premium',
+                                                                'title': 'Premium',
+                                                                'price': '€29',
+                                                                'billing_cycle': '/mo',
+                                                                'button_label': 'Select',
+                                                                'highlight': True
+                                                                }
+                                                                ]" :sections="[
+                                                                                                                   {
+                                                                                                                   'title': 'Features',
+                                                                                                                   'features': [
+                                                                                                                   {
+                                                                                                                   'title': 'Users',
+                                                                                                                   'tiers': {'basic': '1', 'premium': '10'}
+                                                                                                                   },
+                                                                                                                   {
+                                                                                                                   'title': 'Support',
+                                                                                                                   'tiers': {'basic': 'Email', 'premium': '24/7'}
+                                                                                                                   }
+                                                                                                                   ]
+                                                                                                                   }
+                                                                                                                   ]"></c-pricing_table>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pricing_table responsive="false" :tiers="[...]" :sections="[...]"&gt;&lt;/c-pricing_table&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Usage Notes</h2>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Responsive Design</h4>
+                    <div class="text-sm">On desktop, displays as a comparison table. On mobile, switches to stacked individual pricing plan cards for better readability.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div>
+                    <h4 class="font-bold">Feature Value Types</h4>
+                    <div class="text-sm">
+                        <strong>Boolean:</strong> <code>True</code> shows ✓, <code>False</code> shows ✗<br>
+                        <strong>String/Number:</strong> Displays the value as-is (e.g., "10GB", "Unlimited", "24/7")
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Data Structure</h4>
+                    <div class="text-sm">Always use <code>:tiers</code> and <code>:sections</code> (with colons) when passing data structures. The tier <code>id</code> must match keys in feature <code>tiers</code> objects.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

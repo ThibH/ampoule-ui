@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}Documentation - Django Components UI{% endblock %}
+
+{% block content %}
+    <div class="flex min-h-screen container mx-auto">
+        {% include "demo/docs/partials/sidebar.html" %}
+
+    <!-- Main Content Area -->
+        <div class="flex-1 flex">
+        <!-- Content -->
+            <main id="content" class="flex-1 px-8 py-12 max-w-4xl">
+            <!-- Default Welcome Content -->
+                <div class="mb-8">
+                    <h1 class="text-4xl font-bold mb-6">Django Components UI</h1>
+                    <p class="text-xl text-base-content/70 mb-8">
+                        A modern, reusable Django component library built with DaisyUI and Tailwind CSS.
+                    </p>
+                </div>
+
+            <!-- Features -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6">Features</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-base-200 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-3">Ready-to-Use Components</h3>
+                            <p class="text-base-content/70">
+                                A complete collection of modern UI components compatible with Django.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-base-200 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-3">HTMX Integration</h3>
+                            <p class="text-base-content/70">
+                                Native support for HTMX interactions with loading indicators.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-base-200 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-3">Customizable</h3>
+                            <p class="text-base-content/70">
+                                DaisyUI themes and Tailwind classes for complete customization.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-base-200 rounded-lg">
+                            <h3 class="text-lg font-semibold mb-3">Accessibility</h3>
+                            <p class="text-base-content/70">
+                                Built with accessibility best practices in mind.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+            <!-- Quick Start -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6">Quick Start</h2>
+                    <div class="space-y-4">
+                        <div class="relative">
+                            <pre class="language-bash"><code># Installation
+pip install django-components-ui</code></pre>
+                        </div>
+                        <div class="relative">
+                            <pre class="language-python"><code># Ajout à INSTALLED_APPS
+INSTALLED_APPS = [
+    ...
+    'django_components_ui',
+]</code></pre>
+                        </div>
+                        <div class="relative">
+                            <pre class="language-html"><code><!-- Dans vos templates -->
+{% templatetag openblock %} load components_tags {% templatetag closeblock %}
+&lt;c-button variant="primary"&gt;Mon bouton&lt;/c-button&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+            <!-- Navigation -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-semibold mb-6">Explore Documentation</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="card bg-base-200">
+                            <div class="card-body">
+                                <h3 class="card-title text-lg">Layouts</h3>
+                                <p class="text-base-content/70 mb-4">
+                                    Layout components to structure your applications.
+                                </p>
+                                <div class="card-actions">
+                                    <a href="#" hx-get="{% url 'demo:docs_page' 'layouts' 'navbar' %}" hx-target="#content" hx-push-url="true"
+                                       class="btn btn-sm btn-outline">
+                                        View Layouts
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-200">
+                            <div class="card-body">
+                                <h3 class="card-title text-lg">Components</h3>
+                                <p class="text-base-content/70 mb-4">
+                                    Interactive UI components for your interfaces.
+                                </p>
+                                <div class="card-actions">
+                                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'button' %}" hx-target="#content" hx-push-url="true"
+                                       class="btn btn-sm btn-outline">
+                                        View Components
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-200">
+                            <div class="card-body">
+                                <h3 class="card-title text-lg">Examples</h3>
+                                <p class="text-base-content/70 mb-4">
+                                    Usage examples and real-world use cases.
+                                </p>
+                                <div class="card-actions">
+                                    <a href="#" class="btn btn-sm btn-outline">
+                                        View Examples
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+        <!-- Table of Contents -->
+            <aside id="toc" class="hidden xl:block w-64 shrink-0 sticky top-16 max-h-[calc(100vh-4rem)] overflow-y-auto pt-12 pb-16 pr-6">
+                <div class="text-sm">
+                    <h3 class="font-semibold text-base-content/60 uppercase tracking-wider mb-4">On this page</h3>
+                    <ul id="toc-list" class="space-y-2">
+                        <li><a href="#" class="text-base-content/70 hover:text-base-content transition-colors">Features</a></li>
+                        <li><a href="#" class="text-base-content/70 hover:text-base-content transition-colors">Quick Start</a></li>
+                        <li><a href="#" class="text-base-content/70 hover:text-base-content transition-colors">Explore Documentation</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+    // Auto-generate TOC from H2 and H3 elements
+        function updateTOC() {
+            const tocList = document.getElementById('toc-list');
+            const headings = document.querySelectorAll('#content h2, #content h3');
+
+            if (headings.length === 0) {
+                tocList.innerHTML = '<li class="text-base-content/50 text-xs">No sections available</li>';
+                return;
+            }
+
+            tocList.innerHTML = '';
+            headings.forEach((heading, index) => {
+                const id = heading.id || `section-${index}`;
+                if (!heading.id) heading.id = id;
+
+                const li = document.createElement('li');
+                const isH3 = heading.tagName.toLowerCase() === 'h3';
+                const linkClass = isH3
+                    ? 'pl-4 text-sm text-base-content/60 hover:text-base-content transition-colors'
+                    : 'text-base-content/70 hover:text-base-content transition-colors';
+
+                li.innerHTML = `<a href="#${id}" class="${linkClass}">${heading.textContent}</a>`;
+                tocList.appendChild(li);
+            });
+        }
+
+    // Update TOC when content changes
+        document.body.addEventListener('htmx:afterSettle', updateTOC);
+
+    // Initial TOC generation
+        document.addEventListener('DOMContentLoaded', updateTOC);
+
+    // Smooth scrolling for TOC links
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('#toc a')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+
+    // Re-highlight code after HTMX content loads
+        document.body.addEventListener('htmx:afterSettle', function() {
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+        });
+
+    // Initial code highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.Prism) {
+                Prism.highlightAll();
+            }
+        });
+    </script>
+{% endblock %}

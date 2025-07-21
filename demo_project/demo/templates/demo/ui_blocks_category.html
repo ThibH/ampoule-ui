@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ category_data.name }} - UI Blocks{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-base-100">
+    <!-- Header with Breadcrumbs -->
+    <div class="bg-base-200 border-b border-base-300">
+        <div class="container mx-auto px-6 py-8">
+            <!-- Breadcrumbs -->
+            <div class="mb-6">
+                <c-breadcrumbs>
+                    {% for crumb in breadcrumbs %}
+                        {% if crumb.url %}
+                            <c-breadcrumb href="{% url crumb.url %}" label="{{ crumb.name }}" />
+                        {% else %}
+                            <c-breadcrumb label="{{ crumb.name }}" />
+                        {% endif %}
+                    {% endfor %}
+                </c-breadcrumbs>
+            </div>
+
+            <!-- Category Header -->
+            <div class="max-w-3xl">
+                <h1 class="text-3xl font-bold text-base-content mb-4">{{ category_data.name }}</h1>
+                <p class="text-lg text-base-content/70">{{ category_data.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Content -->
+    <div class="container mx-auto px-6 py-12">
+        {% if category_data.blocks %}
+            <!-- Blocks Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for block in category_data.blocks %}
+                <div class="group relative bg-base-100 border border-base-300 rounded-lg p-6 hover:shadow-lg hover:border-primary/20 transition-all duration-200">
+                    <!-- Block Icon -->
+                    <div class="mb-4">
+                        {% if block.id == 'headers' %}
+                            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <c-icon name="layout-template" class="w-8 h-8 text-primary" />
+                            </div>
+                        {% elif block.id == 'cards' %}
+                            <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center">
+                                <c-icon name="square-stack" class="w-8 h-8 text-secondary" />
+                            </div>
+                        {% elif block.id == 'dashboards' %}
+                            <div class="w-16 h-16 bg-info/10 rounded-lg flex items-center justify-center">
+                                <c-icon name="chart-bar" class="w-8 h-8 text-info" />
+                            </div>
+                        {% elif block.id == 'stats' %}
+                            <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center">
+                                <c-icon name="chart-line" class="w-8 h-8 text-accent" />
+                            </div>
+                        {% elif block.id == 'auth-forms' %}
+                            <div class="w-16 h-16 bg-warning/10 rounded-lg flex items-center justify-center">
+                                <c-icon name="shield-check" class="w-8 h-8 text-warning" />
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Block Content -->
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold text-base-content mb-3">{{ block.name }}</h3>
+                        <p class="text-base-content/70 mb-4">{{ block.description }}</p>
+                        
+                        <!-- Components Count -->
+                        <div class="flex items-center text-sm text-base-content/60 mb-4">
+                            <c-icon name="cube" class="w-4 h-4 mr-2" />
+                            <span>{{ block.components_count }} component{{ block.components_count|pluralize }}</span>
+                        </div>
+
+                        <!-- Preview Thumbnail -->
+                        <div class="bg-base-200 rounded-lg p-4 mb-4 border border-base-300">
+                            <div class="text-center text-base-content/50">
+                                <c-icon name="image" class="w-8 h-8 mx-auto mb-2" />
+                                <span class="text-xs">Preview Available</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3">
+                        <c-button variant="primary" size="sm" href="{% url 'demo:ui_blocks_detail' category block.id %}" class="flex-1">
+                            <c-icon name="eye" class="mr-2" />
+                            View Details
+                        </c-button>
+                        
+                        <c-button variant="ghost" size="sm">
+                            <c-icon name="copy" />
+                        </c-button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <!-- Empty State for E-commerce -->
+            <div class="text-center py-16">
+                <div class="max-w-md mx-auto">
+                    <div class="w-24 h-24 bg-base-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <c-icon name="shopping-cart" class="w-12 h-12 text-base-content/30" />
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold text-base-content mb-4">Coming Soon</h3>
+                    <p class="text-base-content/70 mb-6">
+                        E-commerce blocks are currently in development. Check back soon for product grids, 
+                        shopping carts, and checkout flows.
+                    </p>
+
+                    <!-- Placeholder Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                        <div class="border border-dashed border-base-300 rounded-lg p-6 text-center">
+                            <c-icon name="shopping-cart" class="w-8 h-8 mx-auto mb-3 text-base-content/30" />
+                            <h4 class="font-medium mb-2">Product Grid</h4>
+                            <p class="text-sm text-base-content/60">Responsive product showcase</p>
+                        </div>
+                        <div class="border border-dashed border-base-300 rounded-lg p-6 text-center">
+                            <c-icon name="credit-card" class="w-8 h-8 mx-auto mb-3 text-base-content/30" />
+                            <h4 class="font-medium mb-2">Checkout Flow</h4>
+                            <p class="text-sm text-base-content/60">Complete checkout process</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <c-button variant="primary" href="{% url 'demo:ui_blocks' %}">
+                            <c-icon name="arrow-left" class="mr-2" />
+                            Back to All Blocks
+                        </c-button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Navigation to Other Categories -->
+        {% if category_data.blocks %}
+        <div class="border-t border-base-300 pt-12 mt-16">
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-semibold text-base-content mb-2">Explore Other Categories</h3>
+                <p class="text-base-content/70">Discover more UI blocks in different categories</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                {% if category != 'marketing-ui' %}
+                    <c-button variant="outline" href="{% url 'demo:ui_blocks_category' 'marketing-ui' %}">
+                        <c-icon name="megaphone" class="mr-2" />
+                        Marketing UI
+                    </c-button>
+                {% endif %}
+                
+                {% if category != 'application-ui' %}
+                    <c-button variant="outline" href="{% url 'demo:ui_blocks_category' 'application-ui' %}">
+                        <c-icon name="layout-dashboard" class="mr-2" />
+                        Application UI
+                    </c-button>
+                {% endif %}
+                
+                {% if category != 'ecommerce-ui' %}
+                    <c-button variant="outline" href="{% url 'demo:ui_blocks_category' 'ecommerce-ui' %}">
+                        <c-icon name="shopping-cart" class="mr-2" />
+                        E-commerce UI
+                    </c-button>
+                {% endif %}
+
+                <c-button variant="ghost" href="{% url 'demo:ui_blocks' %}">
+                    <c-icon name="grid-3x3" class="mr-2" />
+                    View All Blocks
+                </c-button>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %} 

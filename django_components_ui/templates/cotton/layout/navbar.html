@@ -1,0 +1,58 @@
+<div class="drawer {% if centered %}container  mx-auto px-4 rounded-full {% endif %} {% if sticky %}sticky z-50 mb-4{% endif %} {{ class }}"
+     {% if sticky %}x-data="smartNavbar" x-bind:class="{
+                                                         'bg-base-100/80 backdrop-blur-sm': hasScrolled,
+                                                         'shadow-sm': hasScrolled && !isHidden,
+                                                         '-translate-y-full': isHidden,
+                                                         'transition-all duration-200': isInitialized,
+                                                         'top-4': !isHidden,
+                                                         'top-0': isHidden
+                                                         }"{% endif %}>
+    <input id="navbar-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <div class="navbar">
+        <div class="navbar-start">
+          {% if nav|length > 0 or nav_center|length > 0 %}
+            <div class="flex-none lg:hidden">
+              <label for="navbar-drawer" aria-label="open sidebar" class="btn btn-square btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </label>
+            </div>
+          {% endif %}
+          <div class="{% if nav|length > 0 or nav_center|length > 0 %}hidden lg:flex{% else %}flex{% endif %} items-center justify-center">
+            {{ logo }}
+          </div>
+          <nav class="hidden lg:flex">
+            {{ nav }}
+            {{ nav_center }}
+          </nav>
+        </div>
+        <div class="navbar-end flex items-center gap-2">
+          {{ nav_end }}
+          {% if profile_icon %}
+            <c-dropdown variant="ghost" placement="end" hover circle>
+              <c-slot name="icon_slot">
+                <div class="avatar">
+                  <div class="w-12 rounded-full">
+                    {{ profile_icon }}
+                  </div>
+                </div>
+              </c-slot>
+              {{ profile_dropdown_links}}
+            </c-dropdown>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="drawer-side z-50">
+      <label for="navbar-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+      <div class="flex flex-col gap-2 p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <div class="flex items-center justify-center h-12 w-12 mb-4">
+          {{ logo }}
+        </div>
+        {{ nav }}
+        {{ nav_center }}
+      </div>
+    </div>
+  </div>

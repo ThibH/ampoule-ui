@@ -1,0 +1,29 @@
+{% comment %}
+Composant Avatar avec DaisyUI
+Usage: <c-avatar src="image.jpg" size="w-12" shape="rounded-full">JD</c-avatar>
+{% endcomment %}
+
+<c-vars
+    src=""
+    size="w-12"
+    shape="rounded-full"
+    bg_color="bg-neutral"
+    text_color="text-neutral-content"
+/>
+
+<div class="avatar
+            {% if not src %}avatar-placeholder{% endif %}
+            {% if online is True %}online{% elif online is False %}offline{% endif %}
+            {{ class }}" {{ attrs }}>
+    <div class="{{ size }} {{ shape }}
+                {% if src %}{% else %}{{ bg_color }} {{ text_color }}{% endif %}
+                {% if ring is True %}ring ring-primary ring-offset-base-100 ring-offset-2{% endif %}">
+        {% if src %}
+            <img src="{{ src }}" alt="{{ alt|default:'Avatar' }}" />
+        {% else %}
+            <span class="{% if size == 'w-6' or size == 'w-8' %}text-xs{% elif size == 'w-10' or size == 'w-12' %}text-sm{% elif size == 'w-16' or size == 'w-20' %}text-lg{% elif size == 'w-24' or size == 'w-32' %}text-xl{% else %}text-base{% endif %}">
+                {{ slot }}
+            </span>
+        {% endif %}
+    </div>
+</div>

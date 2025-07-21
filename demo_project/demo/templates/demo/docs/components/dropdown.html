@@ -1,0 +1,400 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Dropdown</h1>
+        <p class="text-lg text-base-content/70">
+            A versatile dropdown menu component with support for various placements, triggers, and structured menu content using the new menu components.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-dropdown label="Menu">
+                    <c-menu.item icon="home">Home</c-menu.item>
+                    <c-menu.item icon="info">About</c-menu.item>
+                    <c-menu.item icon="mail">Contact</c-menu.item>
+                </c-dropdown>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-dropdown label="Menu"&gt;
+    &lt;c-menu.item icon="home"&gt;Home&lt;/c-menu.item&gt;
+    &lt;c-menu.item icon="info"&gt;About&lt;/c-menu.item&gt;
+    &lt;c-menu.item icon="mail"&gt;Contact&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">required</code></td>
+                        <td>Text displayed on the dropdown trigger button</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display in the dropdown button</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">neutral</code></td>
+                        <td>Button style: primary, secondary, accent, neutral, outline, ghost</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">placement</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">bottom</code></td>
+                        <td>Menu position: top, bottom, start, end, center</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">hover</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Open dropdown on hover instead of click</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the dropdown container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Button Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Button Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Dropdown buttons can use different style variants to match your design.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-dropdown label="Primary" variant="primary">
+                            <c-menu.item>Option 1</c-menu.item>
+                            <c-menu.item>Option 2</c-menu.item>
+                            <c-menu.item>Option 3</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Secondary" variant="secondary">
+                            <c-menu.item>Option 1</c-menu.item>
+                            <c-menu.item>Option 2</c-menu.item>
+                            <c-menu.item>Option 3</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Accent" variant="accent">
+                            <c-menu.item>Option 1</c-menu.item>
+                            <c-menu.item>Option 2</c-menu.item>
+                            <c-menu.item>Option 3</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Outline" variant="outline">
+                            <c-menu.item>Option 1</c-menu.item>
+                            <c-menu.item>Option 2</c-menu.item>
+                            <c-menu.item>Option 3</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Ghost" variant="ghost">
+                            <c-menu.item>Option 1</c-menu.item>
+                            <c-menu.item>Option 2</c-menu.item>
+                            <c-menu.item>Option 3</c-menu.item>
+                        </c-dropdown>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-dropdown label="Primary" variant="primary"&gt;
+    &lt;c-menu.item&gt;Option 1&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Option 2&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Option 3&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;
+
+&lt;c-dropdown label="Secondary" variant="secondary"&gt;
+    &lt;c-menu.item&gt;Option 1&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Option 2&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Option 3&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Add icons to dropdown buttons and menu items for better visual hierarchy.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-dropdown label="Settings" icon="settings">
+                            <c-menu.item icon="user">Profile</c-menu.item>
+                            <c-menu.item icon="settings">Preferences</c-menu.item>
+                            <c-menu.item icon="log-out">Logout</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Actions" icon="more-horizontal" variant="outline">
+                            <c-menu.item icon="edit">Edit</c-menu.item>
+                            <c-menu.item icon="copy">Duplicate</c-menu.item>
+                            <c-menu.item icon="trash" class="text-red-500">Delete</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Profile" icon="user" variant="ghost" placement="end">
+                            <c-menu.item icon="user">My Profile</c-menu.item>
+                            <c-menu.item icon="settings">Settings</c-menu.item>
+                            <c-menu.item icon="log-out" href="#" class="text-red-500">Logout</c-menu.item>
+                        </c-dropdown>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-dropdown label="Settings" icon="settings"&gt;
+    &lt;c-menu.item icon="user"&gt;Profile&lt;/c-menu.item&gt;
+    &lt;c-menu.item icon="settings"&gt;Preferences&lt;/c-menu.item&gt;
+    &lt;c-menu.item icon="log-out"&gt;Logout&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;
+
+&lt;c-dropdown label="Actions" icon="more-horizontal" variant="outline"&gt;
+    &lt;c-menu.item icon="edit"&gt;Edit&lt;/c-menu.item&gt;
+    &lt;c-menu.item icon="copy"&gt;Duplicate&lt;/c-menu.item&gt;
+    &lt;c-menu.item icon="trash" class="text-red-500"&gt;Delete&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placements -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Placements</h3>
+            <p class="text-base-content/70 mb-6">
+                Control where the dropdown menu appears relative to the trigger button.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <c-dropdown label="Top" placement="top">
+                            <c-menu.item>Opens upward</c-menu.item>
+                            <c-menu.item>Above the button</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Start" placement="start">
+                            <c-menu.item>Opens to the left</c-menu.item>
+                            <c-menu.item>Left alignment</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Center" placement="center">
+                            <c-menu.item>Opens centered</c-menu.item>
+                            <c-menu.item>Center alignment</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="End" placement="end">
+                            <c-menu.item>Opens to the right</c-menu.item>
+                            <c-menu.item>Right alignment</c-menu.item>
+                        </c-dropdown>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-dropdown label="Top" placement="top"&gt;
+    &lt;c-menu.item&gt;Opens upward&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Above the button&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;
+
+&lt;c-dropdown label="Start" placement="start"&gt;
+    &lt;c-menu.item&gt;Opens to the left&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Left alignment&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;
+
+&lt;c-dropdown label="Center" placement="center"&gt;
+    &lt;c-menu.item&gt;Opens centered&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Center alignment&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;
+
+&lt;c-dropdown label="End" placement="end"&gt;
+    &lt;c-menu.item&gt;Opens to the right&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Right alignment&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hover Trigger -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Hover Trigger</h3>
+            <p class="text-base-content/70 mb-6">
+                Enable hover trigger to open the dropdown on mouse over instead of click.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-dropdown label="Hover me" hover="true" variant="secondary">
+                            <c-menu.item>Opens on hover</c-menu.item>
+                            <c-menu.item>No click required</c-menu.item>
+                            <c-menu.item>Mouse over trigger</c-menu.item>
+                        </c-dropdown>
+
+                        <c-dropdown label="Click me" variant="secondary">
+                            <c-menu.item>Opens on click</c-menu.item>
+                            <c-menu.item>Default behavior</c-menu.item>
+                            <c-menu.item>Click trigger</c-menu.item>
+                        </c-dropdown>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-dropdown label="Hover me" hover="true" variant="secondary"&gt;
+    &lt;c-menu.item&gt;Opens on hover&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;No click required&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Mouse over trigger&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;
+
+&lt;c-dropdown label="Click me" variant="secondary"&gt;
+    &lt;c-menu.item&gt;Opens on click&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Default behavior&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;Click trigger&lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complex Content -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Complex Content</h3>
+            <p class="text-base-content/70 mb-6">
+                Dropdown menus can contain complex content including buttons, forms, and other components.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-dropdown label="Advanced Menu" icon="more-vertical" variant="primary">
+                        <c-menu.item>Simple Link</c-menu.item>
+                        <c-menu.item>
+                            <c-button variant="ghost" icon="edit" class="w-full justify-start">
+                                Edit Item
+                            </c-button>
+                        </c-menu.item>
+                        <c-menu.item>
+                            <c-button variant="ghost" icon="edit" class="w-full justify-start">
+                                Edit Item
+                            </c-button>
+                        </c-menu.item>
+                        <c-menu.item>
+                            <c-button variant="ghost"
+                                      icon="star"
+                                      spinner-icon="star"
+                                      hx-get="{% url 'demo:toast_action' %}?type=success"
+                                      class="w-full justify-start">
+                                Add to Favorites
+                            </c-button>
+                        </c-menu.item>
+                        <c-menu.item>
+                            <c-button variant="link"
+                                      icon="trash"
+                                      modal="delete_account_modal"
+                                      class="text-red-500 w-full justify-start">
+                                Delete
+                            </c-button>
+                        </c-menu.item>
+                        <c-menu.item>
+                            <c-button variant="link"
+                                      icon="trash"
+                                      modal="delete_account_modal"
+                                      class="text-red-500 w-full justify-start">
+                                Delete
+                            </c-button>
+                        </c-menu.item>
+                    </c-dropdown>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-dropdown label="Advanced Menu" icon="more-vertical" variant="primary"&gt;
+    &lt;c-menu.item&gt;Simple Link&lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;
+        &lt;c-button variant="ghost" icon="edit" class="w-full justify-start"&gt;
+            Edit Item
+        &lt;/c-button&gt;
+    &lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;
+        &lt;c-button variant="ghost" 
+                  icon="star" 
+                  spinner-icon="star"
+                  hx-get="/api/favorites/"
+                  class="w-full justify-start"&gt;
+            Add to Favorites
+        &lt;/c-button&gt;
+    &lt;/c-menu.item&gt;
+    &lt;c-menu.item&gt;
+        &lt;c-button variant="link" 
+                  icon="trash" 
+                  modal="delete_modal"
+                  class="text-red-500 w-full justify-start"&gt;
+            Delete
+        &lt;/c-button&gt;
+    &lt;/c-menu.item&gt;
+&lt;/c-dropdown&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Usage Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Usage Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Menu Structure</h4>
+                        <div class="text-sm">Use <code>&lt;c-menu.item&gt;</code> components directly within the dropdown for menu items.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Placement Considerations</h4>
+                        <div class="text-sm">Choose appropriate placement based on dropdown position to avoid viewport overflow.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">HTMX Integration</h4>
+                        <div class="text-sm">Dropdown buttons and menu items work seamlessly with HTMX attributes for dynamic actions.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

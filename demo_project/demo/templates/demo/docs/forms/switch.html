@@ -1,0 +1,418 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Switch</h1>
+        <p class="text-lg text-base-content/70">
+            A toggle switch component for binary choices with support for labels, descriptions, and flexible orientation. Built on DaisyUI toggle component.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-form.switch label="Enable notifications" />
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-form.switch label="Enable notifications" /&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">field</code></td>
+                        <td><code class="text-sm">Django Field</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Django form field for automatic integration</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Label text displayed next to the switch</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">description</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Help text displayed below the label</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">orientation</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">horizontal</code></td>
+                        <td>Layout orientation: horizontal, vertical</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">align</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">right</code></td>
+                        <td>Switch alignment: left, right (only for horizontal orientation)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Switch size: xs, sm, md, lg</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">default</code></td>
+                        <td>Color variant: default, primary, secondary, accent, info, success, warning, error</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">disabled</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Disable the switch</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">checked</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Initial checked state</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Unique identifier for the switch</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">name</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Form field name</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">value</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Value when checked</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Basic Usage -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Basic Usage</h3>
+            <p class="text-base-content/70 mb-6">
+                Simple switches with labels and descriptions.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.switch label="Enable notifications" />
+                        <c-form.switch label="Dark mode" checked="true" />
+                        <c-form.switch label="Auto-save" description="Automatically save your work every 5 minutes" />
+                        <c-form.switch label="Marketing emails" description="Receive updates about new features and products" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.switch label="Enable notifications" /&gt;
+&lt;c-form.switch label="Dark mode" checked="true" /&gt;
+&lt;c-form.switch label="Auto-save" description="Automatically save your work every 5 minutes" /&gt;
+&lt;c-form.switch label="Marketing emails" description="Receive updates about new features and products" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orientation and Alignment -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Orientation and Alignment</h3>
+            <p class="text-base-content/70 mb-6">
+                Control the layout orientation and switch position relative to the label.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3 text-base-content/70">Horizontal - Right aligned (default)</h4>
+                            <div class="space-y-3">
+                                <c-form.switch 
+                                    label="Right aligned switch" 
+                                    description="Switch appears after the label text" />
+                                <c-form.switch 
+                                    label="No description"  />
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3 text-base-content/70">Horizontal - Left aligned</h4>
+                            <div class="space-y-3">
+                                <c-form.switch 
+                                    align="left"
+                                    label="Left aligned switch" 
+                                    description="Switch appears before the label text" />
+                                <c-form.switch 
+                                    align="left"
+                                    label="No description"  />
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-sm font-semibold mb-3 text-base-content/70">Vertical</h4>
+                            <div class="space-y-3">
+                                <c-form.switch 
+                                    orientation="vertical" 
+                                    label="Vertical layout" 
+                                    description="Label appears above the switch" />
+                                <c-form.switch 
+                                    orientation="vertical" 
+                                    label="Push notifications" 
+                                    description="Receive push notifications on your device" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Horizontal layout - right aligned (default) --&gt;
+&lt;c-form.switch 
+    label="Right aligned switch" 
+    description="Switch appears after the label text" /&gt;
+
+&lt;!-- Horizontal layout - left aligned --&gt;
+&lt;c-form.switch 
+    align="left"
+    label="Left aligned switch" 
+    description="Switch appears before the label text" /&gt;
+
+&lt;!-- Vertical layout --&gt;
+&lt;c-form.switch 
+    orientation="vertical" 
+    label="Push notifications" 
+    description="Receive push notifications on your device" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Different sizes available with the size property.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.switch size="xs" label="Extra small switch" />
+                        <c-form.switch size="sm" label="Small switch" />
+                        <c-form.switch size="md" label="Medium switch (default)" />
+                        <c-form.switch size="lg" label="Large switch" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.switch size="xs" label="Extra small switch" /&gt;
+&lt;c-form.switch size="sm" label="Small switch" /&gt;
+&lt;c-form.switch size="md" label="Medium switch (default)" /&gt;
+&lt;c-form.switch size="lg" label="Large switch" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Color Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Different color variants for various use cases.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.switch variant="default" label="Default variant" checked="true" />
+                        <c-form.switch variant="primary" label="Primary variant" checked="true" />
+                        <c-form.switch variant="secondary" label="Secondary variant" checked="true" />
+                        <c-form.switch variant="accent" label="Accent variant" checked="true" />
+                        <c-form.switch variant="info" label="Info variant" checked="true" />
+                        <c-form.switch variant="success" label="Success variant" checked="true" />
+                        <c-form.switch variant="warning" label="Warning variant" checked="true" />
+                        <c-form.switch variant="error" label="Error variant" checked="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.switch variant="default" label="Default variant" checked="true" /&gt;
+&lt;c-form.switch variant="primary" label="Primary variant" checked="true" /&gt;
+&lt;c-form.switch variant="secondary" label="Secondary variant" checked="true" /&gt;
+&lt;c-form.switch variant="accent" label="Accent variant" checked="true" /&gt;
+&lt;c-form.switch variant="info" label="Info variant" checked="true" /&gt;
+&lt;c-form.switch variant="success" label="Success variant" checked="true" /&gt;
+&lt;c-form.switch variant="warning" label="Warning variant" checked="true" /&gt;
+&lt;c-form.switch variant="error" label="Error variant" checked="true" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- States -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">States</h3>
+            <p class="text-base-content/70 mb-6">
+                Different switch states for various scenarios.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-form.switch label="Normal state" />
+                        <c-form.switch label="Checked state" checked="true" />
+                        <c-form.switch label="Disabled unchecked" disabled="true" />
+                        <c-form.switch label="Disabled checked" disabled="true" checked="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.switch label="Normal state" /&gt;
+&lt;c-form.switch label="Checked state" checked="true" /&gt;
+&lt;c-form.switch label="Disabled unchecked" disabled="true" /&gt;
+&lt;c-form.switch label="Disabled checked" disabled="true" checked="true" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Examples -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Advanced Examples</h3>
+            <p class="text-base-content/70 mb-6">
+                Combining multiple features for complex use cases.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <c-form.switch
+                            orientation="vertical"
+                            variant="primary"
+                            size="lg"
+                            label="Premium Features"
+                            description="Enable advanced features like analytics, custom themes, and priority support"
+                            checked="true" />
+                        
+                        <c-form.switch
+                            orientation="horizontal"
+                            variant="success"
+                            label="Two-Factor Authentication"
+                            description="Add an extra layer of security to your account" />
+
+                        <c-form.switch
+                            orientation="vertical"
+                            variant="warning"
+                            size="sm"
+                            label="Beta Features"
+                            description="Try experimental features (may be unstable)" />
+
+                        <c-form.switch
+                            orientation="horizontal"
+                            variant="info"
+                            label="Newsletter Subscription"
+                            description="Stay updated with our monthly newsletter and product updates" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-form.switch
+    orientation="vertical"
+    variant="primary"
+    size="lg"
+    label="Premium Features"
+    description="Enable advanced features like analytics, custom themes, and priority support"
+    checked="true" /&gt;
+
+&lt;c-form.switch
+    orientation="horizontal"
+    variant="success"
+    label="Two-Factor Authentication"
+    description="Add an extra layer of security to your account" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Django Integration -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Django Form Integration</h2>
+
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">Using with Django Forms</h3>
+            <p class="text-base-content/70 mb-6">
+                The component automatically integrates with Django form fields when you pass the field parameter. Works best with BooleanField.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <!-- This would be rendered from a Django view with a form -->
+                        <div class="text-sm text-base-content/60 font-mono bg-base-300 p-3 rounded">
+                            # In your Django form:<br>
+                            class SettingsForm(forms.Form):<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;notifications = forms.BooleanField(required=False)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;dark_mode = forms.BooleanField(required=False)<br><br>
+                            # In your template:<br>
+                            &lt;c-form.switch field="{{ form.notifications }}" label="Enable Notifications" /&gt;<br>
+                            &lt;c-form.switch field="{{ form.dark_mode }}" label="Dark Mode" variant="accent" /&gt;
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Django form integration --&gt;
+&lt;c-form.switch field="{{ form.notifications }}" label="Enable Notifications" /&gt;
+&lt;c-form.switch field="{{ form.dark_mode }}" label="Dark Mode" variant="accent" /&gt;
+
+&lt;!-- The component will automatically: --&gt;
+&lt;!-- - Set name, id, value from the field --&gt;
+&lt;!-- - Handle checked state from field value --&gt;
+&lt;!-- - Display validation errors if any --&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">BooleanField Integration</h4>
+                    <div class="text-sm">The switch component works seamlessly with Django's <code>BooleanField</code>, automatically handling the checked state and form submission.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Error Handling</h4>
+                    <div class="text-sm">Form validation errors are automatically displayed below the switch with proper styling.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Accessibility</h4>
+                    <div class="text-sm">Always provide proper labels for better accessibility. The component automatically links labels to switches for proper form semantics.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

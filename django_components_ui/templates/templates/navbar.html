@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+    <c-layout.navbar>
+        <c-slot name="logo">
+            <img src="https://placehold.co/1920x1080" alt="Yellingcat" />
+        </c-slot>
+
+        <c-slot name="nav">
+            <c-button variant="ghost">
+                Home
+            </c-button>
+
+            <c-button variant="ghost">
+                Dashboard
+            </c-button>
+
+            <c-button variant="ghost">
+                Projects
+            </c-button>
+        </c-slot>
+
+        <c-slot name="profile_icon">
+            <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+        </c-slot>
+
+        <c-slot name="profile_dropdown_links">
+            <li><a>Mon profil</a></li>
+            <li><a>Paramètres</a></li>
+            <li><a>Déconnexion</a></li>
+        </c-slot>
+    </c-layout.navbar>
+
+
+{% endblock %}

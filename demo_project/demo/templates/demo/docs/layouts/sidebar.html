@@ -1,0 +1,306 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Sidebar</h1>
+        <p class="text-lg text-base-content/70">
+            A collapsible sidebar navigation component for organizing application navigation and content.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg overflow-hidden">
+                <div class="h-64 w-full overflow-hidden">
+                    <c-layout.sidebar>
+                        <c-slot name="content">
+                            <div class="menu p-4 w-48 min-h-full bg-base-200">
+                                <h3 class="text-sm font-bold mb-4">Navigation</h3>
+                                <ul class="text-sm">
+                                    <li><a href="#" class="active">Dashboard</a></li>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                    <li><a href="#">Help</a></li>
+                                </ul>
+                            </div>
+                        </c-slot>
+                        <c-slot name="main">
+                            <div class="p-4 flex-1">
+                                <h2 class="text-lg font-bold mb-2">Main Content</h2>
+                                <p class="text-sm">This is the main content area that sits beside the sidebar.</p>
+                            </div>
+                        </c-slot>
+                    </c-layout.sidebar>
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-layout.sidebar&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;div class="menu p-4 w-80 min-h-full bg-base-200"&gt;
+            &lt;h3 class="text-lg font-bold mb-4"&gt;Navigation&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#" class="active"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Projects&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Help&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="main"&gt;
+        &lt;div class="p-8"&gt;
+            &lt;h2 class="text-2xl font-bold mb-4"&gt;Main Content&lt;/h2&gt;
+            &lt;p&gt;This is the main content area.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.sidebar&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Slot</th>
+                        <th class="font-semibold">Required</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">content</code></td>
+                        <td><code class="text-sm">Yes</code></td>
+                        <td>Sidebar navigation content</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">main</code></td>
+                        <td><code class="text-sm">Yes</code></td>
+                        <td>Main content area beside the sidebar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- With Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Enhanced sidebar navigation with icons for better visual hierarchy.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg overflow-hidden">
+                    <div class="h-64 w-full overflow-hidden">
+                        <c-layout.sidebar>
+                            <c-slot name="content">
+                                <div class="menu p-4 w-48 min-h-full bg-base-200">
+                                    <h3 class="text-sm font-bold mb-4">Menu</h3>
+                                    <ul class="text-sm">
+                                        <li>
+                                            <a href="#" class="active">
+                                                <c-icon name="home" class="size-4"></c-icon>
+                                                Dashboard
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <c-icon name="folder" class="size-4"></c-icon>
+                                                Projects
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <c-icon name="users" class="size-4"></c-icon>
+                                                Team
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <c-icon name="settings" class="size-4"></c-icon>
+                                                Settings
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </c-slot>
+                            <c-slot name="main">
+                                <div class="p-4 flex-1">
+                                    <h2 class="text-lg font-bold mb-2">Dashboard</h2>
+                                    <p class="text-sm">Welcome to your dashboard! This content area updates based on your sidebar navigation.</p>
+                                </div>
+                            </c-slot>
+                        </c-layout.sidebar>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-layout.sidebar&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;div class="menu p-4 w-80 min-h-full bg-base-200"&gt;
+            &lt;h3 class="text-lg font-bold mb-4"&gt;Menu&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;a href="#" class="active"&gt;
+                        &lt;c-icon name="home" class="size-5"&gt;&lt;/c-icon&gt;
+                        Dashboard
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        &lt;c-icon name="folder" class="size-5"&gt;&lt;/c-icon&gt;
+                        Projects
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="main"&gt;
+        &lt;div class="p-8"&gt;
+            &lt;h2 class="text-2xl font-bold mb-4"&gt;Dashboard&lt;/h2&gt;
+            &lt;p&gt;Welcome to your dashboard!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.sidebar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collapsible Sidebar -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Collapsible Sidebar</h3>
+            <p class="text-base-content/70 mb-6">
+                Sidebar with toggle functionality using DaisyUI drawer component.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="h-64 w-full">
+                        <div class="drawer">
+                            <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+                            <div class="drawer-content flex flex-col">
+                                <div class="p-4">
+                                    <label for="drawer-toggle" class="btn btn-square btn-ghost">
+                                        <c-icon name="menu" class="size-6"></c-icon>
+                                    </label>
+                                    <h2 class="text-xl font-bold ml-4 inline">Main Content</h2>
+                                </div>
+                                <div class="p-8">
+                                    <p>Click the menu button to toggle the sidebar.</p>
+                                </div>
+                            </div>
+                            <div class="drawer-side">
+                                <label for="drawer-toggle" class="drawer-overlay"></label>
+                                <div class="menu p-4 w-80 min-h-full bg-base-200">
+                                    <h3 class="text-lg font-bold mb-4">Navigation</h3>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Services</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="drawer"&gt;
+    &lt;input id="drawer-toggle" type="checkbox" class="drawer-toggle" /&gt;
+    &lt;div class="drawer-content flex flex-col"&gt;
+        &lt;div class="p-4"&gt;
+            &lt;label for="drawer-toggle" class="btn btn-square btn-ghost"&gt;
+                &lt;c-icon name="menu" class="size-6"&gt;&lt;/c-icon&gt;
+            &lt;/label&gt;
+            &lt;h2 class="text-xl font-bold ml-4 inline"&gt;Main Content&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="drawer-side"&gt;
+        &lt;label for="drawer-toggle" class="drawer-overlay"&gt;&lt;/label&gt;
+        &lt;div class="menu p-4 w-80 min-h-full bg-base-200"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Page Demos -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Démonstrations complètes</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Demo 1 -->
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body">
+                    <h3 class="card-title">Panneau d'Administration</h3>
+                    <p class="text-base-content/70 mb-4">
+                        Exemple d'un panneau d'administration complet avec sidebar, statistiques et gestion des données.
+                    </p>
+                    <div class="card-actions justify-end">
+                        <a href="{% url 'demo:sidebar_demo1' %}" target="_blank" class="btn btn-primary">
+                            <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                            Voir la démo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo 2 -->
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body">
+                    <h3 class="card-title">Gestion de Projets</h3>
+                    <p class="text-base-content/70 mb-4">
+                        Exemple d'une application de gestion de projets avec sidebar, tâches et équipes.
+                    </p>
+                    <div class="card-actions justify-end">
+                        <a href="{% url 'demo:sidebar_demo2' %}" target="_blank" class="btn btn-primary">
+                            <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                            Voir la démo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Mobile Considerations -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Mobile Considerations</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Responsive Design</h4>
+                        <div class="text-sm">On mobile devices, consider using a drawer-based sidebar that can be toggled rather than always visible.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Width Control</h4>
+                        <div class="text-sm">Use fixed widths like <code>w-64</code> or <code>w-80</code> for consistent sidebar sizing across different screen sizes.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

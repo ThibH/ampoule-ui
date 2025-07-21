@@ -1,0 +1,323 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Checkbox</h1>
+        <p class="text-lg text-base-content/70">
+            Interactive checkbox component with multiple variants and automatic label interactions using modern CSS.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-checkbox id="basic-example" label="I agree to the terms and conditions" />
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-checkbox id="basic-example" label="I agree to the terms and conditions" /&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Unique identifier for the checkbox input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">default</code></td>
+                        <td>Checkbox style: default, pill, card, button</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Size: xs, sm, md, lg (default variant only)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Label text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">description</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Description text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name (uses c-icon component)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">color</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">primary</code></td>
+                        <td>Color variant for pill and button styles: primary, secondary, accent, neutral, error, warning, success, info</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">checked</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Initial checked state</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">disabled</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Disabled state</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">name</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Form input name</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">value</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Form input value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Variants -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Variants</h2>
+
+        <!-- Default -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Default</h3>
+            <p class="text-base-content/70 mb-4">Basic checkbox with label and optional description. Click anywhere on the label to toggle.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-checkbox id="terms" label="I agree to the terms and conditions" />
+                        <c-checkbox id="newsletter" label="Subscribe to newsletter" description="Get weekly updates about new features" />
+                        <c-checkbox id="notifications" label="Enable notifications" description="Receive email notifications for important updates" icon="bell" />
+                        <c-checkbox id="disabled-option" label="Disabled option" description="This option is disabled" disabled="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-checkbox id="terms" label="I agree to the terms and conditions" /&gt;
+&lt;c-checkbox id="newsletter" label="Subscribe to newsletter" description="Get weekly updates" /&gt;
+&lt;c-checkbox id="notifications" label="Enable notifications" icon="bell" /&gt;
+&lt;c-checkbox id="disabled-option" label="Disabled option" disabled="true" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pills -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Pills</h3>
+            <p class="text-base-content/70 mb-4">Compact pill-style checkboxes, perfect for tags or categories. Click anywhere on the pill to toggle.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-3">
+                        <c-checkbox id="pill-design" variant="pill" label="Design" />
+                        <c-checkbox id="pill-dev" variant="pill" label="Development" checked="true" />
+                        <c-checkbox id="pill-marketing" variant="pill" label="Marketing" color="secondary" />
+                        <c-checkbox id="pill-sales" variant="pill" label="Sales" icon="trending-up" color="success" />
+                        <c-checkbox id="pill-premium" variant="pill" label="Premium" description="Pro" color="warning" />
+                        <c-checkbox id="pill-disabled" variant="pill" label="Disabled" disabled="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-checkbox id="pill-design" variant="pill" label="Design" /&gt;
+&lt;c-checkbox id="pill-dev" variant="pill" label="Development" checked="true" /&gt;
+&lt;c-checkbox id="pill-marketing" variant="pill" label="Marketing" color="secondary" /&gt;
+&lt;c-checkbox id="pill-sales" variant="pill" label="Sales" icon="trending-up" color="success" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Cards</h3>
+            <p class="text-base-content/70 mb-4">Card-style checkboxes with rich content support. Click anywhere on the card to toggle.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <c-checkbox 
+                            id="card-basic"
+                            variant="card" 
+                            label="Basic Plan" 
+                            description="Perfect for personal projects and small teams"
+                            icon="zap"
+                        />
+                        <c-checkbox 
+                            id="card-pro"
+                            variant="card" 
+                            label="Pro Plan" 
+                            description="Advanced features for growing businesses"
+                            icon="crown"
+                            checked="true"
+                        />
+                        <c-checkbox 
+                            id="card-enterprise"
+                            variant="card" 
+                            label="Enterprise" 
+                            description="Full-scale solution for large organizations"
+                            icon="building"
+                        />
+                        <c-checkbox 
+                            id="card-custom"
+                            variant="card" 
+                            label="Custom Solution" 
+                            description="Tailored to your specific needs"
+                            icon="settings"
+                            disabled="true"
+                        />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-checkbox 
+    id="card-basic"
+    variant="card" 
+    label="Basic Plan" 
+    description="Perfect for personal projects"
+    icon="zap"
+/&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards with Custom Content -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Cards with Custom Content</h3>
+            <p class="text-base-content/70 mb-4">Cards can include custom content using slots.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <c-checkbox id="pricing-starter" variant="card" label="Starter Plan" description="Everything you need to get started" icon="rocket">
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="text-2xl font-bold">$9</span>
+                                <span class="text-sm text-base-content/60">/month</span>
+                            </div>
+                            <ul class="text-sm text-base-content/60 mt-2 space-y-1">
+                                <li>• 5 projects</li>
+                                <li>• 10GB storage</li>
+                                <li>• Email support</li>
+                            </ul>
+                        </c-checkbox>
+                        
+                        <c-checkbox id="pricing-business" variant="card" label="Business Plan" description="For teams and growing businesses" icon="briefcase" checked="true">
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="text-2xl font-bold">$29</span>
+                                <span class="text-sm text-base-content/60">/month</span>
+                                <c-badge variant="success" size="sm">Popular</c-badge>
+                            </div>
+                            <ul class="text-sm text-base-content/60 mt-2 space-y-1">
+                                <li>• Unlimited projects</li>
+                                <li>• 100GB storage</li>
+                                <li>• Priority support</li>
+                            </ul>
+                        </c-checkbox>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-checkbox id="pricing-starter" variant="card" label="Starter Plan" icon="rocket"&gt;
+    &lt;div class="flex items-center gap-2 mt-2"&gt;
+        &lt;span class="text-2xl font-bold"&gt;$9&lt;/span&gt;
+        &lt;span class="text-sm"&gt;/month&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;ul class="text-sm mt-2 space-y-1"&gt;
+        &lt;li&gt;• 5 projects&lt;/li&gt;
+        &lt;li&gt;• 10GB storage&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/c-checkbox&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Buttons</h3>
+            <p class="text-base-content/70 mb-4">Button-style checkboxes for toolbar-like interfaces. Click anywhere on the button to toggle.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-3">
+                        <c-checkbox id="btn-bold" variant="button" label="Bold" icon="bold" />
+                        <c-checkbox id="btn-italic" variant="button" label="Italic" icon="italic" checked="true" />
+                        <c-checkbox id="btn-underline" variant="button" label="Underline" icon="underline" color="secondary" />
+                        <c-checkbox id="btn-code" variant="button" label="Code" icon="code" color="accent" />
+                        <c-checkbox id="btn-link" variant="button" label="Link" icon="link" color="info" />
+                        <c-checkbox id="btn-disabled" variant="button" label="Disabled" disabled="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-checkbox id="btn-bold" variant="button" label="Bold" icon="bold" /&gt;
+&lt;c-checkbox id="btn-italic" variant="button" label="Italic" icon="italic" checked="true" /&gt;
+&lt;c-checkbox id="btn-underline" variant="button" label="Underline" color="secondary" /&gt;
+&lt;c-checkbox id="btn-code" variant="button" label="Code" icon="code" color="accent" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Sizes</h3>
+            <p class="text-base-content/70 mb-4">Different sizes available for default variant.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-checkbox id="size-xs" size="xs" label="Extra small checkbox" />
+                        <c-checkbox id="size-sm" size="sm" label="Small checkbox" />
+                        <c-checkbox id="size-md" size="md" label="Medium checkbox (default)" />
+                        <c-checkbox id="size-lg" size="lg" label="Large checkbox" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-checkbox id="size-xs" size="xs" label="Extra small" /&gt;
+&lt;c-checkbox id="size-sm" size="sm" label="Small" /&gt;
+&lt;c-checkbox id="size-md" size="md" label="Medium (default)" /&gt;
+&lt;c-checkbox id="size-lg" size="lg" label="Large" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-6">Key Features</h2>
+        <ul class="list-disc list-inside space-y-2 text-base-content/70">
+            <li><strong>Automatic label interaction:</strong> Click anywhere on labels, descriptions, pills, cards, or buttons to toggle</li>
+            <li><strong>CSS-only interactivity:</strong> Uses modern CSS :has() pseudo-class, no JavaScript required</li>
+            <li><strong>DaisyUI integration:</strong> Built on DaisyUI checkbox classes for consistent theming</li>
+            <li><strong>Custom content:</strong> Card variant supports custom content via slots</li>
+            <li><strong>Responsive design:</strong> Works seamlessly across all screen sizes</li>
+            <li><strong>Unique IDs:</strong> Support for unique identifiers to avoid HTML validation errors</li>
+        </ul>
+    </section>
+</div>

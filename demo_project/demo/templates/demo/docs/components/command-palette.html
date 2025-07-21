@@ -1,0 +1,827 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Command Palette</h1>
+        <p class="text-lg text-base-content/70">
+            A powerful, searchable command palette component with fuzzy search, keyboard navigation, and dynamic data loading. Perfect for quick actions, navigation, and user selection interfaces.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <div class="space-y-4">
+                    <p class="text-sm text-base-content/70">Appuyez sur <kbd class="kbd kbd-sm">Ctrl+K</kbd> ou <kbd class="kbd kbd-sm">Cmd+K</kbd> pour ouvrir la palette de commandes</p>
+
+                    <div x-data="{
+                                 demoGroups: [
+                                 {
+                                 id: 'actions',
+                                 label: 'Actions',
+                                 items: [
+                                 {
+                                 id: 'new',
+                                 label: 'Nouveau document',
+                                 icon: 'plus',
+                                 suffix: 'Créer un nouveau fichier',
+                                 kbd: ['Ctrl', 'N']
+                                 },
+                                 {
+                                 id: 'open',
+                                 label: 'Ouvrir fichier',
+                                 icon: 'folder-open',
+                                 suffix: 'Parcourir les fichiers'
+                                 }
+                                 ]
+                                 },
+                                 {
+                                 id: 'users',
+                                 label: 'Utilisateurs',
+                                 items: [
+                                 {
+                                 id: 'user1',
+                                 label: 'John Doe',
+                                 avatar: 'https://picsum.photos/32/32?random=1',
+                                 suffix: 'john.doe@example.com'
+                                 },
+                                 {
+                                 id: 'user2',
+                                 label: 'Jane Smith',
+                                 avatar: 'https://picsum.photos/32/32?random=2',
+                                 suffix: 'jane.smith@example.com'
+                                 }
+                                 ]
+                                 }
+                                 ],
+                                 }">
+                        <button onclick="window.openGlobalCommandPalette()" class="btn btn-primary">
+                            Ouvrir Command Palette
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-command_palette :groups="[
+    {
+        'id': 'actions',
+        'label': 'Actions',
+        'items': [
+            {
+                'id': 'new',
+                'label': 'Nouveau document',
+                'icon': 'plus',
+                'suffix': 'Créer un nouveau fichier'
+            }
+        ]
+    }
+]"&gt;&lt;/c-command_palette&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">groups</code></td>
+                        <td><code class="text-sm">array</code></td>
+                        <td><code class="text-sm">[]</code></td>
+                        <td>Array of groups containing items (use :groups for JSON data)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">modal_id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">command_palette</code></td>
+                        <td>Unique ID for the modal dialog</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">placeholder</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">Tapez pour rechercher...</code></td>
+                        <td>Placeholder text for the search input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">fetch_url</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>URL for dynamic data fetching (optional)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">debounce</code></td>
+                        <td><code class="text-sm">number</code></td>
+                        <td><code class="text-sm">300</code></td>
+                        <td>Debounce delay in milliseconds for search</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">global_shortcut</code></td>
+                        <td><code class="text-sm">boolean/string</code></td>
+                        <td><code class="text-sm">true</code></td>
+                        <td>Enable keyboard shortcuts (use "false" to disable)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">shortcut_keys</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">cmd.k,ctrl.k</code></td>
+                        <td>Keyboard shortcuts (comma-separated)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">open_event</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Custom event name to open the palette</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Data Structure -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Data Structure</h2>
+
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-semibold mb-3">Group Object</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Property</th>
+                                <th class="font-semibold">Type</th>
+                                <th class="font-semibold">Required</th>
+                                <th class="font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">id</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">Yes</code></td>
+                                <td>Unique identifier for the group</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">label</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">No</code></td>
+                                <td>Display label for the group header</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">items</code></td>
+                                <td><code class="text-sm">array</code></td>
+                                <td><code class="text-sm">Yes</code></td>
+                                <td>Array of item objects in this group</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold mb-3">Item Object</h3>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-semibold">Property</th>
+                                <th class="font-semibold">Type</th>
+                                <th class="font-semibold">Required</th>
+                                <th class="font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="text-sm">id</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">Yes</code></td>
+                                <td>Unique identifier for the item</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">label</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">Yes</code></td>
+                                <td>Display text for the item</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">icon</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">No</code></td>
+                                <td>Icon name (cannot be used with avatar)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">avatar</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">No</code></td>
+                                <td>Avatar image URL (cannot be used with icon)</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">suffix</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">No</code></td>
+                                <td>Additional description or subtitle</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">kbd</code></td>
+                                <td><code class="text-sm">array</code></td>
+                                <td><code class="text-sm">No</code></td>
+                                <td>Keyboard shortcut keys to display</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">action</code></td>
+                                <td><code class="text-sm">string</code></td>
+                                <td><code class="text-sm">No</code></td>
+                                <td>Function name to call on selection</td>
+                            </tr>
+                            <tr>
+                                <td><code class="text-sm">data</code></td>
+                                <td><code class="text-sm">object</code></td>
+                                <td><code class="text-sm">No</code></td>
+                                <td>Additional data passed to events</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <h4 class="text-md font-semibold mb-2">Example JSON Structure</h4>
+            <div class="bg-base-100 p-4 rounded border">
+                <pre class="text-sm"><code>{
+  "groups": [
+    {
+      "id": "navigation",
+      "label": "Navigation",
+      "items": [
+        {
+          "id": "dashboard",
+          "label": "Dashboard",
+          "icon": "home",
+          "suffix": "Go to main dashboard",
+          "kbd": ["Ctrl", "D"],
+          "action": "navigateTo",
+          "data": {"url": "/dashboard"}
+        }
+      ]
+    }
+  ]
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Basic Usage -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Basic Command Palette</h3>
+            <p class="text-base-content/70 mb-6">
+                A simple command palette with actions and navigation items.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div x-data="{
+                                 basicGroups: [
+                                 {
+                                 id: 'file',
+                                 label: 'Fichier',
+                                 items: [
+                                 {
+                                 id: 'new',
+                                 label: 'Nouveau',
+                                 icon: 'file-plus',
+                                 suffix: 'Créer un nouveau document',
+                                 kbd: ['Ctrl', 'N']
+                                 },
+                                 {
+                                 id: 'open',
+                                 label: 'Ouvrir',
+                                 icon: 'folder-open',
+                                 suffix: 'Ouvrir un fichier existant'
+                                 },
+                                 {
+                                 id: 'save',
+                                 label: 'Sauvegarder',
+                                 icon: 'save',
+                                 kbd: ['Ctrl', 'S']
+                                 }
+                                 ]
+                                 },
+                                 {
+                                 id: 'edit',
+                                 label: 'Édition',
+                                 items: [
+                                 {
+                                 id: 'copy',
+                                 label: 'Copier',
+                                 icon: 'copy',
+                                 kbd: ['Ctrl', 'C']
+                                 },
+                                 {
+                                 id: 'paste',
+                                 label: 'Coller',
+                                 icon: 'clipboard',
+                                 kbd: ['Ctrl', 'V']
+                                 }
+                                 ]
+                                 }
+                                 ],
+                                 }">
+                        <c-command_palette modal_id="basic_palette" global_shortcut="false" :groups="basicGroups"></c-command_palette>
+
+                        <button @click="window.openBasicPalette(basicGroups)" class="btn btn-primary">
+                            Ouvrir Palette Basique
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-command_palette :groups="[
+    {
+        'id': 'file',
+        'label': 'Fichier',
+        'items': [
+            {
+                'id': 'new',
+                'label': 'Nouveau',
+                'icon': 'file-plus',
+                'kbd': ['Ctrl', 'N']
+            }
+        ]
+    }
+]"&gt;&lt;/c-command_palette&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Selection -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">User Selection Palette</h3>
+            <p class="text-base-content/70 mb-6">
+                A command palette for selecting users with avatars and contact information.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div x-data="{
+                                 userGroups: [
+                                 {
+                                 id: 'team',
+                                 label: 'Équipe',
+                                 items: [
+                                 {
+                                 id: 'john',
+                                 label: 'John Doe',
+                                 avatar: 'https://picsum.photos/32/32?random=10',
+                                 suffix: 'Lead Developer - john@company.com'
+                                 },
+                                 {
+                                 id: 'jane',
+                                 label: 'Jane Smith',
+                                 avatar: 'https://picsum.photos/32/32?random=11',
+                                 suffix: 'UI/UX Designer - jane@company.com'
+                                 },
+                                 {
+                                 id: 'bob',
+                                 label: 'Bob Wilson',
+                                 avatar: 'https://picsum.photos/32/32?random=12',
+                                 suffix: 'Product Manager - bob@company.com'
+                                 }
+                                 ]
+                                 },
+                                 {
+                                 id: 'clients',
+                                 label: 'Clients',
+                                 items: [
+                                 {
+                                 id: 'acme',
+                                 label: 'Acme Corp',
+                                 icon: 'building',
+                                 suffix: 'Enterprise client - 50+ users'
+                                 },
+                                 {
+                                 id: 'startup',
+                                 label: 'Startup Inc',
+                                 icon: 'zap',
+                                 suffix: 'Small business - 5 users'
+                                 }
+                                 ]
+                                 }
+                                 ],
+                                 }">
+                        <c-command_palette modal_id="user_palette" global_shortcut="false" placeholder="Rechercher un utilisateur..." :groups="userGroups"></c-command_palette>
+
+                        <button @click="window.openUserPalette(userGroups)" class="btn btn-secondary">
+                            Sélectionner Utilisateur
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-command_palette placeholder="Rechercher un utilisateur..." :groups="[
+    {
+        'id': 'team',
+        'label': 'Équipe',
+        'items': [
+            {
+                'id': 'john',
+                'label': 'John Doe',
+                'avatar': 'https://picsum.photos/32/32?random=10',
+                'suffix': 'Lead Developer'
+            }
+        ]
+    }
+]"&gt;&lt;/c-command_palette&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multiple Palettes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Multiple Independent Palettes</h3>
+            <p class="text-base-content/70 mb-6">
+                Create multiple command palettes with different shortcuts and content.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div x-data="{
+                                 actionGroups: [
+                                 {
+                                 id: 'actions',
+                                 label: 'Actions Rapides',
+                                 items: [
+                                 {
+                                 id: 'new-project',
+                                 label: 'Nouveau Projet',
+                                 icon: 'folder-plus',
+                                 suffix: 'Créer un nouveau projet'
+                                 },
+                                 {
+                                 id: 'settings',
+                                 label: 'Paramètres',
+                                 icon: 'cog',
+                                 suffix: 'Ouvrir les paramètres'
+                                 }
+                                 ]
+                                 }
+                                 ],
+                                 searchGroups: [
+                                 {
+                                 id: 'search',
+                                 label: 'Recherche Avancée',
+                                 items: [
+                                 {
+                                 id: 'files',
+                                 label: 'Rechercher dans les fichiers',
+                                 icon: 'search',
+                                 suffix: 'Recherche globale'
+                                 },
+                                 {
+                                 id: 'users',
+                                 label: 'Rechercher des utilisateurs',
+                                 icon: 'users',
+                                 suffix: 'Base de données utilisateurs'
+                                 }
+                                 ]
+                                 }
+                                 ],
+                                 openActionsPalette() {
+                                 if (window.openActionsPalette) {
+                                 window.openActionsPalette(this.actionGroups);
+                                 }
+                                 },
+                                 openSearchPalette() {
+                                 if (window.openSearchPalette) {
+                                 window.openSearchPalette(this.searchGroups);
+                                 }
+                                 }
+                                 }" class="space-y-4">
+                        <!-- Actions Palette avec Ctrl+Shift+A -->
+                        <c-command_palette
+                            modal_id="actions_palette"
+                            placeholder="Actions rapides..."
+                            shortcut_keys="ctrl.shift.a"
+                            :groups="actionGroups">
+                        </c-command_palette>
+
+                        <!-- Search Palette avec Ctrl+/ -->
+                        <c-command_palette
+                            modal_id="search_palette"
+                            placeholder="Recherche avancée..."
+                            shortcut_keys="ctrl./"
+                            open_event="open-search"
+                            :groups="searchGroups">
+                        </c-command_palette>
+
+                        <div class="flex gap-4">
+                            <button @click="openActionsPalette()" class="btn btn-primary">
+                                Actions (Ctrl+Shift+A)
+                            </button>
+                            <button @click="openSearchPalette()" class="btn btn-secondary">
+                                Recherche (Ctrl+/)
+                            </button>
+                        </div>
+
+                        <div class="mt-4 text-sm text-base-content/60">
+                            Essayez les raccourcis clavier : <kbd class="kbd kbd-xs">Ctrl</kbd>+<kbd class="kbd kbd-xs">Shift</kbd>+<kbd class="kbd kbd-xs">A</kbd> ou <kbd class="kbd kbd-xs">Ctrl</kbd>+<kbd class="kbd kbd-xs">/</kbd>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Actions Palette avec raccourci personnalisé --&gt;
+&lt;c-command_palette 
+    modal_id="actions_palette" 
+    shortcut_keys="ctrl.shift.a"
+    :groups="action_groups"
+&gt;&lt;/c-command_palette&gt;
+
+&lt;!-- Search Palette avec événement personnalisé --&gt;
+&lt;c-command_palette 
+    modal_id="search_palette" 
+    shortcut_keys="ctrl./"
+    open_event="open-search"
+    :groups="search_groups"
+&gt;&lt;/c-command_palette&gt;
+
+&lt;!-- Ouvrir via JavaScript --&gt;
+&lt;button onclick="window.openActionsPalette()"&gt;Actions&lt;/button&gt;
+&lt;button onclick="window.dispatchEvent(new Event('open-search'))"&gt;Search&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Data -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Dynamic Data Loading</h3>
+            <p class="text-base-content/70 mb-6">
+                Use the <code class="bg-base-300 px-2 py-1 rounded">fetch_url</code> prop to load data dynamically based on search terms.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div x-data="{
+                                 dynamicGroups: [
+                                 {
+                                 id: 'default',
+                                 label: 'Suggestions',
+                                 items: [
+                                 {
+                                 id: 'suggestion1',
+                                 label: 'Commencez à taper pour voir les résultats dynamiques',
+                                 icon: 'search',
+                                 suffix: 'Les données seront chargées via API'
+                                 }
+                                 ]
+                                 }
+                                 ],
+                                 openDynamicPalette() {
+                                 // Utiliser la fonction générée automatiquement
+                                 if (window.openDynamicPalette) {
+                                 window.openDynamicPalette();
+                                 }
+                                 }
+                                 }" class="space-y-4">
+                        <c-command_palette
+                            modal_id="dynamic_palette"
+                            global_shortcut="false"
+                            fetch_url="/api/search"
+                            placeholder="Tapez pour rechercher dynamiquement..."
+                            :groups="dynamicGroups">
+                        </c-command_palette>
+
+                        <button @click="openDynamicPalette()" class="btn btn-accent">
+                            Palette avec Fetch Dynamique
+                        </button>
+
+                        <div class="alert alert-info">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="text-sm">
+                                L'API doit retourner un JSON avec la structure: <code>{"groups": [...]}</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                    <pre class="language-html"><code>&lt;c-command_palette 
+    fetch_url="/api/search"
+    placeholder="Recherche dynamique..."
+    :groups="default_groups"
+&gt;&lt;/c-command_palette&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Opening Methods -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-6">Opening Methods</h2>
+
+    <div class="space-y-6">
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Method 1: Auto-generated Function</h3>
+            <p class="text-base-content/70 mb-4">
+                Each command palette automatically creates a global function based on its <code class="bg-base-300 px-2 py-1 rounded">modal_id</code>.
+            </p>
+
+            <div class="bg-base-100 p-4 rounded border">
+                    <pre class="text-sm"><code>// For modal_id="my_palette", the function is:
+window.openMyPalette()
+
+// You can optionally pass groups as parameter:
+window.openMyPalette(customGroups)</code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Method 2: Custom Event</h3>
+            <p class="text-base-content/70 mb-4">
+                Use the <code class="bg-base-300 px-2 py-1 rounded">open_event</code> prop to define a custom event name.
+            </p>
+
+            <div class="bg-base-100 p-4 rounded border">
+                    <pre class="text-sm"><code>// Define in component:
+&lt;c-command_palette open_event="show-search"&gt;&lt;/c-command_palette&gt;
+
+// Trigger from anywhere:
+window.dispatchEvent(new Event('show-search'))</code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Method 3: Generic Event with ID</h3>
+            <p class="text-base-content/70 mb-4">
+                All palettes listen to the generic <code class="bg-base-300 px-2 py-1 rounded">open-command-palette</code> event.
+            </p>
+
+            <div class="bg-base-100 p-4 rounded border">
+                    <pre class="text-sm"><code>window.dispatchEvent(new CustomEvent('open-command-palette', {
+    detail: { modalId: 'my_palette' }
+}))</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Events -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-6">Events & Actions</h2>
+
+    <div class="space-y-6">
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Event Handling</h3>
+            <p class="text-base-content/70 mb-4">
+                The component emits a <code class="bg-base-300 px-2 py-1 rounded">command-palette-select</code> event when an item is selected.
+            </p>
+
+            <div class="bg-base-100 p-4 rounded border">
+                    <pre class="text-sm"><code>// Listen for selection events
+document.addEventListener('command-palette-select', function(event) {
+    const selectedItem = event.detail.item;
+    console.log('Selected:', selectedItem);
+    
+    // Handle the selection
+    if (selectedItem.id === 'dashboard') {
+        window.location.href = '/dashboard';
+    }
+});</code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Action Functions</h3>
+            <p class="text-base-content/70 mb-4">
+                Define global functions to handle item actions using the <code class="bg-base-300 px-2 py-1 rounded">action</code> property.
+            </p>
+
+            <div class="bg-base-100 p-4 rounded border">
+                    <pre class="text-sm"><code>// Define action functions
+window.navigateTo = function(item) {
+    if (item.data && item.data.url) {
+        window.location.href = item.data.url;
+    }
+};
+
+window.openModal = function(item) {
+    if (item.data && item.data.modalId) {
+        document.getElementById(item.data.modalId).showModal();
+    }
+};</code></pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Keyboard Navigation -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-6">Keyboard Navigation</h2>
+
+    <div class="overflow-x-auto">
+        <table class="table table-zebra w-full">
+            <thead>
+                <tr>
+                    <th class="font-semibold">Shortcut</th>
+                    <th class="font-semibold">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><kbd class="kbd kbd-sm">Ctrl+K</kbd> / <kbd class="kbd kbd-sm">Cmd+K</kbd></td>
+                    <td>Ouvrir/fermer la palette de commandes</td>
+                </tr>
+                <tr>
+                    <td><kbd class="kbd kbd-sm">↑</kbd> / <kbd class="kbd kbd-sm">↓</kbd></td>
+                    <td>Naviguer entre les éléments</td>
+                </tr>
+                <tr>
+                    <td><kbd class="kbd kbd-sm">Enter</kbd></td>
+                    <td>Sélectionner l'élément actuel</td>
+                </tr>
+                <tr>
+                    <td><kbd class="kbd kbd-sm">Escape</kbd></td>
+                    <td>Fermer la palette</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+    <!-- Appendix -->
+<section class="mb-12">
+    <h2 class="text-2xl font-semibold mb-8">Advanced Usage</h2>
+
+    <div class="space-y-4">
+        <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+                <h4 class="font-bold">Fuzzy Search</h4>
+                <div class="text-sm">The component includes a built-in fuzzy search algorithm that matches partial and out-of-order character sequences.</div>
+            </div>
+        </div>
+
+        <div class="alert alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <div>
+                <h4 class="font-bold">Performance</h4>
+                <div class="text-sm">
+                    • Search is debounced (300ms default) to prevent excessive API calls<br>
+                    • Results are cached and filtered locally for instant feedback<br>
+                    • Virtual scrolling handles large datasets efficiently
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+            <div>
+                <h4 class="font-bold">API Requirements</h4>
+                <div class="text-sm">When using <code>fetch_url</code>, the API must return JSON in the format <code>{"groups": [...]}</code> and accept a <code>q</code> query parameter.</div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+<script>
+// Example action functions for the documentation
+    window.navigateTo = function(item) {
+        console.log('Navigate to:', item);
+        if (item.data && item.data.url) {
+        // In a real app, you'd navigate here
+            alert(`Navigating to: ${item.data.url}`);
+        }
+    };
+
+    window.openModal = function(item) {
+        console.log('Open modal for:', item);
+        if (item.data && item.data.modalId) {
+            document.getElementById(item.data.modalId).showModal();
+        }
+    };
+
+// Listen for command palette selections
+    document.addEventListener('command-palette-select', function(event) {
+        const item = event.detail.item;
+        console.log('Command palette selection:', item);
+
+    // Show a toast notification for demo purposes
+        if (window.showToast) {
+            window.showToast(`Selected: ${item.label}`, 'success');
+        }
+    });
+</script>

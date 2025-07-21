@@ -1,0 +1,294 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Badge</h1>
+        <p class="text-lg text-base-content/70">
+            A versatile badge component for displaying status, categories, counts, and other contextual information with various styles and sizes.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-badge>Default Badge</c-badge>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-badge&gt;Default Badge&lt;/c-badge&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">neutral</code></td>
+                        <td>Badge color variant: primary, secondary, accent, success, warning, error, info, neutral, ghost</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Badge size: xs, sm, md, lg</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">outline</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Use outline style instead of solid (use "true")</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon_left</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display on the left side</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon_right</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display on the right side</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Badge Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Badge Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                The badge component supports multiple color variants for different contexts and meanings.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-3">
+                        <c-badge variant="primary">Primary</c-badge>
+                        <c-badge variant="secondary">Secondary</c-badge>
+                        <c-badge variant="accent">Accent</c-badge>
+                        <c-badge variant="success">Success</c-badge>
+                        <c-badge variant="warning">Warning</c-badge>
+                        <c-badge variant="error">Error</c-badge>
+                        <c-badge variant="info">Info</c-badge>
+                        <c-badge variant="neutral">Neutral</c-badge>
+                        <c-badge variant="ghost">Ghost</c-badge>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-badge variant="primary"&gt;Primary&lt;/c-badge&gt;
+&lt;c-badge variant="secondary"&gt;Secondary&lt;/c-badge&gt;
+&lt;c-badge variant="success"&gt;Success&lt;/c-badge&gt;
+&lt;c-badge variant="warning"&gt;Warning&lt;/c-badge&gt;
+&lt;c-badge variant="error"&gt;Error&lt;/c-badge&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Badge Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Different sizes are available to match your design needs and hierarchy.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <c-badge variant="primary" size="xs">Extra Small</c-badge>
+                        <c-badge variant="primary" size="sm">Small</c-badge>
+                        <c-badge variant="primary" size="md">Medium</c-badge>
+                        <c-badge variant="primary" size="lg">Large</c-badge>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-badge variant="primary" size="xs"&gt;Extra Small&lt;/c-badge&gt;
+&lt;c-badge variant="primary" size="sm"&gt;Small&lt;/c-badge&gt;
+&lt;c-badge variant="primary" size="md"&gt;Medium&lt;/c-badge&gt;
+&lt;c-badge variant="primary" size="lg"&gt;Large&lt;/c-badge&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outline Badges -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Outline Style</h3>
+            <p class="text-base-content/70 mb-6">
+                Use the <code class="bg-base-300 px-2 py-1 rounded">outline="true"</code> prop for a bordered style instead of solid background.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-3">
+                        <c-badge variant="primary" outline="true">Primary</c-badge>
+                        <c-badge variant="secondary" outline="true">Secondary</c-badge>
+                        <c-badge variant="success" outline="true">Success</c-badge>
+                        <c-badge variant="warning" outline="true">Warning</c-badge>
+                        <c-badge variant="error" outline="true">Error</c-badge>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-badge variant="primary" outline="true"&gt;Primary&lt;/c-badge&gt;
+&lt;c-badge variant="secondary" outline="true"&gt;Secondary&lt;/c-badge&gt;
+&lt;c-badge variant="success" outline="true"&gt;Success&lt;/c-badge&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badges with Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Badges with Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Add icons to your badges using <code class="bg-base-300 px-2 py-1 rounded">icon_left</code> and <code class="bg-base-300 px-2 py-1 rounded">icon_right</code> props.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-3">
+                        <c-badge variant="success" icon_left="check">Completed</c-badge>
+                        <c-badge variant="warning" icon_left="clock">Pending</c-badge>
+                        <c-badge variant="error" icon_left="x">Failed</c-badge>
+                        <c-badge variant="info" icon_right="arrow-right">Next</c-badge>
+                        <c-badge variant="primary" icon_left="star" icon_right="heart">Featured</c-badge>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-badge variant="success" icon_left="check"&gt;Completed&lt;/c-badge&gt;
+&lt;c-badge variant="warning" icon_left="clock"&gt;Pending&lt;/c-badge&gt;
+&lt;c-badge variant="error" icon_left="x"&gt;Failed&lt;/c-badge&gt;
+&lt;c-badge variant="info" icon_right="arrow-right"&gt;Next&lt;/c-badge&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Badges -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Status Indicators</h3>
+            <p class="text-base-content/70 mb-6">
+                Common usage patterns for status indication in applications.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-medium">User Status:</span>
+                            <c-badge variant="success" size="sm" icon_left="check">Active</c-badge>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-medium">Order Status:</span>
+                            <c-badge variant="warning" size="sm" icon_left="clock">Processing</c-badge>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-medium">Priority:</span>
+                            <c-badge variant="error" size="sm" icon_left="alert-triangle">High</c-badge>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-medium">Category:</span>
+                            <c-badge variant="info" size="sm" outline="true">Technology</c-badge>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-badge variant="success" size="sm" icon_left="check"&gt;Active&lt;/c-badge&gt;
+&lt;c-badge variant="warning" size="sm" icon_left="clock"&gt;Processing&lt;/c-badge&gt;
+&lt;c-badge variant="error" size="sm" icon_left="alert-triangle"&gt;High&lt;/c-badge&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Count Badges -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Count and Notification Badges</h3>
+            <p class="text-base-content/70 mb-6">
+                Perfect for displaying counts, notifications, and numeric indicators.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap items-center gap-6">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">Messages</span>
+                            <c-badge variant="primary" size="sm">12</c-badge>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">Notifications</span>
+                            <c-badge variant="error" size="xs">3</c-badge>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">Cart Items</span>
+                            <c-badge variant="accent" size="sm">5</c-badge>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">New</span>
+                            <c-badge variant="success" size="xs">•</c-badge>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-badge variant="primary" size="sm"&gt;12&lt;/c-badge&gt;
+&lt;c-badge variant="error" size="xs"&gt;3&lt;/c-badge&gt;
+&lt;c-badge variant="accent" size="sm"&gt;5&lt;/c-badge&gt;
+&lt;c-badge variant="success" size="xs"&gt;•&lt;/c-badge&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Usage Guidelines</h2>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Color Meaning</h4>
+                    <div class="text-sm">Use colors consistently: success for positive states, warning for caution, error for problems, info for neutral information.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div>
+                    <h4 class="font-bold">Accessibility</h4>
+                    <div class="text-sm">Don't rely solely on color to convey meaning. Use icons and clear text for better accessibility.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Keep Content Short</h4>
+                    <div class="text-sm">Badges work best with short, concise text. For longer content, consider using other components like chips or tags.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,117 @@
+<!-- Partial content for introduction (HTMX loading only) -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-4xl font-bold mb-6">Django Components UI</h1>
+        <p class="text-xl text-base-content/70 mb-8">
+            A modern, reusable Django component library built with DaisyUI and Tailwind CSS.
+        </p>
+    </div>
+
+    <!-- Features -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Features</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Ready-to-Use Components</h3>
+                <p class="text-base-content/70">
+                    A complete collection of modern UI components compatible with Django.
+                </p>
+            </div>
+            <div class="p-6 bg-base-200 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">HTMX Integration</h3>
+                <p class="text-base-content/70">
+                    Native support for HTMX interactions with loading indicators.
+                </p>
+            </div>
+            <div class="p-6 bg-base-200 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Customizable</h3>
+                <p class="text-base-content/70">
+                    DaisyUI themes and Tailwind classes for complete customization.
+                </p>
+            </div>
+            <div class="p-6 bg-base-200 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Accessibility</h3>
+                <p class="text-base-content/70">
+                    Built with accessibility best practices in mind.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Quick Start</h2>
+        <div class="bg-base-200 p-6 rounded-lg">
+            <p class="text-base-content/70 mb-4">
+                Ready to get started? Follow our installation guide to set up Django Components UI in your project.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <c-button variant="primary"
+                    icon="download"
+                    hx-get="{% url 'demo:docs_page' 'getting-started' 'installation' %}"
+                    hx-target="#content"
+                    hx-push-url="true">
+                    Installation Guide
+                </c-button>
+                <c-button 
+                    icon="play"
+                    hx-get="{% url 'demo:docs_page' 'components' 'button' %}"
+                    hx-target="#content"
+                    hx-push-url="true">
+                    Try Components
+                </c-button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Explore Documentation</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="card bg-base-200">
+                <div class="card-body">
+                    <h3 class="card-title text-lg">Layouts</h3>
+                    <p class="text-base-content/70 mb-4">
+                        Layout components to structure your applications.
+                    </p>
+                    <div class="card-actions">
+                        <a href="#" hx-get="{% url 'demo:docs_page' 'layouts' 'navbar' %}" hx-target="#content" hx-push-url="true"
+                           class="btn btn-sm btn-outline">
+                            View Layouts
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-base-200">
+                <div class="card-body">
+                    <h3 class="card-title text-lg">Components</h3>
+                    <p class="text-base-content/70 mb-4">
+                        Interactive UI components for your interfaces.
+                    </p>
+                    <div class="card-actions">
+                        <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'button' %}" hx-target="#content" hx-push-url="true"
+                           class="btn btn-sm btn-outline">
+                            View Components
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-base-200">
+                <div class="card-body">
+                    <h3 class="card-title text-lg">Examples</h3>
+                    <p class="text-base-content/70 mb-4">
+                        Usage examples and real-world use cases.
+                    </p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-sm btn-outline">
+                            View Examples
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

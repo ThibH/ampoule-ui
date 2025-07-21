@@ -1,0 +1,553 @@
+{% extends "base.html" %}
+
+{% block extra_js %}
+<!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+    <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16">
+            <c-text variant="strong" class="text-3xl lg:text-5xl mb-6 block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Components for your Django project
+            </c-text>
+            <c-text variant="subtle" class="text-xl mb-8 max-w-3xl mx-auto block">
+                A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own.
+            </c-text>
+            <div class="flex gap-4 justify-center">
+                <a href="{% url 'demo:docs' %}">
+                    <c-button size="lg">Get Started</c-button>
+                </a>
+                <a href="{% url 'demo:docs' %}">
+                    <c-button variant="outline" size="lg">View Components</c-button>
+                </a>
+            </div>
+        </div>
+
+    <!-- Bento Grid Layout - Inspired by Shadcn -->
+        <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4 auto-rows-min">
+
+        <!-- Total Revenue Card -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-3">
+                <c-slot name="content">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <c-text variant="subtle" class="text-sm">Total Revenue</c-text>
+                            <c-icon name="dollar-sign" size="xs"></c-icon>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <c-text variant="strong" class="text-3xl font-bold">$15,231.89</c-text>
+                            <c-text variant="subtle" class="text-sm text-green-600">+20.1% from last month</c-text>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Subscriptions Card -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-3">
+                <c-slot name="content">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <c-text variant="subtle" class="text-sm">Subscriptions</c-text>
+                            <c-icon name="users" size="xs"></c-icon>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <c-text variant="strong" class="text-3xl font-bold">+2,350</c-text>
+                            <c-text variant="subtle" class="text-sm text-green-600">+180.1% from last month</c-text>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Chart Card -->
+            <c-card bg="base-200" class="md:col-span-6 lg:col-span-6 row-span-2">
+               
+            </c-card>
+
+        <!-- Mini Calendar -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-3">
+                <c-slot name="content">
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <c-text variant="strong" class="text-sm">December 2024</c-text>
+                            <div class="flex gap-1">
+                                <button class="btn btn-xs btn-ghost">←</button>
+                                <button class="btn btn-xs btn-ghost">→</button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-center text-xs">
+                            <div class="text-muted-foreground p-1">Su</div>
+                            <div class="text-muted-foreground p-1">Mo</div>
+                            <div class="text-muted-foreground p-1">Tu</div>
+                            <div class="text-muted-foreground p-1">We</div>
+                            <div class="text-muted-foreground p-1">Th</div>
+                            <div class="text-muted-foreground p-1">Fr</div>
+                            <div class="text-muted-foreground p-1">Sa</div>
+                            <div class="p-1">1</div>
+                            <div class="p-1">2</div>
+                            <div class="p-1">3</div>
+                            <div class="p-1 bg-primary text-primary-content rounded">4</div>
+                            <div class="p-1">5</div>
+                            <div class="p-1">6</div>
+                            <div class="p-1">7</div>
+                            <div class="p-1">8</div>
+                            <div class="p-1">9</div>
+                            <div class="p-1">10</div>
+                            <div class="p-1">11</div>
+                            <div class="p-1">12</div>
+                            <div class="p-1">13</div>
+                            <div class="p-1">14</div>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Recent Activity -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-3">
+                <c-slot name="content">
+                    <div class="p-4">
+                        <c-text variant="strong" class="text-sm mb-4 block">Recent Activity</c-text>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <c-avatar placeholder size="w-8" bg_color="bg-primary" text_color="text-primary-content">OM</c-avatar>
+                                <div class="text-sm">
+                                    <div class="font-medium">Olivia Martin</div>
+                                    <div class="text-muted-foreground text-xs">Created new account</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <c-avatar placeholder size="w-8" bg_color="bg-secondary" text_color="text-secondary-content">JL</c-avatar>
+                                <div class="text-sm">
+                                    <div class="font-medium">Jackson Lee</div>
+                                    <div class="text-muted-foreground text-xs">Made a purchase</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <c-avatar placeholder size="w-8" bg_color="bg-accent" text_color="text-accent-content">IN</c-avatar>
+                                <div class="text-sm">
+                                    <div class="font-medium">Isabella Nguyen</div>
+                                    <div class="text-muted-foreground text-xs">Updated profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Create Account Form -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-4">
+                <c-slot name="content">
+                    <div class="p-6">
+                        <c-text variant="strong" class="text-lg mb-2 block">Create an account</c-text>
+                        <c-text variant="subtle" class="text-sm mb-6 block">Enter your email below to create your account</c-text>
+
+                        <div class="space-y-4">
+                        <!-- Social Login Buttons -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <c-button variant="outline" class="w-full" icon="github">
+                                    GitHub
+                                </c-button>
+                                <c-button variant="outline" class="w-full" icon="mail">
+                                    Google
+                                </c-button>
+                            </div>
+
+                            <div class="relative">
+                                <div class="absolute inset-0 flex items-center">
+                                    <span class="w-full border-t"></span>
+                                </div>
+                                <div class="relative flex justify-center text-xs uppercase">
+                                    <span class="bg-base-200 px-2 text-muted-foreground">Or continue with</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div>
+                                    <c-form.input type="email" class="w-full" placeholder="name@example.com" label="Email" label_start="@"></c-form.input>
+                                </div>
+                                <div>
+                                    <c-form.input type="password" class="w-full" placeholder="Password" label="Password" label_start="🔒"></c-form.input>
+                                </div>
+                                <c-button icon="plus" class="w-full" size="sm">Create account</c-button>
+                            </div>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Payments Table -->
+            <c-card bg="base-200" class="md:col-span-6 lg:col-span-8">
+                <c-slot name="content">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <c-text variant="strong" class="text-lg">Recent Payments</c-text>
+                            <c-button size="sm">Add Payment</c-button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Status</th>
+                                        <th>Email</th>
+                                        <th>Amount</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><c-badge variant="success" class="badge-sm">Success</c-badge></td>
+                                        <td class="text-sm">ken99@example.com</td>
+                                        <td class="font-medium">$316.00</td>
+                                        <td>
+                                            <c-button variant="ghost" size="xs">⋯</c-button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><c-badge variant="success" class="badge-sm">Success</c-badge></td>
+                                        <td class="text-sm">abe45@example.com</td>
+                                        <td class="font-medium">$242.00</td>
+                                        <td>
+                                            <c-button variant="ghost" size="xs">⋯</c-button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><c-badge class="badge-warning badge-sm">Processing</c-badge></td>
+                                        <td class="text-sm">monserrat44@example.com</td>
+                                        <td class="font-medium">$837.00</td>
+                                        <td>
+                                            <c-button variant="ghost" size="xs">⋯</c-button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><c-badge class="badge-error badge-sm">Failed</c-badge></td>
+                                        <td class="text-sm">carmella@example.com</td>
+                                        <td class="font-medium">$721.00</td>
+                                        <td>
+                                            <c-button variant="ghost" size="xs">⋯</c-button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><c-badge class="badge-warning badge-sm">Pending</c-badge></td>
+                                        <td class="text-sm">jason78@example.com</td>
+                                        <td class="font-medium">$450.00</td>
+                                        <td>
+                                            <c-button variant="ghost" size="xs">⋯</c-button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Team Members -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-4">
+                <c-slot name="content">
+                    <div class="p-6">
+                        <c-text variant="strong" class="text-lg mb-4 block">Team Members</c-text>
+                        <c-text variant="subtle" class="text-sm mb-6 block">Invite your team members to collaborate.</c-text>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content">SD</c-avatar>
+                                    <div>
+                                        <div class="font-medium text-sm">Sofia Davis</div>
+                                        <div class="text-xs text-muted-foreground">m@example.com</div>
+                                    </div>
+                                </div>
+                                <c-badge class="badge-sm">Owner</c-badge>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <c-avatar placeholder size="w-10" bg_color="bg-secondary" text_color="text-secondary-content">JL</c-avatar>
+                                    <div>
+                                        <div class="font-medium text-sm">Jackson Lee</div>
+                                        <div class="text-xs text-muted-foreground">p@example.com</div>
+                                    </div>
+                                </div>
+                                <c-badge class="badge-sm badge-outline">Developer</c-badge>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <c-avatar placeholder size="w-10" bg_color="bg-accent" text_color="text-accent-content">IN</c-avatar>
+                                    <div>
+                                        <div class="font-medium text-sm">Isabella Nguyen</div>
+                                        <div class="text-xs text-muted-foreground">i@example.com</div>
+                                    </div>
+                                </div>
+                                <c-badge class="badge-sm badge-outline">Billing</c-badge>
+                            </div>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Cookie Settings -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-4">
+                <c-slot name="content">
+                    <div class="p-6">
+                        <c-text variant="strong" class="text-lg mb-4 block">Cookie Settings</c-text>
+                        <c-text variant="subtle" class="text-sm mb-6 block">Manage your cookie settings here.</c-text>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="font-medium text-sm">Strictly Necessary</div>
+                                    <div class="text-xs text-muted-foreground">These cookies are essential</div>
+                                </div>
+                                <input type="checkbox" class="toggle toggle-sm" checked disabled>
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="font-medium text-sm">Functional Cookies</div>
+                                    <div class="text-xs text-muted-foreground">These cookies allow enhanced</div>
+                                </div>
+                                <input type="checkbox" class="toggle toggle-sm">
+                            </div>
+
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="font-medium text-sm">Performance Cookies</div>
+                                    <div class="text-xs text-muted-foreground">These cookies help improve</div>
+                                </div>
+                                <input type="checkbox" class="toggle toggle-sm">
+                            </div>
+
+                            <c-button size="sm" class="w-full mt-4" hx-get="{% url 'demo:save_preferences_demo' %}">Save preferences</c-button>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        <!-- Command Palette Demo -->
+            <c-card bg="base-200" class="md:col-span-3 lg:col-span-4">
+                <c-slot name="content">
+                    <div class="p-6">
+                        <c-text variant="strong" class="text-lg mb-4 block">Command Palette</c-text>
+                        <c-text variant="subtle" class="text-sm mb-6 block">Quick search with keyboard navigation</c-text>
+
+                        <div class="space-y-4">
+
+                            <c-form.input placeholder="Search..." size="sm" onclick="document.getElementById('global_command_palette').showModal()" >
+                                <c-slot name="label_start">
+                                    <c-icon name="search" size="xs"></c-icon>
+                                </c-slot>
+                            </c-form.input>
+
+                            <div class="flex items-center justify-center gap-2">
+                                <kbd class="kbd kbd-sm">⌘</kbd>
+                                <c-text variant="subtle" class="text-sm">+</c-text>
+                                <kbd class="kbd kbd-sm">K</kbd>
+                            </div>
+
+                            <div class="text-center">
+                                <c-text variant="subtle" class="text-xs">Press to open command palette</c-text>
+                            </div>
+                        </div>
+                    </div>
+                </c-slot>
+            </c-card>
+
+        </div>
+
+    <!-- Additional Components Showcase -->
+        <div class="mt-16">
+            <div class="text-center mb-12">
+                <c-text variant="strong" class="text-3xl mb-4 block">Complete Application Examples</c-text>
+                <c-text variant="subtle" class="text-lg">Explore real-world implementations</c-text>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Navbar Demo 1 -->
+                <c-card bg="base-200">
+                    <c-slot name="content">
+                        <div class="p-6">
+                            <c-text variant="strong" class="text-lg mb-2 block">Dashboard App</c-text>
+                            <c-text variant="subtle" class="text-sm mb-4 block">Complete admin dashboard with modern navigation and responsive design</c-text>
+                            <a href="{% url 'demo:navbar_demo1' %}" target="_blank">
+                                <c-button class="w-full">
+                                    <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                                    View Demo
+                                </c-button>
+                            </a>
+                        </div>
+                    </c-slot>
+                </c-card>
+
+            <!-- Navbar Demo 2 -->
+                <c-card bg="base-200">
+                    <c-slot name="content">
+                        <div class="p-6">
+                            <c-text variant="strong" class="text-lg mb-2 block">E-commerce Site</c-text>
+                            <c-text variant="subtle" class="text-sm mb-4 block">Shopping platform with cart functionality and product management</c-text>
+                            <a href="{% url 'demo:navbar_demo2' %}" target="_blank">
+                                <c-button class="w-full">
+                                    <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                                    View Demo
+                                </c-button>
+                            </a>
+                        </div>
+                    </c-slot>
+                </c-card>
+
+            <!-- Sidebar Demo 1 -->
+                <c-card bg="base-200">
+                    <c-slot name="content">
+                        <div class="p-6">
+                            <c-text variant="strong" class="text-lg mb-2 block">Admin Panel</c-text>
+                            <c-text variant="subtle" class="text-sm mb-4 block">Comprehensive administrative interface with sidebar navigation</c-text>
+                            <a href="{% url 'demo:sidebar_demo1' %}" target="_blank">
+                                <c-button class="w-full">
+                                    <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                                    View Demo
+                                </c-button>
+                            </a>
+                        </div>
+                    </c-slot>
+                </c-card>
+
+            <!-- Sidebar Demo 2 -->
+                <c-card bg="base-200">
+                    <c-slot name="content">
+                        <div class="p-6">
+                            <c-text variant="strong" class="text-lg mb-2 block">Project Manager</c-text>
+                            <c-text variant="subtle" class="text-sm mb-4 block">Team collaboration and project management platform</c-text>
+                            <a href="{% url 'demo:sidebar_demo2' %}" target="_blank">
+                                <c-button class="w-full">
+                                    <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                                    View Demo
+                                </c-button>
+                            </a>
+                        </div>
+                    </c-slot>
+                </c-card>
+            </div>
+        </div>
+    </div>
+
+<!-- Chart.js Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+    // Revenue Chart
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [12000, 19000, 15000, 25000, 22000, 15000, 16572, 25641, 45000, 40000, 38000, 51201],
+                        borderColor: 'rgb(152, 183, 217)',
+                        backgroundColor: 'rgba(152, 183, 217, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgb(152, 183, 217)',
+                        pointBorderColor: 'rgb(152, 183, 217)',
+                        pointRadius: 3,
+                        pointHoverRadius: 5
+                    }, {
+                        label: 'Subscriptions',
+                        data: [850, 1200, 950, 1800, 1600, 2100, 1850, 2350, 2200, 2800, 2650, 3100],
+                        borderColor: 'rgb(255, 100, 100)',
+                        backgroundColor: 'rgba(255, 100, 100, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgb(255, 100, 100)',
+                        pointBorderColor: 'rgb(255, 100, 100)',
+                        pointRadius: 3,
+                        pointHoverRadius: 5
+                    }, {
+                        label: 'Active Users',
+                        data: [4200, 4800, 4100, 5200, 4900, 5800, 5400, 6200, 5900, 6800, 6500, 7200],
+                        borderColor: 'rgb(55, 172, 137)',
+                        backgroundColor: 'rgba(55, 172, 137, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        pointBackgroundColor: 'rgb(55, 172, 137)',
+                        pointBorderColor: 'rgb(55, 172, 137)',
+                        pointRadius: 3,
+                        pointHoverRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    size: 12
+                                },
+                                color: 'rgb(var(--bc))'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: 'rgb(var(--bc))'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.03)',
+                                drawBorder: false
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: 'rgb(0, 0, 0)'
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    }
+                }
+            });
+        });
+
+// Toast notification function
+        function showToast() {
+    // Create toast element
+            const toast = document.createElement('div');
+            toast.className = 'alert alert-success fixed top-4 right-4 w-auto z-50 shadow-lg';
+            toast.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Notification sent successfully!</span>
+    `;
+
+            document.body.appendChild(toast);
+
+    // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+    </script>
+
+{% endblock %}

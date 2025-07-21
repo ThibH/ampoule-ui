@@ -1,0 +1,33 @@
+{
+    "version": 1.1,
+    "tags": [
+      {
+        "name": "c-button",
+        "description": "Bouton personnalisé avec variantes et icônes.",
+        "attributes": [
+          { "name": "variant", "values": ["primary", "secondary", "ghost", "error", "link"] },
+          { "name": "icon", "description": "🔵 Nom de l'icône" },
+          { "name": "modal", "description": "ID du modal à ouvrir" },
+          { "name": "spinner", "description": "Affiche le spinner de chargement" }
+        ]
+      },
+      {
+        "name": "c-modal",
+        "description": "Composant modal personnalisable.",
+        "attributes": [
+          { "name": "id", "description": "Identifiant du modal" }
+        ]
+      },
+      {
+        "name": "c-dropdown",
+        "description": "Menu dropdown avec options de placement et d’icône.",
+        "attributes": [
+          { "name": "label", "description": "Label du dropdown" },
+          { "name": "icon", "description": "Icône optionnelle" },
+          { "name": "placement", "values": ["start", "center", "end", "top"] },
+          { "name": "variant", "values": ["primary", "secondary", "ghost"], "description": "🔵 Variante du dropdown" },
+          { "name": "hover", "description": "Déclencheur par survol (true/false)" }
+        ]
+      }
+    ]
+  }

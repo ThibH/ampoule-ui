@@ -1,0 +1,56 @@
+{% comment %}
+Composant Card avec DaisyUI
+Usage: 
+<c-card>
+    <c-slot name="figure">
+        <img src="image.jpg" alt="Description" />
+    </c-slot>
+    <c-slot name="title">Mon titre</c-slot>
+    <c-slot name="content">Mon contenu</c-slot>
+    <c-slot name="actions">
+        <c-button>Action</c-button>
+    </c-slot>
+</c-card>
+
+Paramètres:
+- size: xs, sm, md (défaut), lg, xl
+- variant: border, side, dash
+- image_full: true/false - pour image en arrière-plan
+- compact: true/false - pour un style plus compact
+- bg: classe de couleur de fond (défaut: bg-base-100)
+{% endcomment %}
+
+<c-vars
+    size="md"
+    variant=""
+    image_full="false"
+    compact="false"
+    bg="base-100"
+/>
+
+<div class="card shadow-sm bg-{{ bg }} card-{{ size }} border border-base-300 {{ class }}" {{ attrs }}>
+
+    {% if figure %}
+        <figure {% if image_full == 'true' %}class="image-full"{% endif %}>
+            {{ figure }}
+        </figure>
+    {% endif %}
+
+    <div class="card-body {% if padding_small is True %}p-4{% endif %}">
+        {% if title %}
+            <h2 class="card-title">{{ title }}</h2>
+        {% endif %}
+
+        {% if content %}
+            {{ content }}
+        {% else %}
+            {{ slot }}
+        {% endif %}
+
+        {% if actions %}
+            <div class="card-actions justify-end">
+                {{ actions }}
+            </div>
+        {% endif %}
+    </div>
+</div>

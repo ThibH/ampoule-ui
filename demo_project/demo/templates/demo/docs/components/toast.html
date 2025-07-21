@@ -1,0 +1,442 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Toast</h1>
+        <p class="text-lg text-base-content/70">
+            Notification components that display temporary messages to users with different variants and styles.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-button variant="primary" hx-get="{% url 'demo:toast_action' %}?type=success" spinner="true">
+                    Show Success Toast
+                </c-button>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-button variant="primary" hx-get="/api/toast-success" spinner="true"&gt;
+    Show Success Toast
+&lt;/c-button&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <h3 class="text-lg font-semibold mb-4">c-toast-area</h3>
+        <div class="overflow-x-auto mb-6">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the toast container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+                <h4 class="font-bold">Toast Area Setup</h4>
+                <div class="text-sm">Include <code>&lt;c-toast-area&gt;&lt;/c-toast-area&gt;</code> in your base template to enable toast notifications across your application.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Different Toast Types -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Toast Types</h3>
+            <p class="text-base-content/70 mb-6">
+                Various toast notification types for different use cases and feedback scenarios.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-button variant="success"
+                                  hx-get="{% url 'demo:toast_action' %}?type=success"
+                                  spinner="true">
+                            Success Toast
+                        </c-button>
+
+                        <c-button variant="error"
+                                  hx-get="{% url 'demo:toast_action' %}?type=error"
+                                  spinner="true">
+                            Error Toast
+                        </c-button>
+
+                        <c-button variant="warning"
+                                  hx-get="{% url 'demo:toast_action' %}?type=warning"
+                                  spinner="true">
+                            Warning Toast
+                        </c-button>
+
+                        <c-button variant="info"
+                                  hx-get="{% url 'demo:toast_action' %}?type=info"
+                                  spinner="true">
+                            Info Toast
+                        </c-button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button variant="success" 
+          hx-get="/api/toast-success" 
+          spinner="true"&gt;
+    Success Toast
+&lt;/c-button&gt;
+
+&lt;c-button variant="error" 
+          hx-get="/api/toast-error" 
+          spinner="true"&gt;
+    Error Toast
+&lt;/c-button&gt;
+
+&lt;c-button variant="warning" 
+          hx-get="/api/toast-warning" 
+          spinner="true"&gt;
+    Warning Toast
+&lt;/c-button&gt;
+
+&lt;c-button variant="info" 
+          hx-get="/api/toast-info" 
+          spinner="true"&gt;
+    Info Toast
+&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Validation Feedback -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Form Validation Feedback</h3>
+            <p class="text-base-content/70 mb-6">
+                Using toasts to provide feedback for form submissions and validation errors.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <form class="space-y-4 max-w-md">
+                        <div>
+                            <label class="label">
+                                <span class="label-text">Email</span>
+                            </label>
+                            <c-form.input type="email" placeholder="Enter your email" required />
+                        </div>
+
+                        <div>
+                            <label class="label">
+                                <span class="label-text">Password</span>
+                            </label>
+                            <c-form.input type="password" placeholder="Enter your password" required />
+                        </div>
+
+                        <div class="flex gap-2">
+                            <c-button type="submit"
+                                      variant="primary"
+                                      hx-get="{% url 'demo:toast_action' %}?type=success"
+                                      spinner="true">
+                                Submit Form
+                            </c-button>
+
+                            <c-button variant="outline"
+                                      hx-get="{% url 'demo:toast_action' %}?type=error"
+                                      spinner="true">
+                                Simulate Error
+                            </c-button>
+                        </div>
+                    </form>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;form hx-post="/api/submit-form" 
+      hx-target="#form-container" 
+      hx-swap="outerHTML"&gt;
+    &lt;div&gt;
+        &lt;label class="label"&gt;
+            &lt;span class="label-text"&gt;Email&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;c-form.input type="email" name="email" required /&gt;
+    &lt;/div&gt;
+    
+    &lt;c-button type="submit" variant="primary" spinner="true"&gt;
+        Submit Form
+    &lt;/c-button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Confirmations -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Action Confirmations</h3>
+            <p class="text-base-content/70 mb-6">
+                Toasts for confirming user actions like save, delete, or update operations.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <c-button variant="primary"
+                                      icon="save"
+                                      hx-get="{% url 'demo:toast_action' %}?type=success"
+                                      spinner="true">
+                                Save Document
+                            </c-button>
+
+                            <c-button variant="secondary"
+                                      icon="copy"
+                                      hx-get="{% url 'demo:toast_action' %}?type=info"
+                                      spinner="true">
+                                Copy to Clipboard
+                            </c-button>
+
+                            <c-button variant="error"
+                                      icon="trash"
+                                      hx-get="{% url 'demo:toast_action' %}?type=warning"
+                                      spinner="true">
+                                Delete Item
+                            </c-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button variant="primary" 
+          icon="save"
+          hx-post="/api/save-document" 
+          hx-target="#document-content"
+          spinner="true"&gt;
+    Save Document
+&lt;/c-button&gt;
+
+&lt;c-button variant="secondary" 
+          icon="copy"
+          hx-post="/api/copy-to-clipboard" 
+          spinner="true"&gt;
+    Copy to Clipboard
+&lt;/c-button&gt;
+
+&lt;c-button variant="error" 
+          icon="trash"
+          hx-delete="/api/delete-item/123" 
+          hx-confirm="Are you sure?"
+          spinner="true"&gt;
+    Delete Item
+&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Status Updates -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">System Status Updates</h3>
+            <p class="text-base-content/70 mb-6">
+                Toast notifications for system events, connection status, and background processes.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Connection Status</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <c-button variant="success"
+                                          size="sm"
+                                          hx-get="{% url 'demo:toast_action' %}?type=success"
+                                          spinner="true">
+                                    Connected
+                                </c-button>
+
+                                <c-button variant="error"
+                                          size="sm"
+                                          hx-get="{% url 'demo:toast_action' %}?type=error"
+                                          spinner="true">
+                                    Connection Lost
+                                </c-button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm font-medium mb-2 text-base-content/70">Background Tasks</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <c-button variant="info"
+                                          size="sm"
+                                          hx-get="{% url 'demo:toast_action' %}?type=info"
+                                          spinner="true">
+                                    Export Started
+                                </c-button>
+
+                                <c-button variant="success"
+                                          size="sm"
+                                          hx-get="{% url 'demo:toast_action' %}?type=success"
+                                          spinner="true">
+                                    Export Complete
+                                </c-button>
+
+                                <c-button variant="warning"
+                                          size="sm"
+                                          hx-get="{% url 'demo:toast_action' %}?type=warning"
+                                          spinner="true">
+                                    Export Failed
+                                </c-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Connection status updates --&gt;
+&lt;script&gt;
+    // WebSocket connection status
+    websocket.onopen = function() {
+        htmx.trigger(document.body, 'show-toast', {
+            type: 'success',
+            message: 'Connected to server'
+        });
+    };
+    
+    websocket.onclose = function() {
+        htmx.trigger(document.body, 'show-toast', {
+            type: 'error',
+            message: 'Connection lost'
+        });
+    };
+&lt;/script&gt;
+
+&lt;!-- Background task notifications --&gt;
+&lt;c-button variant="primary" 
+          hx-post="/api/start-export" 
+          hx-trigger="click"
+          hx-swap="none"
+          spinner="true"&gt;
+    Start Export
+&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Implementation Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Implementation Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Base Template Setup</h4>
+                        <div class="text-sm">Include <code>&lt;c-toast-area&gt;&lt;/c-toast-area&gt;</code> in your base template, typically near the opening <code>&lt;body&gt;</code> tag.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Server-Side Implementation</h4>
+                        <div class="text-sm">Toasts are typically triggered by server responses. Implement appropriate Django views to return toast notifications with HTMX.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Auto-Dismiss</h4>
+                        <div class="text-sm">Toasts should automatically dismiss after a reasonable time (3-5 seconds) to avoid cluttering the interface.</div>
+                    </div>
+                </div>
+
+                <div class="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Message Guidelines</h4>
+                        <div class="text-sm">Keep toast messages concise and actionable. Use clear, user-friendly language and avoid technical jargon.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Django View Example -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Django View Example</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Server-Side Toast Generation</h4>
+                        <div class="text-sm">Exemple de vue Django utilisant les classes Toast pour générer des notifications avec HTMX.</div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <pre class="language-python"><code># views.py
+from django.shortcuts import render
+from django.http import HttpResponse
+from django_components_ui import Toast, ToastSuccess, ToastError, ToastWarning, ToastInfo
+import time
+
+def toast_action(request):
+    """Vue de démonstration pour tous les types de toasts."""
+    toast_type = request.GET.get('type', 'success')
+
+    # Simulation d'une opération qui prend du temps
+    time.sleep(1)
+
+    # Utilisation des classes Toast spécialisées
+    if toast_type == 'success':
+        return ToastSuccess("Opération réussie avec succès !")
+    elif toast_type == 'error':
+        return ToastError("Une erreur s'est produite")
+    elif toast_type == 'warning':
+        return ToastWarning("Attention, vérifiez vos données")
+    elif toast_type == 'info':
+        return ToastInfo("Information importante")
+    else:
+        # Utilisation avec paramètres personnalisés
+        return Toast(
+            content="Toast personnalisé", 
+            variant=toast_type,
+            duration=5000,  # Durée personnalisée en millisecondes
+            dismissible=True  # Possibilité de fermer manuellement
+        )</code></pre>
+                </div>
+
+                <div class="alert alert-success mt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Classes Toast Disponibles</h4>
+                        <div class="text-sm">
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><code>ToastSuccess(message)</code> - Toast de succès</li>
+                                <li><code>ToastError(message)</code> - Toast d'erreur</li>
+                                <li><code>ToastWarning(message)</code> - Toast d'avertissement</li>
+                                <li><code>ToastInfo(message)</code> - Toast d'information</li>
+                                <li><code>Toast(content, variant, duration, dismissible)</code> - Toast personnalisé</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

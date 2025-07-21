@@ -1,0 +1,17 @@
+{% load components_tags %}
+
+<form hx-post="{% url 'demo:login' %}"
+      hx-swap="outerHTML"
+      class="flex flex-col gap-4">
+    {% csrf_token %}
+    <fieldset class="fieldset">
+        <!-- EMAIL -->
+        <label for="email" class="label">Email</label>
+        <c-form.input placeholder="votre@email.com" required icon="mail" :field=form.email />
+
+        <!-- PASSWORD -->
+        <label for="password" class="label">Mot de passe</label>
+        <c-form.input placeholder="Votre mot de passe" icon="lock" :field=form.password />
+    </fieldset>
+    <c-button type="submit" spinner variant="neutral" class="ml-auto" icon="rocket">Se connecter</c-button>
+</form>

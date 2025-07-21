@@ -1,0 +1,29 @@
+{
+  "name": "django-components-ui",
+  "version": "0.1.0",
+  "description": "A Django component library with Cotton, HTMX, JavaScript, Tailwind CSS and DaisyUI",
+  "private": true,
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./django_components_ui/static/django_components_ui/css/input.css -o ./django_components_ui/static/django_components_ui/css/components.css --watch",
+    "build": "npx @tailwindcss/cli -i ./django_components_ui/static/django_components_ui/css/input.css -o ./django_components_ui/static/django_components_ui/css/components.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "daisyui": "^5.0.46"
+  },
+  "keywords": [
+    "django",
+    "components",
+    "ui",
+    "tailwind",
+    "daisyui",
+    "htmx",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "lucide": "^0.525.0",
+    "tailwindcss": "^4.1.11"
+  }
+}

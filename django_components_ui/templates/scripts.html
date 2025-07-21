@@ -1,0 +1,16 @@
+{% load static %}
+
+<!-- Django Components UI Scripts -->
+<script src="{% static 'django_components_ui/js/components.js' %}"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
+
+<!-- After a successfully htmx swap, we need to redo a lucide  -->
+<script>
+    document.addEventListener('htmx:afterSwap', function(event) {
+        lucide.createIcons();
+    });
+</script>

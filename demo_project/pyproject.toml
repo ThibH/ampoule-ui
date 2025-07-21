@@ -1,0 +1,21 @@
+[project]
+name = "django-components-ui-test"
+version = "0.1.0"
+description = "Test project for Django Components UI"
+dependencies = [
+    "Django>=4.2,<6.0",
+    "django-cotton>=0.9.0",
+    "django-components-ui @ file://../",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-django",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+]

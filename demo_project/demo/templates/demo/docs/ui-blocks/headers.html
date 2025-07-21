@@ -1,0 +1,592 @@
+<!-- Headers UI Blocks -->
+<div class="mx-auto">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Headers</h1>
+        <p class="text-base-content/70 text-lg">Complete header layouts and navigation patterns built with your component library.</p>
+    </div>
+
+    <!-- Simple Header with Actions -->
+    <div class="mb-12">
+        <h2 id="simple-header-actions" class="text-2xl font-semibold mb-4">Simple Header with Actions</h2>
+        <p class="text-base-content/70 mb-6">Clean header with title and action buttons for dashboard layouts.</p>
+        
+        <c-tab.group group_name="simple-header">
+            <c-tabs>
+                <c-tab name="preview" group_name="simple-header" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="simple-header">Code</c-tab>
+                <c-tab name="split" group_name="simple-header">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="simple-header">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold">Dashboard</h1>
+                            <p class="text-base-content/60 mt-1">Welcome back, here's what's happening today</p>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <c-button variant="outline" size="sm">
+                                <c-icon name="download" size="16" class="mr-2" />
+                                Export
+                            </c-button>
+                            <c-button variant="primary" size="sm">
+                                <c-icon name="plus" size="16" class="mr-2" />
+                                Add New
+                            </c-button>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="simple-header">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="flex items-center justify-between"&gt;
+    &lt;div&gt;
+        &lt;h1 class="text-2xl font-bold"&gt;Dashboard&lt;/h1&gt;
+        &lt;p class="text-base-content/60 mt-1"&gt;Welcome back, here's what's happening today&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center space-x-3"&gt;
+        &lt;c-button variant="outline" size="sm"&gt;
+            &lt;c-icon name="download" size="16" class="mr-2" /&gt;
+            Export
+        &lt;/c-button&gt;
+        &lt;c-button variant="primary" size="sm"&gt;
+            &lt;c-icon name="plus" size="16" class="mr-2" /&gt;
+            Add New
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="simple-header">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h1 class="text-2xl font-bold">Dashboard</h1>
+                                    <p class="text-base-content/60 mt-1">Welcome back, here's what's happening today</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <c-button variant="outline" size="sm">
+                                        <c-icon name="download" size="16" class="mr-2" />
+                                        Export
+                                    </c-button>
+                                    <c-button variant="primary" size="sm">
+                                        <c-icon name="plus" size="16" class="mr-2" />
+                                        Add New
+                                    </c-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="flex items-center justify-between"&gt;
+    &lt;div&gt;
+        &lt;h1 class="text-2xl font-bold"&gt;Dashboard&lt;/h1&gt;
+        &lt;p class="text-base-content/60 mt-1"&gt;Welcome back, here's what's happening today&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center space-x-3"&gt;
+        &lt;c-button variant="outline" size="sm"&gt;
+            &lt;c-icon name="download" size="16" class="mr-2" /&gt;
+            Export
+        &lt;/c-button&gt;
+        &lt;c-button variant="primary" size="sm"&gt;
+            &lt;c-icon name="plus" size="16" class="mr-2" /&gt;
+            Add New
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Header with Breadcrumbs -->
+    <div class="mb-12">
+        <h2 id="header-breadcrumbs" class="text-2xl font-semibold mb-4">Header with Breadcrumbs</h2>
+        <p class="text-base-content/70 mb-6">Navigation-focused header with breadcrumb trail and actions.</p>
+        
+        <c-tab.group group_name="breadcrumbs-header">
+            <c-tabs>
+                <c-tab name="preview" group_name="breadcrumbs-header" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="breadcrumbs-header">Code</c-tab>
+                <c-tab name="split" group_name="breadcrumbs-header">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="breadcrumbs-header">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="space-y-4">
+                        <c-breadcrumbs>
+                            <c-breadcrumb href="/" icon="home" label="Home" />
+                            <c-breadcrumb href="/projects" icon="folder" label="Projects" />
+                            <c-breadcrumb href="/projects/website-redesign" icon="folder" label="Website Redesign" />
+                        </c-breadcrumbs>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h1 class="text-2xl font-bold">Website Redesign</h1>
+                                <div class="flex items-center space-x-4 mt-2">
+                                    <c-badge variant="success">Active</c-badge>
+                                    <span class="text-sm text-base-content/60">Last updated 2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="share" size="16" />
+                                </c-button>
+                                <c-button variant="ghost" size="sm">
+                                    <c-icon name="bookmark" size="16" />
+                                </c-button>
+                                <c-button variant="primary" size="sm">
+                                    Edit Project
+                                </c-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="breadcrumbs-header">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="space-y-4"&gt;
+    &lt;c-breadcrumbs&gt;
+        &lt;c-breadcrumb&gt;Home&lt;/c-breadcrumb&gt;
+        &lt;c-breadcrumb&gt;Projects&lt;/c-breadcrumb&gt;
+        &lt;c-breadcrumb&gt;Website Redesign&lt;/c-breadcrumb&gt;
+    &lt;/c-breadcrumbs&gt;
+    
+    &lt;div class="flex items-center justify-between"&gt;
+        &lt;div&gt;
+            &lt;h1 class="text-2xl font-bold"&gt;Website Redesign&lt;/h1&gt;
+            &lt;div class="flex items-center space-x-4 mt-2"&gt;
+                &lt;c-badge variant="success"&gt;Active&lt;/c-badge&gt;
+                &lt;span class="text-sm text-base-content/60"&gt;Last updated 2 hours ago&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;c-button variant="primary" size="sm"&gt;
+            Edit Project
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="breadcrumbs-header">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="space-y-4">
+                                <c-breadcrumbs>
+                                    <c-breadcrumb href="/" icon="home" label="Home" />
+                                    <c-breadcrumb href="/projects" icon="folder" label="Projects" />
+                                    <c-breadcrumb href="/projects/website-redesign" icon="folder" label="Website Redesign" />
+                                </c-breadcrumbs>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h1 class="text-2xl font-bold">Website Redesign</h1>
+                                        <div class="flex items-center space-x-4 mt-2">
+                                            <c-badge variant="success">Active</c-badge>
+                                            <span class="text-sm text-base-content/60">Last updated 2 hours ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <c-button variant="ghost" size="sm">
+                                            <c-icon name="share" size="16" />
+                                        </c-button>
+                                        <c-button variant="ghost" size="sm">
+                                            <c-icon name="bookmark" size="16" />
+                                        </c-button>
+                                        <c-button variant="primary" size="sm">
+                                            Edit Project
+                                        </c-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="space-y-4"&gt;
+    &lt;c-breadcrumbs&gt;
+        &lt;c-breadcrumb&gt;Home&lt;/c-breadcrumb&gt;
+        &lt;c-breadcrumb&gt;Projects&lt;/c-breadcrumb&gt;
+        &lt;c-breadcrumb&gt;Website Redesign&lt;/c-breadcrumb&gt;
+    &lt;/c-breadcrumbs&gt;
+    
+    &lt;div class="flex items-center justify-between"&gt;
+        &lt;div&gt;
+            &lt;h1 class="text-2xl font-bold"&gt;Website Redesign&lt;/h1&gt;
+            &lt;div class="flex items-center space-x-4 mt-2"&gt;
+                &lt;c-badge variant="success"&gt;Active&lt;/c-badge&gt;
+                &lt;span class="text-sm text-base-content/60"&gt;Last updated 2 hours ago&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;c-button variant="primary" size="sm"&gt;
+            Edit Project
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Header with Tabs -->
+    <div class="mb-12">
+        <h2 id="header-tabs" class="text-2xl font-semibold mb-4">Header with Tabs</h2>
+        <p class="text-base-content/70 mb-6">Multi-section header with integrated tab navigation.</p>
+        
+        <c-tab.group group_name="tabs-header">
+            <c-tabs>
+                <c-tab name="preview" group_name="tabs-header" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="tabs-header">Code</c-tab>
+                <c-tab name="split" group_name="tabs-header">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="tabs-header">
+                <div class="bg-base-200 rounded-lg overflow-hidden">
+                    <div class="p-6 border-b border-base-300">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h1 class="text-2xl font-bold">User Management</h1>
+                                <p class="text-base-content/60 mt-1">Manage user accounts and permissions</p>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <c-form.input 
+                                    placeholder="Search users..." 
+                                    size="sm"
+                                    class="w-64"
+                                />
+                                <c-button variant="primary" size="sm">
+                                    <c-icon name="user-plus" size="16" class="mr-2" />
+                                    Add User
+                                </c-button>
+                            </div>
+                        </div>
+                        
+                        <c-tabs>
+                            <c-tab title="All Users" active="true" />
+                            <c-tab title="Active" />
+                            <c-tab title="Pending" />
+                            <c-tab title="Suspended" />
+
+                            <!-- Tab panels would be here in real implementation -->
+                            
+                            
+
+                        </c-tabs>
+                    </div>
+                    
+                    
+                    
+                    
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="tabs-header">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="p-6 border-b border-base-300"&gt;
+    &lt;div class="flex items-center justify-between mb-4"&gt;
+        &lt;div&gt;
+            &lt;h1 class="text-2xl font-bold"&gt;User Management&lt;/h1&gt;
+            &lt;p class="text-base-content/60 mt-1"&gt;Manage user accounts and permissions&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="flex items-center space-x-3"&gt;
+            &lt;c-form.input 
+                placeholder="Search users..." 
+                size="sm"
+                class="w-64"
+            /&gt;
+            &lt;c-button variant="primary" size="sm"&gt;
+                &lt;c-icon name="user-plus" size="16" class="mr-2" /&gt;
+                Add User
+            &lt;/c-button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;c-tabs&gt;
+        &lt;c-tab title="All Users" active="true" /&gt;
+        &lt;c-tab title="Active" /&gt;
+        &lt;c-tab title="Pending" /&gt;
+        &lt;c-tab title="Suspended" /&gt;
+    &lt;/c-tabs&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="tabs-header">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 rounded-lg overflow-hidden">
+                            <div class="p-6 border-b border-base-300">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div>
+                                        <h1 class="text-2xl font-bold">User Management</h1>
+                                        <p class="text-base-content/60 mt-1">Manage user accounts and permissions</p>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <c-form.input 
+                                            placeholder="Search users..." 
+                                            size="sm"
+                                            class="w-64"
+                                        />
+                                        <c-button variant="primary" size="sm">
+                                            <c-icon name="user-plus" size="16" class="mr-2" />
+                                            Add User
+                                        </c-button>
+                                    </div>
+                                </div>
+                                
+                                <c-tabs>
+                                    <c-tab title="All Users" active="true" />
+                                    <c-tab title="Active" />
+                                    <c-tab title="Pending" />
+                                    <c-tab title="Suspended" />
+                                </c-tabs>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="p-6 border-b border-base-300"&gt;
+    &lt;div class="flex items-center justify-between mb-4"&gt;
+        &lt;div&gt;
+            &lt;h1 class="text-2xl font-bold"&gt;User Management&lt;/h1&gt;
+            &lt;p class="text-base-content/60 mt-1"&gt;Manage user accounts and permissions&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="flex items-center space-x-3"&gt;
+            &lt;c-form.input 
+                placeholder="Search users..." 
+                size="sm"
+                class="w-64"
+            /&gt;
+            &lt;c-button variant="primary" size="sm"&gt;
+                &lt;c-icon name="user-plus" size="16" class="mr-2" /&gt;
+                Add User
+            &lt;/c-button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;c-tabs&gt;
+        &lt;c-tab title="All Users" active="true" /&gt;
+        &lt;c-tab title="Active" /&gt;
+        &lt;c-tab title="Pending" /&gt;
+        &lt;c-tab title="Suspended" /&gt;
+    &lt;/c-tabs&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+
+    <!-- Stats Header -->
+    <div class="mb-12">
+        <h2 id="stats-header" class="text-2xl font-semibold mb-4">Stats Header</h2>
+        <p class="text-base-content/70 mb-6">Header with integrated key metrics and statistics.</p>
+        
+        <c-tab.group group_name="stats-header">
+            <c-tabs>
+                <c-tab name="preview" group_name="stats-header" checked="true">Preview</c-tab>
+                <c-tab name="code" group_name="stats-header">Code</c-tab>
+                <c-tab name="split" group_name="stats-header">Split View</c-tab>
+            </c-tabs>
+            
+            <c-tab.panel name="preview" group_name="stats-header">
+                <div class="bg-base-200 p-6 rounded-lg">
+                    <div class="mb-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h1 class="text-2xl font-bold">Analytics Overview</h1>
+                                <p class="text-base-content/60 mt-1">Track your performance metrics</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <c-dropdown>
+                                    <c-button variant="outline" size="sm">
+                                        Last 30 days
+                                        <c-icon name="chevron-down" size="16" class="ml-2" />
+                                    </c-button>
+                                </c-dropdown>
+                                <c-button variant="primary" size="sm">
+                                    Generate Report
+                                </c-button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <c-card class="text-center">
+                            <div class="text-3xl font-bold text-primary">12.5K</div>
+                            <div class="text-sm text-base-content/60 mt-1">Total Users</div>
+                            <div class="flex items-center justify-center mt-2">
+                                <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                <span class="text-sm text-success">+12%</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="text-center">
+                            <div class="text-3xl font-bold text-secondary">$45.2K</div>
+                            <div class="text-sm text-base-content/60 mt-1">Revenue</div>
+                            <div class="flex items-center justify-center mt-2">
+                                <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                <span class="text-sm text-success">+8%</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="text-center">
+                            <div class="text-3xl font-bold text-accent">892</div>
+                            <div class="text-sm text-base-content/60 mt-1">Orders</div>
+                            <div class="flex items-center justify-center mt-2">
+                                <c-icon name="trending-down" size="16" class="text-error mr-1" />
+                                <span class="text-sm text-error">-3%</span>
+                            </div>
+                        </c-card>
+                        
+                        <c-card class="text-center">
+                            <div class="text-3xl font-bold text-info">98.2%</div>
+                            <div class="text-sm text-base-content/60 mt-1">Uptime</div>
+                            <div class="flex items-center justify-center mt-2">
+                                <c-icon name="check-circle" size="16" class="text-success mr-1" />
+                                <span class="text-sm text-success">Stable</span>
+                            </div>
+                        </c-card>
+                    </div>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="code" group_name="stats-header">
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;div class="flex items-center justify-between mb-6"&gt;
+    &lt;div&gt;
+        &lt;h1 class="text-2xl font-bold"&gt;Analytics Overview&lt;/h1&gt;
+        &lt;p class="text-base-content/60 mt-1"&gt;Track your performance metrics&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center space-x-2"&gt;
+        &lt;c-dropdown&gt;
+            &lt;c-button variant="outline" size="sm"&gt;
+                Last 30 days
+                &lt;c-icon name="chevron-down" size="16" class="ml-2" /&gt;
+            &lt;/c-button&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-button variant="primary" size="sm"&gt;
+            Generate Report
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid grid-cols-1 md:grid-cols-4 gap-6"&gt;
+    &lt;c-card class="text-center"&gt;
+        &lt;div class="text-3xl font-bold text-primary"&gt;12.5K&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60 mt-1"&gt;Total Users&lt;/div&gt;
+        &lt;div class="flex items-center justify-center mt-2"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-1" /&gt;
+            &lt;span class="text-sm text-success"&gt;+12%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </c-tab.panel>
+            
+            <c-tab.panel name="split" group_name="stats-header">
+                <div class="space-y-6">
+                    <!-- Preview Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Preview</h4>
+                        <div class="bg-base-200 p-6 rounded-lg">
+                            <div class="mb-6">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h1 class="text-2xl font-bold">Analytics Overview</h1>
+                                        <p class="text-base-content/60 mt-1">Track your performance metrics</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <c-dropdown>
+                                            <c-button variant="outline" size="sm">
+                                                Last 30 days
+                                                <c-icon name="chevron-down" size="16" class="ml-2" />
+                                            </c-button>
+                                        </c-dropdown>
+                                        <c-button variant="primary" size="sm">
+                                            Generate Report
+                                        </c-button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                                <c-card class="text-center">
+                                    <div class="text-3xl font-bold text-primary">12.5K</div>
+                                    <div class="text-sm text-base-content/60 mt-1">Total Users</div>
+                                    <div class="flex items-center justify-center mt-2">
+                                        <c-icon name="trending-up" size="16" class="text-success mr-1" />
+                                        <span class="text-sm text-success">+12%</span>
+                                    </div>
+                                </c-card>
+                                <!-- More cards would be here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-base-content mb-3">Code</h4>
+                        <div class="relative">
+                            <pre class="language-html"><code>&lt;div class="flex items-center justify-between mb-6"&gt;
+    &lt;div&gt;
+        &lt;h1 class="text-2xl font-bold"&gt;Analytics Overview&lt;/h1&gt;
+        &lt;p class="text-base-content/60 mt-1"&gt;Track your performance metrics&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="flex items-center space-x-2"&gt;
+        &lt;c-dropdown&gt;
+            &lt;c-button variant="outline" size="sm"&gt;
+                Last 30 days
+                &lt;c-icon name="chevron-down" size="16" class="ml-2" /&gt;
+            &lt;/c-button&gt;
+        &lt;/c-dropdown&gt;
+        &lt;c-button variant="primary" size="sm"&gt;
+            Generate Report
+        &lt;/c-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid grid-cols-1 md:grid-cols-4 gap-6"&gt;
+    &lt;c-card class="text-center"&gt;
+        &lt;div class="text-3xl font-bold text-primary"&gt;12.5K&lt;/div&gt;
+        &lt;div class="text-sm text-base-content/60 mt-1"&gt;Total Users&lt;/div&gt;
+        &lt;div class="flex items-center justify-center mt-2"&gt;
+            &lt;c-icon name="trending-up" size="16" class="text-success mr-1" /&gt;
+            &lt;span class="text-sm text-success"&gt;+12%&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-card&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </c-tab.panel>
+        </c-tab.group>
+    </div>
+</div>

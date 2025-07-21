@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NutriAssiette - Composez votre repas parfait</title>
+
+        {% load static %}
+        {% include "init-components.html" %}
+    </head>
+
+    <body class="bg-base-100 min-h-screen">
+        <c-toast-area></c-toast-area>
+
+    <!-- Main Content -->
+        <div class="min-h-screen bg-base-200 p-4"
+             x-data="nutriassietteApp()">
+        <!-- Header -->
+            <div class="text-center py-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                    <c-icon name="salad" class="inline-block w-8 h-8 mr-2"></c-icon>
+                    NutriAssiette
+                </h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Composez votre assiette, analysez sa valeur nutritive et recevez des conseils pour un repas parfait.
+                </p>
+            </div>
+
+        <!-- Main Content Grid -->
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- Left Column: Ingrédients -->
+                <c-card>
+                    <div class="flex items-center mb-6">
+                        <c-icon name="list" class="w-5 h-5 mr-2 text-gray-600"></c-icon>
+                        <h2 class="text-xl font-semibold">Ingrédients</h2>
+                    </div>
+
+                <!-- Search Input -->
+                    <div class="mb-6">
+                        <c-form.input
+                            placeholder="Rechercher..."
+                            icon="search"
+                            type="text"
+                        ></c-form.input>
+                    </div>
+
+                <!-- Categories -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-medium text-gray-700 mb-3">Catégories</h3>
+                        <div class="flex flex-wrap gap-2">
+                            {% for category in categories %}
+                                <c-badge variant="{% if category.active %}primary{% else %}neutral{% endif %}"
+                                         class="cursor-pointer hover:scale-105 transition-transform">
+                                    {{ category.name }}
+                                </c-badge>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                <!-- Régimes -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-medium text-gray-700 mb-3">Régimes</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <c-badge variant="warning" class="cursor-pointer">
+                                <c-icon name="check-circle" class="w-3 h-3 mr-1"></c-icon>
+                                Tous
+                            </c-badge>
+                            <c-badge variant="ghost" class="cursor-pointer">
+                                <c-icon name="leaf" class="w-3 h-3 mr-1"></c-icon>
+                                Vegan
+                            </c-badge>
+                            <c-badge variant="ghost" class="cursor-pointer">
+                                <c-icon name="wheat-off" class="w-3 h-3 mr-1"></c-icon>
+                                Sans Gluten
+                            </c-badge>
+                        </div>
+                    </div>
+
+                <!-- Ingredients List -->
+                    <div class="space-y-3 max-h-96 overflow-y-auto">
+                        {% for ingredient in ingredients %}
+                            <c-card bg="base-200" padding_small>
+                                <div class="flex justify-between items-start">
+                                    <div class="flex-1">
+                                        <h4 class="font-medium text-gray-800">{{ ingredient.name }}</h4>
+                                        <p class="text-sm text-gray-500">{{ ingredient.category }}</p>
+                                        <div class="mt-2 text-xs text-gray-600">
+                                            <span class="mr-3">Calories: {{ ingredient.calories }}</span>
+                                            <span class="mr-3">Protéines: {{ ingredient.proteins }}g</span>
+                                            <span>Lipides: {{ ingredient.lipids }}g</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-sm text-gray-500 mb-2">Pour {{ ingredient.portion }}</div>
+                                        <c-button variant="primary" size="sm" class="text-xs">
+                                            <c-icon name="plus" class="w-3 h-3"></c-icon>
+                                        </c-button>
+                                    </div>
+                                </div>
+                            </c-card>
+                        {% endfor %}
+                    </div>
+                </c-card>
+
+            <!-- Center Column: Mon Assiette -->
+                <c-card>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <c-icon name="utensils" class="w-5 h-5 mr-2 text-gray-600"></c-icon>
+                            <h2 class="text-xl font-semibold">Mon Assiette (2)</h2>
+                        </div>
+                        <c-button variant="ghost" size="sm" class="text-blue-600">
+                            Vider
+                        </c-button>
+                    </div>
+
+                <!-- Selected Items -->
+                    <div class="space-y-4">
+                        {% for item in selected_items %}
+                            <c-card bg="base-200" padding_small>
+                                <div class="flex justify-between items-start">
+                                    <div class="flex-1">
+                                        <h4 class="font-medium text-gray-800">{{ item.name }}</h4>
+                                        <div class="flex items-center mt-2">
+                                            <c-badge variant="neutral" size="sm">Protéines</c-badge>
+                                            <span class="ml-4 text-sm text-gray-600">{{ item.quantity }} {{ item.unit }}</span>
+                                        </div>
+
+                                    <!-- Contrôle de quantité avec range -->
+                                        <div class="mt-3 mb-4">
+                                            <label class="text-xs text-gray-500 mb-2 block">Ajuster la quantité</label>
+                                            <c-range min="10" max="300" value="{{ item.quantity }}" step="10" class="mb-2"></c-range>
+                                            <div class="flex justify-between text-xs text-gray-400">
+                                                <span>10{{ item.unit }}</span>
+                                                <span>300{{ item.unit }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3 grid grid-cols-2 gap-4 text-sm">
+                                            <div>
+                                                <span class="text-gray-500">Calories:</span>
+                                                <span class="font-medium">{{ item.calories }}</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-500">Protéines:</span>
+                                                <span class="font-medium">{{ item.proteins }}g</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-500">Glucides:</span>
+                                                <span class="font-medium">{{ item.carbs }}g</span>
+                                            </div>
+                                            <div>
+                                                <span class="text-gray-500">Lipides:</span>
+                                                <span class="font-medium">{{ item.lipids }}g</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <c-button variant="ghost" size="xs" icon="x"/>
+                                </div>
+                            </c-card>
+                        {% endfor %}
+                    </div>
+                </c-card>
+
+            <!-- Right Column: Analyse -->
+                <c-card>
+                    <div class="flex items-center mb-6">
+                        <c-icon name="bar-chart-3" class="w-5 h-5 mr-2 text-gray-600"></c-icon>
+                        <h2 class="text-xl font-semibold">Analyse</h2>
+                    </div>
+
+                <!-- Résumé Nutritif -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">Résumé Nutritif</h3>
+
+                    <!-- Total Calories -->
+                        <div class="text-center mb-6">
+                            <div class="text-5xl font-bold text-gray-800">373</div>
+                            <div class="text-gray-500">Calories</div>
+                        </div>
+
+                    <!-- Macros Breakdown -->
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm text-gray-600">Protéines</span>
+                                    <span class="text-sm font-medium">53.0g</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-pink-500 h-2 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm text-gray-600">Glucides</span>
+                                    <span class="text-sm font-medium">0.0g</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm text-gray-600">Lipides</span>
+                                    <span class="text-sm font-medium">16.6g</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 35%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-sm text-gray-600">Fibres</span>
+                                    <span class="text-sm font-medium">0.0g</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Vitamines & Minéraux -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">
+                            <c-icon name="circle-check" class="inline w-4 h-4 mr-2"></c-icon>
+                            Vitamines & Minéraux
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-4">Valeurs en % des apports journaliers recommandés.</p>
+
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <c-icon name="sun" class="w-4 h-4 mr-2 text-yellow-500"></c-icon>
+                                    <span>Vitamine A</span>
+                                </div>
+                                <span class="font-medium">1%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <c-icon name="droplet" class="w-4 h-4 mr-2 text-blue-500"></c-icon>
+                                    <span>Vitamine C</span>
+                                </div>
+                                <span class="font-medium">0%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <c-icon name="sun" class="w-4 h-4 mr-2 text-orange-500"></c-icon>
+                                    <span>Vitamine D</span>
+                                </div>
+                                <span class="font-medium">129%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <c-icon name="zap" class="w-4 h-4 mr-2 text-red-500"></c-icon>
+                                    <span>Fer</span>
+                                </div>
+                                <span class="font-medium">8%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Améliorations -->
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">
+                            <c-icon name="lightbulb" class="inline w-4 h-4 mr-2 text-yellow-500"></c-icon>
+                            Améliorations
+                        </h3>
+
+                        <div class="space-y-3">
+                            <div class="bg-blue-50 rounded-lg p-3">
+                                <div class="flex items-start">
+                                    <c-badge variant="info" size="sm" class="mr-3 mt-0.5">Fibres</c-badge>
+                                    <p class="text-sm text-gray-700">
+                                        Intégrez plus de légumes verts, fruits ou céréales complètes.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 rounded-lg p-3">
+                                <div class="flex items-start">
+                                    <c-badge variant="warning" size="sm" class="mr-3 mt-0.5">Énergie</c-badge>
+                                    <p class="text-sm text-gray-700">
+                                        Un peu de quinoa, riz brun ou patates douces pour plus d'énergie.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </c-card>
+            </div>
+        </div>
+
+        <script>
+            function nutriassietteApp() {
+                return {
+                    selected_items: [
+                        {% for item in selected_items %}
+                            {
+                                name: '{{ item.name }}',
+                                quantity: {{ item.quantity }},
+                                unit: '{{ item.unit }}',
+                                calories: {{ item.calories }},
+                                proteins: {{ item.proteins }},
+                                carbs: {{ item.carbs }},
+                                lipids: {{ item.lipids }},
+                                calories_per_100g: {{ item.calories }} / ({{ item.quantity }} / 100)
+                            }{% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    ],
+
+                    nutritionSummary: {
+                        totalCalories: 0,
+                        totalProteins: 0,
+                        totalCarbs: 0,
+                        totalLipids: 0,
+                        totalFibers: 0
+                    },
+
+                    init() {
+                        this.updateNutritionSummary();
+                    },
+
+                    updateNutritionSummary() {
+                        this.nutritionSummary = {
+                            totalCalories: 0,
+                            totalProteins: 0,
+                            totalCarbs: 0,
+                            totalLipids: 0,
+                            totalFibers: 0
+                        };
+
+                        this.selected_items.forEach(item => {
+                            const ratio = item.quantity / 100;
+                            this.nutritionSummary.totalCalories += item.calories_per_100g * ratio;
+                            this.nutritionSummary.totalProteins += item.proteins * ratio;
+                            this.nutritionSummary.totalCarbs += item.carbs * ratio;
+                            this.nutritionSummary.totalLipids += item.lipids * ratio;
+                        });
+
+                    // Round values
+                        this.nutritionSummary.totalCalories = Math.round(this.nutritionSummary.totalCalories);
+                        this.nutritionSummary.totalProteins = Math.round(this.nutritionSummary.totalProteins * 10) / 10;
+                        this.nutritionSummary.totalCarbs = Math.round(this.nutritionSummary.totalCarbs * 10) / 10;
+                        this.nutritionSummary.totalLipids = Math.round(this.nutritionSummary.totalLipids * 10) / 10;
+                    },
+
+                    removeItem(index) {
+                        this.selected_items.splice(index, 1);
+                        this.updateNutritionSummary();
+                    },
+
+                    clearAll() {
+                        this.selected_items = [];
+                        this.updateNutritionSummary();
+                    },
+
+                    addIngredient(ingredient) {
+                        this.selected_items.push({
+                            name: ingredient.name,
+                            quantity: 100,
+                            unit: 'g',
+                            calories: ingredient.calories,
+                            proteins: ingredient.proteins,
+                            carbs: ingredient.carbs || 0,
+                            lipids: ingredient.lipids,
+                            calories_per_100g: ingredient.calories
+                        });
+                        this.updateNutritionSummary();
+                    }
+                }
+            }
+        </script>
+
+        {% include "scripts.html" %}
+
+    </body>
+</html>

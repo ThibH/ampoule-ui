@@ -1,0 +1,249 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Navbar</h1>
+        <p class="text-lg text-base-content/70">
+            A responsive navigation bar component with support for logos, navigation links, and action buttons.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-layout.navbar>
+                    <c-slot name="logo">
+                        <h1 class="text-xl font-bold">MyApp</h1>
+                    </c-slot>
+                    <c-slot name="nav">
+                        <c-navbar.item href="#" icon="home">Home</c-navbar.item>
+                        <c-navbar.item href="#" icon="info">About</c-navbar.item>
+                        <c-navbar.item href="#" icon="user">Login</c-navbar.item>
+                    </c-slot>
+                </c-layout.navbar>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-layout.navbar&gt;
+    &lt;c-slot name="logo"&gt;
+        &lt;h1 class="text-xl font-bold"&gt;MyApp&lt;/h1&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="nav"&gt;
+        &lt;c-navbar.item href="#" icon="home"&gt;Home&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="#" icon="info"&gt;About&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="#" icon="user"&gt;Login&lt;/c-navbar.item&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.navbar&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Slot</th>
+                        <th class="font-semibold">Required</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">logo</code></td>
+                        <td><code class="text-sm">No</code></td>
+                        <td>Left side logo or brand content</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">nav</code></td>
+                        <td><code class="text-sm">No</code></td>
+                        <td>Right side navigation links and actions</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- With Logo and Actions -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Logo and Actions</h3>
+            <p class="text-base-content/70 mb-6">
+                A complete navbar with logo on the left and navigation actions on the right.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-layout.navbar>
+                        <c-slot name="logo">
+                            <div class="flex items-center gap-2">
+                                <c-icon name="home" class="size-6"></c-icon>
+                                <span class="text-xl font-bold">Company</span>
+                            </div>
+                        </c-slot>
+                        <c-slot name="nav">
+                            <c-navbar.item href="#" icon="package">Products</c-navbar.item>
+                            <c-navbar.item href="#" icon="briefcase">Services</c-navbar.item>
+                            <c-navbar.item href="#" icon="mail">Contact</c-navbar.item>
+                            <c-navbar.item href="#" icon="rocket">Get Started</c-navbar.item>
+                        </c-slot>
+                    </c-layout.navbar>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-layout.navbar&gt;
+    &lt;c-slot name="logo"&gt;
+        &lt;div class="flex items-center gap-2"&gt;
+            &lt;c-icon name="home" class="size-6"&gt;&lt;/c-icon&gt;
+            &lt;span class="text-xl font-bold"&gt;Company&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="nav"&gt;
+        &lt;c-navbar.item href="#" icon="package"&gt;Products&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="#" icon="briefcase"&gt;Services&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="#" icon="mail"&gt;Contact&lt;/c-navbar.item&gt;
+        &lt;c-navbar.item href="#" icon="rocket"&gt;Get Started&lt;/c-navbar.item&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.navbar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minimal Navbar -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Minimal Navbar</h3>
+            <p class="text-base-content/70 mb-6">
+                A simple navbar with just a logo.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-layout.navbar>
+                        <c-slot name="logo">
+                            <h1 class="text-2xl font-bold text-primary">Brand</h1>
+                        </c-slot>
+                    </c-layout.navbar>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-layout.navbar&gt;
+    &lt;c-slot name="logo"&gt;
+        &lt;h1 class="text-2xl font-bold text-primary"&gt;Brand&lt;/h1&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.navbar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Dropdown Menu -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Dropdown Menu</h3>
+            <p class="text-base-content/70 mb-6">
+                Navbar with a dropdown menu for additional navigation options.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-layout.navbar>
+                        <c-slot name="logo">
+                            <span class="text-xl font-bold">Dashboard</span>
+                        </c-slot>
+                        <c-slot name="nav">
+                            <c-navbar.item href="#" icon="home">Home</c-navbar.item>
+                            <c-navbar.submenu label="Account" icon="user">
+                                <c-navbar.item href="#" icon="user">Profile</c-navbar.item>
+                                <c-navbar.item href="#" icon="settings">Settings</c-navbar.item>
+                                <c-navbar.item href="#" icon="log-out">Logout</c-navbar.item>
+                            </c-navbar.submenu>
+                        </c-slot>
+                    </c-layout.navbar>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-layout.navbar&gt;
+    &lt;c-slot name="logo"&gt;
+        &lt;span class="text-xl font-bold"&gt;Dashboard&lt;/span&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="nav"&gt;
+        &lt;c-navbar.item href="#" icon="home"&gt;Home&lt;/c-navbar.item&gt;
+        &lt;c-navbar.submenu label="Account" icon="user"&gt;
+            &lt;c-navbar.item href="#" icon="user"&gt;Profile&lt;/c-navbar.item&gt;
+            &lt;c-navbar.item href="#" icon="settings"&gt;Settings&lt;/c-navbar.item&gt;
+            &lt;c-navbar.item href="#" icon="log-out"&gt;Logout&lt;/c-navbar.item&gt;
+        &lt;/c-navbar.submenu&gt;
+    &lt;/c-slot&gt;
+&lt;/c-layout.navbar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Page Demos -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Démonstrations complètes</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Demo 1 -->
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body">
+                    <h3 class="card-title">Dashboard Application</h3>
+                    <p class="text-base-content/70 mb-4">
+                        Exemple d'une application de tableau de bord avec navbar, statistiques et navigation complète.
+                    </p>
+                    <div class="card-actions justify-end">
+                        <a href="{% url 'demo:navbar_demo1' %}" target="_blank" class="btn btn-primary">
+                            <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                            Voir la démo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo 2 -->
+            <div class="card bg-base-200 shadow-xl">
+                <div class="card-body">
+                    <h3 class="card-title">Site E-commerce</h3>
+                    <p class="text-base-content/70 mb-4">
+                        Exemple d'un site e-commerce avec panier, recherche et navigation produits.
+                    </p>
+                    <div class="card-actions justify-end">
+                        <a href="{% url 'demo:navbar_demo2' %}" target="_blank" class="btn btn-primary">
+                            <c-icon name="external-link" class="w-4 h-4 mr-2"></c-icon>
+                            Voir la démo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Responsive Behavior -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Responsive Behavior</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Mobile Optimization</h4>
+                        <div class="text-sm">The navbar automatically adapts to smaller screens with responsive design built into DaisyUI.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Fixed Positioning</h4>
+                        <div class="text-sm">Add <code>fixed top-0 z-50 w-full</code> classes to make the navbar stick to the top of the page.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

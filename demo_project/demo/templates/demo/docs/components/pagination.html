@@ -1,0 +1,320 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Pagination</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible pagination component that adapts to different result set sizes with smart page numbering and navigation controls.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-pagination current_page="3" total_pages="10" base_url="{% url 'demo:docs' %}" />
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-pagination current_page="3" total_pages="10" base_url="&#123;% url 'your_view' %&#125;" /&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">current_page</code></td>
+                        <td><code class="text-sm">number</code></td>
+                        <td><code class="text-sm">1</code></td>
+                        <td>The currently active page number</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">total_pages</code></td>
+                        <td><code class="text-sm">number</code></td>
+                        <td><code class="text-sm">1</code></td>
+                        <td>Total number of pages available</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">base_url</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">#</code></td>
+                        <td>Base URL for pagination links (page parameter will be appended)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">simple</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Use simple pagination (Previous/Next only)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Button size: sm, md, lg</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Basic Pagination -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Basic Pagination</h3>
+            <p class="text-base-content/70 mb-6">
+                Standard pagination with page numbers, Previous/Next buttons, and intelligent ellipsis for large page counts.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Page 1 of 5:</p>
+                        <c-pagination current_page="1" total_pages="5" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Page 3 of 5:</p>
+                        <c-pagination current_page="3" total_pages="5" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Page 5 of 5:</p>
+                        <c-pagination current_page="5" total_pages="5" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pagination current_page="1" total_pages="5" base_url="&#123;% url 'your_view' %&#125;" /&gt;
+&lt;c-pagination current_page="3" total_pages="5" base_url="&#123;% url 'your_view' %&#125;" /&gt;
+&lt;c-pagination current_page="5" total_pages="5" base_url="&#123;% url 'your_view' %&#125;" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Large Page Sets -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Large Page Sets</h3>
+            <p class="text-base-content/70 mb-6">
+                For large result sets, the pagination automatically adds ellipsis and shows pages around the current page.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Page 1 of 25:</p>
+                        <c-pagination current_page="1" total_pages="25" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Page 12 of 25:</p>
+                        <c-pagination current_page="12" total_pages="25" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Page 25 of 25:</p>
+                        <c-pagination current_page="25" total_pages="25" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pagination current_page="1" total_pages="25" base_url="&#123;% url 'your_view' %&#125;" /&gt;
+&lt;c-pagination current_page="12" total_pages="25" base_url="&#123;% url 'your_view' %&#125;" /&gt;
+&lt;c-pagination current_page="25" total_pages="25" base_url="&#123;% url 'your_view' %&#125;" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Simple Pagination -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Simple Pagination</h3>
+            <p class="text-base-content/70 mb-6">
+                For performance-sensitive scenarios or very large datasets, use simple pagination with only Previous/Next buttons.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">First page (Previous disabled):</p>
+                        <c-pagination current_page="1" total_pages="100" base_url="{% url 'demo:docs' %}" simple />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Middle page:</p>
+                        <c-pagination current_page="50" total_pages="100" base_url="{% url 'demo:docs' %}" simple />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Last page (Next disabled):</p>
+                        <c-pagination current_page="100" total_pages="100" base_url="{% url 'demo:docs' %}" simple />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pagination current_page="1" total_pages="100" base_url="&#123;% url 'your_view' %&#125;" simple /&gt;
+&lt;c-pagination current_page="50" total_pages="100" base_url="&#123;% url 'your_view' %&#125;" simple /&gt;
+&lt;c-pagination current_page="100" total_pages="100" base_url="&#123;% url 'your_view' %&#125;" simple /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Different Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Control the size of pagination buttons with the <code class="bg-base-300 px-2 py-1 rounded">size</code> prop.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-6">
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Small:</p>
+                        <c-pagination current_page="2" total_pages="5" base_url="{% url 'demo:docs' %}" size="sm" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Medium (default):</p>
+                        <c-pagination current_page="2" total_pages="5" base_url="{% url 'demo:docs' %}" size="md" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Large:</p>
+                        <c-pagination current_page="2" total_pages="5" base_url="{% url 'demo:docs' %}" size="lg" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pagination current_page="2" total_pages="5" base_url="&#123;% url 'your_view' %&#125;" size="sm" /&gt;
+&lt;c-pagination current_page="2" total_pages="5" base_url="&#123;% url 'your_view' %&#125;" size="md" /&gt;
+&lt;c-pagination current_page="2" total_pages="5" base_url="&#123;% url 'your_view' %&#125;" size="lg" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edge Cases -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Edge Cases</h3>
+            <p class="text-base-content/70 mb-6">
+                The pagination component handles various edge cases gracefully.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Single page (no pagination needed):</p>
+                        <c-pagination current_page="1" total_pages="1" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Two pages only:</p>
+                        <c-pagination current_page="1" total_pages="2" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                    <div>
+                        <p class="text-sm text-base-content/60 mb-2">Exactly 7 pages (no ellipsis):</p>
+                        <c-pagination current_page="4" total_pages="7" base_url="{% url 'demo:docs' %}" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pagination current_page="1" total_pages="1" base_url="&#123;% url 'your_view' %&#125;" /&gt;
+&lt;c-pagination current_page="1" total_pages="2" base_url="&#123;% url 'your_view' %&#125;" /&gt;
+&lt;c-pagination current_page="4" total_pages="7" base_url="&#123;% url 'your_view' %&#125;" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Django Integration -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Django Integration</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Django Paginator Integration</h4>
+                        <div class="text-sm">Use with Django's built-in Paginator for seamless pagination in your views.</div>
+                    </div>
+                </div>
+
+                <div class="bg-base-300 p-4 rounded-lg">
+                    <p class="text-sm font-semibold mb-2">Django View Example:</p>
+                    <pre class="language-python"><code>from django.core.paginator import Paginator
+
+def item_list(request):
+    items = Item.objects.all()
+    paginator = Paginator(items, 10)  # 10 items per page
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'items/list.html', {
+        'page_obj': page_obj,
+    })</code></pre>
+                </div>
+
+                <div class="bg-base-300 p-4 rounded-lg">
+                    <p class="text-sm font-semibold mb-2">Template Usage:</p>
+                    <pre class="language-html"><code>&lt;!-- Display items --&gt;
+{% for item in page_obj %}
+    &lt;div&gt;{{ item.name }}&lt;/div&gt;
+{% endfor %}
+
+&lt;!-- Pagination component --&gt;
+&lt;c-pagination 
+    current_page="&#123;&#123; page_obj.number &#125;&#125;" 
+    total_pages="&#123;&#123; page_obj.paginator.num_pages &#125;&#125;" 
+    base_url="&#123;% url 'items:list' %&#125;" /&gt;</code></pre>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">URL Parameters</h4>
+                        <div class="text-sm">The component automatically appends <code>?page=N</code> to the base URL. Make sure your view handles the <code>page</code> parameter.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HTMX Integration -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">HTMX Integration</h3>
+            <div class="space-y-4">
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">HTMX Compatible</h4>
+                        <div class="text-sm">Pagination links work seamlessly with HTMX for dynamic content loading without page refreshes.</div>
+                    </div>
+                </div>
+
+                <div class="bg-base-300 p-4 rounded-lg">
+                    <p class="text-sm font-semibold mb-2">HTMX Template Example:</p>
+                    <pre class="language-html"><code>&lt;div id="content" hx-target="#content" hx-swap="outerHTML"&gt;
+    &lt;!-- Your paginated content --&gt;
+    {% for item in page_obj %}
+        &lt;div&gt;{{ item.name }}&lt;/div&gt;
+    {% endfor %}
+    
+    &lt;!-- Add hx-get to pagination links --&gt;
+    &lt;c-pagination 
+        current_page="{{ page_obj.number }}" 
+        total_pages="{{ page_obj.paginator.num_pages }}" 
+        base_url="&#123;% url 'items:list' %&#125;" 
+        hx-get="&#123;% url 'items:list' %&#125;" /&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

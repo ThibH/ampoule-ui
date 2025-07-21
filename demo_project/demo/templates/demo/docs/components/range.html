@@ -1,0 +1,377 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Range</h1>
+        <p class="text-lg text-base-content/70">
+            A range slider input component for selecting numeric values within a specified range.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-range min="0" max="100" value="50" />
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-range min="0" max="100" value="50" /&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">min</code></td>
+                        <td><code class="text-sm">number</code></td>
+                        <td><code class="text-sm">0</code></td>
+                        <td>Minimum value of the range</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">max</code></td>
+                        <td><code class="text-sm">number</code></td>
+                        <td><code class="text-sm">100</code></td>
+                        <td>Maximum value of the range</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">value</code></td>
+                        <td><code class="text-sm">number</code></td>
+                        <td><code class="text-sm">50</code></td>
+                        <td>Current value of the range slider</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">step</code></td>
+                        <td><code class="text-sm">number</code></td>
+                        <td><code class="text-sm">1</code></td>
+                        <td>Step increment for the range values</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">name</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Form field name</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Unique identifier for the range input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">disabled</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Disable the range input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the range input</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Different Ranges -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Ranges</h3>
+            <p class="text-base-content/70 mb-6">
+                Configure different minimum, maximum, and default values for various use cases.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Volume (0-100)</label>
+                            <c-range min="0" max="100" value="75" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Price Range ($10-$500)</label>
+                            <c-range min="10" max="500" value="150" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Rating (1-5 stars)</label>
+                            <c-range min="1" max="5" value="3" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Percentage (-100% to +100%)</label>
+                            <c-range min="-100" max="100" value="25" />
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Volume control --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Volume (0-100)&lt;/label&gt;
+&lt;c-range min="0" max="100" value="75" /&gt;
+
+&lt;!-- Price range --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Price Range ($10-$500)&lt;/label&gt;
+&lt;c-range min="10" max="500" value="150" /&gt;
+
+&lt;!-- Rating --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Rating (1-5 stars)&lt;/label&gt;
+&lt;c-range min="1" max="5" value="3" /&gt;
+
+&lt;!-- Percentage --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Percentage (-100% to +100%)&lt;/label&gt;
+&lt;c-range min="-100" max="100" value="25" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step Increments -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Step Increments</h3>
+            <p class="text-base-content/70 mb-6">
+                Control the granularity of value selection with different step sizes.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Fine Control (step: 0.1)</label>
+                            <c-range min="0" max="10" value="5.5" step="0.1" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Standard (step: 1)</label>
+                            <c-range min="0" max="100" value="50" step="1" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Coarse Control (step: 10)</label>
+                            <c-range min="0" max="200" value="100" step="10" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Quarter Steps (step: 0.25)</label>
+                            <c-range min="0" max="5" value="2.5" step="0.25" />
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Fine control --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Fine Control (step: 0.1)&lt;/label&gt;
+&lt;c-range min="0" max="10" value="5.5" step="0.1" /&gt;
+
+&lt;!-- Standard step --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Standard (step: 1)&lt;/label&gt;
+&lt;c-range min="0" max="100" value="50" step="1" /&gt;
+
+&lt;!-- Coarse control --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Coarse Control (step: 10)&lt;/label&gt;
+&lt;c-range min="0" max="200" value="100" step="10" /&gt;
+
+&lt;!-- Quarter steps --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Quarter Steps (step: 0.25)&lt;/label&gt;
+&lt;c-range min="0" max="5" value="2.5" step="0.25" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Styled Ranges -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Styled Ranges</h3>
+            <p class="text-base-content/70 mb-6">
+                Apply different DaisyUI color themes to match your design.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Primary Theme</label>
+                            <c-range min="0" max="100" value="60" class="range range-primary" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Secondary Theme</label>
+                            <c-range min="0" max="100" value="40" class="range range-secondary" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Accent Theme</label>
+                            <c-range min="0" max="100" value="80" class="range range-accent" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Success Theme</label>
+                            <c-range min="0" max="100" value="90" class="range range-success" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Warning Theme</label>
+                            <c-range min="0" max="100" value="70" class="range range-warning" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Error Theme</label>
+                            <c-range min="0" max="100" value="30" class="range range-error" />
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Primary theme --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Primary Theme&lt;/label&gt;
+&lt;c-range min="0" max="100" value="60" class="range range-primary" /&gt;
+
+&lt;!-- Secondary theme --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Secondary Theme&lt;/label&gt;
+&lt;c-range min="0" max="100" value="40" class="range range-secondary" /&gt;
+
+&lt;!-- Accent theme --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Accent Theme&lt;/label&gt;
+&lt;c-range min="0" max="100" value="80" class="range range-accent" /&gt;
+
+&lt;!-- Success theme --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Success Theme&lt;/label&gt;
+&lt;c-range min="0" max="100" value="90" class="range range-success" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Size Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Size Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Different sizes for various design contexts.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Extra Small</label>
+                            <c-range min="0" max="100" value="25" class="range range-xs" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Small</label>
+                            <c-range min="0" max="100" value="50" class="range range-sm" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Medium (Default)</label>
+                            <c-range min="0" max="100" value="75" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Large</label>
+                            <c-range min="0" max="100" value="90" class="range range-lg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Extra small --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Extra Small&lt;/label&gt;
+&lt;c-range min="0" max="100" value="25" class="range range-xs" /&gt;
+
+&lt;!-- Small --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Small&lt;/label&gt;
+&lt;c-range min="0" max="100" value="50" class="range range-sm" /&gt;
+
+&lt;!-- Medium (default) --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Medium (Default)&lt;/label&gt;
+&lt;c-range min="0" max="100" value="75" /&gt;
+
+&lt;!-- Large --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Large&lt;/label&gt;
+&lt;c-range min="0" max="100" value="90" class="range range-lg" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Disabled State</h3>
+            <p class="text-base-content/70 mb-6">
+                Disable the range slider when interaction is not allowed.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Active Range</label>
+                            <c-range min="0" max="100" value="60" class="range range-primary" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-base-content/50">Disabled Range</label>
+                            <c-range min="0" max="100" value="40" disabled class="range range-primary" />
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Active range --&gt;
+&lt;label class="block text-sm font-medium mb-2"&gt;Active Range&lt;/label&gt;
+&lt;c-range min="0" max="100" value="60" class="range range-primary" /&gt;
+
+&lt;!-- Disabled range --&gt;
+&lt;label class="block text-sm font-medium mb-2 text-base-content/50"&gt;Disabled Range&lt;/label&gt;
+&lt;c-range min="0" max="100" value="40" disabled class="range range-primary" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Usage Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Usage Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Value Display</h4>
+                        <div class="text-sm">Consider adding a value display or input field alongside the range for precise control.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Step Size</h4>
+                        <div class="text-sm">Choose appropriate step sizes based on the expected precision and range of values.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Accessibility</h4>
+                        <div class="text-sm">Always provide descriptive labels and consider keyboard navigation for range inputs.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

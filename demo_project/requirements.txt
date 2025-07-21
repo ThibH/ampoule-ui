@@ -1,0 +1,4 @@
+# Migrated to uv - see pyproject.toml for dependencies
+Django>=4.2,<6.0
+django-cotton>=0.9.0
+-e ..

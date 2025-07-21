@@ -1,0 +1,322 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Callout</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible callout component for highlighting important information, announcements, warnings, and other contextual messages with various styles and interactive features.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-callout heading="Information" text="This is a basic callout message to highlight important information."></c-callout>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-callout heading="Information" text="This is a basic callout message to highlight important information."&gt;&lt;/c-callout&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">secondary</code></td>
+                        <td>Callout style variant: secondary, success, warning, danger</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Lucide icon name to display in the header</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">heading</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Callout heading text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">text</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Quick text content for simple callouts</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">color</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Custom color variant: blue, green, purple</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">inline</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Display actions inline (use "true")</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">dismissible</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Show close button (use "true")</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-6">
+            <h3 class="text-lg font-semibold mb-4">Available Slots</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-semibold">Slot</th>
+                            <th class="font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="text-sm">slot</code></td>
+                            <td>Main content area for rich content</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">icon_slot</code></td>
+                            <td>Custom icon content instead of Lucide icon</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">actions</code></td>
+                            <td>Action buttons or links</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">controls</code></td>
+                            <td>Additional UI controls (toggles, etc.)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Callout Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Callout Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Different variants provide semantic meaning and visual hierarchy for various types of messages.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                    <c-callout variant="secondary" icon="info" heading="Information" text="This is a general information callout."></c-callout>
+                    <c-callout variant="success" icon="check-circle" heading="Success" text="Operation completed successfully!"></c-callout>
+                    <c-callout variant="warning" icon="alert-triangle" heading="Warning" text="Please review this important information."></c-callout>
+                    <c-callout variant="danger" icon="alert-circle" heading="Error" text="Something went wrong and requires attention."></c-callout>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-callout variant="secondary" icon="info" heading="Information" text="This is a general information callout."&gt;&lt;/c-callout&gt;
+&lt;c-callout variant="success" icon="check-circle" heading="Success" text="Operation completed successfully!"&gt;&lt;/c-callout&gt;
+&lt;c-callout variant="warning" icon="alert-triangle" heading="Warning" text="Please review this important information."&gt;&lt;/c-callout&gt;
+&lt;c-callout variant="danger" icon="alert-circle" heading="Error" text="Something went wrong and requires attention."&gt;&lt;/c-callout&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Colors -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Custom Colors</h3>
+            <p class="text-base-content/70 mb-6">
+                Use custom color variants for branded or specific design needs.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                    <c-callout color="blue" icon="star" heading="Feature Spotlight" text="Check out this amazing new feature we've added!"></c-callout>
+                    <c-callout color="green" icon="leaf" heading="Eco-Friendly" text="This action helps reduce environmental impact."></c-callout>
+                    <c-callout color="purple" icon="crown" heading="Premium Feature" text="Upgrade to access this exclusive functionality."></c-callout>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-callout color="blue" icon="star" heading="Feature Spotlight" text="Check out this amazing new feature we've added!"&gt;&lt;/c-callout&gt;
+&lt;c-callout color="green" icon="leaf" heading="Eco-Friendly" text="This action helps reduce environmental impact."&gt;&lt;/c-callout&gt;
+&lt;c-callout color="purple" icon="crown" heading="Premium Feature" text="Upgrade to access this exclusive functionality."&gt;&lt;/c-callout&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rich Content -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Rich Content</h3>
+            <p class="text-base-content/70 mb-6">
+                Use the default slot for complex content including formatted text, lists, and other HTML elements.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-callout variant="warning" icon="clock" heading="Maintenance Window">
+                        <p class="mb-3">Scheduled maintenance will occur on <strong>Sunday, March 15th</strong> from 2:00 AM to 6:00 AM EST.</p>
+                        <p class="mb-3">During this time, the following services will be affected:</p>
+                        <ul class="list-disc list-inside space-y-1 mb-3">
+                            <li>User authentication</li>
+                            <li>File uploads</li>
+                            <li>Email notifications</li>
+                        </ul>
+                        <p class="text-sm font-medium">We apologize for any inconvenience this may cause.</p>
+                    </c-callout>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-callout variant="warning" icon="clock" heading="Maintenance Window"&gt;
+    &lt;p&gt;Scheduled maintenance will occur on &lt;strong&gt;Sunday, March 15th&lt;/strong&gt;...&lt;/p&gt;
+    &lt;ul class="list-disc list-inside"&gt;
+        &lt;li&gt;User authentication&lt;/li&gt;
+        &lt;li&gt;File uploads&lt;/li&gt;
+        &lt;li&gt;Email notifications&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/c-callout&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Actions -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Callouts with Actions</h3>
+            <p class="text-base-content/70 mb-6">
+                Add action buttons to make callouts interactive and actionable.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-6">
+                    <c-callout variant="success" icon="gift" heading="Welcome Bonus!">
+                        <c-slot name="actions">
+                            <c-button variant="primary" size="sm">Claim Reward</c-button>
+                            <c-button variant="ghost" size="sm">Learn More</c-button>
+                        </c-slot>
+                        You've earned 100 bonus points for joining our community!
+                    </c-callout>
+
+                    <c-callout variant="warning" icon="bell" heading="Subscription Expiring" inline="true">
+                        <c-slot name="actions">
+                            <c-button variant="primary" size="sm">Renew Now</c-button>
+                            <c-button variant="outline" size="sm">Remind Later</c-button>
+                        </c-slot>
+                        Your premium subscription expires in 3 days.
+                    </c-callout>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-callout variant="success" icon="gift" heading="Welcome Bonus!"&gt;
+    &lt;c-slot name="actions"&gt;
+        &lt;c-button variant="primary" size="sm"&gt;Claim Reward&lt;/c-button&gt;
+        &lt;c-button variant="ghost" size="sm"&gt;Learn More&lt;/c-button&gt;
+    &lt;/c-slot&gt;
+    You've earned 100 bonus points for joining our community!
+&lt;/c-callout&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dismissible Callouts -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Dismissible Callouts</h3>
+            <p class="text-base-content/70 mb-6">
+                Add a close button to allow users to dismiss callouts they no longer need to see.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg space-y-4">
+                    <c-callout variant="secondary" icon="lightbulb" heading="Pro Tip" dismissible="true" text="You can customize your dashboard layout by dragging and dropping widgets."></c-callout>
+                    <c-callout variant="warning" icon="shield-alert" heading="Security Notice" dismissible="true" text="We've updated our privacy policy. Please review the changes."></c-callout>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-callout variant="secondary" icon="lightbulb" heading="Pro Tip" dismissible="true" text="You can customize your dashboard layout..."&gt;&lt;/c-callout&gt;
+&lt;c-callout variant="warning" icon="shield-alert" heading="Security Notice" dismissible="true" text="We've updated our privacy policy..."&gt;&lt;/c-callout&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Custom Icon Content</h3>
+            <p class="text-base-content/70 mb-6">
+                Use the icon slot for custom icon content when Lucide icons aren't sufficient.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-callout variant="success" heading="Payment Successful">
+                        <c-slot name="icon_slot">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                            </svg>
+                        </c-slot>
+                        Your payment of $49.99 has been processed successfully.
+                    </c-callout>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-callout variant="success" heading="Payment Successful"&gt;
+    &lt;c-slot name="icon_slot"&gt;
+        &lt;svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"&gt;
+            &lt;path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4z..." clip-rule="evenodd" /&gt;
+        &lt;/svg&gt;
+    &lt;/c-slot&gt;
+    Your payment of $49.99 has been processed successfully.
+&lt;/c-callout&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Guidelines -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Usage Guidelines</h2>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Semantic Usage</h4>
+                    <div class="text-sm">Use appropriate variants: success for positive outcomes, warning for caution, danger for errors, and secondary for general information.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div>
+                    <h4 class="font-bold">Clear Communication</h4>
+                    <div class="text-sm">Keep headings concise and use clear, actionable language. Provide context and next steps when possible.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Don't Overuse</h4>
+                    <div class="text-sm">Callouts are attention-grabbing by design. Use them sparingly to maintain their effectiveness and avoid overwhelming users.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

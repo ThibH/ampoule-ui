@@ -1,0 +1,689 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Tabs</h1>
+        <p class="text-lg text-base-content/70">
+            A tab component system for organizing content into switchable panels using CSS-only functionality.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-tab.group group_name="basic">
+                    <c-tabs variant="default">
+                        <c-tab name="profile" group_name="basic" icon="user" checked="true">Profile</c-tab>
+                        <c-tab name="account" group_name="basic" icon="settings">Account</c-tab>
+                        <c-tab name="billing" group_name="basic" icon="credit-card">Billing</c-tab>
+                    </c-tabs>
+
+                    <c-tab.panel name="profile" group_name="basic">
+                        <h3 class="text-lg font-semibold mb-4">Profile Settings</h3>
+                        <p class="text-base-content/70 mb-4">
+                            Manage your profile information, including your display name, avatar, and personal preferences.
+                        </p>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Display Name</label>
+                                <input type="text" class="input input-bordered w-full" value="John Doe" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Bio</label>
+                                <textarea class="textarea textarea-bordered w-full" rows="3">Software developer passionate about creating great user experiences.</textarea>
+                            </div>
+                        </div>
+                    </c-tab.panel>
+
+                    <c-tab.panel name="account" group_name="basic">
+                        <h3 class="text-lg font-semibold mb-4">Account Settings</h3>
+                        <p class="text-base-content/70 mb-4">
+                            Configure your account security, notifications, and privacy settings.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Enable two-factor authentication</span>
+                                    <input type="checkbox" class="toggle toggle-primary" checked />
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Email notifications</span>
+                                    <input type="checkbox" class="toggle toggle-primary" />
+                                </label>
+                            </div>
+                        </div>
+                    </c-tab.panel>
+
+                    <c-tab.panel name="billing" group_name="basic">
+                        <h3 class="text-lg font-semibold mb-4">Billing Information</h3>
+                        <p class="text-base-content/70 mb-4">
+                            Manage your payment methods and billing preferences.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="card bg-base-100 border border-base-300">
+                                <div class="card-body">
+                                    <h4 class="card-title">Current Plan</h4>
+                                    <p>Pro Plan - $29/month</p>
+                                    <div class="card-actions">
+                                        <c-button variant="outline" class="btn-sm">Change Plan</c-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </c-tab.panel>
+                </c-tab.group>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-tab.group group_name="basic"&gt;
+    &lt;c-tabs variant="default"&gt;
+        &lt;c-tab name="profile" group_name="basic" icon="user" checked="true"&gt;Profile&lt;/c-tab&gt;
+        &lt;c-tab name="account" group_name="basic" icon="settings"&gt;Account&lt;/c-tab&gt;
+        &lt;c-tab name="billing" group_name="basic" icon="credit-card"&gt;Billing&lt;/c-tab&gt;
+    &lt;/c-tabs&gt;
+
+    &lt;c-tab.panel name="profile" group_name="basic"&gt;
+        &lt;h3&gt;Profile Settings&lt;/h3&gt;
+        &lt;p&gt;Manage your profile information...&lt;/p&gt;
+    &lt;/c-tab.panel&gt;
+
+    &lt;c-tab.panel name="account" group_name="basic"&gt;
+        &lt;h3&gt;Account Settings&lt;/h3&gt;
+        &lt;p&gt;Configure your account security...&lt;/p&gt;
+    &lt;/c-tab.panel&gt;
+
+    &lt;c-tab.panel name="billing" group_name="basic"&gt;
+        &lt;h3&gt;Billing Information&lt;/h3&gt;
+        &lt;p&gt;Manage your payment methods...&lt;/p&gt;
+    &lt;/c-tab.panel&gt;
+&lt;/c-tab.group&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <!-- Tab Group -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">c-tab.group</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-semibold">Property</th>
+                            <th class="font-semibold">Type</th>
+                            <th class="font-semibold">Default</th>
+                            <th class="font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="text-sm">group_name</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">""</code></td>
+                            <td>Unique identifier for the tab group (required)</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">class</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">-</code></td>
+                            <td>Additional CSS classes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tabs Container -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">c-tabs</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-semibold">Property</th>
+                            <th class="font-semibold">Type</th>
+                            <th class="font-semibold">Default</th>
+                            <th class="font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="text-sm">variant</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">default</code></td>
+                            <td>Tab style: default, segmented, pill</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">size</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">md</code></td>
+                            <td>Tab size: sm, md, lg</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">orientation</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">horizontal</code></td>
+                            <td>Tab orientation: horizontal, vertical</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">class</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">-</code></td>
+                            <td>Additional CSS classes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Individual Tab -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">c-tab</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-semibold">Property</th>
+                            <th class="font-semibold">Type</th>
+                            <th class="font-semibold">Default</th>
+                            <th class="font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="text-sm">name</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">""</code></td>
+                            <td>Unique tab identifier (required)</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">group_name</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">""</code></td>
+                            <td>Tab group identifier (required)</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">icon</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">-</code></td>
+                            <td>Icon name to display before the tab label</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab Panel -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4">c-tab.panel</h3>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-semibold">Property</th>
+                            <th class="font-semibold">Type</th>
+                            <th class="font-semibold">Default</th>
+                            <th class="font-semibold">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code class="text-sm">name</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">""</code></td>
+                            <td>Tab identifier to match with c-tab name (required)</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">group_name</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">""</code></td>
+                            <td>Tab group identifier (required)</td>
+                        </tr>
+                        <tr>
+                            <td><code class="text-sm">class</code></td>
+                            <td><code class="text-sm">string</code></td>
+                            <td><code class="text-sm">-</code></td>
+                            <td>Additional CSS classes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Tab Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Tab Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                The tabs component supports three beautiful visual styles inspired by modern design patterns.
+            </p>
+
+            <div class="space-y-8">
+                <!-- Default Tabs -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Default Tabs</h4>
+                    <p class="text-sm text-base-content/60 mb-4">Clean underline style with animated indicator that slides between tabs.</p>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <c-tab.group group_name="default">
+                            <c-tabs variant="default">
+                                <c-tab name="overview" group_name="default" icon="eye" checked="true">Overview</c-tab>
+                                <c-tab name="details" group_name="default" icon="file-text">Details</c-tab>
+                                <c-tab name="analytics" group_name="default" icon="bar-chart">Analytics</c-tab>
+                            </c-tabs>
+
+                            <c-tab.panel name="overview" group_name="default">
+                                <h4 class="text-lg font-semibold mb-2">Overview</h4>
+                                <p class="text-base-content/70">High-level overview of your dashboard metrics and recent activity with smooth animated transitions.</p>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="details" group_name="default">
+                                <h4 class="text-lg font-semibold mb-2">Detailed View</h4>
+                                <p class="text-base-content/70">Comprehensive breakdown of all your data with detailed analysis and insights.</p>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="analytics" group_name="default">
+                                <h4 class="text-lg font-semibold mb-2">Analytics</h4>
+                                <p class="text-base-content/70">Advanced analytics and insights into your performance metrics and trends.</p>
+                            </c-tab.panel>
+                        </c-tab.group>
+                    </div>
+                </div>
+
+                <!-- Segmented Tabs -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Segmented Tabs</h4>
+                    <p class="text-sm text-base-content/60 mb-4">Button-like appearance with background container, perfect for compact layouts.</p>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <c-tab.group group_name="segmented">
+                            <c-tabs variant="segmented">
+                                <c-tab name="general" group_name="segmented" icon="settings" checked="true">General</c-tab>
+                                <c-tab name="security" group_name="segmented" icon="shield">Security</c-tab>
+                                <c-tab name="privacy" group_name="segmented" icon="lock">Privacy</c-tab>
+                            </c-tabs>
+
+                            <c-tab.panel name="general" group_name="segmented">
+                                <h4 class="text-lg font-semibold mb-2">General Settings</h4>
+                                <p class="text-base-content/70">Configure general application preferences and default behaviors for your account.</p>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="security" group_name="segmented">
+                                <h4 class="text-lg font-semibold mb-2">Security Settings</h4>
+                                <p class="text-base-content/70">Manage your security settings, passwords, and authentication methods.</p>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="privacy" group_name="segmented">
+                                <h4 class="text-lg font-semibold mb-2">Privacy Settings</h4>
+                                <p class="text-base-content/70">Control your privacy preferences and data sharing settings across the platform.</p>
+                            </c-tab.panel>
+                        </c-tab.group>
+                    </div>
+                </div>
+
+                <!-- Pill Tabs -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Pill Tabs</h4>
+                    <p class="text-sm text-base-content/60 mb-4">Rounded pill-shaped tabs with bold contrast for active states.</p>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <c-tab.group group_name="pill">
+                            <c-tabs variant="pill">
+                                <c-tab name="dashboard" group_name="pill" icon="layout-dashboard" checked="true">Dashboard</c-tab>
+                                <c-tab name="users" group_name="pill" icon="users">Users</c-tab>
+                                <c-tab name="orders" group_name="pill" icon="shopping-cart">Orders</c-tab>
+                                <c-tab name="reports" group_name="pill" icon="file-text">Reports</c-tab>
+                            </c-tabs>
+
+                            <c-tab.panel name="dashboard" group_name="pill">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="stat bg-base-100 rounded-lg">
+                                        <div class="stat-title">Total Sales</div>
+                                        <div class="stat-value text-primary">$45,231</div>
+                                        <div class="stat-desc">21% more than last month</div>
+                                    </div>
+                                    <div class="stat bg-base-100 rounded-lg">
+                                        <div class="stat-title">Active Users</div>
+                                        <div class="stat-value text-secondary">2,834</div>
+                                        <div class="stat-desc">12% more than last month</div>
+                                    </div>
+                                    <div class="stat bg-base-100 rounded-lg">
+                                        <div class="stat-title">Orders</div>
+                                        <div class="stat-value">1,423</div>
+                                        <div class="stat-desc">8% more than last month</div>
+                                    </div>
+                                </div>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="users" group_name="pill">
+                                <div class="space-y-4">
+                                    <div class="flex items-center space-x-3 p-3 bg-base-100 rounded-lg">
+                                        <c-avatar size="sm" name="John Doe" />
+                                        <div>
+                                            <div class="font-medium">John Doe</div>
+                                            <div class="text-sm text-base-content/60">john@example.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-3 p-3 bg-base-100 rounded-lg">
+                                        <c-avatar size="sm" name="Jane Smith" />
+                                        <div>
+                                            <div class="font-medium">Jane Smith</div>
+                                            <div class="text-sm text-base-content/60">jane@example.com</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="orders" group_name="pill">
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center p-3 bg-base-100 rounded-lg">
+                                        <div>
+                                            <div class="font-medium">Order #1234</div>
+                                            <div class="text-sm text-base-content/60">2 items • $45.99</div>
+                                        </div>
+                                        <c-badge variant="success">Completed</c-badge>
+                                    </div>
+                                    <div class="flex justify-between items-center p-3 bg-base-100 rounded-lg">
+                                        <div>
+                                            <div class="font-medium">Order #1235</div>
+                                            <div class="text-sm text-base-content/60">1 item • $29.99</div>
+                                        </div>
+                                        <c-badge variant="warning">Pending</c-badge>
+                                    </div>
+                                </div>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="reports" group_name="pill">
+                                <div class="space-y-4">
+                                    <div class="card bg-base-100 border border-base-300">
+                                        <div class="card-body">
+                                            <h4 class="card-title">Monthly Sales Report</h4>
+                                            <p>Detailed analysis of sales performance for the current month.</p>
+                                            <div class="card-actions">
+                                                <c-button variant="primary" class="btn-sm">Download PDF</c-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c-tab.panel>
+                        </c-tab.group>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative mt-6">
+                <pre class="language-html"><code>&lt;!-- Default with animated underline --&gt;
+&lt;c-tabs variant="default"&gt;...&lt;/c-tabs&gt;
+
+&lt;!-- Segmented style --&gt;
+&lt;c-tabs variant="segmented"&gt;...&lt;/c-tabs&gt;
+
+&lt;!-- Pill style --&gt;
+&lt;c-tabs variant="pill"&gt;...&lt;/c-tabs&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Tab Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Tab Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Control the size of your tabs with the <code class="bg-base-300 px-2 py-1 rounded">size</code> prop.
+            </p>
+
+            <div class="space-y-8">
+                <!-- Small Size -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Small Size</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <c-tab.group group_name="small">
+                            <c-tabs variant="default" size="sm">
+                                <c-tab name="tab1" group_name="small" checked="true">First</c-tab>
+                                <c-tab name="tab2" group_name="small">Second</c-tab>
+                                <c-tab name="tab3" group_name="small">Third</c-tab>
+                            </c-tabs>
+
+                            <c-tab.panel name="tab1" group_name="small">
+                                <p class="text-base-content/70">Small tabs are perfect for compact interfaces.</p>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="tab2" group_name="small">
+                                <p class="text-base-content/70">They maintain readability while saving space.</p>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="tab3" group_name="small">
+                                <p class="text-base-content/70">Great for sidebar navigation or mobile interfaces.</p>
+                            </c-tab.panel>
+                        </c-tab.group>
+                    </div>
+                </div>
+
+                <!-- Large Size -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Large Size</h4>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <c-tab.group group_name="large">
+                            <c-tabs variant="segmented" size="lg">
+                                <c-tab name="tab1" group_name="large" checked="true">Overview</c-tab>
+                                <c-tab name="tab2" group_name="large">Details</c-tab>
+                            </c-tabs>
+
+                            <c-tab.panel name="tab1" group_name="large">
+                                <p class="text-base-content/70">Large tabs provide more presence and are easier to tap on touch devices.</p>
+                            </c-tab.panel>
+
+                            <c-tab.panel name="tab2" group_name="large">
+                                <p class="text-base-content/70">They work well for primary navigation and important sections.</p>
+                            </c-tab.panel>
+                        </c-tab.group>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative mt-6">
+                <pre class="language-html"><code>&lt;!-- Small tabs --&gt;
+&lt;c-tabs variant="default" size="sm"&gt;...&lt;/c-tabs&gt;
+
+&lt;!-- Large tabs --&gt;
+&lt;c-tabs variant="segmented" size="lg"&gt;...&lt;/c-tabs&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Vertical Orientation -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Vertical Orientation</h3>
+            <p class="text-base-content/70 mb-6">
+                Use <code class="bg-base-300 px-2 py-1 rounded">orientation="vertical"</code> to create vertical tabs, perfect for sidebars and dashboard layouts.
+            </p>
+
+            <div class="space-y-8">
+                <!-- Vertical Default -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Vertical Default</h4>
+                    <p class="text-sm text-base-content/60 mb-4">Animated side bar that moves vertically between tabs.</p>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="flex gap-8">
+                            <c-tab.group group_name="vertical-default">
+                                <c-tabs variant="default" orientation="vertical">
+                                    <c-tab name="dashboard" group_name="vertical-default" icon="layout-dashboard" checked="true">Dashboard</c-tab>
+                                    <c-tab name="analytics" group_name="vertical-default" icon="bar-chart">Analytics</c-tab>
+                                    <c-tab name="settings" group_name="vertical-default" icon="settings">Settings</c-tab>
+                                    <c-tab name="profile" group_name="vertical-default" icon="user">Profile</c-tab>
+                                </c-tabs>
+
+                                <div class="flex-1">
+                                    <c-tab.panel name="dashboard" group_name="vertical-default">
+                                        <h4 class="text-lg font-semibold mb-3">Dashboard Overview</h4>
+                                        <p class="text-base-content/70 mb-4">Welcome to your main dashboard where you can monitor all your key metrics.</p>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div class="stat bg-base-100 rounded-lg p-4">
+                                                <div class="stat-title text-sm">Active Users</div>
+                                                <div class="stat-value text-2xl text-primary">2,834</div>
+                                            </div>
+                                            <div class="stat bg-base-100 rounded-lg p-4">
+                                                <div class="stat-title text-sm">Revenue</div>
+                                                <div class="stat-value text-2xl text-success">$12,450</div>
+                                            </div>
+                                        </div>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="analytics" group_name="vertical-default">
+                                        <h4 class="text-lg font-semibold mb-3">Analytics</h4>
+                                        <p class="text-base-content/70">Detailed analytics and insights about your application performance.</p>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="settings" group_name="vertical-default">
+                                        <h4 class="text-lg font-semibold mb-3">Settings</h4>
+                                        <p class="text-base-content/70">Configure your application settings and preferences.</p>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="profile" group_name="vertical-default">
+                                        <h4 class="text-lg font-semibold mb-3">Profile</h4>
+                                        <p class="text-base-content/70">Manage your personal profile information and account details.</p>
+                                    </c-tab.panel>
+                                </div>
+                            </c-tab.group>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical Segmented -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Vertical Segmented</h4>
+                    <p class="text-sm text-base-content/60 mb-4">Vertical button-style tabs ideal for compact navigation.</p>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="flex gap-8">
+                            <c-tab.group group_name="vertical-segmented">
+                                <c-tabs variant="segmented" orientation="vertical" size="sm">
+                                    <c-tab name="inbox" group_name="vertical-segmented" icon="inbox" checked="true">Inbox</c-tab>
+                                    <c-tab name="sent" group_name="vertical-segmented" icon="send">Sent</c-tab>
+                                    <c-tab name="drafts" group_name="vertical-segmented" icon="file-text">Drafts</c-tab>
+                                    <c-tab name="archive" group_name="vertical-segmented" icon="archive">Archive</c-tab>
+                                </c-tabs>
+
+                                <div class="flex-1">
+                                    <c-tab.panel name="inbox" group_name="vertical-segmented">
+                                        <h4 class="text-lg font-semibold mb-3">Inbox (24)</h4>
+                                        <div class="space-y-2">
+                                            <div class="p-3 bg-base-100 rounded border-l-4 border-primary">
+                                                <div class="font-medium">Team Meeting Tomorrow</div>
+                                                <div class="text-sm text-base-content/60">Don't forget about our weekly sync...</div>
+                                            </div>
+                                            <div class="p-3 bg-base-100 rounded">
+                                                <div class="font-medium">Project Update</div>
+                                                <div class="text-sm text-base-content/60">The new features are ready for review...</div>
+                                            </div>
+                                        </div>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="sent" group_name="vertical-segmented">
+                                        <h4 class="text-lg font-semibold mb-3">Sent Messages</h4>
+                                        <p class="text-base-content/70">View all your sent messages and their status.</p>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="drafts" group_name="vertical-segmented">
+                                        <h4 class="text-lg font-semibold mb-3">Draft Messages (3)</h4>
+                                        <p class="text-base-content/70">Continue working on your unsent messages.</p>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="archive" group_name="vertical-segmented">
+                                        <h4 class="text-lg font-semibold mb-3">Archived Messages</h4>
+                                        <p class="text-base-content/70">Access your archived conversations and messages.</p>
+                                    </c-tab.panel>
+                                </div>
+                            </c-tab.group>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical Pills -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-medium">Vertical Pills</h4>
+                    <p class="text-sm text-base-content/60 mb-4">Rounded pill-style tabs in vertical layout.</p>
+                    <div class="p-6 bg-base-200 rounded-lg">
+                        <div class="flex gap-8">
+                            <c-tab.group group_name="vertical-pills">
+                                <c-tabs variant="pill" orientation="vertical">
+                                    <c-tab name="home" group_name="vertical-pills" icon="home" checked="true">Home</c-tab>
+                                    <c-tab name="explore" group_name="vertical-pills" icon="compass">Explore</c-tab>
+                                    <c-tab name="notifications" group_name="vertical-pills" icon="bell">Notifications</c-tab>
+                                    <c-tab name="messages" group_name="vertical-pills" icon="message-circle">Messages</c-tab>
+                                </c-tabs>
+
+                                <div class="flex-1">
+                                    <c-tab.panel name="home" group_name="vertical-pills">
+                                        <h4 class="text-lg font-semibold mb-3">Home Feed</h4>
+                                        <p class="text-base-content/70">Your personalized home feed with latest updates and content.</p>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="explore" group_name="vertical-pills">
+                                        <h4 class="text-lg font-semibold mb-3">Explore</h4>
+                                        <p class="text-base-content/70">Discover new content, trending topics, and recommendations.</p>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="notifications" group_name="vertical-pills">
+                                        <h4 class="text-lg font-semibold mb-3">Notifications</h4>
+                                        <p class="text-base-content/70">Stay updated with all your notifications and alerts.</p>
+                                    </c-tab.panel>
+
+                                    <c-tab.panel name="messages" group_name="vertical-pills">
+                                        <h4 class="text-lg font-semibold mb-3">Messages</h4>
+                                        <p class="text-base-content/70">View and manage your private messages and conversations.</p>
+                                    </c-tab.panel>
+                                </div>
+                            </c-tab.group>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative mt-6">
+                <pre class="language-html"><code>&lt;!-- Vertical default with animated side bar --&gt;
+&lt;c-tabs variant="default" orientation="vertical"&gt;...&lt;/c-tabs&gt;
+
+&lt;!-- Vertical segmented --&gt;
+&lt;c-tabs variant="segmented" orientation="vertical"&gt;...&lt;/c-tabs&gt;
+
+&lt;!-- Vertical pills --&gt;
+&lt;c-tabs variant="pill" orientation="vertical"&gt;...&lt;/c-tabs&gt;</code></pre>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Usage Notes -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Usage Notes</h2>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Flux UI Inspired Design</h4>
+                    <div class="text-sm">Beautiful tab styles inspired by Flux UI with smooth animations and modern aesthetics. JavaScript handles functionality while CSS provides the visual appeal.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Required Properties</h4>
+                    <div class="text-sm">Both <code>name</code> and <code>group_name</code> properties are required and must match between tabs and panels. Use <code>checked="true"</code> to set the initially active tab.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Animated Underline</h4>
+                    <div class="text-sm">Default tabs feature a smooth sliding underline animation that moves between tabs for enhanced user experience and visual feedback.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

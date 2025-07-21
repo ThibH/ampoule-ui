@@ -1,0 +1,348 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Radio</h1>
+        <p class="text-lg text-base-content/70">
+            Interactive radio button component with multiple variants for mutually exclusive selections.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <div class="space-y-3">
+                    <c-radio id="basic-option1" name="basic-group" value="option1" label="Option 1" checked="true" />
+                    <c-radio id="basic-option2" name="basic-group" value="option2" label="Option 2" />
+                    <c-radio id="basic-option3" name="basic-group" value="option3" label="Option 3" />
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-radio id="option1" name="group" value="option1" label="Option 1" checked="true" /&gt;
+&lt;c-radio id="option2" name="group" value="option2" label="Option 2" /&gt;
+&lt;c-radio id="option3" name="group" value="option3" label="Option 3" /&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">id</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Unique identifier for the radio input</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">name</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Form input name (required to group radios)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">value</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Form input value</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">default</code></td>
+                        <td>Radio style: default, pill, card, button</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Size: xs, sm, md, lg (default variant only)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Label text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">description</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Description text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name (uses c-icon component)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">color</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">primary</code></td>
+                        <td>Color variant for pill and button styles: primary, secondary, accent, neutral, error, warning, success, info</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">checked</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Initial checked state</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">disabled</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Disabled state</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Variants -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Variants</h2>
+
+        <!-- Default -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Default</h3>
+            <p class="text-base-content/70 mb-4">Basic radio buttons with labels and optional descriptions. Click anywhere on the label to select.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-radio id="plan-free" name="plan" value="free" label="Free Plan" description="Basic features for personal use" />
+                        <c-radio id="plan-pro" name="plan" value="pro" label="Pro Plan" description="Advanced features for professionals" checked="true" />
+                        <c-radio id="plan-enterprise" name="plan" value="enterprise" label="Enterprise Plan" description="Full-scale solution for organizations" icon="building" />
+                        <c-radio id="plan-disabled" name="plan" value="disabled" label="Custom Plan" description="Contact us for pricing" disabled="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-radio id="plan-free" name="plan" value="free" label="Free Plan" description="Basic features" /&gt;
+&lt;c-radio id="plan-pro" name="plan" value="pro" label="Pro Plan" checked="true" /&gt;
+&lt;c-radio id="plan-enterprise" name="plan" value="enterprise" label="Enterprise Plan" icon="building" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pills -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Pills</h3>
+            <p class="text-base-content/70 mb-4">Compact pill-style radio buttons, perfect for categories or options. Click anywhere on the pill to select.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-3">
+                        <c-radio id="pill-xs" name="size-group" value="xs" variant="pill" label="XS" />
+                        <c-radio id="pill-sm" name="size-group" value="sm" variant="pill" label="SM" checked="true" />
+                        <c-radio id="pill-md" name="size-group" value="md" variant="pill" label="MD" color="secondary" />
+                        <c-radio id="pill-lg" name="size-group" value="lg" variant="pill" label="LG" color="success" />
+                        <c-radio id="pill-xl" name="size-group" value="xl" variant="pill" label="XL" color="warning" />
+                        <c-radio id="pill-disabled" name="size-group" value="disabled" variant="pill" label="Disabled" disabled="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-radio id="pill-xs" name="size-group" value="xs" variant="pill" label="XS" /&gt;
+&lt;c-radio id="pill-sm" name="size-group" value="sm" variant="pill" label="SM" checked="true" /&gt;
+&lt;c-radio id="pill-md" name="size-group" value="md" variant="pill" label="MD" color="secondary" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Cards</h3>
+            <p class="text-base-content/70 mb-4">Card-style radio buttons with rich content support. Click anywhere on the card to select.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <c-radio 
+                            id="card-starter"
+                            name="pricing"
+                            value="starter"
+                            variant="card" 
+                            label="Starter" 
+                            description="Perfect for individuals and small projects"
+                            icon="zap"
+                        />
+                        <c-radio 
+                            id="card-business"
+                            name="pricing"
+                            value="business"
+                            variant="card" 
+                            label="Business" 
+                            description="Ideal for growing teams and businesses"
+                            icon="briefcase"
+                            checked="true"
+                        />
+                        <c-radio 
+                            id="card-enterprise"
+                            name="pricing"
+                            value="enterprise"
+                            variant="card" 
+                            label="Enterprise" 
+                            description="Full-scale solution for large organizations"
+                            icon="building"
+                        />
+                        <c-radio 
+                            id="card-custom"
+                            name="pricing"
+                            value="custom"
+                            variant="card" 
+                            label="Custom Solution" 
+                            description="Tailored to your specific requirements"
+                            icon="settings"
+                            disabled="true"
+                        />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-radio 
+    id="card-starter"
+    name="pricing"
+    value="starter"
+    variant="card" 
+    label="Starter" 
+    description="Perfect for individuals"
+    icon="zap"
+/&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards with Custom Content -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Cards with Custom Content</h3>
+            <p class="text-base-content/70 mb-4">Cards can include custom content using slots.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <c-radio id="pricing-basic" name="subscription" value="basic" variant="card" label="Basic" description="Essential features to get started" icon="star">
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="text-2xl font-bold">$9</span>
+                                <span class="text-sm text-base-content/60">/month</span>
+                            </div>
+                            <ul class="text-sm text-base-content/60 mt-2 space-y-1">
+                                <li>• 5 projects</li>
+                                <li>• 10GB storage</li>
+                                <li>• Email support</li>
+                            </ul>
+                        </c-radio>
+                        
+                        <c-radio id="pricing-pro" name="subscription" value="pro" variant="card" label="Pro" description="Advanced features for professionals" icon="crown" checked="true">
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="text-2xl font-bold">$29</span>
+                                <span class="text-sm text-base-content/60">/month</span>
+                                <c-badge variant="success" size="sm">Popular</c-badge>
+                            </div>
+                            <ul class="text-sm text-base-content/60 mt-2 space-y-1">
+                                <li>• Unlimited projects</li>
+                                <li>• 100GB storage</li>
+                                <li>• Priority support</li>
+                            </ul>
+                        </c-radio>
+
+                        <c-radio id="pricing-team" name="subscription" value="team" variant="card" label="Team" description="Collaboration tools for teams" icon="users">
+                            <div class="flex items-center gap-2 mt-2">
+                                <span class="text-2xl font-bold">$99</span>
+                                <span class="text-sm text-base-content/60">/month</span>
+                            </div>
+                            <ul class="text-sm text-base-content/60 mt-2 space-y-1">
+                                <li>• Everything in Pro</li>
+                                <li>• Team collaboration</li>
+                                <li>• Advanced analytics</li>
+                            </ul>
+                        </c-radio>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-radio id="pricing-basic" name="subscription" value="basic" variant="card" label="Basic" icon="star"&gt;
+    &lt;div class="flex items-center gap-2 mt-2"&gt;
+        &lt;span class="text-2xl font-bold"&gt;$9&lt;/span&gt;
+        &lt;span class="text-sm"&gt;/month&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;ul class="text-sm mt-2 space-y-1"&gt;
+        &lt;li&gt;• 5 projects&lt;/li&gt;
+        &lt;li&gt;• 10GB storage&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/c-radio&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Buttons</h3>
+            <p class="text-base-content/70 mb-4">Button-style radio buttons for segmented controls. Click anywhere on the button to select.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-3">
+                        <c-radio id="btn-list" name="view-mode" value="list" variant="button" label="List" icon="list" />
+                        <c-radio id="btn-grid" name="view-mode" value="grid" variant="button" label="Grid" icon="grid-3x3" checked="true" />
+                        <c-radio id="btn-card" name="view-mode" value="card" variant="button" label="Card" icon="credit-card" color="secondary" />
+                        <c-radio id="btn-table" name="view-mode" value="table" variant="button" label="Table" icon="table" color="accent" />
+                        <c-radio id="btn-kanban" name="view-mode" value="kanban" variant="button" label="Kanban" icon="kanban-square" color="info" />
+                        <c-radio id="btn-disabled" name="view-mode" value="disabled" variant="button" label="Disabled" disabled="true" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-radio id="btn-list" name="view-mode" value="list" variant="button" label="List" icon="list" /&gt;
+&lt;c-radio id="btn-grid" name="view-mode" value="grid" variant="button" label="Grid" checked="true" /&gt;
+&lt;c-radio id="btn-card" name="view-mode" value="card" variant="button" color="secondary" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="mb-8">
+            <h3 class="text-xl font-medium mb-4">Sizes</h3>
+            <p class="text-base-content/70 mb-4">Different sizes available for default variant.</p>
+            
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-4">
+                        <c-radio id="size-xs" name="size-demo" value="xs" size="xs" label="Extra small radio" />
+                        <c-radio id="size-sm" name="size-demo" value="sm" size="sm" label="Small radio" />
+                        <c-radio id="size-md" name="size-demo" value="md" size="md" label="Medium radio (default)" checked="true" />
+                        <c-radio id="size-lg" name="size-demo" value="lg" size="lg" label="Large radio" />
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-radio id="size-xs" name="size-demo" value="xs" size="xs" label="Extra small" /&gt;
+&lt;c-radio id="size-sm" name="size-demo" value="sm" size="sm" label="Small" /&gt;
+&lt;c-radio id="size-md" name="size-demo" value="md" size="md" label="Medium" checked="true" /&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-6">Key Features</h2>
+        <ul class="list-disc list-inside space-y-2 text-base-content/70">
+            <li><strong>Mutually exclusive selection:</strong> Only one option can be selected per group (defined by name attribute)</li>
+            <li><strong>Automatic label interaction:</strong> Click anywhere on labels, descriptions, pills, cards, or buttons to select</li>
+            <li><strong>CSS-only interactivity:</strong> Uses modern CSS :has() pseudo-class, no JavaScript required</li>
+            <li><strong>DaisyUI integration:</strong> Built on DaisyUI radio classes for consistent theming</li>
+            <li><strong>Custom content:</strong> Card variant supports custom content via slots</li>
+            <li><strong>Responsive design:</strong> Works seamlessly across all screen sizes</li>
+            <li><strong>Grouped selections:</strong> Use the same name attribute to group radio buttons together</li>
+        </ul>
+    </section>
+</div>

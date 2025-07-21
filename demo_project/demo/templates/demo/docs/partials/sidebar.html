@@ -1,0 +1,233 @@
+<!-- Sidebar Navigation -->
+<nav class="sticky top-16 hidden w-64 shrink-0 overflow-y-auto border-r border-base-300 pt-12 pb-16 lg:block">
+    <div class="px-6">
+        <h2 class="text-lg font-semibold mb-4">Documentation</h2>
+
+    <!-- Getting Started -->
+        <div class="mb-8">
+            <h3 class="text-sm font-medium text-base-content/60 uppercase tracking-wider mb-3">Getting Started</h3>
+            <ul class="space-y-1">
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Introduction
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'getting-started' 'installation' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Installation
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    <!-- Layouts -->
+        <div class="mb-8">
+            <h3 class="text-sm font-medium text-base-content/60 uppercase tracking-wider mb-3">Layouts</h3>
+            <ul class="space-y-1">
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'layouts' 'navbar' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Navbar
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'layouts' 'sidebar' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Sidebar
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'layouts' 'footer' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Footer
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    <!-- Forms -->
+        <div class="mb-8">
+            <h3 class="text-sm font-medium text-base-content/60 uppercase tracking-wider mb-3">Forms</h3>
+            <ul class="space-y-1">
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'forms' 'checkbox' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Checkbox
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'forms' 'input' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Input
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'forms' 'radio' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Radio
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'forms' 'switch' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Switch
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+    <!-- Components -->
+        <div class="mb-8">
+            <h3 class="text-sm font-medium text-base-content/60 uppercase tracking-wider mb-3">Components</h3>
+            <ul class="space-y-1">
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'avatar' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Avatar
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'badge' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Badge
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'breadcrumbs' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Breadcrumbs
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'button' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Button
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'button-group' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Button Group
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'callout' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Callout
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'card' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Card
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'chip' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Chip
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'combobox' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Combobox
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'command-palette' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Command Palette
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'dropdown' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Dropdown
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'filters' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Filters
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'icon' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Icon
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'modal' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Modal
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'navbar' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Navbar
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'pricing-plan' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Pricing Plan
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'pricing-table' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Pricing Table
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'progress' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Progress Bar
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'pagination' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Pagination
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'range' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Range
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'table' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Table
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'tabs' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Tabs
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'text' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Text
+                    </a>
+                </li>
+                <li>
+                    <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'toast' %}" hx-target="#content" hx-push-url="true"
+                       class="block px-3 py-2 text-sm rounded-md hover:bg-base-200 transition-colors">
+                        Toast
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

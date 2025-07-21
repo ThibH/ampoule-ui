@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navbar Demo 2 - E-commerce Site</title>
+
+        {% load static %}
+        {% include "init-components.html" %}
+    </head>
+
+    <body class="bg-base-100 min-h-screen">
+        <c-toast-area></c-toast-area>
+
+    <!-- Navbar Layout -->
+        <c-layout.navbar>
+            <c-slot name="logo">
+                <div class="flex items-center">
+                    <c-icon name="shopping-bag" class="w-8 h-8 text-primary mr-2"></c-icon>
+                    <span class="text-xl font-bold">ShopZone</span>
+                </div>
+            </c-slot>
+
+            <c-slot name="nav_center">
+                <div class="hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a href="#">Accueil</a></li>
+                        <li>
+                            <details>
+                                <summary>Produits</summary>
+                                <ul class="p-2 bg-base-100 rounded-t-none">
+                                    <li><a>Électronique</a></li>
+                                    <li><a>Mode</a></li>
+                                    <li><a>Maison & Jardin</a></li>
+                                    <li><a>Sports</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="#">Promotions</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </c-slot>
+
+            <c-slot name="nav_end">
+                <div class="flex items-center gap-2">
+                <!-- Search -->
+                    <div class="form-control">
+                        <div class="input-group">
+                            <input type="text" placeholder="Rechercher un produit..." class="input input-bordered input-sm w-64" />
+                            <button class="btn btn-square btn-sm">
+                                <c-icon name="search" class="w-4 h-4"></c-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                <!-- Wishlist -->
+                    <div class="btn btn-ghost btn-circle">
+                        <div class="indicator">
+                            <c-icon name="heart" class="w-5 h-5"></c-icon>
+                            <span class="badge badge-xs badge-primary indicator-item">2</span>
+                        </div>
+                    </div>
+
+                <!-- Cart -->
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                            <div class="indicator">
+                                <c-icon name="shopping-cart" class="w-5 h-5"></c-icon>
+                                <span class="badge badge-xs badge-primary indicator-item">4</span>
+                            </div>
+                        </div>
+                        <div tabindex="0" class="dropdown-content z-[1] card card-compact w-80 p-2 shadow bg-base-100">
+                            <div class="card-body">
+                                <span class="font-bold text-lg">4 articles</span>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span>iPhone 15</span>
+                                        <span class="text-info">€999</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>MacBook Air</span>
+                                        <span class="text-info">€1,299</span>
+                                    </div>
+                                </div>
+                                <span class="text-info font-bold">Sous-total: €2,450</span>
+                                <div class="card-actions">
+                                    <c-button variant="primary" class="btn-block">Voir le panier</c-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- User Account -->
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-10 rounded-full">
+                                <div class="bg-accent text-accent-content w-10 h-10 rounded-full flex items-center justify-center">
+                                    <c-icon name="user" class="w-5 h-5"></c-icon>
+                                </div>
+                            </div>
+                        </div>
+                        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a>Mon compte</a></li>
+                            <li><a>Mes commandes</a></li>
+                            <li><a>Se connecter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </c-slot>
+        </c-layout.navbar>
+
+    <!-- Hero Section -->
+        <div class="hero min-h-[400px] bg-gradient-to-r from-primary to-secondary">
+            <div class="hero-content text-center text-primary-content">
+                <div class="max-w-md">
+                    <c-text variant="strong" class="mb-5 text-5xl">Soldes d'hiver</c-text>
+                    <c-text variant="default" class="mb-5">Jusqu'à 70% de réduction sur une sélection de produits. Offre limitée !</c-text>
+                    <c-button variant="primary" size="lg" class="gap-2">
+                        <c-icon name="shopping-bag" class="w-5 h-5"></c-icon>
+                        Voir les offres
+                    </c-button>
+                </div>
+            </div>
+        </div>
+
+    <!-- Featured Products -->
+        <main class="container mx-auto px-6 py-12">
+            <c-text variant="strong" class="text-3xl text-center mb-8">Produits en vedette</c-text>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Product 1 -->
+                <div class="card bg-base-200 shadow-xl">
+                    <figure class="px-4 pt-4">
+                        <div class="w-full h-48 bg-base-300 rounded-lg flex items-center justify-center">
+                            <c-icon name="smartphone" class="w-16 h-16 text-base-content/50"></c-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <c-text variant="strong" class="card-title">iPhone 15 Pro</c-text>
+                        <c-text variant="subtle">Dernier modèle Apple avec puce A17 Pro</c-text>
+                        <div class="flex items-center justify-between">
+                            <c-text variant="strong" class="text-2xl">€1,199</c-text>
+                            <div class="rating rating-sm">
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" checked />
+                            </div>
+                        </div>
+                        <div class="card-actions justify-end">
+                            <c-button variant="primary" size="sm">Ajouter au panier</c-button>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Product 2 -->
+                <div class="card bg-base-200 shadow-xl">
+                    <figure class="px-4 pt-4">
+                        <div class="w-full h-48 bg-base-300 rounded-lg flex items-center justify-center">
+                            <c-icon name="laptop" class="w-16 h-16 text-base-content/50"></c-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <c-text variant="strong" class="card-title">MacBook Air M3</c-text>
+                        <c-text variant="subtle">Ultra-portable avec puce M3</c-text>
+                        <div class="flex items-center justify-between">
+                            <c-text variant="strong" class="text-2xl">€1,399</c-text>
+                            <div class="rating rating-sm">
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                            </div>
+                        </div>
+                        <div class="card-actions justify-end">
+                            <c-button variant="primary" size="sm">Ajouter au panier</c-button>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Product 3 -->
+                <div class="card bg-base-200 shadow-xl">
+                    <figure class="px-4 pt-4">
+                        <div class="w-full h-48 bg-base-300 rounded-lg flex items-center justify-center">
+                            <c-icon name="headphones" class="w-16 h-16 text-base-content/50"></c-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <c-text variant="strong" class="card-title">AirPods Pro 2</c-text>
+                        <c-text variant="subtle">Réduction de bruit active</c-text>
+                        <div class="flex items-center justify-between">
+                            <c-text variant="strong" class="text-2xl">€279</c-text>
+                            <div class="rating rating-sm">
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" checked />
+                            </div>
+                        </div>
+                        <div class="card-actions justify-end">
+                            <c-button variant="primary" size="sm">Ajouter au panier</c-button>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Product 4 -->
+                <div class="card bg-base-200 shadow-xl">
+                    <figure class="px-4 pt-4">
+                        <div class="w-full h-48 bg-base-300 rounded-lg flex items-center justify-center">
+                            <c-icon name="watch" class="w-16 h-16 text-base-content/50"></c-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <c-text variant="strong" class="card-title">Apple Watch Series 9</c-text>
+                        <c-text variant="subtle">Montre connectée avancée</c-text>
+                        <div class="flex items-center justify-between">
+                            <c-text variant="strong" class="text-2xl">€429</c-text>
+                            <div class="rating rating-sm">
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-4" class="mask mask-star-2 bg-orange-400" checked />
+                            </div>
+                        </div>
+                        <div class="card-actions justify-end">
+                            <c-button variant="primary" size="sm">Ajouter au panier</c-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Newsletter -->
+            <div class="card bg-primary text-primary-content">
+                <div class="card-body text-center">
+                    <c-text variant="strong" class="card-title justify-center mb-4">Restez informé de nos offres</c-text>
+                    <c-text variant="default" class="mb-6">Inscrivez-vous à notre newsletter pour recevoir nos meilleures promotions</c-text>
+                    <div class="flex justify-center">
+                        <div class="join">
+                            <input class="input join-item input-bordered" placeholder="Votre email" />
+                            <c-button variant="primary" class="join-item">S'inscrire</c-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    <!-- Footer -->
+        <c-layout.footer>
+            <c-slot name="content">
+                <div class="footer-center">
+                    <div>
+                        <c-icon name="shopping-bag" class="w-8 h-8 text-primary"></c-icon>
+                        <c-text variant="strong">ShopZone <br/>Votre boutique en ligne préférée</c-text>
+                        <c-text variant="default">Copyright © 2024 - Tous droits réservés</c-text>
+                    </div>
+                </div>
+            </c-slot>
+
+            <c-slot name="nav">
+                <div>
+                    <c-text variant="strong" class="footer-title">Boutique</c-text>
+                    <a class="link link-hover">Électronique</a>
+                    <a class="link link-hover">Mode</a>
+                    <a class="link link-hover">Maison</a>
+                    <a class="link link-hover">Sports</a>
+                </div>
+                <div>
+                    <c-text variant="strong" class="footer-title">Service client</c-text>
+                    <a class="link link-hover">Contact</a>
+                    <a class="link link-hover">FAQ</a>
+                    <a class="link link-hover">Livraison</a>
+                    <a class="link link-hover">Retours</a>
+                </div>
+                <div>
+                    <c-text variant="strong" class="footer-title">Légal</c-text>
+                    <a class="link link-hover">CGV</a>
+                    <a class="link link-hover">Confidentialité</a>
+                    <a class="link link-hover">Cookies</a>
+                </div>
+            </c-slot>
+        </c-layout.footer>
+
+        {% include "scripts.html" %}
+    </body>
+</html>

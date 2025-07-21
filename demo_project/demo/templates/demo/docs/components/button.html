@@ -1,0 +1,364 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Button</h1>
+        <p class="text-lg text-base-content/70">
+            A versatile button component with support for different variants, icons, and states.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-button>Default Button</c-button>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-button&gt;Default Button&lt;/c-button&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">neutral</code></td>
+                        <td>Button style: primary, secondary, accent, neutral, outline, ghost, error, warning, success, info</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">href</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>URL to navigate to (renders as link styled as button)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display at the beginning of the button</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">icon_trailing</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to display at the end of the button</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">square</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Make button square (automatically applied for icon-only buttons)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">spinner</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Show standard loading spinner</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">spinner_icon</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Icon name to use as animated spinner</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">modal</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Modal ID to open on click</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes (btn-sm, btn-lg, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">disabled</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Disable the button</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Button Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Button Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                The button component supports multiple style variants via the <code class="bg-base-300 px-2 py-1 rounded">variant</code> prop.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-button>Default</c-button>
+                        <c-button variant="primary">Primary</c-button>
+                        <c-button variant="secondary">Secondary</c-button>
+                        <c-button variant="accent">Accent</c-button>
+                        <c-button variant="neutral">Neutral</c-button>
+                        <c-button variant="outline">Outline</c-button>
+                        <c-button variant="ghost">Ghost</c-button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button&gt;Default&lt;/c-button&gt;
+&lt;c-button variant="primary"&gt;Primary&lt;/c-button&gt;
+&lt;c-button variant="secondary"&gt;Secondary&lt;/c-button&gt;
+&lt;c-button variant="accent"&gt;Accent&lt;/c-button&gt;
+&lt;c-button variant="neutral"&gt;Neutral&lt;/c-button&gt;
+&lt;c-button variant="outline"&gt;Outline&lt;/c-button&gt;
+&lt;c-button variant="ghost"&gt;Ghost&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Button Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Different sizes are available by adding the appropriate DaisyUI classes.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <c-button class="btn-xs" variant="primary">Extra Small</c-button>
+                        <c-button class="btn-sm" variant="primary">Small</c-button>
+                        <c-button variant="primary">Normal</c-button>
+                        <c-button class="btn-lg" variant="primary">Large</c-button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button class="btn-xs" variant="primary"&gt;Extra Small&lt;/c-button&gt;
+&lt;c-button class="btn-sm" variant="primary"&gt;Small&lt;/c-button&gt;
+&lt;c-button variant="primary"&gt;Normal&lt;/c-button&gt;
+&lt;c-button class="btn-lg" variant="primary"&gt;Large&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button as Link -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Button as Link</h3>
+            <p class="text-base-content/70 mb-6">
+                Transform a button into a link by using the <code class="bg-base-300 px-2 py-1 rounded">href</code> prop. The button will render as an anchor tag styled like a button.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-button variant="primary" href="/demo/">Go to Demo</c-button>
+                        <c-button variant="outline" href="https://github.com" icon_trailing="external-link">External Link</c-button>
+                        <c-button variant="ghost" href="#modal-section">Internal Link</c-button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button variant="primary" href="/demo/"&gt;Go to Demo&lt;/c-button&gt;
+&lt;c-button variant="outline" href="https://github.com" icon_trailing="external-link"&gt;External Link&lt;/c-button&gt;
+&lt;c-button variant="ghost" href="#section"&gt;Internal Link&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons with Icons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Buttons with Icons</h3>
+            <p class="text-base-content/70 mb-6">
+                Add icons to your buttons with the <code class="bg-base-300 px-2 py-1 rounded">icon</code> prop for leading icons, or <code class="bg-base-300 px-2 py-1 rounded">icon_trailing</code> for trailing icons.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-button variant="primary" icon="plus">Add</c-button>
+                        <c-button variant="secondary" icon="pencil">Edit</c-button>
+                        <c-button variant="error" icon="trash">Delete</c-button>
+                        <c-button variant="default" icon="download">Download</c-button>
+                        <c-button variant="primary" icon_trailing="arrow-right">Next</c-button>
+                        <c-button variant="secondary" icon_trailing="external-link">Open Link</c-button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Leading icons --&gt;
+&lt;c-button variant="primary" icon="plus"&gt;Add&lt;/c-button&gt;
+&lt;c-button variant="secondary" icon="pencil"&gt;Edit&lt;/c-button&gt;
+
+&lt;!-- Trailing icons --&gt;
+&lt;c-button variant="primary" icon_trailing="arrow-right"&gt;Next&lt;/c-button&gt;
+&lt;c-button variant="secondary" icon_trailing="external-link"&gt;Open Link&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Square and Icon-only Buttons -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Square and Icon-only Buttons</h3>
+            <p class="text-base-content/70 mb-6">
+                Create square buttons with the <code class="bg-base-300 px-2 py-1 rounded">square</code> prop, or let them be automatically square when they contain only an icon.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <c-button variant="primary" square icon="plus"></c-button>
+                        <c-button variant="secondary" icon="pencil"></c-button>
+                        <c-button variant="error" icon="trash"></c-button>
+                        <c-button variant="ghost" icon="settings"></c-button>
+                        <c-button variant="outline" square>SQ</c-button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Explicit square with text --&gt;
+&lt;c-button variant="primary" square icon="plus"&gt;+&lt;/c-button&gt;
+
+&lt;!-- Auto square (icon only, no text) --&gt;
+&lt;c-button variant="secondary" icon="pencil"&gt;&lt;/c-button&gt;
+&lt;c-button variant="error" icon="trash"&gt;&lt;/c-button&gt;
+
+&lt;!-- Manual square without icon --&gt;
+&lt;c-button variant="outline" square&gt;SQ&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading States -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Loading States</h3>
+            <p class="text-base-content/70 mb-6">
+                Display a loading indicator with the <code class="bg-base-300 px-2 py-1 rounded">spinner</code> prop. Try clicking the buttons below to see the spinners in action with HTMX.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4 mb-4">
+                        <c-button variant="primary" spinner="true" hx-get="{% url 'demo:demo_spinner' %}" hx-target="#spinner-demo-result" hx-swap="innerHTML">
+                            Click me (with spinner)
+                        </c-button>
+                        <c-button variant="secondary" icon="sparkle" spinner_icon="sparkles" hx-get="{% url 'demo:demo_spinner' %}" hx-target="#spinner-demo-result" hx-swap="innerHTML">
+                            Refresh Data
+                        </c-button>
+                        <c-button square icon="plus" spinner variant="neutral"
+                                  hx-target="#spinner-demo-result"
+                                  hx-get="{% url 'demo:demo_spinner' %}"/>
+                    </div>
+                    <div id="spinner-demo-result" class="text-sm text-success font-medium"></div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Basic spinner --&gt;
+&lt;c-button variant="primary" spinner="true"&gt;Loading...&lt;/c-button&gt;
+
+&lt;!-- Custom spinner with icon --&gt;
+&lt;c-button variant="secondary" spinner_icon="refresh"&gt;Refresh&lt;/c-button&gt;
+
+&lt;!-- With HTMX integration --&gt;
+&lt;c-button variant="primary" spinner="true" 
+          hx-get="/api/some-action/" 
+          hx-target="#result"&gt;
+    Process Data
+&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Integration -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Modal Integration</h3>
+            <p class="text-base-content/70 mb-6">
+                Open a modal directly with the <code class="bg-base-300 px-2 py-1 rounded">modal</code> prop.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <c-button variant="primary" modal="my_modal">Open Modal</c-button>
+
+                    <!-- Example modal (hidden in real implementation) -->
+                    <dialog id="my_modal" class="modal">
+                        <div class="modal-box">
+                            <h3 class="text-lg font-bold">Example Modal</h3>
+                            <p class="py-4">This is an example modal opened by the button.</p>
+                            <div class="modal-action">
+                                <form method="dialog">
+                                    <c-button>Close</c-button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button variant="primary" modal="my_modal"&gt;Open Modal&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Disabled State</h3>
+            <p class="text-base-content/70 mb-6">
+                Disable a button by adding the <code class="bg-base-300 px-2 py-1 rounded">disabled</code> attribute.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-4">
+                        <c-button variant="primary" disabled>Disabled</c-button>
+                        <c-button variant="outline" disabled>Disabled Outline</c-button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-button variant="primary" disabled&gt;Disabled&lt;/c-button&gt;
+&lt;c-button variant="outline" disabled&gt;Disabled Outline&lt;/c-button&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- HTMX Integration -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Using Buttons with HTMX</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">HTMX Integration</h4>
+                        <div class="text-sm">Spinners automatically display during HTMX requests thanks to the <code>htmx-indicator</code> class.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Custom Classes</h4>
+                        <div class="text-sm">Use the <code>class</code> prop to add DaisyUI classes like <code>btn-sm</code>, <code>btn-lg</code>, or <code>btn-wide</code>.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

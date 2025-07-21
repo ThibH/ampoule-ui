@@ -1,0 +1,410 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Avatar</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible avatar component for displaying profile pictures, initials, or placeholders with various sizes and styles.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <div class="flex items-center gap-4">
+                    <c-avatar src="https://placehold.co/100x100" size="w-12" alt="Profile picture"></c-avatar>
+                    <c-avatar placeholder size="w-12" bg_color="bg-primary" text_color="text-primary-content">JD</c-avatar>
+                    <c-avatar placeholder size="w-12" bg_color="bg-secondary" text_color="text-secondary-content">AB</c-avatar>
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;!-- With image --&gt;
+&lt;c-avatar src="image.jpg" size="w-12" alt="Profile picture"&gt;&lt;/c-avatar&gt;
+
+&lt;!-- Placeholder with initials --&gt;
+&lt;c-avatar placeholder size="w-12" bg_color="bg-primary" text_color="text-primary-content"&gt;JD&lt;/c-avatar&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">src</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Image URL for the avatar. If not provided, shows placeholder content</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">w-12</code></td>
+                        <td>Size using Tailwind width classes (w-6, w-8, w-10, w-12, w-16, w-20, w-24, w-32)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">shape</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">rounded-full</code></td>
+                        <td>Shape using Tailwind border-radius classes (rounded, rounded-xl, rounded-full)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">online</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Online status indicator ("true" for online, "false" for offline)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">placeholder</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Whether this is a placeholder avatar (for initials/text)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">ring</code></td>
+                        <td><code class="text-sm">boolean</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Whether to show a colored ring around the avatar</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">bg_color</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">bg-neutral</code></td>
+                        <td>Background color for placeholder avatars (Tailwind bg- classes)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">text_color</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">text-neutral-content</code></td>
+                        <td>Text color for placeholder avatars (Tailwind text- classes)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">alt</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">Avatar</code></td>
+                        <td>Alt text for image avatars (accessibility)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the avatar container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Different Sizes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Sizes</h3>
+            <p class="text-base-content/70 mb-6">
+                Avatars can be displayed in various sizes to fit different UI contexts.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex items-end gap-4">
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-6" bg_color="bg-primary" text_color="text-primary-content">XS</c-avatar>
+                            <p class="text-xs mt-2">w-6</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-8" bg_color="bg-secondary" text_color="text-secondary-content">SM</c-avatar>
+                            <p class="text-xs mt-2">w-8</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-10" bg_color="bg-accent" text_color="text-accent-content">MD</c-avatar>
+                            <p class="text-xs mt-2">w-10</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-12" bg_color="bg-info" text_color="text-info-content">LG</c-avatar>
+                            <p class="text-xs mt-2">w-12</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-16" bg_color="bg-success" text_color="text-success-content">XL</c-avatar>
+                            <p class="text-xs mt-2">w-16</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-20" bg_color="bg-warning" text_color="text-warning-content">2XL</c-avatar>
+                            <p class="text-xs mt-2">w-20</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-24" bg_color="bg-error" text_color="text-error-content">3XL</c-avatar>
+                            <p class="text-xs mt-2">w-24</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-avatar placeholder size="w-6" bg_color="bg-primary" text_color="text-primary-content"&gt;XS&lt;/c-avatar&gt;
+&lt;c-avatar placeholder size="w-8" bg_color="bg-secondary" text_color="text-secondary-content"&gt;SM&lt;/c-avatar&gt;
+&lt;c-avatar placeholder size="w-12" bg_color="bg-info" text_color="text-info-content"&gt;LG&lt;/c-avatar&gt;
+&lt;c-avatar placeholder size="w-24" bg_color="bg-error" text_color="text-error-content"&gt;3XL&lt;/c-avatar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Different Shapes -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Different Shapes</h3>
+            <p class="text-base-content/70 mb-6">
+                Customize the avatar shape with different border radius options.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex items-center gap-6">
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-16" shape="rounded" bg_color="bg-primary" text_color="text-primary-content">SQ</c-avatar>
+                            <p class="text-xs mt-2">Square</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-16" shape="rounded-xl" bg_color="bg-secondary" text_color="text-secondary-content">RD</c-avatar>
+                            <p class="text-xs mt-2">Rounded</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-16" shape="rounded-full" bg_color="bg-accent" text_color="text-accent-content">CI</c-avatar>
+                            <p class="text-xs mt-2">Circle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-avatar placeholder size="w-16" shape="rounded" bg_color="bg-primary" text_color="text-primary-content"&gt;SQ&lt;/c-avatar&gt;
+&lt;c-avatar placeholder size="w-16" shape="rounded-xl" bg_color="bg-secondary" text_color="text-secondary-content"&gt;RD&lt;/c-avatar&gt;
+&lt;c-avatar placeholder size="w-16" shape="rounded-full" bg_color="bg-accent" text_color="text-accent-content"&gt;CI&lt;/c-avatar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Status -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Online Status</h3>
+            <p class="text-base-content/70 mb-6">
+                Show online/offline status with built-in indicators.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex items-center gap-6">
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-16" online="true" bg_color="bg-success" text_color="text-success-content">ON</c-avatar>
+                            <p class="text-xs mt-2">Online</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar placeholder size="w-16" online="false" bg_color="bg-neutral" text_color="text-neutral-content">OFF</c-avatar>
+                            <p class="text-xs mt-2">Offline</p>
+                        </div>
+                        <div class="text-center">
+                            <c-avatar src="https://placehold.co/64x64" size="w-16" online="true" alt="Online user"></c-avatar>
+                            <p class="text-xs mt-2">With Image</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-avatar placeholder size="w-16" online="true" bg_color="bg-success" text_color="text-success-content"&gt;ON&lt;/c-avatar&gt;
+&lt;c-avatar placeholder size="w-16" online="false" bg_color="bg-neutral" text_color="text-neutral-content"&gt;OFF&lt;/c-avatar&gt;
+&lt;c-avatar src="image.jpg" size="w-16" online="true" alt="Online user"&gt;&lt;/c-avatar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Ring -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Ring</h3>
+            <p class="text-base-content/70 mb-6">
+                Add a colored ring around avatars for emphasis or status indication.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex items-center gap-6">
+                        <c-avatar placeholder size="w-16" ring="true" bg_color="bg-primary" text_color="text-primary-content">RI</c-avatar>
+                        <c-avatar src="https://placehold.co/64x64" size="w-16" ring="true" alt="Avatar with ring"></c-avatar>
+                        <c-avatar placeholder size="w-16" ring="true" online="true" bg_color="bg-success" text_color="text-success-content">RO</c-avatar>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-avatar placeholder size="w-16" ring="true" bg_color="bg-primary" text_color="text-primary-content"&gt;RI&lt;/c-avatar&gt;
+&lt;c-avatar src="image.jpg" size="w-16" ring="true" alt="Avatar with ring"&gt;&lt;/c-avatar&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Avatar Groups -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Avatar Groups</h3>
+            <p class="text-base-content/70 mb-6">
+                Display multiple avatars in overlapping groups for teams or collaborators using the <code>c-avatar-group</code> component.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-sm font-medium mb-3">Default spacing (3)</p>
+                            <c-avatar-group>
+                                <c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content">A</c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-secondary" text_color="text-secondary-content">B</c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-accent" text_color="text-accent-content">C</c-avatar>
+                            </c-avatar-group>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-medium mb-3">Tight spacing (1)</p>
+                            <c-avatar-group spacing="1">
+                                <c-avatar placeholder size="w-10" bg_color="bg-info" text_color="text-info-content">D</c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-success" text_color="text-success-content">E</c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-warning" text_color="text-warning-content">F</c-avatar>
+                            </c-avatar-group>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-medium mb-3">Medium spacing (2)</p>
+                            <c-avatar-group spacing="2">
+                                <c-avatar src="https://placehold.co/40x40" size="w-10" alt="Team member 1"></c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-error" text_color="text-error-content">G</c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-neutral" text_color="text-neutral-content">H</c-avatar>
+                            </c-avatar-group>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-medium mb-3">Wide spacing (6)</p>
+                            <c-avatar-group spacing="6">
+                                <c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content">I</c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-secondary" text_color="text-secondary-content">J</c-avatar>
+                                <c-avatar placeholder size="w-10" bg_color="bg-accent" text_color="text-accent-content">K</c-avatar>
+                            </c-avatar-group>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-medium mb-3">Large Team Example</p>
+                            <c-avatar-group spacing="2">
+                                <c-avatar src="https://placehold.co/48x48" size="w-12" alt="Team member 1"></c-avatar>
+                                <c-avatar placeholder size="w-12" bg_color="bg-info" text_color="text-info-content">JS</c-avatar>
+                                <c-avatar placeholder size="w-12" bg_color="bg-success" text_color="text-success-content">AB</c-avatar>
+                                <c-avatar placeholder size="w-12" bg_color="bg-warning" text_color="text-warning-content">CD</c-avatar>
+                                <c-avatar placeholder size="w-12" bg_color="bg-neutral" text_color="text-neutral-content">+5</c-avatar>
+                            </c-avatar-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Default spacing (3) --&gt;
+&lt;c-avatar-group&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content"&gt;A&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-secondary" text_color="text-secondary-content"&gt;B&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-accent" text_color="text-accent-content"&gt;C&lt;/c-avatar&gt;
+&lt;/c-avatar-group&gt;
+
+&lt;!-- Tight spacing (1) --&gt;
+&lt;c-avatar-group spacing="1"&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-info" text_color="text-info-content"&gt;D&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-success" text_color="text-success-content"&gt;E&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-warning" text_color="text-warning-content"&gt;F&lt;/c-avatar&gt;
+&lt;/c-avatar-group&gt;
+
+&lt;!-- Medium spacing (2) --&gt;
+&lt;c-avatar-group spacing="2"&gt;
+    &lt;c-avatar src="image1.jpg" size="w-12" alt="Team member 1"&gt;&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-12" bg_color="bg-info" text_color="text-info-content"&gt;JS&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-12" bg_color="bg-neutral" text_color="text-neutral-content"&gt;+5&lt;/c-avatar&gt;
+&lt;/c-avatar-group&gt;
+
+&lt;!-- Wide spacing (6) --&gt;
+&lt;c-avatar-group spacing="6"&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content"&gt;I&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-secondary" text_color="text-secondary-content"&gt;J&lt;/c-avatar&gt;
+    &lt;c-avatar placeholder size="w-10" bg_color="bg-accent" text_color="text-accent-content"&gt;K&lt;/c-avatar&gt;
+&lt;/c-avatar-group&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avatar Group Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Avatar Group API</h2>
+        <p class="text-base-content/70 mb-6">
+            The <code>c-avatar-group</code> component provides a convenient wrapper for displaying multiple avatars in overlapping groups.
+        </p>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">spacing</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">3</code></td>
+                        <td>Numeric spacing value (1=tight, 6=wide). Lower numbers create tighter overlapping, higher numbers create wider spacing</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the avatar group container</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Appendix</h2>
+
+        <!-- Usage Guidelines -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Usage Guidelines</h3>
+            <div class="space-y-4">
+                <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Accessibility</h4>
+                        <div class="text-sm">Always provide meaningful alt text for image avatars and ensure sufficient color contrast for placeholder avatars.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                    <div>
+                        <h4 class="font-bold">Image Loading</h4>
+                        <div class="text-sm">Consider providing fallback initials or placeholders for cases where profile images fail to load.</div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <h4 class="font-bold">Consistency</h4>
+                        <div class="text-sm">Use consistent sizing and colors throughout your application for a cohesive user experience.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

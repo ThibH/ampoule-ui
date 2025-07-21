@@ -1,0 +1,329 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Chip</h1>
+        <p class="text-lg text-base-content/70">
+            A versatile chip wrapper component that displays numeric indicators, status badges, or notifications positioned around other elements. Includes optional tooltip support for enhanced user experience.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <div class="flex gap-4 items-center">
+                    <c-chip text="5" variant="primary">
+                        <c-button variant="default">Messages</c-button>
+                    </c-chip>
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-chip text="5" variant="primary"&gt;
+    &lt;c-button variant="default"&gt;Messages&lt;/c-button&gt;
+&lt;/c-chip&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">text</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Text content to display in the chip (required)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">position</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">top-right</code></td>
+                        <td>Chip position: top-right, top-left, bottom-right, bottom-left</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">primary</code></td>
+                        <td>Color variant: primary, secondary, accent, success, warning, error, info, neutral</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Chip size: xs, sm, md, lg, xl</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">show</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">true</code></td>
+                        <td>Show/hide the chip (use "false" to hide)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">tooltip</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Tooltip text to show on hover</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">tooltip_position</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">top</code></td>
+                        <td>Tooltip position: top, bottom, left, right</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">tooltip_variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Tooltip color variant: primary, secondary, accent, info, success, warning, error</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">class</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Additional CSS classes for the chip</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Basic Chips -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Basic Usage</h3>
+            <p class="text-base-content/70 mb-6">
+                Wrap any element with a chip to add numeric indicators or status badges.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-6 items-center">
+                        <c-chip text="3" variant="error">
+                            <c-button variant="default" icon_left="bell">Notifications</c-button>
+                        </c-chip>
+
+                        <c-chip text="12" variant="primary">
+                            <c-button variant="ghost" icon_left="mail">Messages</c-button>
+                        </c-chip>
+
+                        <c-chip icon="bell" variant="warning" size="sm">
+                            <c-badge variant="success" size="lg">Feature</c-badge>
+                        </c-chip>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-chip text="3" variant="error"&gt;
+    &lt;c-button variant="default" icon_left="bell"&gt;Notifications&lt;/c-button&gt;
+&lt;/c-chip&gt;
+
+&lt;c-chip text="12" variant="primary"&gt;
+    &lt;c-button variant="ghost" icon_left="mail"&gt;Messages&lt;/c-button&gt;
+&lt;/c-chip&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Positioning -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Chip Positioning</h3>
+            <p class="text-base-content/70 mb-6">
+                Control chip placement with the <code class="bg-base-300 px-2 py-1 rounded">position</code> prop.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-2 gap-6">
+                        <c-chip text="1" variant="primary" position="top-right">
+                            <div class="w-20 h-20 bg-base-300 rounded-lg flex items-center justify-center">
+                                <span class="text-sm">Top Right</span>
+                            </div>
+                        </c-chip>
+
+                        <c-chip text="2" variant="secondary" position="top-left">
+                            <div class="w-20 h-20 bg-base-300 rounded-lg flex items-center justify-center">
+                                <span class="text-sm">Top Left</span>
+                            </div>
+                        </c-chip>
+
+                        <c-chip text="3" variant="accent" position="bottom-right">
+                            <div class="w-20 h-20 bg-base-300 rounded-lg flex items-center justify-center">
+                                <span class="text-sm">Bottom Right</span>
+                            </div>
+                        </c-chip>
+
+                        <c-chip text="4" variant="success" position="bottom-left">
+                            <div class="w-20 h-20 bg-base-300 rounded-lg flex items-center justify-center">
+                                <span class="text-sm">Bottom Left</span>
+                            </div>
+                        </c-chip>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-chip text="1" variant="primary" position="top-right"&gt;...&lt;/c-chip&gt;
+&lt;c-chip text="2" variant="secondary" position="top-left"&gt;...&lt;/c-chip&gt;
+&lt;c-chip text="3" variant="accent" position="bottom-right"&gt;...&lt;/c-chip&gt;
+&lt;c-chip text="4" variant="success" position="bottom-left"&gt;...&lt;/c-chip&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sizes and Variants -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Sizes and Color Variants</h3>
+            <p class="text-base-content/70 mb-6">
+                Different sizes and color variants for various use cases.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="space-y-6">
+                        <!-- Sizes -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-3">Sizes</h4>
+                            <div class="flex flex-wrap gap-4 items-center">
+                                <c-chip text="XS" variant="primary" size="xs">
+                                    <c-button variant="default" size="sm">Extra Small</c-button>
+                                </c-chip>
+                                <c-chip text="SM" variant="primary" size="sm">
+                                    <c-button variant="default" size="sm">Small</c-button>
+                                </c-chip>
+                                <c-chip text="MD" variant="primary" size="md">
+                                    <c-button variant="default">Medium</c-button>
+                                </c-chip>
+                                <c-chip text="LG" variant="primary" size="lg">
+                                    <c-button variant="default">Large</c-button>
+                                </c-chip>
+                                <c-chip text="XL" variant="primary" size="xl">
+                                    <c-button variant="default">Extra Large</c-button>
+                                </c-chip>
+                            </div>
+                        </div>
+
+                        <!-- Variants -->
+                        <div>
+                            <h4 class="text-sm font-medium mb-3">Color Variants</h4>
+                            <div class="flex flex-wrap gap-4 items-center">
+                                <c-chip text="99+" variant="primary">
+                                    <c-button variant="default">Primary</c-button>
+                                </c-chip>
+                                <c-chip text="5" variant="success">
+                                    <c-button variant="default">Success</c-button>
+                                </c-chip>
+                                <c-chip text="!" variant="warning">
+                                    <c-button variant="default">Warning</c-button>
+                                </c-chip>
+                                <c-chip text="3" variant="error">
+                                    <c-button variant="default">Error</c-button>
+                                </c-chip>
+                                <c-chip text="2" variant="info">
+                                    <c-button variant="default">Info</c-button>
+                                </c-chip>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- Sizes --&gt;
+&lt;c-chip text="XS" variant="primary" size="xs"&gt;...&lt;/c-chip&gt;
+&lt;c-chip text="SM" variant="primary" size="sm"&gt;...&lt;/c-chip&gt;
+
+&lt;!-- Variants --&gt;
+&lt;c-chip text="99+" variant="primary"&gt;...&lt;/c-chip&gt;
+&lt;c-chip text="!" variant="warning"&gt;...&lt;/c-chip&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- With Tooltips -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">With Tooltips</h3>
+            <p class="text-base-content/70 mb-6">
+                Add tooltips to provide additional context when hovering over the wrapped element.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="flex flex-wrap gap-6 items-center">
+                        <c-chip text="5" variant="primary" tooltip="You have 5 unread messages" tooltip_position="top">
+                            <c-button variant="default" icon_left="mail">Messages</c-button>
+                        </c-chip>
+
+                        <c-chip text="!" variant="warning" tooltip="Action required" tooltip_position="bottom" tooltip_variant="warning">
+                            <c-button variant="default" icon_left="alert-triangle">Alerts</c-button>
+                        </c-chip>
+
+                        <c-chip text="New" variant="success" tooltip="New feature available!" tooltip_position="right" tooltip_variant="success">
+                            <c-badge variant="default">Features</c-badge>
+                        </c-chip>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-chip text="5" variant="primary" 
+        tooltip="You have 5 unread messages" 
+        tooltip_position="top"&gt;
+    &lt;c-button variant="default" icon_left="mail"&gt;Messages&lt;/c-button&gt;
+&lt;/c-chip&gt;
+
+&lt;c-chip text="!" variant="warning" 
+        tooltip="Action required" 
+        tooltip_position="bottom" 
+        tooltip_variant="warning"&gt;
+    &lt;c-button variant="default"&gt;Alerts&lt;/c-button&gt;
+&lt;/c-chip&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Usage Guidelines</h2>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">DaisyUI Native Components</h4>
+                    <div class="text-sm">This component uses DaisyUI's native Indicator and Badge components for optimal performance and consistent styling.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div>
+                    <h4 class="font-bold">Best Practices</h4>
+                    <div class="text-sm">
+                        • Use tooltips for additional context<br>
+                        • Keep chip text short (numbers, single words)<br>
+                        • Choose colors that match the significance (error for urgent notifications)
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Accessibility</h4>
+                    <div class="text-sm">Consider using tooltips to provide screen reader accessible descriptions of what the chip represents.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

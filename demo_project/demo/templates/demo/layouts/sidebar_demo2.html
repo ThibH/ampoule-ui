@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sidebar Demo 2 - Project Management</title>
+
+        {% load static %}
+        {% include "init-components.html" %}
+    </head>
+
+    <body class="bg-base-100 flex flex-col min-h-screen">
+        <c-toast-area></c-toast-area>
+
+    <!-- Sidebar Layout -->
+        <c-layout.sidebar>
+            <c-slot name="content">
+                <div class="menu p-4 w-80 min-h-screen bg-base-200">
+                <!-- Logo -->
+                    <div class="mb-8 px-4">
+                        <div class="flex items-center">
+                            <c-icon name="folder" class="w-8 h-8 mr-3"></c-icon>
+                            <span class="text-xl font-bold">ProjectHub</span>
+                        </div>
+                    </div>
+
+                <!-- Quick Actions -->
+                    <div class="mb-6 px-4">
+                        <c-button class="w-full gap-2 mb-2">
+                            <c-icon name="plus" class="w-4 h-4"></c-icon>
+                            Nouveau projet
+                        </c-button>
+                        <c-button variant="ghost" class="w-full gap-2">
+                            <c-icon name="users" class="w-4 h-4"></c-icon>
+                            Inviter équipe
+                        </c-button>
+                    </div>
+
+                <!-- Navigation -->
+                    <ul class="space-y-2">
+                    <!-- Overview -->
+                        <li>
+                            <a href="#" class="active flex items-center gap-3 p-3 rounded-lg">
+                                <c-icon name="home" class="w-5 h-5"></c-icon>
+                                <span>Vue d'ensemble</span>
+                            </a>
+                        </li>
+
+                    <!-- My Projects -->
+                        <li>
+                            <details open>
+                                <summary class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-base-300">
+                                    <c-icon name="folder" class="w-5 h-5"></c-icon>
+                                    <span>Mes projets</span>
+                                    <c-badge size="sm" class="ml-auto">8</c-badge>
+                                </summary>
+                                <ul class="ml-8 mt-2 space-y-1">
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-2 rounded hover:bg-base-300">
+                                            <span>Site Web E-commerce</span>
+                                            <c-badge variant="success" size="sm" class="ml-auto">En cours</c-badge>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-2 rounded hover:bg-base-300">
+                                            <span>App Mobile</span>
+                                            <c-badge variant="warning" size="sm" class="ml-auto">En retard</c-badge>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="flex items-center justify-between p-2 rounded hover:bg-base-300">
+                                            <span>Refonte UI/UX</span>
+                                            <c-badge variant="info" size="sm" class="ml-auto">Planifié</c-badge>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+
+                    <!-- Teams -->
+                        <li>
+                            <details>
+                                <summary class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-base-300">
+                                    <c-icon name="users" class="w-5 h-5"></c-icon>
+                                    <span>Équipes</span>
+                                    <c-badge size="sm" class="ml-auto">3</c-badge>
+                                </summary>
+                                <ul class="ml-8 mt-2 space-y-1">
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Design Team</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Dev Team</a></li>
+                                    <li><a href="#" class="block p-2 rounded hover:bg-base-300">Marketing Team</a></li>
+                                </ul>
+                            </details>
+                        </li>
+
+                    <!-- Tasks -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="check-square" class="w-5 h-5"></c-icon>
+                                <span>Mes tâches</span>
+                                <c-badge size="sm" class="ml-auto">12</c-badge>
+                            </a>
+                        </li>
+
+                    <!-- Calendar -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="calendar" class="w-5 h-5"></c-icon>
+                                <span>Calendrier</span>
+                            </a>
+                        </li>
+
+                    <!-- Reports -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="bar-chart-3" class="w-5 h-5"></c-icon>
+                                <span>Rapports</span>
+                            </a>
+                        </li>
+
+                    <!-- Divider -->
+                        <div class="divider">Outils</div>
+
+                    <!-- File Manager -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="folder-open" class="w-5 h-5"></c-icon>
+                                <span>Gestionnaire fichiers</span>
+                            </a>
+                        </li>
+
+                    <!-- Time Tracking -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="clock" class="w-5 h-5"></c-icon>
+                                <span>Suivi du temps</span>
+                            </a>
+                        </li>
+
+                    <!-- Settings -->
+                        <li>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300">
+                                <c-icon name="settings" class="w-5 h-5"></c-icon>
+                                <span>Paramètres</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                <!-- User Info -->
+                    <div class="mt-auto pt-4">
+                        <div class="flex items-center gap-3 p-3 bg-base-300 rounded-lg">
+                            <c-avatar placeholder size="w-10" bg_color="bg-primary" text_color="text-primary-content">PM</c-avatar>
+                            <div class="flex-1">
+                                <c-text variant="default">Project Manager</c-text>
+                                <c-text variant="subtle">En ligne</c-text>
+                            </div>
+                            <div class="dropdown dropdown-top dropdown-end">
+                                <div tabindex="0" role="button" class="btn btn-ghost btn-xs">
+                                    <c-icon name="more-vertical" class="w-4 h-4"></c-icon>
+                                </div>
+                                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li><a>Profil</a></li>
+                                    <li><a>Préférences</a></li>
+                                    <li><a>Déconnexion</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c-slot>
+
+            <c-slot name="main">
+                <div class="flex-1 p-8">
+                <!-- Header -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex flex-col gap-2">
+                                <c-text variant="strong" class="text-3xl">Vue d'ensemble</c-text>
+                                <c-text variant="subtle">Suivi de vos projets et équipes</c-text>
+                            </div>
+                            <div class="flex items-center gap-4">
+                            <!-- Search -->
+                                <c-form.input placeholder="Rechercher..." size="sm">
+                                    <c-slot name="label_start">
+                                        <c-icon name="search" size="xs"></c-icon>
+                                    </c-slot>
+                                </c-form.input>
+
+                            <!-- Notifications -->
+                                <div class="dropdown dropdown-end">
+                                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                                        <div class="indicator">
+                                            <c-icon name="bell" class="w-6 h-6"></c-icon>
+                                            <c-badge size="xs" class="indicator-item">7</c-badge>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Project Progress Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <!-- Project 1 -->
+                        <c-card bg="base-200">
+                            <c-slot name="title">Site Web E-commerce</c-slot>
+                            <c-slot name="content">
+                                <div class="flex items-center justify-between mb-4">
+                                    <c-badge>En cours</c-badge>
+                                </div>
+                                <c-text variant="subtle" class="mb-4">Développement d'une plateforme e-commerce complète</c-text>
+
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <c-text variant="default">Progression</c-text>
+                                        <c-text variant="default">75%</c-text>
+                                    </div>
+                                    <c-progress value="75"></c-progress>
+                                </div>
+
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <c-icon name="calendar" class="w-4 h-4"></c-icon>
+                                        <c-text variant="default">Échéance: 15 Mars</c-text>
+                                    </div>
+                                    <div class="avatar-group -space-x-2">
+                                        <c-avatar placeholder size="w-6" bg_color="bg-primary" text_color="text-primary-content">A</c-avatar>
+                                        <c-avatar placeholder size="w-6" bg_color="bg-secondary" text_color="text-secondary-content">B</c-avatar>
+                                        <c-avatar placeholder size="w-6" bg_color="bg-accent" text_color="text-accent-content">+2</c-avatar>
+                                    </div>
+                                </div>
+                            </c-slot>
+                        </c-card>
+
+                    <!-- Project 2 -->
+                        <c-card bg="base-200">
+                            <c-slot name="title">App Mobile</c-slot>
+                            <c-slot name="content">
+                                <div class="flex items-center justify-between mb-4">
+                                    <c-badge>En retard</c-badge>
+                                </div>
+                                <c-text variant="subtle" class="mb-4">Application mobile iOS et Android</c-text>
+
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <c-text variant="default">Progression</c-text>
+                                        <c-text variant="default">45%</c-text>
+                                    </div>
+                                    <c-progress value="45"></c-progress>
+                                </div>
+
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <c-icon name="calendar" class="w-4 h-4"></c-icon>
+                                        <c-text variant="default">Échéance: 1 Mars</c-text>
+                                    </div>
+                                    <div class="avatar-group -space-x-2">
+                                        <c-avatar placeholder size="w-6" bg_color="bg-info" text_color="text-info-content">C</c-avatar>
+                                        <c-avatar placeholder size="w-6" bg_color="bg-warning" text_color="text-warning-content">D</c-avatar>
+                                    </div>
+                                </div>
+                            </c-slot>
+                        </c-card>
+
+                    <!-- Project 3 -->
+                        <c-card bg="base-200">
+                            <c-slot name="title">Refonte UI/UX</c-slot>
+                            <c-slot name="content">
+                                <div class="flex items-center justify-between mb-4">
+                                    <c-badge>Planifié</c-badge>
+                                </div>
+                                <c-text variant="subtle" class="mb-4">Nouvelle interface utilisateur moderne</c-text>
+
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <c-text variant="default">Progression</c-text>
+                                        <c-text variant="default">0%</c-text>
+                                    </div>
+                                    <c-progress value="0"></c-progress>
+                                </div>
+
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <c-icon name="calendar" class="w-4 h-4"></c-icon>
+                                        <c-text variant="default">Échéance: 30 Mars</c-text>
+                                    </div>
+                                    <div class="avatar-group -space-x-2">
+                                        <c-avatar placeholder size="w-6" bg_color="bg-error" text_color="text-error-content">E</c-avatar>
+                                    </div>
+                                </div>
+                            </c-slot>
+                        </c-card>
+                    </div>
+
+                <!-- Tasks and Activity -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Recent Tasks -->
+                        <c-card bg="base-200">
+                            <c-slot name="title">Tâches récentes</c-slot>
+                            <c-slot name="content">
+                                <div class="flex items-center justify-between mb-4">
+                                    <c-button variant="ghost" size="sm">Voir tout</c-button>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" class="checkbox" checked />
+                                        <div class="flex-1">
+                                            <c-text variant="default" class="line-through opacity-60">Finaliser le design de la homepage</c-text>
+                                            <c-text variant="subtle">Site Web E-commerce • Terminé</c-text>
+                                        </div>
+                                        <c-badge size="sm">Fait</c-badge>
+                                    </div>
+
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" class="checkbox" />
+                                        <div class="flex-1">
+                                            <c-text variant="default">Intégrer l'API de paiement</c-text>
+                                            <c-text variant="subtle">Site Web E-commerce • En cours</c-text>
+                                        </div>
+                                        <c-badge size="sm">Urgent</c-badge>
+                                    </div>
+
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" class="checkbox" />
+                                        <div class="flex-1">
+                                            <c-text variant="default">Tests utilisateurs</c-text>
+                                            <c-text variant="subtle">App Mobile • À faire</c-text>
+                                        </div>
+                                        <c-badge size="sm">Planifié</c-badge>
+                                    </div>
+
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" class="checkbox" />
+                                        <div class="flex-1">
+                                            <c-text variant="default">Rédiger la documentation</c-text>
+                                            <c-text variant="subtle">App Mobile • À faire</c-text>
+                                        </div>
+                                        <c-badge size="sm">Normal</c-badge>
+                                    </div>
+                                </div>
+                            </c-slot>
+                        </c-card>
+
+                        <c-card bg="base-200">
+                            <c-slot name="title">Activité de l'équipe</c-slot>
+                            <c-slot name="content">
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-3">
+                                        <c-avatar placeholder size="w-8" bg_color="bg-primary" text_color="text-primary-content">AM</c-avatar>
+                                        <div class="flex-1">
+                                            <c-text variant="default">Alice Martin a terminé la tâche "Design système"</c-text>
+                                            <c-text variant="subtle">Site Web E-commerce • Il y a 2h</c-text>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3">
+                                        <c-avatar placeholder size="w-8" bg_color="bg-secondary" text_color="text-secondary-content">BL</c-avatar>
+                                        <div class="flex-1">
+                                            <c-text variant="default">Bob Laurent a ajouté un commentaire</c-text>
+                                            <c-text variant="subtle">App Mobile • Il y a 4h</c-text>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3">
+                                        <c-avatar placeholder size="w-8" bg_color="bg-accent" text_color="text-accent-content">CD</c-avatar>
+                                        <div class="flex-1">
+                                            <c-text variant="default">Claire Dubois a créé une nouvelle tâche</c-text>
+                                            <c-text variant="subtle">Refonte UI/UX • Il y a 6h</c-text>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-start gap-3">
+                                        <c-avatar placeholder size="w-8" bg_color="bg-info" text_color="text-info-content">DM</c-avatar>
+                                        <div class="flex-1">
+                                            <c-text variant="default">David Moreau a uploadé 3 fichiers</c-text>
+                                            <c-text variant="subtle">Site Web E-commerce • Il y a 1j</c-text>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c-slot>
+                        </c-card>
+                    </div>
+
+                <!-- Quick Actions -->
+                    <div class="mt-8">
+                        <c-text variant="strong" class="text-xl mb-4">Actions rapides</c-text>
+                        <div class="flex flex-wrap gap-4">
+                            <c-button class="gap-2" onclick="document.getElementById('nouvelle-tache-modal').showModal()">
+                                <c-icon name="plus" class="w-4 h-4"></c-icon>
+                                Nouvelle tâche
+                            </c-button>
+                            <c-button class="gap-2">
+                                <c-icon name="calendar" class="w-4 h-4"></c-icon>
+                                Planifier réunion
+                            </c-button>
+                            <c-button class="gap-2">
+                                <c-icon name="upload" class="w-4 h-4"></c-icon>
+                                Uploader fichier
+                            </c-button>
+                            <c-button class="gap-2">
+                                <c-icon name="download" class="w-4 h-4"></c-icon>
+                                Générer rapport
+                            </c-button>
+                        </div>
+                    </div>
+
+                <!-- Modale Nouvelle Tâche -->
+                    <c-modal id="nouvelle-tache-modal">
+                        <c-text variant="strong" class="text-lg mb-6">Créer une nouvelle tâche</c-text>
+
+                        <form class="space-y-6" onsubmit="handleNewTask(event)">
+                        <!-- Informations de base -->
+                            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                                <legend class="fieldset-legend">Informations de base</legend>
+
+                                <label class="label">Nom de la tâche</label>
+                                <label class="input input-bordered flex items-center gap-2">
+                                    <c-icon name="edit" class="w-4 h-4 opacity-70"></c-icon>
+                                    <input type="text" name="task_name" placeholder="Entrez le nom de la tâche" required />
+                                </label>
+
+                                <label class="label mt-4">Description</label>
+                                <textarea name="task_description" class="textarea textarea-bordered" placeholder="Description détaillée de la tâche" rows="3"></textarea>
+                            </fieldset>
+
+                        <!-- Configuration -->
+                            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                                <legend class="fieldset-legend">Configuration</legend>
+
+                                <label class="label">Projet</label>
+                                <select name="task_project" class="select select-bordered w-full">
+                                    <option disabled selected>Sélectionner un projet</option>
+                                    <option value="ecommerce">Site Web E-commerce</option>
+                                    <option value="mobile">App Mobile</option>
+                                    <option value="uiux">Refonte UI/UX</option>
+                                </select>
+
+                                <label class="label mt-4">Priorité</label>
+                                <select name="task_priority" class="select select-bordered w-full">
+                                    <option value="normal">Normal</option>
+                                    <option value="urgent">Urgent</option>
+                                    <option value="low">Faible</option>
+                                </select>
+
+                                <label class="label mt-4">Échéance</label>
+                                <label class="input input-bordered flex items-center gap-2">
+                                    <c-icon name="calendar" class="w-4 h-4 opacity-70"></c-icon>
+                                    <input type="date" name="task_deadline" />
+                                </label>
+                            </fieldset>
+
+                        <!-- Attribution -->
+                            <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                                <legend class="fieldset-legend">Attribution</legend>
+
+                                <label class="label">Assigné à</label>
+                                <select name="task_assignee" class="select select-bordered w-full">
+                                    <option disabled selected>Sélectionner un membre</option>
+                                    <option value="alice">Alice Martin</option>
+                                    <option value="bob">Bob Laurent</option>
+                                    <option value="claire">Claire Dubois</option>
+                                    <option value="david">David Moreau</option>
+                                </select>
+                            </fieldset>
+
+                        <!-- Boutons d'action -->
+                            <div class="modal-action">
+                                <c-button type="button" variant="ghost" onclick="document.getElementById('nouvelle-tache-modal').close()">
+                                    Annuler
+                                </c-button>
+                                <c-button type="submit" class="gap-2">
+                                    <c-icon name="plus" class="w-4 h-4"></c-icon>
+                                    Créer la tâche
+                                </c-button>
+                            </div>
+                        </form>
+                    </c-modal>
+                </div>
+            </c-slot>
+        </c-layout.sidebar>
+
+        {% include "scripts.html" %}
+    </body>
+</html>

@@ -1,0 +1,328 @@
+<!-- Content only for HTMX loading -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-4">Pricing Plan</h1>
+        <p class="text-lg text-base-content/70">
+            A flexible pricing plan component for displaying individual pricing tiers with features, pricing, and call-to-action buttons.
+        </p>
+    </div>
+
+    <!-- Basic Example -->
+    <section class="mb-12">
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <div class="max-w-sm mx-auto">
+                    <c-pricing_plan
+                        title="Starter"
+                        description="Perfect for getting started"
+                        price="€19"
+                        period="/month"
+                        :features="['5 projects', 'Email support', '10GB storage']"
+                        button_label="Get Started"
+                        button_variant="primary"
+                    ></c-pricing_plan>
+                </div>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-pricing_plan 
+    title="Starter" 
+    description="Perfect for getting started"
+    price="€19" 
+    period="/month" 
+    :features="['5 projects', 'Email support', '10GB storage']"
+    button_label="Get Started"
+    button_variant="primary"
+&gt;&lt;/c-pricing_plan&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component API -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Component API</h2>
+
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th class="font-semibold">Property</th>
+                        <th class="font-semibold">Type</th>
+                        <th class="font-semibold">Default</th>
+                        <th class="font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code class="text-sm">title</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Plan title/name (required)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">description</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Short description of the plan</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">price</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Plan price (required)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">period</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Billing period (e.g., "/month", "/year")</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">discount_price</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Original price (shows as strikethrough)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">features</code></td>
+                        <td><code class="text-sm">list</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>List of features (use :features for arrays)</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">button_label</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Call-to-action button text</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">button_variant</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">primary</code></td>
+                        <td>Button style variant</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">button_size</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">md</code></td>
+                        <td>Button size</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">highlight</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">false</code></td>
+                        <td>Highlight the plan with border (use "true")</td>
+                    </tr>
+                    <tr>
+                        <td><code class="text-sm">badge</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>Badge text (e.g., "Popular", "Best Value")</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Examples -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Examples</h2>
+
+        <!-- Basic Plans -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Basic Plans</h3>
+            <p class="text-base-content/70 mb-6">
+                Simple pricing plans with essential features.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                        <c-pricing_plan
+                            title="Basic"
+                            price="€9"
+                            period="/month"
+                            :features="['1 project', 'Email support', '1GB storage']"
+                            button_label="Start Free"
+                            button_variant="outline"
+                        ></c-pricing_plan>
+
+                        <c-pricing_plan
+                            title="Pro"
+                            price="€29"
+                            period="/month"
+                            :features="['10 projects', 'Priority support', '10GB storage', 'Advanced features']"
+                            button_label="Choose Pro"
+                            button_variant="primary"
+                        ></c-pricing_plan>
+
+                        <c-pricing_plan
+                            title="Enterprise"
+                            price="€99"
+                            period="/month"
+                            :features="['Unlimited projects', 'Dedicated support', '100GB storage', 'Custom integrations']"
+                            button_label="Contact Sales"
+                            button_variant="outline"
+                        ></c-pricing_plan>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pricing_plan 
+    title="Basic" 
+    price="€9" 
+    period="/month" 
+    :features="['1 project', 'Email support', '1GB storage']"
+    button_label="Start Free"
+    button_variant="outline"
+&gt;&lt;/c-pricing_plan&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlighted Plan -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Highlighted Plan</h3>
+            <p class="text-base-content/70 mb-6">
+                Use the <code class="bg-base-300 px-2 py-1 rounded">highlight</code> and <code class="bg-base-300 px-2 py-1 rounded">badge</code> props to make a plan stand out.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="max-w-sm mx-auto">
+                        <c-pricing_plan
+                            title="Pro"
+                            description="Most popular choice"
+                            price="€29"
+                            period="/month"
+                            :features="['10 projects', 'Priority support', '10GB storage', 'Advanced analytics']"
+                            button_label="Choose Pro"
+                            button_variant="primary"
+                            highlight="true"
+                            badge="Popular"
+                        ></c-pricing_plan>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pricing_plan 
+    title="Pro" 
+    description="Most popular choice"
+    price="€29" 
+    period="/month" 
+    :features="['10 projects', 'Priority support', '10GB storage']"
+    button_label="Choose Pro"
+    button_variant="primary"
+    highlight="true"
+    badge="Popular"
+&gt;&lt;/c-pricing_plan&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discount Pricing -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Discount Pricing</h3>
+            <p class="text-base-content/70 mb-6">
+                Show original pricing with discounts using the <code class="bg-base-300 px-2 py-1 rounded">discount_price</code> prop.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="max-w-sm mx-auto">
+                        <c-pricing_plan
+                            title="Annual Pro"
+                            description="Save 20% with yearly billing"
+                            price="€297"
+                            discount_price="€348"
+                            period="/year"
+                            :features="['10 projects', 'Priority support', '10GB storage', '2 months free']"
+                            button_label="Save 20%"
+                            button_variant="primary"
+                            badge="Best Value"
+                        ></c-pricing_plan>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pricing_plan 
+    title="Annual Pro" 
+    description="Save 20% with yearly billing"
+    price="€297" 
+    discount_price="€348"
+    period="/year" 
+    :features="['10 projects', 'Priority support', '10GB storage']"
+    button_label="Save 20%"
+    button_variant="primary"
+    badge="Best Value"
+&gt;&lt;/c-pricing_plan&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Content -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-4">Custom Content</h3>
+            <p class="text-base-content/70 mb-6">
+                Use the default slot to add custom content at the bottom of the plan.
+            </p>
+
+            <div class="space-y-4">
+                <div class="p-6 bg-base-200 rounded-lg">
+                    <div class="max-w-sm mx-auto">
+                        <c-pricing_plan
+                            title="Custom"
+                            price="Contact us"
+                            :features="['Custom features', 'Dedicated support', 'SLA guarantee']"
+                            button_label="Get Quote"
+                            button_variant="outline"
+                        >
+                            <div class="mt-4 p-3 bg-base-100 rounded border-l-4 border-primary">
+                                <p class="text-sm text-base-content/70">
+                                    <strong>Need something specific?</strong><br>
+                                    Contact our team for a custom solution tailored to your needs.
+                                </p>
+                            </div>
+                        </c-pricing_plan>
+                    </div>
+                </div>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;c-pricing_plan 
+    title="Custom" 
+    price="Contact us" 
+    :features="['Custom features', 'Dedicated support']"
+    button_label="Get Quote"
+    button_variant="outline"
+&gt;
+    &lt;div class="mt-4 p-3 bg-base-100 rounded border-l-4 border-primary"&gt;
+        &lt;p class="text-sm text-base-content/70"&gt;
+            &lt;strong&gt;Need something specific?&lt;/strong&gt;&lt;br&gt;
+            Contact our team for a custom solution.
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/c-pricing_plan&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appendix -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-8">Usage with Pricing Plans Wrapper</h2>
+
+        <div class="space-y-4">
+            <div class="alert alert-info">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current w-6 h-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div>
+                    <h4 class="font-bold">Pricing Plans Wrapper</h4>
+                    <div class="text-sm">Use the <code>c-pricing_plans</code> component to display multiple pricing plans with layout options.</div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current w-6 h-6 shrink-0" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                <div>
+                    <h4 class="font-bold">Features Array</h4>
+                    <div class="text-sm">Always use <code>:features</code> (with colon) when passing arrays from templates or Django views.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,17 @@
+{% comment %}
+Container for a page
+
+Usage:
+<c-container>
+    <h1>Hello World</h1>
+</c-container>
+
+
+
+{% endcomment %}
+
+<c-vars bg_color="base-100" />
+
+<div class="container mx-auto bg-{{ bg_color }} p-4 {{ class }} flex">
+    {{ slot }}
+</div>

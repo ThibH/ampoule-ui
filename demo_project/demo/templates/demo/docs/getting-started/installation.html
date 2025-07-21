@@ -1,0 +1,212 @@
+<!-- Installation page content -->
+<div>
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-4xl font-bold mb-6">Installation</h1>
+        <p class="text-xl text-base-content/70">
+            Get started with Django Components UI in your Django project.
+        </p>
+    </div>
+
+    <!-- Requirements -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Requirements</h2>
+        <div class="bg-base-200 p-6 rounded-lg mb-6">
+            <ul class="space-y-2">
+                <li class="flex items-center">
+                    <c-icon name="check-circle" class="w-5 h-5 text-success mr-3"></c-icon>
+                    <span>Python ≥ 3.8</span>
+                </li>
+                <li class="flex items-center">
+                    <c-icon name="check-circle" class="w-5 h-5 text-success mr-3"></c-icon>
+                    <span>Django ≥ 5.2</span>
+                </li>
+            </ul>
+            <div class="mt-4 p-4 bg-info/10 border border-info/20 rounded-lg">
+                <p class="text-sm text-info-content">
+                    <c-icon name="info" class="w-4 h-4 inline mr-1"></c-icon>
+                    <strong>No Node.js required!</strong> All CSS and JavaScript assets are pre-built and included in the package.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 1: Install Package -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Step 1: Install Package</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-medium mb-3">Install Django Components UI</h3>
+                <p class="text-base-content/70 mb-3">
+                    This will automatically install Django Cotton as a dependency.
+                </p>
+                <div class="relative">
+                    <pre class="language-bash"><code>pip install django-components-ui</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 2: Django Settings -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Step 2: Configure Django Settings</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-medium mb-3">Add to INSTALLED_APPS</h3>
+                <p class="text-base-content/70 mb-3">
+                    Add both apps to your Django settings, with the correct order:
+                </p>
+                <div class="relative">
+                    <pre class="language-python"><code># settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    
+    # Third-party apps
+    'django_cotton',           # Required: Django Cotton
+    'django_components_ui',    # Django Components UI
+    
+    # Your apps
+    'your_app',
+]</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 3: Include Assets -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Step 3: Include Required Assets</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-medium mb-3">Simple Method: Use Pre-built Assets</h3>
+                <p class="text-base-content/70 mb-3">
+                    The easiest way is to include the pre-built components and assets:
+                </p>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- In your base.html head section --&gt;
+{% templatetag openblock %} include "init-components.html" {% templatetag closeblock %}</code></pre>
+                </div>
+                <div class="mt-3 p-4 bg-success/10 border border-success/20 rounded-lg">
+                    <p class="text-sm text-success-content">
+                        <c-icon name="check-circle" class="w-4 h-4 inline mr-1"></c-icon>
+                        This includes all CSS, JavaScript, and required CDN resources automatically.
+                    </p>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-medium mb-3">Manual Method (Optional)</h3>
+                <p class="text-base-content/70 mb-3">
+                    If you prefer manual control, you can include assets individually:
+                </p>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- In your base.html --&gt;
+&lt;head&gt;
+    {% templatetag openblock %} load static {% templatetag closeblock %}
+    
+    &lt;!-- Django Components UI CSS (pre-built) --&gt;
+    &lt;link rel="stylesheet" href="{% templatetag openblock %} static 'django_components_ui/css/components.css' {% templatetag closeblock %}"&gt;
+    
+    &lt;!-- HTMX --&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"&gt;&lt;/script&gt;
+    
+    &lt;!-- Alpine.js (for reactive components) --&gt;
+    &lt;script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"&gt;&lt;/script&gt;
+    
+    &lt;!-- Django Components UI JavaScript --&gt;
+    &lt;script src="{% templatetag openblock %} static 'django_components_ui/js/components.js' {% templatetag closeblock %}"&gt;&lt;/script&gt;
+&lt;/head&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 4: Usage -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Step 4: Start Using Components</h2>
+        
+        <div class="space-y-6">
+            <div>
+                <h3 class="text-lg font-medium mb-3">In Your Templates</h3>
+                <p class="text-base-content/70 mb-3">
+                    Now you can use Django Components UI in your templates:
+                </p>
+                <div class="relative">
+                    <pre class="language-html"><code>&lt;!-- your_template.html --&gt;
+
+&lt;!-- Button component --&gt;
+&lt;c-button variant="primary" size="lg"&gt;
+    Click me!
+&lt;/c-button&gt;
+
+&lt;!-- Card component --&gt;
+&lt;c-card class="max-w-sm"&gt;
+    &lt;c-slot name="title"&gt;Card Title&lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;p&gt;This is a card content.&lt;/p&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Troubleshooting</h2>
+        
+        <div class="space-y-6">
+            <c-callout variant="warning">
+                <c-slot name="title">Common Issues</c-slot>
+                <div class="space-y-3">
+                    <div>
+                        <h4 class="font-medium">Components not rendering?</h4>
+                        <p class="text-sm text-base-content/70">Make sure <code class="px-1 py-0.5 bg-base-300 rounded text-xs">django_cotton</code> is installed and added to INSTALLED_APPS before <code class="px-1 py-0.5 bg-base-300 rounded text-xs">django_components_ui</code>.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-medium">Styles not loading?</h4>
+                        <p class="text-sm text-base-content/70">Make sure you've included the <code class="px-1 py-0.5 bg-base-300 rounded text-xs">init-components.html</code> template or manually included the CSS files.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-medium">JavaScript not working?</h4>
+                        <p class="text-sm text-base-content/70">Make sure HTMX and Alpine.js are loaded before the page content.</p>
+                    </div>
+                </div>
+            </c-callout>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Next Steps</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Explore Components</h3>
+                <p class="text-base-content/70 mb-4">
+                    Browse our comprehensive component library.
+                </p>
+                <a href="#" hx-get="{% url 'demo:docs_page' 'components' 'button' %}" hx-target="#content" hx-push-url="true"
+                   class="btn btn-sm btn-outline">
+                    View Components
+                </a>
+            </div>
+            <div class="p-6 bg-base-200 rounded-lg">
+                <h3 class="text-lg font-semibold mb-3">Check Examples</h3>
+                <p class="text-base-content/70 mb-4">
+                    See real-world usage examples and layouts.
+                </p>
+                <a href="{% url 'demo:ui_blocks' %}" class="btn btn-sm btn-outline">
+                    View Examples
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
