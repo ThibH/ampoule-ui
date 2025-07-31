@@ -6,12 +6,12 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DEBUG="False"
-      - SECRET_KEY=${SECRET_KEY}
-      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
-      - DJANGO_SETTINGS_MODULE=documentation.settings_production
+      - DEBUG=False
+      - SECRET_KEY=${SECRET_KEY:-changeme-in-production}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS:-localhost}
+      - DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-documentation.settings_production}
     volumes:
-      - static_volume:/app/documentation/staticfiles
+      - static_volume:/app/staticfiles
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/"]

@@ -14,19 +14,12 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Installer les dépendances Python
-COPY pyproject.toml ./
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir Django>=4.2,<6.0 django-cotton>=0.9.0 gunicorn
-
 # Copier le code source
 COPY . .
 
-# Installer le package en développement
-RUN pip install -e .
-
-# Définir le répertoire de travail pour Django
-WORKDIR /app/documentation
+# Installer les dépendances Python
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Collecter les fichiers statiques
 RUN python manage.py collectstatic --noinput
