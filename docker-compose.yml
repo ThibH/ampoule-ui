@@ -6,12 +6,11 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DEBUG=False
-      - SECRET_KEY=${SECRET_KEY:-changeme-in-production}
-      - ALLOWED_HOSTS=${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      - DEBUG="False"
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
       - DJANGO_SETTINGS_MODULE=documentation.settings_production
     volumes:
-      - ./documentation/db.sqlite3:/app/documentation/db.sqlite3
       - static_volume:/app/documentation/staticfiles
     restart: unless-stopped
     healthcheck:
