@@ -3,11 +3,12 @@
     <c-layout.partial.navbar centered sticky>
         <c-slot name="logo">
             <a href="{% url 'demo:index' %}">
-                <h1 class="text-xl font-bold">Django Components UI</h1>
+                <h1 class="text-xl font-bold">Ampoule UI 💡</h1>
             </a>
         </c-slot>
 
         <c-slot name="nav_end">
+            <c-button href="{% url 'demo:components' %}" variant="ghost">Components</c-button>
             <c-button href="{% url 'demo:docs' %}" variant="ghost">Docs</c-button>
             <c-button href="{% url 'demo:ui_blocks' %}" variant="ghost">UI Blocks</c-button>
 
@@ -25,7 +26,9 @@
 
     </c-layout.partial.navbar>
 
-    {% block content %}{% endblock %}
+    <main class="flex flex-1">
+      {% block content %}{% endblock %}
+    </main>
 
     <c-layout.partial.footer >
         <nav>

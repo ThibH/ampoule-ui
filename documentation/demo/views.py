@@ -9,6 +9,10 @@ import time
 def index(request):
     return render(request, "demo/index.html")
 
+def components(request):
+    """Components showcase page - grid view of all available components"""
+    return render(request, "demo/components.html")
+
 def docs(request):
     # Vérifier si la requête vient d'HTMX
     is_htmx = request.headers.get('HX-Request', False)

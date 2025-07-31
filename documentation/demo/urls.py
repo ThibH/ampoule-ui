@@ -5,6 +5,7 @@ app_name = "demo"
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("components/", views.components, name="components"),
     path("docs/", views.docs, name="docs"),
     
     # Dynamic documentation routes

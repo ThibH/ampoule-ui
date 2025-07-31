@@ -1,0 +1,549 @@
+{% extends "base.html" %}
+
+{% block title %}Components - Django Components UI{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <div class="mb-12 text-center">
+        <h1 class="text-4xl font-bold mb-4">Components</h1>
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+            A comprehensive collection of reusable UI components built with Django Cotton, Tailwind CSS, and DaisyUI.
+            Each component is designed for flexibility and ease of use.
+        </p>
+    </div>
+
+    <!-- Components Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+        
+        <!-- Button Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='button' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Button</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Interactive buttons with multiple variants and sizes</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <c-button variant="primary" size="sm">Primary</c-button>
+                        <c-button variant="outline" size="sm">Outline</c-button>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Card Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='card' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Card</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Flexible containers for grouping content with images and actions</p>
+                    <div class="border border-base-300 rounded-lg p-3 bg-base-50">
+                        <div class="text-xs font-semibold mb-1">Mini Card</div>
+                        <div class="text-xs text-base-content/60">Card preview</div>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Badge Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='badge' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Badge</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Status indicators and labels with various styles</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <c-badge variant="primary" size="sm">New</c-badge>
+                        <c-badge variant="success" size="sm">Active</c-badge>
+                        <c-badge variant="warning" size="sm">Beta</c-badge>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Input Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='input' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Input</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Form inputs with validation and multiple types</p>
+                    <div class="space-y-2">
+                        <c-form.input placeholder="Enter text..." size="sm" class="w-full"></c-form.input>
+                        <c-form.input type="email" placeholder="email@example.com" size="sm" class="w-full"></c-form.input>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Table Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='table' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Table</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Advanced data tables with filtering and sorting</p>
+                    <div class="border border-base-300 rounded-lg overflow-hidden">
+                        <c-table variant="zebra">
+                            <c-table.columns>
+                                <c-table.column>Name</c-table.column>
+                                <c-table.column>Status</c-table.column>
+                            </c-table.columns>
+                            <c-table.rows>
+                                <c-table.row>
+                                    <c-table.cell>John</c-table.cell>
+                                    <c-table.cell><c-badge variant="success" size="xs">Active</c-badge></c-table.cell>
+                                </c-table.row>
+                            </c-table.rows>
+                        </c-table>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Modal Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='modal' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Modal</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Dialog windows for overlays and confirmations</p>
+                    <div class="flex items-center gap-2">
+                        <c-button variant="primary" size="sm">Open Modal</c-button>
+                        <div class="text-xs text-base-content/50">Click to preview</div>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Icon Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='icon' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Icon</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Lucide icons with customizable sizes and colors</p>
+                    <div class="flex gap-3 items-center">
+                        <c-icon name="heart" size="sm" class="text-red-500"></c-icon>
+                        <c-icon name="star" size="md" class="text-yellow-500"></c-icon>
+                        <c-icon name="check-circle" size="lg" class="text-green-500"></c-icon>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Avatar Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='avatar' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Avatar</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">User profile pictures with initials fallback</p>
+                    <div class="flex gap-2 items-center">
+                        <c-avatar src="https://picsum.photos/40/40?random=1" size="sm"></c-avatar>
+                        <c-avatar initials="JD" size="sm"></c-avatar>
+                        <c-avatar online initials="AB" size="sm"></c-avatar>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Progress Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='progress' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Progress</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Progress bars and loading indicators</p>
+                    <div class="space-y-2">
+                        <c-progress value="75" variant="primary" size="sm"></c-progress>
+                        <c-progress value="45" variant="success" size="sm"></c-progress>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Range Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='range' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Range</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Range sliders for value selection</p>
+                    <div class="space-y-2">
+                        <c-range value="50" variant="primary" size="sm"></c-range>
+                        <div class="text-xs text-base-content/60 text-center">Drag to adjust</div>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Select Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='select' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Select</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Dropdown select menus with options</p>
+                    <c-select size="sm" class="w-full">
+                        <option>Choose option</option>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                    </c-select>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Checkbox Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='checkbox' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Checkbox</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Checkboxes for multiple selections</p>
+                    <div class="space-y-2">
+                        <c-checkbox checked label="Option 1" size="sm"></c-checkbox>
+                        <c-checkbox label="Option 2" size="sm"></c-checkbox>
+                        <c-checkbox label="Option 3" size="sm"></c-checkbox>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Radio Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='radio' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Radio</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Radio buttons for single selection</p>
+                    <div class="space-y-2">
+                        <c-radio name="example" checked label="Choice A" size="sm"></c-radio>
+                        <c-radio name="example" label="Choice B" size="sm"></c-radio>
+                        <c-radio name="example" label="Choice C" size="sm"></c-radio>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Switch Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='switch' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Switch</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Toggle switches for on/off states</p>
+                    <div class="flex items-center gap-4">
+                        <c-form.switch checked size="sm" label="Enabled"></c-form.switch>
+                        <c-form.switch size="sm" label="Disabled"></c-form.switch>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Toast Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='toast' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Toast</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Notification messages with different types</p>
+                    <div class="space-y-2">
+                        <div class="alert alert-success alert-sm py-2">
+                            <c-icon name="check-circle" size="xs"></c-icon>
+                            <span class="text-xs">Success message</span>
+                        </div>
+                        <div class="alert alert-error alert-sm py-2">
+                            <c-icon name="x-circle" size="xs"></c-icon>
+                            <span class="text-xs">Error message</span>
+                        </div>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Breadcrumbs Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='breadcrumbs' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Breadcrumbs</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Navigation breadcrumbs for page hierarchy</p>
+                    <div class="breadcrumbs text-sm">
+                        <ul>
+                            <li><span>Home</span></li>
+                            <li><span>Components</span></li>
+                            <li><span>Breadcrumbs</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Pagination Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='pagination' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Pagination</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Page navigation for large datasets</p>
+                    <div class="join">
+                        <span class="join-item btn btn-sm">«</span>
+                        <span class="join-item btn btn-sm">1</span>
+                        <span class="join-item btn btn-sm btn-active">2</span>
+                        <span class="join-item btn btn-sm">3</span>
+                        <span class="join-item btn btn-sm">»</span>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Menu Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='menu' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Menu</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Navigation menus with submenus</p>
+                    <ul class="menu bg-base-100 border border-base-300 rounded-lg text-sm p-2">
+                        <li><span><c-icon name="home" size="xs"></c-icon> Dashboard</span></li>
+                        <li><span><c-icon name="user" size="xs"></c-icon> Profile</span></li>
+                        <li><hr class="my-1"></li>
+                        <li><span><c-icon name="settings" size="xs"></c-icon> Settings</span></li>
+                    </ul>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Dropdown Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='dropdown' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Dropdown</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Dropdown menus with actions</p>
+                    <div class="flex justify-center">
+                        <c-button variant="outline" size="sm" icon_trailing="chevron-down">
+                            Actions
+                        </c-button>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Tabs Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='tabs' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Tabs</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Tab navigation for content sections</p>
+                    <c-tabs variant="bordered" size="sm">
+                        <c-tab active>Tab 1</c-tab>
+                        <c-tab>Tab 2</c-tab>
+                        <c-tab>Tab 3</c-tab>
+                    </c-tabs>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Callout Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='callout' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Callout</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Highlighted content blocks and alerts</p>
+                    <c-callout variant="info" size="sm">
+                        <c-icon name="info" size="xs"></c-icon>
+                        <span class="text-xs">Important information here</span>
+                    </c-callout>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Text Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='text' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Text</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Typography with variants and styles</p>
+                    <div class="space-y-1">
+                        <c-text variant="strong" size="sm">Strong text</c-text>
+                        <c-text variant="subtle" size="xs">Subtle text</c-text>
+                        <c-text variant="muted" size="xs">Muted text</c-text>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Chip Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='chip' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Chip</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Interactive tags and filters</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <c-chip variant="primary" size="sm" removable>React</c-chip>
+                        <c-chip variant="secondary" size="sm">Vue.js</c-chip>
+                        <c-chip variant="accent" size="sm">Angular</c-chip>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Button Group Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='button-group' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Button Group</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Grouped buttons for related actions</p>
+                    <c-button-group size="sm">
+                        <c-button variant="outline">Left</c-button>
+                        <c-button variant="outline">Center</c-button>
+                        <c-button variant="outline">Right</c-button>
+                    </c-button-group>
+                </div>
+            </c-slot>
+        </c-card>
+
+        <!-- Navbar Component -->
+        <c-card href="{% url 'demo:docs_page' section='components' page='navbar' %}" class="h-full">
+            <c-slot name="title">
+                <div class="flex items-center justify-between w-full">
+                    <c-text>Navbar</c-text>
+                    <c-icon name="arrow-up-right" size="xs" class="ml-auto"></c-icon>
+                </div>
+            </c-slot>
+            <c-slot name="content">
+                <div class="space-y-3">
+                    <p class="text-sm text-base-content/70">Navigation bars with branding and links</p>
+                    <div class="border border-base-300 rounded-lg p-2 bg-base-100">
+                        <div class="flex items-center justify-between text-xs">
+                            <div class="font-semibold">Brand</div>
+                            <div class="flex gap-2">
+                                <span>Home</span>
+                                <span>About</span>
+                                <span>Contact</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </c-slot>
+        </c-card>
+
+    </div>
+
+    <!-- More Components Coming Soon -->
+    <div class="mt-16 text-center">
+        <div class="bg-base-200/50 rounded-lg p-8">
+            <c-icon name="plus-circle" size="lg" class="text-base-content/40 mb-4"></c-icon>
+            <h3 class="text-lg font-semibold mb-2">More Components Coming Soon</h3>
+            <p class="text-base-content/70">
+                We're continuously adding new components to help you build amazing interfaces.
+                Check back regularly for updates!
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
