@@ -1,0 +1,21 @@
+[phases.setup]
+nixPkgs = ["python311", "nodejs"]
+
+[phases.install]
+cmds = [
+    "cd documentation",
+    "pip install -e ..",
+    "pip install gunicorn",
+]
+
+[phases.build]
+cmds = [
+    "cd documentation", 
+    "python manage.py collectstatic --noinput"
+]
+
+[start]
+cmd = "cd documentation && gunicorn documentation.wsgi:application --bind 0.0.0.0:8000 --workers 2"
+
+[variables]
+DJANGO_SETTINGS_MODULE = "documentation.settings_production"

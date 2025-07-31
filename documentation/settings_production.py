@@ -8,8 +8,14 @@ from .settings import *
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 SECRET_KEY = os.environ.get('SECRET_KEY', 'changeme-in-production')
 
-# Hôtes autorisés
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else ['*']
+# Hôtes autorisés - Configuration pour Nixpacks/Coolify
+ALLOWED_HOSTS = []
+allowed_hosts_env = os.environ.get('ALLOWED_HOSTS', '')
+if allowed_hosts_env:
+    ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_env.split(',') if host.strip()]
+else:
+    # Par défaut en développement/test
+    ALLOWED_HOSTS = ['*']
 
 # Configuration de la base de données
 # Utiliser SQLite par défaut (suffisant pour la documentation)
