@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./django_components_ui/**/*.{html,js,py}",
-    "./demo_project/**/*.{html,js,py}",
+    "./documentation/**/*.{html,js,py}",
   ],
   theme: {
     extend: {

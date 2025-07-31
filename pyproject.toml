@@ -60,7 +60,7 @@ include = [
     "/LICENSE",
 ]
 exclude = [
-    "/demo_project",
+    "/documentation",
     "*.pyc",
     "/__pycache__",
     "/node_modules",

@@ -643,21 +643,6 @@
       }
     }
   }
-  .collapse-plus {
-    > .collapse-title:after {
-      position: absolute;
-      display: block;
-      height: 0.5rem;
-      width: 0.5rem;
-      transition-property: all;
-      transition-duration: 300ms;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      top: 0.9rem;
-      inset-inline-end: 1.4rem;
-      content: "+";
-      pointer-events: none;
-    }
-  }
   .dropdown {
     position: relative;
     display: inline-block;
@@ -905,134 +890,10 @@
   .pointer-events-none {
     pointer-events: none;
   }
-  .collapse {
-    &:not(td, tr, colgroup) {
-      visibility: visible;
-    }
-    position: relative;
-    display: grid;
-    overflow: hidden;
-    border-radius: var(--radius-box, 1rem);
-    width: 100%;
-    grid-template-rows: max-content 0fr;
-    transition: grid-template-rows 0.2s;
-    isolation: isolate;
-    > input:is([type="checkbox"], [type="radio"]) {
-      grid-column-start: 1;
-      grid-row-start: 1;
-      appearance: none;
-      opacity: 0;
-      z-index: 1;
-      width: 100%;
-      padding: 1rem;
-      padding-inline-end: 3rem;
-      min-height: 1lh;
-      transition: background-color 0.2s ease-out;
-    }
-    &:is([open], :focus:not(.collapse-close)), &:not(.collapse-close):has(> input:is([type="checkbox"], [type="radio"]):checked) {
-      grid-template-rows: max-content 1fr;
-    }
-    &:is([open], :focus:not(.collapse-close)) > .collapse-content, &:not(.collapse-close) > :where(input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-content) {
-      visibility: visible;
-      min-height: fit-content;
-    }
-    &:focus-visible, &:has(> input:is([type="checkbox"], [type="radio"]):focus-visible) {
-      outline-color: var(--color-base-content);
-      outline-style: solid;
-      outline-width: 2px;
-      outline-offset: 2px;
-    }
-    &:not(.collapse-close) {
-      > input[type="checkbox"], > input[type="radio"]:not(:checked), > .collapse-title {
-        cursor: pointer;
-      }
-    }
-    &:focus:not(.collapse-close, .collapse[open]) > .collapse-title {
-      cursor: unset;
-    }
-    &:is([open], :focus:not(.collapse-close)) > :where(.collapse-content), &:not(.collapse-close) > :where(input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-content) {
-      padding-bottom: 1rem;
-      transition: padding 0.2s ease-out, background-color 0.2s ease-out;
-    }
-    &:is([open]) {
-      &.collapse-arrow {
-        > .collapse-title:after {
-          transform: translateY(-50%) rotate(225deg);
-        }
-      }
-    }
-    &.collapse-open {
-      &.collapse-arrow {
-        > .collapse-title:after {
-          transform: translateY(-50%) rotate(225deg);
-        }
-      }
-      &.collapse-plus {
-        > .collapse-title:after {
-          content: "−";
-        }
-      }
-    }
-    &.collapse-arrow:focus:not(.collapse-close) {
-      > .collapse-title:after {
-        transform: translateY(-50%) rotate(225deg);
-      }
-    }
-    &.collapse-arrow:not(.collapse-close) {
-      > input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-title:after {
-        transform: translateY(-50%) rotate(225deg);
-      }
-    }
-    &[open] {
-      &.collapse-plus {
-        > .collapse-title:after {
-          content: "−";
-        }
-      }
-    }
-    &.collapse-plus:focus:not(.collapse-close) {
-      > .collapse-title:after {
-        content: "−";
-      }
-    }
-    &.collapse-plus:not(.collapse-close) {
-      > input:is([type="checkbox"], [type="radio"]):checked ~ .collapse-title:after {
-        content: "−";
-      }
-    }
-    &:is(details) {
-      width: 100%;
-      & summary {
-        position: relative;
-        display: block;
-        &::-webkit-details-marker {
-          display: none;
-        }
-      }
-    }
-    &:is(details) summary {
-      outline: none;
-    }
-  }
-  .collapse-content {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    visibility: hidden;
-    grid-column-start: 1;
-    grid-row-start: 2;
-    min-height: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    cursor: unset;
-    transition: visibility 0.2s, padding 0.2s ease-out, background-color 0.2s ease-out;
-  }
   .validator-hint {
     visibility: hidden;
     margin-top: calc(0.25rem * 2);
     font-size: 0.75rem;
-  }
-  .collapse {
-    visibility: collapse;
   }
   .visible {
     visibility: visible;
@@ -1960,16 +1821,6 @@
       opacity: 100%;
       backface-visibility: visible;
     }
-  }
-  .collapse-title {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    position: relative;
-    width: 100%;
-    padding: 1rem;
-    padding-inline-end: 3rem;
-    min-height: 1lh;
-    transition: background-color 0.2s ease-out;
   }
   .sr-only {
     position: absolute;
@@ -3473,9 +3324,6 @@
   .h-64 {
     height: calc(var(--spacing) * 64);
   }
-  .h-\[300px\] {
-    height: 300px;
-  }
   .h-full {
     height: 100%;
   }
@@ -3689,6 +3537,21 @@
   }
   .list-disc {
     list-style-type: disc;
+  }
+  .footer-horizontal {
+    grid-auto-flow: column;
+    &.footer-center {
+      grid-auto-flow: row dense;
+    }
+  }
+  .footer-vertical {
+    grid-auto-flow: row;
+    &.footer-center {
+      grid-auto-flow: column dense;
+    }
+  }
+  .grid-flow-col {
+    grid-auto-flow: column;
   }
   .auto-rows-min {
     grid-auto-rows: min-content;
@@ -4059,15 +3922,6 @@
       border-color: color-mix(in oklab, var(--color-info) 20%, transparent);
     }
   }
-  .border-neutral {
-    border-color: var(--color-neutral);
-  }
-  .border-neutral\/20 {
-    border-color: var(--color-neutral);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-neutral) 20%, transparent);
-    }
-  }
   .border-primary {
     border-color: var(--color-primary);
   }
@@ -4234,12 +4088,6 @@
     background-color: var(--color-success);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-success) 10%, transparent);
-    }
-  }
-  .bg-success\/20 {
-    background-color: var(--color-success);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-success) 20%, transparent);
     }
   }
   .bg-transparent {
@@ -4528,9 +4376,6 @@
   .pl-4 {
     padding-left: calc(var(--spacing) * 4);
   }
-  .pl-6 {
-    padding-left: calc(var(--spacing) * 6);
-  }
   .pl-10 {
     padding-left: calc(var(--spacing) * 10);
   }
@@ -4669,10 +4514,6 @@
   .tracking-wider {
     --tw-tracking: var(--tracking-wider);
     letter-spacing: var(--tracking-wider);
-  }
-  .checkbox-primary {
-    color: var(--color-primary-content);
-    --input-color: var(--color-primary);
   }
   .link-primary {
     color: var(--color-primary);
@@ -5501,6 +5342,14 @@
     &:has(*:is(:checked)) {
       --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .sm\:footer-horizontal {
+    @media (width >= 40rem) {
+      grid-auto-flow: column;
+      &.footer-center {
+        grid-auto-flow: row dense;
+      }
     }
   }
   .sm\:grid-cols-2 {

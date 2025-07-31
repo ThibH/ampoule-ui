@@ -1,3 +1,44 @@
+{% comment %}
+Composant Navbar avec DaisyUI et système de drawer pour mobile
+Usage:
+<c-navbar>
+    <c-slot name="logo">
+        <a href="/" class="text-xl font-bold">Mon App</a>
+    </c-slot>
+    <c-slot name="nav">
+        <a href="/about" class="btn btn-ghost">À propos</a>
+        <a href="/contact" class="btn btn-ghost">Contact</a>
+    </c-slot>
+    <c-slot name="nav_center">
+        <div class="form-control">
+            <input type="text" placeholder="Rechercher..." class="input input-bordered" />
+        </div>
+    </c-slot>
+    <c-slot name="nav_end">
+        <c-button>Connexion</c-button>
+    </c-slot>
+    <c-slot name="profile_icon">
+        <img src="/avatar.jpg" alt="Profil" />
+    </c-slot>
+    <c-slot name="profile_dropdown_links">
+        <li><a>Mon profil</a></li>
+        <li><a>Paramètres</a></li>
+        <li><a>Déconnexion</a></li>
+    </c-slot>
+</c-navbar>
+
+Paramètres:
+- sticky: true/false - navbar collante avec animation smart scroll
+- centered: true/false - centre le contenu dans un container
+- class: classes CSS additionnelles
+
+Fonctionnalités:
+- Responsive avec drawer mobile automatique si nav présent
+- Smart navbar sticky avec Alpine.js (hide/show au scroll)
+- Dropdown profil avec avatar
+- Zones flexibles: nav (gauche), nav_center (centre), nav_end (droite)
+{% endcomment %}
+
 <div class="drawer {% if centered %}container  mx-auto px-4 rounded-full {% endif %} {% if sticky %}sticky z-50 mb-4{% endif %} {{ class }}"
      {% if sticky %}x-data="smartNavbar" x-bind:class="{
                                                          'bg-base-100/80 backdrop-blur-sm': hasScrolled,
@@ -25,11 +66,17 @@
           </div>
           <nav class="hidden lg:flex">
             {{ nav }}
+          </nav>
+        </div>
+        <div class="navbar-center">
+          <nav class="hidden lg:flex">
             {{ nav_center }}
           </nav>
         </div>
         <div class="navbar-end flex items-center gap-2">
-          {{ nav_end }}
+          <nav class="hidden lg:flex">
+            {{ nav_end }}
+          </nav>
           {% if profile_icon %}
             <c-dropdown variant="ghost" placement="end" hover circle>
               <c-slot name="icon_slot">
@@ -48,7 +95,7 @@
     <div class="drawer-side z-50">
       <label for="navbar-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
       <div class="flex flex-col gap-2 p-4 w-80 min-h-full bg-base-200 text-base-content">
-        <div class="flex items-center justify-center h-12 w-12 mb-4">
+        <div class="flex items-center justify-center mb-4">
           {{ logo }}
         </div>
         {{ nav }}

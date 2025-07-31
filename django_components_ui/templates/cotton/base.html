@@ -1,0 +1,36 @@
+<c-vars bg_color="bg-base-100"></c-vars>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Ampoule UI{% endblock %}</title>
+
+        {% load static %}
+        {% include "init-components.html" %}
+
+        <!-- Prism.js for syntax highlighting -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+        {% block extra_head %}{% endblock %}
+    </head>
+
+    <body class="{{ bg_color }} min-h-screen">
+        <c-toast-area></c-toast-area>
+
+        {{ slot }}
+        
+        
+        <!-- Prism.js for syntax highlighting -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+        {% block extra_js %}{% endblock %}
+    </body>
+
+
+    {% include "init-scripts.html" %}
+
+</html>

@@ -4,4 +4,4 @@ recursive-include django_components_ui/templates *
 recursive-include django_components_ui/static *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
-exclude demo_project/
+exclude documentation/

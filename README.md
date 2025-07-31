@@ -108,7 +108,7 @@ npm run build
 #### 2. Demo Project
 
 ```bash
-cd demo_project
+cd documentation
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -e ..
@@ -127,7 +127,7 @@ npm run dev
 npm run build
 
 # Run Django tests
-cd demo_project && python manage.py test
+cd documentation && python manage.py test
 ```
 
 ## 🎯 Available Components
@@ -236,7 +236,7 @@ django-components-ui/
 │   │   ├── css/components.css         # Pre-built CSS (Tailwind + DaisyUI)
 │   │   └── js/components.js           # JavaScript utilities
 │   └── templates/init-components.html # Asset includes
-├── demo_project/                      # Demo project
+├── documentation/                      # Documentation project
 │   ├── demo/                          # Demo app with examples
 │   └── manage.py
 ├── tailwind.config.js                 # Tailwind configuration

@@ -326,3 +326,6 @@ temp/
 
 # Claude AI files
 .claude/
+
+# Cursor AI
+.cursor/

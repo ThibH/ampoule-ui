@@ -3,13 +3,13 @@
 {% block title %}{{ page|title }} - Django Components UI{% endblock %}
 
 {% block content %}
-    <c-layout.container>
+    <c-layout.partial.container>
         {% include "demo/docs/partials/sidebar.html" %}
 
         <!-- Main Content Area -->
         <div class="flex-1 flex">
         <!-- Content -->
-            <main id="content" class="flex-1 px-8 py-12 max-w-7xl">
+            <main id="content" class="flex-1 px-8 py-12">
                 {% include content_template %}
             </main>
 
@@ -23,7 +23,7 @@
                 </div>
             </aside>
         </div>
-    </c-layout.container>
+    </c-layout.partial.container>
 
     <script>
     // Auto-generate TOC from H2 and H3 elements

@@ -10,8 +10,8 @@ This is a Django component library built with **Django Cotton**, **Tailwind CSS 
 
 ### Core Structure
 - **`django_components_ui/`** - Main Python package containing components and assets
-- **`demo_project/`** - Django project for demonstrations and documentation
-- **`demo_project/demo/`** - Demo app with examples and documentation
+- **`documentation/`** - Django project for demonstrations and documentation
+- **`documentation/demo/`** - Demo app with examples and documentation
 
 ### Component System
 Components are built using **Django Cotton** and located in `django_components_ui/templates/cotton/`. Usage pattern:
@@ -56,7 +56,7 @@ Include in templates:
 ```bash
 npm install                                    # Install Node dependencies
 npm run build                                  # Build CSS assets
-cd demo_project && python -m venv venv        # Create virtual environment
+cd documentation && python -m venv venv        # Create virtual environment
 source venv/bin/activate                      # Activate venv (Linux/Mac)
 pip install -e ..                             # Install package in dev mode
 python manage.py runserver                    # Start Django server
@@ -70,7 +70,7 @@ npm run build       # Production build (minified)
 
 ### Django Development
 ```bash
-cd demo_project
+cd documentation
 python manage.py runserver                    # Start development server
 python manage.py test                         # Run tests
 ```
@@ -79,13 +79,13 @@ python manage.py test                         # Run tests
 1. Create template in `django_components_ui/templates/cotton/[component].html`
 2. Add CSS styles to `django_components_ui/static/django_components_ui/css/components.css` if needed
 3. Run `npm run build` to recompile CSS
-4. Test in `demo_project/demo/`
+4. Test in `documentation/demo/`
 
 ## Key Configuration Files
 
 - **`package.json`** - Node.js dependencies and build scripts
 - **`tailwind.config.js`** - Tailwind CSS configuration with DaisyUI
-- **`demo_project/demo_project/settings.py`** - Django settings with required apps
+- **`documentation/documentation/settings.py`** - Django settings with required apps
 - **`django_components_ui/templates/init-components.html`** - Required includes for CSS/JS
 
 ## Required Django Apps
@@ -176,7 +176,7 @@ The project includes a generic filtering system that extends beyond tables to an
 
 ## Testing Environment
 
-The `demo_project/` contains comprehensive examples and documentation:
+The `documentation/` contains comprehensive examples and documentation:
 - **Demo views**: Various component demonstrations
 - **Documentation**: Component usage examples in `demo/templates/demo/docs/`
 - **Layout demos**: Real-world layout examples (navbar, sidebar)
