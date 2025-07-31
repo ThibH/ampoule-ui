@@ -7,11 +7,13 @@ Usage:
 - <c-text color="red-500">Texte coloré</c-text>
 {% endcomment %}
 
-<c-vars variant="default" />
-
-<span class="text-{{ variant }} {% if size %}text-{{ size }}{% endif %} {% if color %}!text-{{ color }}{% endif %} {% if icon %}inline-flex items-center gap-1{% endif %} {{ class }}" {{ attrs }}>
+<span class="{% if icon %}inline-flex gap-1{% endif %} {% if variant %}text-{{ variant }}{% endif %} {% if size %}text-{{ size }}{% endif %} {% if color %}!text-{{ color }}{% endif %} {% if icon %}inline-flex items-center gap-1{% endif %} {{ class }}" {{ attrs }}>
         {% if icon %}
-            <c-icon name="{{ icon }}" size="{% if size == 'xs' %}2xs{% elif size == 'sm' %}xs{% elif size == 'md' %}sm{% elif size == 'lg' %}md{% elif size == 'xl' %}md{% elif size == '2xl' %}xl{% else %}xs{% endif %}" />
+            <c-icon name="{{ icon }}" variant="{% if icon_variant %}{{ icon_variant }}{% endif %}" size="{% if size == 'xs' %}2xs{% elif size == 'sm' %}xs{% elif size == 'md' %}sm{% elif size == 'lg' %}md{% elif size == 'xl' %}md{% elif size == '2xl' %}xl{% else %}xs{% endif %}" />
         {% endif %}
-    {{ slot }}
+    {% if text %}
+        {{ text }}
+    {% else %}
+        {{ slot }}
+    {% endif %}
 </span>

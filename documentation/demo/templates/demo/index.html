@@ -21,7 +21,7 @@
                     <c-button size="lg">Get Started</c-button>
                 </a>
                 <a href="{% url 'demo:docs' %}">
-                    <c-button variant="outline" size="lg">View Components</c-button>
+                    <c-button variant="neutral" size="lg">View Components</c-button>
                 </a>
             </div>
         </div>
@@ -146,10 +146,10 @@
                         <div class="space-y-4">
                         <!-- Social Login Buttons -->
                             <div class="grid grid-cols-2 gap-2">
-                                <c-button variant="outline" class="w-full" icon="github">
+                                <c-button block variant="neutral" icon="github">
                                     GitHub
                                 </c-button>
-                                <c-button variant="outline" class="w-full" icon="mail">
+                                <c-button block variant="neutral" icon="mail">
                                     Google
                                 </c-button>
                             </div>
@@ -165,12 +165,12 @@
 
                             <div class="space-y-3">
                                 <div>
-                                    <c-form.input type="email" class="w-full" placeholder="name@example.com" label="Email" label_start="@"></c-form.input>
+                                    <c-form.input type="email" class="w-full" placeholder="name@example.com" label="Email" text_leading="@"></c-form.input>
                                 </div>
                                 <div>
-                                    <c-form.input type="password" class="w-full" placeholder="Password" label="Password" label_start="🔒"></c-form.input>
+                                    <c-form.input type="password" class="w-full" placeholder="Password" label="Password" icon_leading="lock"></c-form.input>
                                 </div>
-                                <c-button icon="plus" class="w-full" size="sm">Create account</c-button>
+                                <c-button icon="plus" block variant="primary" size="sm">Create account</c-button>
                             </div>
                         </div>
                     </div>

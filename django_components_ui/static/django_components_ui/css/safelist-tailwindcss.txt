@@ -24,3 +24,10 @@ text-6xl
 text-7xl
 text-8xl
 text-9xl
+
+
+card-xs
+card-sm
+card-md
+card-lg
+card-xl

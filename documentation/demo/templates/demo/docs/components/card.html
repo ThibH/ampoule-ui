@@ -13,7 +13,7 @@
         <h2 class="text-2xl font-semibold mb-6">Basic Usage</h2>
         <div class="space-y-4">
             <div class="p-6 bg-base-200 rounded-lg">
-                <c-card class="w-96 shadow-xl">
+                <c-card>
                     <c-slot name="title">Card Title</c-slot>
                     <c-slot name="content">
                         <p>This is a basic card with title and content.</p>
@@ -24,7 +24,7 @@
                 </c-card>
             </div>
             <div class="relative">
-                <pre class="language-html"><code>&lt;c-card class="w-96 shadow-xl"&gt;
+                <pre class="language-html"><code>&lt;c-card class="w-96 "&gt;
     &lt;c-slot name="title"&gt;Card Title&lt;/c-slot&gt;
     &lt;c-slot name="content"&gt;
         &lt;p&gt;This is a basic card with title and content.&lt;/p&gt;
@@ -82,6 +82,12 @@
                         <td><code class="text-sm">bg-base-100</code></td>
                         <td>Background color class</td>
                     </tr>
+                    <tr>
+                        <td><code class="text-sm">href</code></td>
+                        <td><code class="text-sm">string</code></td>
+                        <td><code class="text-sm">-</code></td>
+                        <td>URL destination (makes the entire card clickable with hover effect)</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -136,7 +142,7 @@
         <h2 class="text-2xl font-semibold mb-6">Card with Image</h2>
         <div class="space-y-4">
             <div class="p-6 bg-base-200 rounded-lg">
-                <c-card class="w-96 shadow-xl">
+                <c-card class="w-96 ">
                     <c-slot name="figure">
                         <img src="https://picsum.photos/400/225?random=10" alt="Demo" />
                     </c-slot>
@@ -150,7 +156,7 @@
                 </c-card>
             </div>
             <div class="relative">
-                <pre class="language-html"><code>&lt;c-card class="w-96 shadow-xl"&gt;
+                <pre class="language-html"><code>&lt;c-card class="w-96 "&gt;
     &lt;c-slot name="figure"&gt;
         &lt;img src="image.jpg" alt="Demo" /&gt;
     &lt;/c-slot&gt;
@@ -175,7 +181,7 @@
             <h3 class="text-xl font-medium mb-4">Border</h3>
             <div class="space-y-4">
                 <div class="p-6 bg-base-200 rounded-lg">
-                    <c-card variant="border" class="w-96 shadow-xl">
+                    <c-card variant="border" class="w-96">
                         <c-slot name="title">Card with Border</c-slot>
                         <c-slot name="content">
                             <p>This card has a visible border around it.</p>
@@ -183,7 +189,7 @@
                     </c-card>
                 </div>
                 <div class="relative">
-                    <pre class="language-html"><code>&lt;c-card variant="border" class="w-96 shadow-xl"&gt;
+                    <pre class="language-html"><code>&lt;c-card variant="border" class="w-96 "&gt;
     &lt;c-slot name="title"&gt;Card with Border&lt;/c-slot&gt;
     &lt;c-slot name="content"&gt;
         &lt;p&gt;This card has a visible border around it.&lt;/p&gt;
@@ -198,7 +204,7 @@
             <h3 class="text-xl font-medium mb-4">Side Layout</h3>
             <div class="space-y-4">
                 <div class="p-6 bg-base-200 rounded-lg">
-                    <c-card variant="side" class="w-full max-w-lg shadow-xl">
+                    <c-card side compact class="w-full max-w-lg ">
                         <c-slot name="figure">
                             <img src="https://picsum.photos/200/150?random=11" alt="Demo" class="w-48" />
                         </c-slot>
@@ -212,7 +218,7 @@
                     </c-card>
                 </div>
                 <div class="relative">
-                    <pre class="language-html"><code>&lt;c-card variant="side" class="w-full max-w-lg shadow-xl"&gt;
+                    <pre class="language-html"><code>&lt;c-card variant="side" class="w-full max-w-lg "&gt;
     &lt;c-slot name="figure"&gt;
         &lt;img src="image.jpg" alt="Demo" class="w-48" /&gt;
     &lt;/c-slot&gt;
@@ -233,18 +239,18 @@
             <h3 class="text-xl font-medium mb-4">Compact</h3>
             <div class="space-y-4">
                 <div class="p-6 bg-base-200 rounded-lg">
-                    <c-card compact="true" class="w-96 shadow-xl">
+                    <c-card compact class="w-96 ">
                         <c-slot name="title">Compact Card</c-slot>
                         <c-slot name="content">
                             <p>This card has reduced padding for a more compact appearance.</p>
                         </c-slot>
                         <c-slot name="actions">
-                            <c-button variant="outline" size="sm">Action</c-button>
+                            <c-button size="sm" icon_trailing="arrow-right">Action</c-button>
                         </c-slot>
                     </c-card>
                 </div>
                 <div class="relative">
-                    <pre class="language-html"><code>&lt;c-card compact="true" class="w-96 shadow-xl"&gt;
+                    <pre class="language-html"><code>&lt;c-card compact="true" class="w-96 "&gt;
     &lt;c-slot name="title"&gt;Compact Card&lt;/c-slot&gt;
     &lt;c-slot name="content"&gt;
         &lt;p&gt;This card has reduced padding for a more compact appearance.&lt;/p&gt;
@@ -264,32 +270,62 @@
         <div class="space-y-4">
             <div class="p-6 bg-base-200 rounded-lg">
                 <div class="flex flex-wrap gap-4 items-end">
-                    <c-card size="xs" class="shadow-xl">
+                    <c-card size="xs" class="">
                         <c-slot name="title">XS</c-slot>
                         <c-slot name="content">Extra small</c-slot>
                     </c-card>
 
-                    <c-card size="sm" class="shadow-xl">
+                    <c-card size="sm" class="">
                         <c-slot name="title">SM</c-slot>
                         <c-slot name="content">Small card</c-slot>
                     </c-card>
 
-                    <c-card size="md" class="shadow-xl">
+                    <c-card size="md" class="">
                         <c-slot name="title">MD</c-slot>
                         <c-slot name="content">Medium (default)</c-slot>
                     </c-card>
 
-                    <c-card size="lg" class="shadow-xl">
+                    <c-card size="lg" class="">
                         <c-slot name="title">LG</c-slot>
                         <c-slot name="content">Large card</c-slot>
                     </c-card>
                 </div>
             </div>
             <div class="relative">
-                <pre class="language-html"><code>&lt;c-card size="xs" class="shadow-xl"&gt;...&lt;/c-card&gt;
-&lt;c-card size="sm" class="shadow-xl"&gt;...&lt;/c-card&gt;
-&lt;c-card size="md" class="shadow-xl"&gt;...&lt;/c-card&gt;
-&lt;c-card size="lg" class="shadow-xl"&gt;...&lt;/c-card&gt;</code></pre>
+                <pre class="language-html"><code>&lt;c-card size="xs" class=""&gt;...&lt;/c-card&gt;
+&lt;c-card size="sm" class=""&gt;...&lt;/c-card&gt;
+&lt;c-card size="md" class=""&gt;...&lt;/c-card&gt;
+&lt;c-card size="lg" class=""&gt;...&lt;/c-card&gt;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clickable Card -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-6">Clickable Card</h2>
+        <div class="space-y-4">
+            <div class="p-6 bg-base-200 rounded-lg">
+                <c-card href="#" class="w-96">
+                    <c-slot name="title">
+                        <c-icon name='star' />
+                        Clickable Card
+                        
+                        <c-icon name='arrow-up-right' class="ml-auto" size="xs" /></c-slot>
+                    <c-slot name="content">
+                        <c-text>This entire card is clickable and shows a subtle hover effect. Click anywhere on the card!</c-text>
+                    </c-slot>
+                </c-card>
+            </div>
+            <div class="relative">
+                <pre class="language-html"><code>&lt;c-card href="/destination/" class="w-96 "&gt;
+    &lt;c-slot name="figure"&gt;
+        &lt;img src="image.jpg" alt="Demo" /&gt;
+    &lt;/c-slot&gt;
+    &lt;c-slot name="title"&gt;Clickable Card&lt;/c-slot&gt;
+    &lt;c-slot name="content"&gt;
+        &lt;p&gt;This entire card is clickable and shows a subtle hover effect.&lt;/p&gt;
+    &lt;/c-slot&gt;
+&lt;/c-card&gt;</code></pre>
             </div>
         </div>
     </section>
@@ -299,27 +335,22 @@
         <h2 class="text-2xl font-semibold mb-6">Pricing Card Example</h2>
         <div class="space-y-4">
             <div class="p-6 bg-base-200 rounded-lg">
-                <c-card class="w-80 shadow-xl bg-gradient-to-br from-purple-100 to-blue-100">
+                <c-card class="w-80  bg-gradient-to-br from-purple-100 to-blue-100">
                     <c-slot name="title">
-                        <c-badge variant="warning" size="sm">Most Popular</c-badge>
-                        <div class="flex justify-between items-center mt-2">
-                            <span class="text-2xl font-bold">Premium</span>
-                            <span class="text-xl">€29/mo</span>
+                        <div class="flex flex-col gap-2">
+
+                            <c-badge variant="warning" size="sm">Most Popular</c-badge>
+                            <div class="flex flex-col">
+                                <c-text variant="strong" size="lg">Premium</c-text>
+                                <c-text>€29/mo</c-text>
+                            </div>
                         </div>
                     </c-slot>
                     <c-slot name="content">
                         <ul class="space-y-2 text-sm">
-                            <li class="flex items-center">
-                                <c-icon name="check" class="w-4 h-4 mr-2 text-green-500"></c-icon>
-                                Premium feature 1
-                            </li>
-                            <li class="flex items-center">
-                                <c-icon name="check" class="w-4 h-4 mr-2 text-green-500"></c-icon>
-                                Premium feature 2
-                            </li>
-                            <li class="flex items-center">
-                                <c-icon name="check" class="w-4 h-4 mr-2 text-green-500"></c-icon>
-                                Premium feature 3
+                            <c-text size="md" icon="check" icon_variant="success" text="Premium feature 1" />
+                            <c-text size="md" icon="check" icon_variant="success" text="Premium feature 2" />
+                            <c-text size="md" icon="check" icon_variant="success" text="Premium feature 3" />
                             </li>
                         </ul>
                     </c-slot>
@@ -329,7 +360,7 @@
                 </c-card>
             </div>
             <div class="relative">
-                <pre class="language-html"><code>&lt;c-card class="w-80 shadow-xl bg-gradient-to-br from-purple-100 to-blue-100"&gt;
+                <pre class="language-html"><code>&lt;c-card class="w-80  bg-gradient-to-br from-purple-100 to-blue-100"&gt;
     &lt;c-slot name="title"&gt;
         &lt;c-badge variant="warning" size="sm"&gt;Most Popular&lt;/c-badge&gt;
         &lt;div class="flex justify-between items-center mt-2"&gt;
@@ -367,6 +398,7 @@
                 <li>• If no <code>content</code> slot is provided, the default slot content will be used</li>
                 <li>• The <code>figure</code> slot is perfect for images, videos, or any media content</li>
                 <li>• Use <code>bg</code> property to customize background colors</li>
+                <li>• Add <code>href</code> to make the entire card clickable with hover effect</li>
                 <li>• Combine with utility classes for custom styling</li>
             </ul>
         </div>

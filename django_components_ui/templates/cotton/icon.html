@@ -16,4 +16,5 @@ Paramètres:
           {% if size == 'sm' %}size-6{% endif %}
           {% if size == 'lg' %}size-12{% endif %}
           {% if size == 'xl' %}size-16{% endif %}
+          {% if variant %}text-{{ variant }}{% endif %}
           {{ class }}" {{ attrs }}></i>

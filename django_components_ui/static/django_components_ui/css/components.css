@@ -1790,6 +1790,79 @@
       outline: 2px solid currentColor;
     }
   }
+  .card\! {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: var(--radius-box) !important;
+    outline-width: 2px !important;
+    transition: outline 0.2s ease-in-out !important;
+    outline: 0 solid #0000 !important;
+    outline-offset: 2px !important;
+    &:focus {
+      --tw-outline-style: none !important;
+      outline-style: none !important;
+      @media (forced-colors: active) {
+        outline: 2px solid transparent !important;
+        outline-offset: 2px !important;
+      }
+    }
+    &:focus-visible {
+      outline-color: currentColor !important;
+    }
+    :where(figure:first-child) {
+      overflow: hidden !important;
+      border-start-start-radius: inherit !important;
+      border-start-end-radius: inherit !important;
+      border-end-start-radius: unset !important;
+      border-end-end-radius: unset !important;
+    }
+    :where(figure:last-child) {
+      overflow: hidden !important;
+      border-start-start-radius: unset !important;
+      border-start-end-radius: unset !important;
+      border-end-start-radius: inherit !important;
+      border-end-end-radius: inherit !important;
+    }
+    &:where(.card-border) {
+      border: var(--border) solid var(--color-base-200) !important;
+    }
+    &:where(.card-dash) {
+      border: var(--border) dashed var(--color-base-200) !important;
+    }
+    &.image-full {
+      display: grid !important;
+      > * {
+        grid-column-start: 1 !important;
+        grid-row-start: 1 !important;
+      }
+      > .card-body {
+        position: relative !important;
+        color: var(--color-neutral-content) !important;
+      }
+      :where(figure) {
+        overflow: hidden !important;
+        border-radius: inherit !important;
+      }
+      > figure img {
+        height: 100% !important;
+        object-fit: cover !important;
+        filter: brightness(28%) !important;
+      }
+    }
+    figure {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    &:has(> input:is(input[type="checkbox"], input[type="radio"])) {
+      cursor: pointer !important;
+      user-select: none !important;
+    }
+    &:has(> :checked) {
+      outline: 2px solid currentColor !important;
+    }
+  }
   .swap {
     position: relative;
     display: inline-grid;
@@ -3242,6 +3315,32 @@
   }
   .table {
     display: table;
+  }
+  .card-side {
+    align-items: stretch;
+    flex-direction: row;
+    :where(figure:first-child) {
+      overflow: hidden;
+      border-start-start-radius: inherit;
+      border-start-end-radius: unset;
+      border-end-start-radius: inherit;
+      border-end-end-radius: unset;
+    }
+    :where(figure:last-child) {
+      overflow: hidden;
+      border-start-start-radius: unset;
+      border-start-end-radius: inherit;
+      border-end-start-radius: unset;
+      border-end-end-radius: inherit;
+    }
+    figure > * {
+      max-width: unset;
+    }
+    :where(figure > *) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   .btn-circle {
     border-radius: calc(infinity * 1px);
@@ -5038,6 +5137,33 @@
     --btn-p: 0.5rem;
     --size: calc(var(--size-field, 0.25rem) * 6);
   }
+  .card-lg {
+    .card-body {
+      --card-p: 2rem;
+      --card-fs: 1rem;
+    }
+    .card-title {
+      --cardtitle-fs: 1.25rem;
+    }
+  }
+  .card-md {
+    .card-body {
+      --card-p: 1.5rem;
+      --card-fs: 0.875rem;
+    }
+    .card-title {
+      --cardtitle-fs: 1.125rem;
+    }
+  }
+  .card-sm {
+    .card-body {
+      --card-p: 1rem;
+      --card-fs: 0.75rem;
+    }
+    .card-title {
+      --cardtitle-fs: 1rem;
+    }
+  }
   .card-xl {
     .card-body {
       --card-p: 2.5rem;
@@ -5045,6 +5171,15 @@
     }
     .card-title {
       --cardtitle-fs: 1.375rem;
+    }
+  }
+  .card-xs {
+    .card-body {
+      --card-p: 0.5rem;
+      --card-fs: 0.6875rem;
+    }
+    .card-title {
+      --cardtitle-fs: 0.875rem;
     }
   }
   .indicator-bottom {
