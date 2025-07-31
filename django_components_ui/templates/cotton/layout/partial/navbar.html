@@ -80,11 +80,9 @@ Fonctionnalités:
           {% if profile_icon %}
             <c-dropdown variant="ghost" placement="end" hover circle>
               <c-slot name="icon_slot">
-                <div class="avatar">
-                  <div class="w-12 rounded-full">
+                  <div class="rounded-full avatar">
                     {{ profile_icon }}
                   </div>
-                </div>
               </c-slot>
               {{ profile_dropdown_links}}
             </c-dropdown>

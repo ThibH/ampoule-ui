@@ -3,7 +3,7 @@
 {% block title %}{{ page|title }} - Django Components UI{% endblock %}
 
 {% block content %}
-    <c-layout.partial.container>
+<div class="flex min-h-screen container mx-auto">
         {% include "demo/docs/partials/sidebar.html" %}
 
         <!-- Main Content Area -->
@@ -23,7 +23,7 @@
                 </div>
             </aside>
         </div>
-    </c-layout.partial.container>
+    </div>
 
     <script>
     // Auto-generate TOC from H2 and H3 elements

@@ -43,10 +43,9 @@ document.addEventListener('htmx:configRequest', (event) => {
     }
 });
 
-// Automatic theme initialization on page load
+// Theme controller setup after DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    setupThemeControllers();
 });
 
 // Simple utility to change theme
@@ -1769,10 +1768,37 @@ function initializeComponents() {
 
 document.addEventListener('DOMContentLoaded', initializeComponents);
 
+// Setup theme controllers
+function setupThemeControllers() {
+    const savedTheme = localStorage.getItem('theme') || 'default';
+    
+    // Set the correct radio button as checked
+    const themeController = document.querySelector(`input[name="theme-buttons"][value="${savedTheme}"]`);
+    if (themeController) {
+        themeController.checked = true;
+    }
+    
+    // Listen for theme changes from DaisyUI theme controllers
+    const themeControllers = document.querySelectorAll('input[name="theme-buttons"]');
+    themeControllers.forEach(controller => {
+        // Remove existing listeners to avoid duplicates
+        controller.removeEventListener('change', handleThemeChange);
+        controller.addEventListener('change', handleThemeChange);
+    });
+}
+
+function handleThemeChange(e) {
+    if (e.target.checked) {
+        const theme = e.target.value;
+        setTheme(theme);
+    }
+}
+
 // Reinitialize components after HTMX swap
 document.addEventListener('htmx:afterSwap', function(event) {
     // Wait for DOM to be fully updated
     setTimeout(() => {
         initializeComponents();
+        setupThemeControllers(); // Re-setup theme controllers after HTMX swap
     }, 100);
 });

@@ -10,6 +10,14 @@
         {% load static %}
         {% include "init-components.html" %}
 
+        <!-- Immediate theme restoration to prevent flash -->
+        <script>
+            (function() {
+                const savedTheme = localStorage.getItem('theme') || 'default';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            })();
+        </script>
+
         <!-- Prism.js for syntax highlighting -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
